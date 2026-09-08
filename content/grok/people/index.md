@@ -2,7 +2,7 @@
 title: "People book"
 layout: "grok-people"
 url: "/grok/people/"
-date: 2026-09-06
+date: 2026-09-08
 draft: false
 noindex: true
 summary: "CRM Manager people book. Who they are, last said, next move. Grouped by source."
@@ -13,14 +13,14 @@ heroMeta: "**Noindex.** Living view of CRM Manager’s SQLite store. Grouped by 
 
 John’s relationship memory. Book of record is SQLite CRM Manager owns. HighLevel, ClickUp, mail, and calendar are inputs. San Diego HighLevel leads stay in staging until John talks to them.
 
-Last built 2026-09-06 PT · 489 people · Grouped by source · Maintained by CRM Manager
+Last built 2026-09-08 PT · 489 people · Grouped by source · Maintained by CRM Manager
 
 ### Email — 70
 
 | Name | Company | Circle | Warmth | Last said | Last touch | Next step |
 | --- | --- | --- | --- | --- | --- | --- |
 | Aaron Shepherd | GrowthFlare | Prospect | Hot | John replied ~3:44 PM PT from (BrightZen) to 'John, thoughts?': thanked him, asked if any of Aaron's fractional CFOs have 200+ clients vs a small book, said WA and John is the only person there who has ever had the title CFO, said he can make Aaron's clients more productive with the platform. Waiting on Aaron | 2026-08-25 | Wait for Aaron to reply. |
-| Adam Beatty | Design Lab / Logical Brands | Advisor | Hot | dLAB / Logical Brands Wed Sep 9. Lori clarified slots are Central Time. John prefers 1:30–2p CT (11:30a–12p PT). Waiting on John to lock with Lori | 2026-09-06 | Lock Wed Sep 9 slot with Lori (prefer 1:30–2p CT). |
+| Adam Beatty | Design Lab / Logical Brands | Advisor | Hot | dLAB Wed Sep 9. Lori’s 1:30–2p CT slot still unlocked. John still owes the lock | 2026-09-08 | Lock Wed Sep 9 1:30–2p CT with Lori. |
 | Afroze Qayyum | Mash Strategy | Partner | Warm | Booked Jeff for Mon Aug 31 12:30 ET. John declined (out of office). Jeff accepted. Derek optional accepted | 2026-08-31 | Wait on Jeff Monday. You are out. |
 | Afrozy Ara | LuminaData | Vendor | Warm | No separate reply since Sep 2. Narayanan is carrying the ShipCalm data thread and promised bucket details by today | 2026-09-03 | Wait. Quinth chases Narayanan, not Afrozy. |
 | Alyssa Perkins | TAG | Broker | Warm | Sep 2 6:09 PM PT the Project Venture NDA completed fully signed. The accounting seller shows Q1 revenue EBITDA 2025 revenue , recurring, about 1,000 active clients | 2026-09-03 | NDA is signed, so diligence can start. Decide if Project Venture is worth John's time. |
@@ -32,9 +32,9 @@ Last built 2026-09-06 PT · 489 people · Grouped by source · Maintained by CRM
 | Brandon Ar | Meow | Prospect | Cool | Sun Aug 30 email follow-up from LinkedIn; offered 15-min calendar. Do not chase if no reply after John decides | 2026-08-30 | Ignore or book later. Not urgent. |
 | Brandon Hammermeister | ShipCalm | Client | Warm | Same Elle thread. Said he'll take care of Elle. Not waiting on John | 2026-09-02 | Closed on John's side. Brandon has Elle. |
 | Brandy Mustain | Foundation RP | Home | Warm | Homeowners quote for Via Cuatro Caminos / RSF plus rented ADUs. She asked for a call. Waiting on John | 2026-08-18 | Call Brandy about the homeowners quote. |
-| Brian Kelly | Sidecountry Sports | Client | Warm | Sep 2: Brian hit an invalid_scope authorization error; Quinth fixed it and confirmed inventory movements are pulling again | 2026-09-03 | Closed. Quinth handled it. |
+| Brian Kelly | Sidecountry Sports | Client | Warm | Sidecountry scheduling with Phil for Thursday morning. Soft wait; ops owns | 2026-09-08 | Ops/Phil: confirm Thu morning with Brian. |
 | Caroline Kruse | Marq Logistics | Landlord | Hot | Still no reply past Tue Sep 1 eviction clock. Last movement Greg's Aug 28 check. No filing notice in inbox | 2026-09-04 | Three+ days past deadline and silent. Decide: chase landlord, or treat no-news as holding. |
-| Christina Makowsky | Bloom and Bone | Client | Hot | Bloom and Bone Mon Sep 7 AM meeting. Christina forwarded an expense schedule (~Sep 4). Review before Monday | 2026-09-04 | Review expense schedule before Mon Sep 7 meeting. |
+| Christina Makowsky | Bloom and Bone | Client | Warm | Bloom and Bone Mon Sep 7 AM meeting likely happened (Fireflies existed). Expense sheet status ambiguous after the meeting | 2026-09-07 | Confirm what landed from Mon Bloom and Bone, or park. |
 | Connor Abene | Royal Hill Holdings | Prospect | Warm | John wrote last night after LinkedIn: can help you make more money in less time, asked for a calendar link | 2026-08-27 | Wait. Do not follow up if he does not reply. |
 | Cyndee Lioncrest | Lioncrest | Investor | Warm | LP Annual Meeting invite. Soft wait: register if John wants to attend | 2026-09-06 | Register for LP Annual Meeting, or park. |
 | Deirdre Dunne-Sciolto | Pioneer Financial / Northwestern Mutual | Advisor | Cool | EA to Kevin Luchetta. Offered Sep Zoom slots. John replied-all ~8:48 AM PT: declined, no follow-up. Closed | 2026-08-25 | Closed. Do not follow up. |
@@ -62,13 +62,13 @@ Last built 2026-09-06 PT · 489 people · Grouped by source · Maintained by CRM
 | Kevin Luchetta | Pioneer Financial / Northwestern Mutual | Advisor | Warm | Caught up Mon Aug 24. Kevin followed up Tue: NM advisor moved on, wants in. Deirdre offered Sep Zoom. John replied-all ~8:48 AM PT from : declined Zoom, no follow-up. Closed | 2026-08-25 | Closed. Do not follow up. |
 | Kunal Shah | Imgix | Client | Warm | Imgix 2026 409A: Kunal replied Mon Aug 31 “Looks good to me. Approved!” Board side cleared on his end | 2026-08-31 | Closed on Kunal approval. Confirm any remaining board process if needed. |
 | Liping Wu | Baker Tilly | Accountant | Cool | Nothing new since July 8 on her thread; no sign Imgix owes more 2025 tax material. Treat the NYC allocation as closed | 2026-09-03 | Closed unless Baker Tilly reopens. |
-| Lori Marlar | Design Lab / Logical Brands | Team | Hot | Confirmed Wed Sep 9 slots are Central Time. John prefers 1:30–2p CT (11:30a–12p PT). Waiting on John to lock the slot with Lori | 2026-09-06 | John locks Wed Sep 9 slot with Lori (prefer 1:30–2p CT). |
+| Lori Marlar | Design Lab / Logical Brands | Team | Hot | Wed Sep 9 1:30–2p CT still unlocked. John still owes Lori the slot lock | 2026-09-08 | John locks Wed Sep 9 1:30–2p CT with Lori. |
 | Marc Averitt | Okapi VC | Investor | Cool | Sep 3: John pinged for OV3 FEIN; Marc said prior years unchanged and looped controller Emily; Emily attached FEIN; Paul Payne thanked all | 2026-09-03 | Closed on FEIN. No move from John. |
 | Matt Ritchey | Elevated Executive | Friend | Warm | Sep 3: bringing a bookkeeper; Wyoming LLC to QBO next week; still wants ops session when John is ready | 2026-09-03 | When ready: ops session. Note bookkeeper / Wyoming LLC to QBO. |
 | Matt Voigt | Saambaa | Client | Warm | Sent Authoria test data from the Weekly Accounting test. John replied This is great. Closed on John’s side | 2026-08-27 | Closed. No next move. |
 | Mesepa Petelo | Midtown | Client | Warm | Midtown BAA thread reopened. Zach needs BAA on file because WA has EMR access (HIPAA). Ops/Viny owns | 2026-09-03 | Wait on BAA confirm with Zach / Viny. |
 | Narayanan Sundaram | LuminaData | Vendor | Warm | ShipCalm external buckets delayed to Tuesday. Vendor owns the chase. CTO, LuminaData | 2026-09-06 | Wait. Vendor owns Tuesday delivery. |
-| Paul H. Payne III | PHP3 CPA | Vendor | Cool | Sep 3 afternoon: got OV3 FEIN from Emily (Okapi controller) via Marc. Paul thanked the thread | 2026-09-03 | Closed on FEIN. Soft-wait if Schedule G needs more. |
+| Paul H. Payne III | PHP3 CPA | Vendor | Cool | Influence Apps 2025 corp return completion / e-file. Closed on John’s side. Not waiting | 2026-09-08 | Closed. Corp return / e-file done. |
 | PerOla Knutsson | San Dieguito Union High School District | School | Cool | Luke's calc teacher. Sent syllabus and office hours 7:45. John thanked her. Closed | 2026-08-25 | Closed. |
 | Phil Gorman | Snack Iconic | Prospect | Hot | Wholesale bagels, pivoted from La Jolla shop. Uses QBO not Shopify. John offered CPG underwriting experience from Assembled Brands. Emily at Weekly Accounting cc'd | 2026-08-20 | Follow the QBO / Cin7 thread and book the next step. |
 | Quinth Razuman | Weekly Accounting | Team | Warm | Sep 2: fixed Brian Kelly's invalid_scope error at Sidecountry and confirmed inventory movements pulling. Also carrying the LuminaData ShipCalm data chase with Narayanan | 2026-09-03 | He owns the LuminaData bucket chase. |
@@ -323,7 +323,7 @@ Last built 2026-09-06 PT · 489 people · Grouped by source · Maintained by CRM
 | Katie | Gaida Corp | Client | Cool | 2026-07-13: Saige Weekly All-Hands | 2026-07-13 | Historical calendar contact. No open move. |
 | Kcarter | Hopeandcomfort | Prospect | Warm | 2026-08-12: Kerry / John Z | 2026-08-12 | Historical calendar contact. No open move. |
 | Kelly | Onguardsolutions | Prospect | Cool | 2026-04-27: Meet John/Weekly Accounting (Kelly Christenson) | 2026-04-27 | Historical calendar contact. No open move. |
-| Kendra Edelman-Smith | Weekly Accounting | Team | Hot | John <> Kendra Thu Sep 3 10:30-11:00 PT is accepted by both, with a loaded agenda: Perfect Keto and Josh support, 13-week cash forecast, Tennessee employer account number, Deel misclassification, Change Factor UI feedback. But John's SAN-Albany flight block runs 6:35 AM to 2:25 PM PT, so 10:30 is mid-air. No note from her moving it | 2026-09-03 | He cannot make it. Move it or hand it to Jeff, who already has an 11:00 slot with her. |
+| Kendra Edelman-Smith | Weekly Accounting | Team | Warm | Payment request / invoice thread with Ethan (Assembled Brands). Soft wait | 2026-09-08 | Soft wait on payment/invoice thread with Ethan. |
 | Kern | Itrinity | Prospect | Cool | 2026-04-30: UptimeRobot / StatusGator | 2026-04-30 | Historical calendar contact. No open move. |
 | Kevin | RevCentric | Prospect | Cool | 2026-05-05: Steve Espinosa <> Hunter: RevCentric.ai Intro Call | 2026-05-05 | Historical calendar contact. No open move. |
 | Kevint | RevCentric | Prospect | Warm | 2026-08-26: RevCentric & Homegrown | 2026-08-26 | Historical calendar contact. No open move. |
@@ -453,7 +453,7 @@ Last built 2026-09-06 PT · 489 people · Grouped by source · Maintained by CRM
 | Shozib Khan | Spirehotels | Prospect | Cool | 2026-05-26: Hospitality Rev Mgmt; 2026-04-29: Initial Meeting: Project Odysseus | 2026-05-26 | Historical calendar contact. No open move. |
 | Sofia | Sanaliment | Prospect | Cool | 2026-04-20: Meet John/Weekly Accounting (Sofia Zelenkova) | 2026-04-20 | Historical calendar contact. No open move. |
 | Stefan | Panlaw | Vendor | Cool | 2026-05-19: Rowan & John Z | 2026-05-19 | Historical calendar contact. No open move. |
-| Stephen Espinosa | Influence Apps | Operator | Warm | Accepted both PersonaOS meetings for Thu Sep 3 (Adam Czach demo 11:30 and Animal Capital x PersonaOS 1:00 PT) while John is mid-flight to Albany. Also the person Jon Warden/Jared Wood need insurance confirmations from | 2026-09-03 | He is the natural cover for Thu's PersonaOS calls and the HUB insurance answers. |
+| Stephen Espinosa | Influence Apps | Operator | Warm | PapaBear September financial performance update. Soft wait | 2026-09-08 | Soft wait on PapaBear Sep performance update. |
 | Stephen Espinosa | Start Influence | Investor | Warm | 2026-08-20: Influence Follow up; 2026-08-13: 2026 Influence Board Meetings; 2026-07-07: Influence Board Meeting; 2026-06-11: 2025 Influence Board Meetings | 2026-08-20 | Follow up from recent calendar: Influence Follow up |
 | Steve | Funbrandsllc | Prospect | Cool | 2026-08-03: The Entrepreneur Social Hour | 2026-08-03 | Historical calendar contact. No open move. |
 | Steve McLaughlin | Ftpartners | Investor | Cool | 2026-06-11: RESCHEDULING: BrightZen (John Zdanowski) / FT Partners (Feraz Shere) RE: Catch up | 2026-06-11 | Historical calendar contact. No open move. |
