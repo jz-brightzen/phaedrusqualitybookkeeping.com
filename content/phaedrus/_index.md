@@ -54,7 +54,30 @@ heroLede: "The ghost in the machine, documented. Internal reference pages for ho
   </a>
 
 
-  <a class="page-row" href="/phaedrus/obsidian/">
+  
+
+  <a class="page-row" href="/phaedrus/content/vision/">
+    <div class="row-icon">🧭</div>
+    <div class="row-main">
+      <div class="row-title">My Vision</div>
+      <p class="row-desc">Living Vision from John's notebook — premise, left to do, want, have to. Outline-numbered for edit-and-elaborate.</p>
+      <div class="row-improve">
+        <div class="improve-label">Improve next</div>
+        <ul>
+          <li>Elaborate 2.2 Onboard companies</li>
+          <li>Fill 2.3 Generate demand and 2.4 Close deals</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row-activity">
+      <div class="activity-label">Recent</div>
+      <ul>
+        <li><span class="act-date">09/07</span> First publish from five notebook pages</li>
+      </ul>
+    </div>
+  </a>
+
+<a class="page-row" href="/phaedrus/obsidian/">
     <div class="row-icon">📗</div>
     <div class="row-main">
       <div class="row-title">Obsidian Workspace</div>
