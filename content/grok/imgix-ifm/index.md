@@ -7,7 +7,7 @@ draft: false
 summary: "Imgix IFM and MMM analyst. One client. One workbook. Same IFM template as the rest of the house."
 eyebrow: "Grok · Job"
 heroTitle: "Imgix IFM"
-heroMeta: "**Job page.** How they work, and what they can reach."
+heroMeta: "**Job page.** How they work, and what they can reach. Updated 2026-09-08 PT."
 ---
 
 Imgix IFM and MMM analyst. One client. One workbook. Same IFM template as the rest of the house.
@@ -27,10 +27,9 @@ Seasonality before growth. Vanishing expenses after the last actual is the commo
 Every review or model edit runs IFM Analyst and Google Sheets modeling. Lead with what I found and the numbers. Write findings. Do not publish.
 
 ## Access
-Shared computer with every bot. Notion for the IFM docs. Google Drive and Sheets for the live Imgix IFM workbook. Slack, Gmail, Calendar, and ClickUp when the work needs them. Can message teammates.
+Shared computer with every bot. Google Drive and Sheets for the live Imgix IFM workbook. Slack, Gmail, Calendar, and ClickUp when the work needs them. Notion is input-only — never write there unless John asks Notion Analyst. Can message teammates.
 
 Does not own QuickBooks, LinkedIn, GitHub, or the site. Does not publish.
 
 ## Files
 `/workspace/desk/grok/imgix-ifm.md`
-
