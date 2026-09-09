@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="760" height="360" viewBox="0 0 760 360" role="img" aria-label="Travelers stacked annual expenses zCompound vs BrightZen">
 <rect width="760" height="360" fill="#ffffff"/>
 <text x="64" y="26" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#0b1f33">Travelers</text>
-<text x="64" y="44" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#526578">Stacked annual · USD · years with activity</text>
+<text x="64" y="44" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#526578">Stacked annual · USD · BrightZen from Nov 2023 books split</text>
 <rect x="64" y="49" width="12" height="12" rx="2" fill="#2a9d98"/>
 <text x="80" y="58" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#0b1f33">zCompound</text>
 <rect x="174" y="49" width="12" height="12" rx="2" fill="#146c94"/>
@@ -9,59 +9,50 @@
 <line x1="64" y1="304.0" x2="736" y2="304.0" stroke="#e6eef1" stroke-width="1"/>
 <text x="56" y="308.0" text-anchor="end" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#526578">$0</text>
 <line x1="64" y1="246.0" x2="736" y2="246.0" stroke="#e6eef1" stroke-width="1"/>
-<text x="56" y="250.0" text-anchor="end" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#526578">$12.1k</text>
+<text x="56" y="250.0" text-anchor="end" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#526578">$6.1k</text>
 <line x1="64" y1="188.0" x2="736" y2="188.0" stroke="#e6eef1" stroke-width="1"/>
-<text x="56" y="192.0" text-anchor="end" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#526578">$24.1k</text>
+<text x="56" y="192.0" text-anchor="end" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#526578">$12.1k</text>
 <line x1="64" y1="130.0" x2="736" y2="130.0" stroke="#e6eef1" stroke-width="1"/>
-<text x="56" y="134.0" text-anchor="end" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#526578">$36.2k</text>
+<text x="56" y="134.0" text-anchor="end" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#526578">$18.2k</text>
 <line x1="64" y1="72.0" x2="736" y2="72.0" stroke="#e6eef1" stroke-width="1"/>
-<text x="56" y="76.0" text-anchor="end" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#526578">$48.3k</text>
-<rect x="71.8" y="290.6" width="40.3" height="13.4" fill="#2a9d98" rx="0"/>
-<rect x="71.8" y="289.4" width="40.3" height="1.2" fill="#146c94" rx="0"/>
-<text x="92.0" y="283.4" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#0b1f33">$3k</text>
+<text x="56" y="76.0" text-anchor="end" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#526578">$24.2k</text>
+<rect x="71.8" y="277.2" width="40.3" height="26.8" fill="#2a9d98"/>
+<text x="92.0" y="271.2" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#0b1f33">$2.8k</text>
 <text x="92.0" y="322" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#526578">2015</text>
-<rect x="127.8" y="298.3" width="40.3" height="5.7" fill="#2a9d98" rx="0"/>
-<rect x="127.8" y="292.6" width="40.3" height="5.7" fill="#146c94" rx="0"/>
-<text x="148.0" y="286.6" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#0b1f33">$2.4k</text>
+<rect x="127.8" y="292.6" width="40.3" height="11.4" fill="#2a9d98"/>
+<text x="148.0" y="286.6" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#0b1f33">$1.2k</text>
 <text x="148.0" y="322" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#526578">2016</text>
-<rect x="183.8" y="258.1" width="40.3" height="45.9" fill="#2a9d98" rx="0"/>
-<rect x="183.8" y="256.9" width="40.3" height="1.2" fill="#146c94" rx="0"/>
-<text x="204.0" y="250.9" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#0b1f33">$9.8k</text>
+<rect x="183.8" y="212.4" width="40.3" height="91.6" fill="#2a9d98"/>
+<text x="204.0" y="206.4" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#0b1f33">$9.6k</text>
 <text x="204.0" y="322" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#526578">2017</text>
-<rect x="239.8" y="284.9" width="40.3" height="19.1" fill="#2a9d98" rx="0"/>
-<rect x="239.8" y="254.9" width="40.3" height="30.0" fill="#146c94" rx="0"/>
-<text x="260.0" y="248.9" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#0b1f33">$10.2k</text>
+<rect x="239.8" y="265.9" width="40.3" height="38.1" fill="#2a9d98"/>
+<text x="260.0" y="259.9" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#0b1f33">$4k</text>
 <text x="260.0" y="322" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#526578">2018</text>
-<rect x="295.8" y="238.4" width="40.3" height="65.6" fill="#2a9d98" rx="0"/>
-<rect x="295.8" y="237.2" width="40.3" height="1.2" fill="#146c94" rx="0"/>
-<text x="316.0" y="231.2" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#0b1f33">$13.9k</text>
+<rect x="295.8" y="173.2" width="40.3" height="130.8" fill="#2a9d98"/>
+<text x="316.0" y="167.2" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#0b1f33">$13.6k</text>
 <text x="316.0" y="322" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#526578">2019</text>
-<rect x="351.8" y="234.9" width="40.3" height="69.1" fill="#2a9d98" rx="0"/>
-<rect x="351.8" y="198.7" width="40.3" height="36.2" fill="#146c94" rx="0"/>
-<text x="372.0" y="192.7" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#0b1f33">$21.9k</text>
+<rect x="351.8" y="166.2" width="40.3" height="137.8" fill="#2a9d98"/>
+<text x="372.0" y="160.2" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#0b1f33">$14.4k</text>
 <text x="372.0" y="322" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#526578">2020</text>
-<rect x="407.8" y="229.6" width="40.3" height="74.4" fill="#2a9d98" rx="0"/>
-<rect x="407.8" y="228.2" width="40.3" height="1.4" fill="#146c94" rx="0"/>
-<text x="428.0" y="222.2" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#0b1f33">$15.8k</text>
+<rect x="407.8" y="155.5" width="40.3" height="148.5" fill="#2a9d98"/>
+<text x="428.0" y="149.5" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#0b1f33">$15.5k</text>
 <text x="428.0" y="322" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#526578">2021</text>
-<rect x="463.8" y="238.1" width="40.3" height="65.9" fill="#2a9d98" rx="0"/>
-<rect x="463.8" y="172.2" width="40.3" height="65.9" fill="#146c94" rx="0"/>
-<text x="484.0" y="166.2" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#0b1f33">$27.4k</text>
+<rect x="463.8" y="172.6" width="40.3" height="131.4" fill="#2a9d98"/>
+<text x="484.0" y="166.6" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#0b1f33">$13.7k</text>
 <text x="484.0" y="322" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#526578">2022</text>
-<rect x="519.8" y="200.4" width="40.3" height="103.6" fill="#2a9d98" rx="0"/>
-<rect x="519.8" y="96.9" width="40.3" height="103.6" fill="#146c94" rx="0"/>
-<text x="540.0" y="90.9" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#0b1f33">$43.1k</text>
+<rect x="519.8" y="97.5" width="40.3" height="206.5" fill="#2a9d98"/>
+<text x="540.0" y="91.5" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#0b1f33">$21.6k</text>
 <text x="540.0" y="322" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#526578">2023</text>
-<rect x="575.8" y="230.9" width="40.3" height="73.1" fill="#146c94" rx="0"/>
-<text x="596.0" y="224.9" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#0b1f33">$15.2k</text>
+<rect x="575.8" y="158.2" width="40.3" height="145.8" fill="#146c94"/>
+<text x="596.0" y="152.2" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#0b1f33">$15.2k</text>
 <text x="596.0" y="322" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#526578">2024</text>
-<rect x="631.8" y="246.7" width="40.3" height="57.3" fill="#2a9d98" rx="0"/>
-<rect x="631.8" y="242.6" width="40.3" height="4.2" fill="#146c94" rx="0"/>
-<text x="652.0" y="236.6" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#0b1f33">$12.8k</text>
+<rect x="631.8" y="189.7" width="40.3" height="114.3" fill="#2a9d98"/>
+<rect x="631.8" y="181.5" width="40.3" height="8.3" fill="#146c94"/>
+<text x="652.0" y="175.5" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#0b1f33">$12.8k</text>
 <text x="652.0" y="322" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#526578">2025</text>
-<rect x="687.8" y="202.9" width="40.3" height="101.1" fill="#2a9d98" rx="0"/>
-<rect x="687.8" y="200.1" width="40.3" height="2.8" fill="#146c94" rx="0"/>
-<text x="708.0" y="194.1" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#0b1f33">$21.6k</text>
+<rect x="687.8" y="102.4" width="40.3" height="201.6" fill="#2a9d98"/>
+<rect x="687.8" y="96.9" width="40.3" height="5.5" fill="#146c94"/>
+<text x="708.0" y="90.9" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#0b1f33">$21.6k</text>
 <text x="708.0" y="322" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#526578">2026</text>
 <line x1="64" y1="304" x2="736" y2="304" stroke="#0b1f33" stroke-width="1.5"/>
 </svg>
