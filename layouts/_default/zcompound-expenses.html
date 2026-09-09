@@ -10,122 +10,82 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-
   <style>
     :root {
-      --navy-950: #071726;
-      --navy-900: #0b1f33;
-      --blue-700: #146c94;
-      --teal-500: #2a9d98;
-      --teal-300: #39d0c6;
-      --mist-100: #eaf4f6;
-      --cloud-50: #f8fbfc;
-      --slate-600: #526578;
-      --white: #ffffff;
-      --border: rgba(11, 31, 51, 0.14);
-      --sheet-green: #0b5d3b;
-      --band-green: #d9ead3;
-      --shell: min(1180px, calc(100vw - 40px));
-      --toc-width: 290px;
+      --navy-950: #071726; --navy-900: #0b1f33; --blue-700: #146c94; --teal-500: #2a9d98;
+      --teal-300: #39d0c6; --mist-100: #eaf4f6; --cloud-50: #f8fbfc; --slate-600: #526578;
+      --white: #ffffff; --border: rgba(11, 31, 51, 0.14);
+      --shell: min(900px, calc(100vw - 40px));
+      --zc: #2a9d98; --bz: #146c94;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; scroll-padding-top: 96px; }
     body { color: var(--navy-900); background: var(--cloud-50); font-family: "DM Sans", sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.65; }
     a { color: inherit; text-decoration: none; }
-
-    .site-header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 40;
-      background: rgba(7, 23, 38, 0.96); backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.12);
-    }
+    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 40; background: rgba(7,23,38,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.12); }
     .header-inner { max-width: var(--shell); margin: 0 auto; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; }
     .header-brand { color: var(--white); font-family: "Manrope", sans-serif; font-size: 17px; font-weight: 700; letter-spacing: -0.03em; }
     .header-brand span { color: var(--teal-300); }
     .header-note { color: rgba(255,255,255,0.55); font-size: 12px; }
-
     .hero { position: relative; color: var(--white); padding: 128px 0 56px; background: radial-gradient(circle at 84% 18%, rgba(20,108,148,0.35), transparent 34%), var(--navy-950); overflow: hidden; }
-    .hero-orbit { position: absolute; border: 1px solid rgba(114,209,202,0.13); border-radius: 50%; }
-    .hero-orbit-one { width: 520px; height: 520px; right: -220px; top: -140px; }
     .hero-inner { position: relative; z-index: 2; max-width: var(--shell); margin: 0 auto; padding: 0 20px; }
     .eyebrow { margin: 0 0 16px; color: var(--teal-300); text-transform: uppercase; letter-spacing: 0.14em; font-size: 12px; font-weight: 700; }
     .hero h1 { max-width: 860px; font-family: "Manrope", sans-serif; letter-spacing: -0.045em; font-size: clamp(34px, 4.6vw, 56px); line-height: 1.04; }
     .hero-meta { margin-top: 20px; color: rgba(255,255,255,0.62); font-size: 14px; max-width: 720px; line-height: 1.6; }
-
-    .page-body { max-width: var(--shell); margin: 0 auto; padding: 52px 20px 110px; display: grid; grid-template-columns: var(--toc-width) 1fr; gap: 54px; }
-
-    .toc-sidebar { position: sticky; top: 88px; align-self: start; max-height: calc(100vh - 108px); overflow-y: auto; padding: 22px 0; border-right: 1px solid var(--border); }
-    .toc-sidebar::-webkit-scrollbar { width: 3px; }
-    .toc-sidebar::-webkit-scrollbar-thumb { background: #b7c3cc; border-radius: 3px; }
-    .toc-title { margin: 0 0 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border); font-family: "Manrope", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy-900); }
-    .toc-sidebar nav ul { list-style: none; }
-    .toc-sidebar nav > ul > li > a { font-weight: 600; }
-    .toc-sidebar nav ul ul { padding-left: 14px; }
-    .toc-sidebar nav a { display: block; padding: 5px 14px 5px 12px; font-size: 12.5px; line-height: 1.4; color: var(--slate-600); border-left: 2px solid transparent; transition: color 0.15s, border-color 0.15s; }
-    .toc-sidebar nav a:hover { color: var(--navy-900); }
-    .toc-sidebar nav a.active { color: var(--navy-900); border-left-color: var(--teal-500); font-weight: 600; }
-
-    .report-content { min-width: 0; font-size: 15.5px; }
-    .report-content > *:first-child { margin-top: 0; }
-    .report-content h2 { font-family: "Manrope", sans-serif; letter-spacing: -0.04em; font-size: clamp(24px, 2.8vw, 34px); line-height: 1.12; margin: 56px 0 18px; padding-top: 26px; border-top: 1px solid var(--border); }
-    .report-content h2:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
-    .report-content h3 { font-family: "Manrope", sans-serif; letter-spacing: -0.03em; font-size: 20px; margin: 38px 0 12px; color: var(--navy-900); }
-    .report-content h3 code, .report-content h2 code { font-size: 0.85em; }
-    .report-content a { color: var(--teal-500); font-weight: 600; }
-    .report-content a:hover { color: var(--blue-700); }
-    .report-content p { margin: 0 0 16px; color: #2c3e50; max-width: 780px; }
-    .report-content strong { color: var(--navy-900); }
-    .report-content em { color: var(--slate-600); }
-    .report-content ul, .report-content ol { margin: 0 0 18px; padding-left: 24px; max-width: 760px; }
-    .report-content li { margin-bottom: 8px; color: #2c3e50; }
-    .report-content hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
-    .report-content code { font-family: "Roboto Mono", monospace; font-size: 0.85em; background: var(--mist-100); padding: 1px 6px; border-radius: 4px; }
-    .report-content blockquote { border-left: 3px solid var(--teal-500); padding: 4px 0 4px 18px; margin: 0 0 18px; color: var(--slate-600); }
-
-    /* IFM-style tables */
-    .report-content table { border-collapse: collapse; width: 100%; margin: 20px 0 28px; font-size: 13.5px; background: #fff; box-shadow: 0 4px 18px rgba(7,23,38,0.05); }
-    .report-content th, .report-content td { border: 1px solid #d7dce0; padding: 8px 12px; text-align: left; vertical-align: top; }
-    .report-content thead th { background: var(--sheet-green); color: #fff; font-weight: 700; font-size: 12px; letter-spacing: 0.02em; border-color: #0a5134; white-space: nowrap; }
-    .report-content tbody tr:nth-child(even) td { background: #f4f9f5; }
-    .report-content tbody tr:hover td { background: var(--band-green); }
-    .report-content td strong { color: var(--navy-900); }
-    .table-scroll { overflow-x: auto; }
-
-    .cta-band { padding: 70px 0; text-align: center; background: var(--white); border-top: 1px solid var(--border); }
-    .cta-band p { color: var(--slate-600); margin-bottom: 18px; }
-    .button-primary { display: inline-flex; min-height: 48px; align-items: center; padding: 0 26px; border-radius: 6px; font-weight: 700; font-size: 14px; background: var(--teal-500); color: var(--navy-950); transition: background 0.2s; }
-    .button-primary:hover { background: var(--teal-300); }
-
+    .page { max-width: var(--shell); margin: 0 auto; padding: 40px 20px 140px; }
+    .lede { color: #2c3e50; font-size: 15.5px; max-width: 720px; margin-bottom: 16px; }
+    .note { background: var(--mist-100); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; font-size: 13.5px; color: var(--slate-600); margin-bottom: 36px; max-width: 720px; }
+    .note strong { color: var(--navy-900); }
+    .hint { font-size: 13px; color: var(--slate-600); margin-bottom: 28px; }
+    .chart-block { margin: 0 0 48px; }
+    .chart-block h2 { font-family: "Manrope", sans-serif; letter-spacing: -0.04em; font-size: 22px; margin: 0 0 12px; }
+    .chart-frame { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 8px 8px 4px; overflow-x: auto; }
+    .chart-frame svg { display: block; width: 100%; height: auto; max-width: 760px; }
+    .chart-frame .bar { cursor: pointer; }
+    .chart-frame .bar:hover rect { opacity: 0.85; }
+    .chart-frame .bar.selected rect { stroke: var(--navy-900); stroke-width: 2; }
+    .legend { display: flex; gap: 18px; margin: 8px 0 0 8px; font-size: 12px; color: var(--slate-600); }
+    .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+    .i-zc { background: var(--zc); } .i-bz { background: var(--bz); }
+    .dock {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+      background: rgba(255,255,255,0.97); border-top: 1px solid var(--border);
+      box-shadow: 0 -8px 32px rgba(7,23,38,0.08); backdrop-filter: blur(10px);
+    }
+    .dock-inner { max-width: var(--shell); margin: 0 auto; padding: 14px 20px 16px; }
+    .dock-empty { color: var(--slate-600); font-size: 14px; }
+    .dock-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+    .dock-point { flex: 1 1 220px; }
+    .dock-point .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--slate-600); font-weight: 700; }
+    .dock-point .value { font-family: "Manrope", sans-serif; font-size: 16px; font-weight: 600; margin-top: 2px; }
+    .dock-point .detail { font-size: 13px; color: var(--slate-600); margin-top: 2px; font-variant-numeric: tabular-nums; }
+    .dock-field { flex: 0 1 200px; }
+    .dock-field label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--slate-600); font-weight: 700; margin-bottom: 4px; }
+    .dock-field select { width: 100%; height: 40px; border: 1px solid var(--border); border-radius: 8px; padding: 0 10px; font: 500 14px "DM Sans", sans-serif; background: #fff; color: var(--navy-900); }
+    .dock-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 8px; font-weight: 700; font-size: 13px; border: none; cursor: pointer; }
+    .btn-primary { background: var(--teal-500); color: var(--navy-950); }
+    .btn-primary:hover { background: var(--teal-300); }
+    .btn-ghost { background: var(--mist-100); color: var(--navy-900); }
+    .prompt-box { margin-top: 10px; font-family: "Roboto Mono", monospace; font-size: 12px; background: var(--cloud-50); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; color: #2c3e50; white-space: pre-wrap; display: none; }
+    .discuss { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--border); }
+    .discuss h2 { font-family: "Manrope", sans-serif; font-size: 22px; margin-bottom: 8px; }
+    .discuss p { color: var(--slate-600); font-size: 14px; margin-bottom: 16px; max-width: 640px; }
+    .setup { background: #fff8e6; border: 1px solid #f0d78c; border-radius: 10px; padding: 14px 16px; font-size: 13.5px; color: #5c4b12; margin-bottom: 16px; }
+    .setup a { color: var(--blue-700); font-weight: 700; text-decoration: underline; }
     .site-footer { padding: 36px 0; text-align: center; background: var(--navy-950); color: rgba(255,255,255,0.45); font-size: 12px; }
-    .site-footer a { color: rgba(255,255,255,0.6); }
-
-    @media (max-width: 900px) {
-      .page-body { grid-template-columns: 1fr; gap: 0; }
-      .toc-sidebar { position: relative; top: 0; max-height: none; border-right: none; border-bottom: 1px solid var(--border); margin-bottom: 30px; }
-      .header-note { display: none; }
-    }
-
-    .report-content img.chart {
-      display: block; width: 100%; max-width: 720px; height: auto;
-      margin: 8px 0 12px; background: #fff;
-      border: 1px solid var(--border); border-radius: 10px;
-    }
-    .report-content p.chart-caption {
-      color: var(--slate-600); font-size: 13.5px; margin-top: -4px; margin-bottom: 28px;
-    }
+    @media (max-width: 640px) { .header-note { display: none; } }
   </style>
 </head>
 <body>
-
   <header class="site-header">
     <div class="header-inner">
       <a class="header-brand" href="/zcompound/">zCompound<span></span></a>
-      <span class="header-note">House · {{ .Params.eyebrow | default "zCompound" }}</span>
+      <span class="header-note">{{ .Params.eyebrow | default "zCompound" }}</span>
     </div>
   </header>
 
   <section class="hero">
-    <div class="hero-orbit hero-orbit-one" aria-hidden="true"></div>
     <div class="hero-inner">
       <p class="eyebrow">{{ .Params.eyebrow | default "zCompound" }}</p>
       <h1>{{ .Params.heroTitle | default .Title }}</h1>
@@ -133,46 +93,207 @@
     </div>
   </section>
 
-  <div class="page-body">
-    <aside class="toc-sidebar">
-      <div class="toc-title">Contents</div>
-      {{ .TableOfContents }}
-    </aside>
+  <main class="page">
+    <p class="lede">Company split: <strong>zCompound</strong> vs <strong>BrightZen, Inc.</strong> Source: QuickBooks Online. As of <strong>2026-09-09</strong>.</p>
+    <div class="note"><strong>Books split:</strong> BrightZen amounts are charted only on or after <strong>2023-11-01</strong>. Earlier BrightZen spend is treated as already in zCompound (de-duped for the chart; QBO itself is unchanged). Click any year bar to discuss that datapoint.</div>
+    <p class="hint">Click a year stack → pick a bot → copy the prompt or open the public thread below.</p>
+    <div id="charts"></div>
 
-    <article class="report-content">
-      {{ .Content }}
-    </article>
+    <section class="discuss" id="discuss">
+      <h2>Discuss this datapoint</h2>
+      <p>Public comments via GitHub Discussions (Giscus). Each year gets its own thread. Anyone can comment.</p>
+      <div class="setup" id="giscus-setup">
+        One-time setup: install the <a href="https://github.com/apps/giscus" target="_blank" rel="noopener">Giscus GitHub App</a> on <code>jz-brightzen/phaedrusqualitybookkeeping.com</code> (Discussions already enabled). Then reload this page.
+      </div>
+      <div id="giscus-term" style="font-size:12px;color:var(--slate-600);margin-bottom:10px;font-family:Roboto Mono,monospace;"></div>
+      <div class="giscus"></div>
+    </section>
+  </main>
+
+  <div class="dock" id="dock">
+    <div class="dock-inner">
+      <div class="dock-empty" id="dock-empty">Select a year on any chart to talk about that datapoint.</div>
+      <div id="dock-active" style="display:none">
+        <div class="dock-row">
+          <div class="dock-point">
+            <div class="label">Selected</div>
+            <div class="value" id="sel-title">—</div>
+            <div class="detail" id="sel-detail">—</div>
+          </div>
+          <div class="dock-field">
+            <label for="bot">Talk to</label>
+            <select id="bot"></select>
+          </div>
+          <div class="dock-actions">
+            <button type="button" class="btn btn-primary" id="btn-copy">Copy prompt</button>
+            <button type="button" class="btn btn-ghost" id="btn-discuss">Open thread</button>
+          </div>
+        </div>
+        <div class="prompt-box" id="prompt-box"></div>
+      </div>
+    </div>
   </div>
 
-  <section class="cta-band">
-    <p>Personal expenses — noindex.</p>
-    <a class="button-primary" href="/zcompound/">← zCompound</a>
-  </section>
+  <footer class="site-footer"><p>zCompound · Personal · Noindex</p></footer>
 
-  <footer class="site-footer">
-    <p>zCompound · Personal</p>
-  </footer>
-
+  <script type="application/json" id="expense-data">{"asOf": "2026-09-09", "series": [{"key": "sdge", "label": "San Diego Gas & Electric", "byYear": {"2015": {"zCompound": 1945.44, "brightzen": 0.0}, "2016": {"zCompound": 4816.25, "brightzen": 0.0}, "2017": {"zCompound": 2331.94, "brightzen": 0.0}, "2018": {"zCompound": 64.54, "brightzen": 0.0}, "2019": {"zCompound": 796.44, "brightzen": 0.0}, "2020": {"zCompound": 1996.9, "brightzen": 0.0}, "2021": {"zCompound": 0.0, "brightzen": 0.0}, "2022": {"zCompound": 4978.02, "brightzen": 0.0}, "2023": {"zCompound": 6446.44, "brightzen": 0.0}, "2024": {"zCompound": 0.0, "brightzen": 4260.97}, "2025": {"zCompound": 7323.18, "brightzen": 0.0}, "2026": {"zCompound": 6282.48, "brightzen": 0.0}}}, {"key": "travelers", "label": "Travelers", "byYear": {"2015": {"zCompound": 2797.28, "brightzen": 0.0}, "2016": {"zCompound": 1189.0, "brightzen": 0.0}, "2017": {"zCompound": 9557.28, "brightzen": 0.0}, "2018": {"zCompound": 3970.28, "brightzen": 0.0}, "2019": {"zCompound": 13643.8, "brightzen": 0.0}, "2020": {"zCompound": 14376.04, "brightzen": 0.0}, "2021": {"zCompound": 15490.04, "brightzen": 0.0}, "2022": {"zCompound": 13714.04, "brightzen": 0.0}, "2023": {"zCompound": 21550.04, "brightzen": 0.0}, "2024": {"zCompound": 0.0, "brightzen": 15213.08}, "2025": {"zCompound": 11921.04, "brightzen": 864.0}, "2026": {"zCompound": 21034.52, "brightzen": 578.0}}}, {"key": "san_diego_county", "label": "San Diego County", "byYear": {"2013": {"zCompound": 0.0, "brightzen": 0.0}, "2014": {"zCompound": 0.0, "brightzen": 0.0}, "2015": {"zCompound": 0.0, "brightzen": 0.0}, "2020": {"zCompound": 11421.0, "brightzen": 0.0}, "2021": {"zCompound": 4442.53, "brightzen": 0.0}, "2022": {"zCompound": 11925.78, "brightzen": 0.0}, "2023": {"zCompound": 25297.88, "brightzen": 0.0}, "2024": {"zCompound": 24168.71, "brightzen": 0.0}, "2025": {"zCompound": 12215.71, "brightzen": 0.0}}}, {"key": "garden_pool", "label": "Garden & Pool", "byYear": {"2015": {"zCompound": 5010.0, "brightzen": 0.0}, "2016": {"zCompound": 19425.0, "brightzen": 0.0}, "2017": {"zCompound": 12188.84, "brightzen": 0.0}, "2018": {"zCompound": 16003.12, "brightzen": 0.0}, "2019": {"zCompound": 16318.27, "brightzen": 0.0}, "2020": {"zCompound": 35821.27, "brightzen": 0.0}, "2021": {"zCompound": 53202.22, "brightzen": 0.0}, "2022": {"zCompound": 26632.7, "brightzen": 0.0}, "2023": {"zCompound": 15428.2, "brightzen": 0.0}, "2024": {"zCompound": 508.84, "brightzen": 0.0}, "2025": {"zCompound": 5839.9, "brightzen": 0.0}, "2026": {"zCompound": 16508.82, "brightzen": 0.0}}}, {"key": "jordan_and_andres", "label": "Jordan and Andres", "byYear": {"2015": {"zCompound": 360.0, "brightzen": 0.0}, "2016": {"zCompound": 1090.0, "brightzen": 0.0}, "2017": {"zCompound": 1060.0, "brightzen": 0.0}, "2018": {"zCompound": 890.0, "brightzen": 0.0}, "2019": {"zCompound": 2400.0, "brightzen": 0.0}, "2020": {"zCompound": 1000.0, "brightzen": 0.0}, "2021": {"zCompound": 1650.0, "brightzen": 0.0}, "2022": {"zCompound": 1310.0, "brightzen": 0.0}, "2023": {"zCompound": 1660.0, "brightzen": 0.0}, "2025": {"zCompound": 3284.0, "brightzen": 530.0}, "2026": {"zCompound": 11173.0, "brightzen": 0.0}}}, {"key": "waste_management", "label": "Waste Management", "byYear": {"2011": {"zCompound": 0.0, "brightzen": 0.0}, "2015": {"zCompound": 128.62, "brightzen": 0.0}, "2016": {"zCompound": 790.17, "brightzen": 0.0}, "2017": {"zCompound": 894.41, "brightzen": 0.0}, "2018": {"zCompound": 992.65, "brightzen": 0.0}, "2019": {"zCompound": 3292.58, "brightzen": 0.0}, "2020": {"zCompound": 1044.93, "brightzen": 0.0}, "2021": {"zCompound": 1553.43, "brightzen": 0.0}, "2023": {"zCompound": 340.06, "brightzen": 0.0}, "2024": {"zCompound": 184.35, "brightzen": 780.49}, "2025": {"zCompound": 1265.81, "brightzen": 0.0}, "2026": {"zCompound": 1463.0, "brightzen": 0.0}}}]}</script>
   <script>
-    (function () {
-      var headings = document.querySelectorAll('.report-content h2[id], .report-content h3[id]');
-      var links = document.querySelectorAll('.toc-sidebar nav a');
-      if (!headings.length || !links.length) return;
-      var map = {};
-      links.forEach(function (a) { map[decodeURIComponent(a.getAttribute('href')).slice(1)] = a; });
-      var ticking = false;
-      window.addEventListener('scroll', function () {
-        if (ticking) return; ticking = true;
-        requestAnimationFrame(function () {
-          var current = '';
-          headings.forEach(function (h) { if (h.getBoundingClientRect().top <= 140) current = h.id; });
-          links.forEach(function (a) { a.classList.remove('active'); });
-          if (current && map[current]) map[current].classList.add('active');
-          ticking = false;
-        });
-      }, { passive: true });
-    })();
-  </script>
+  (function () {
+    var ZC = "#2a9d98", BZ = "#146c94", NAVY = "#0b1f33", SLATE = "#526578", GRID = "#e6eef1";
+    var bots = [{"id": "qbo", "name": "QuickBooks Online Local Genius", "tag": "@QBO Local Genius"}, {"id": "zcompound-ifm", "name": "zCompound IFM Analyst", "tag": "@zCompound IFM"}, {"id": "web", "name": "Phaedrus Web Manager", "tag": "@Phaedrus Web Manager"}, {"id": "superdoer", "name": "SuperDoer Bot", "tag": "@SuperDoer"}];
+    var data = JSON.parse(document.getElementById("expense-data").textContent);
+    var chartsEl = document.getElementById("charts");
+    var selected = null;
 
+    function money(v) {
+      if (v >= 1000) return "$" + (v/1000).toFixed(1).replace(/\.0$/, "") + "k";
+      return "$" + Math.round(v);
+    }
+    function moneyFull(v) {
+      return "$" + Number(v).toLocaleString("en-US", {maximumFractionDigits: 2});
+    }
+
+    function renderChart(series) {
+      var years = Object.keys(series.byYear).sort();
+      years = years.filter(function (y) {
+        var d = series.byYear[y];
+        return (d.zCompound || 0) !== 0 || (d.brightzen || 0) !== 0;
+      });
+      var zc = years.map(function (y) { return +series.byYear[y].zCompound || 0; });
+      var bz = years.map(function (y) { return +series.byYear[y].brightzen || 0; });
+      var totals = zc.map(function (a, i) { return a + bz[i]; });
+      var W = 760, H = 300, padL = 56, padR = 16, padT = 28, padB = 40;
+      var plotW = W - padL - padR, plotH = H - padT - padB;
+      var ymax = Math.max.apply(null, totals.concat([1])) * 1.12;
+      var n = years.length, gap = 0.28, step = plotW / n, barW = step * (1 - gap);
+      var parts = [];
+      parts.push('<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + series.label + '">');
+      for (var i = 0; i < 5; i++) {
+        var frac = i / 4, y = padT + plotH * (1 - frac), val = ymax * frac;
+        parts.push('<line x1="' + padL + '" y1="' + y + '" x2="' + (W-padR) + '" y2="' + y + '" stroke="' + GRID + '"/>');
+        parts.push('<text x="' + (padL-8) + '" y="' + (y+4) + '" text-anchor="end" font-size="11" fill="' + SLATE + '" font-family="DM Sans,sans-serif">' + money(val) + '</text>');
+      }
+      years.forEach(function (yr, i) {
+        var x = padL + i * step + (step - barW) / 2;
+        var hZ = (zc[i] / ymax) * plotH, hB = (bz[i] / ymax) * plotH;
+        var yBase = padT + plotH, yZ = yBase - hZ, yB = yZ - hB;
+        parts.push('<g class="bar" data-key="' + series.key + '" data-year="' + yr + '" data-zc="' + zc[i] + '" data-bz="' + bz[i] + '" data-label="' + series.label.replace(/"/g, '&quot;') + '">');
+        if (hZ > 0) parts.push('<rect x="' + x + '" y="' + yZ + '" width="' + barW + '" height="' + hZ + '" fill="' + ZC + '" rx="1"/>');
+        if (hB > 0) parts.push('<rect x="' + x + '" y="' + yB + '" width="' + barW + '" height="' + hB + '" fill="' + BZ + '" rx="1"/>');
+        // hit target
+        parts.push('<rect x="' + x + '" y="' + padT + '" width="' + barW + '" height="' + plotH + '" fill="transparent"/>');
+        if (totals[i] > 0) parts.push('<text x="' + (x+barW/2) + '" y="' + (yB-6) + '" text-anchor="middle" font-size="9" fill="' + NAVY + '" font-family="DM Sans,sans-serif">' + money(totals[i]) + '</text>');
+        parts.push('<text x="' + (x+barW/2) + '" y="' + (H-padB+18) + '" text-anchor="middle" font-size="11" fill="' + SLATE + '" font-family="DM Sans,sans-serif">' + yr + '</text>');
+        parts.push('</g>');
+      });
+      parts.push('<line x1="' + padL + '" y1="' + (padT+plotH) + '" x2="' + (W-padR) + '" y2="' + (padT+plotH) + '" stroke="' + NAVY + '" stroke-width="1.5"/>');
+      parts.push('</svg>');
+
+      var block = document.createElement("section");
+      block.className = "chart-block";
+      block.id = series.key;
+      block.innerHTML = "<h2>" + series.label + "</h2><div class='chart-frame'>" + parts.join("") + "</div>" +
+        "<div class='legend'><span><i class='i-zc'></i>zCompound</span><span><i class='i-bz'></i>BrightZen, Inc.</span></div>";
+      chartsEl.appendChild(block);
+    }
+
+    data.series.forEach(renderChart);
+
+    var botSel = document.getElementById("bot");
+    bots.forEach(function (b) {
+      var o = document.createElement("option");
+      o.value = b.id; o.textContent = b.name; botSel.appendChild(o);
+    });
+
+    function botTag() {
+      var id = botSel.value;
+      for (var i = 0; i < bots.length; i++) if (bots[i].id === id) return bots[i].tag;
+      return "@bot";
+    }
+    function promptText() {
+      if (!selected) return "";
+      return selected.label + " · " + selected.year + "\n" +
+        "zCompound " + moneyFull(selected.zc) + " · BrightZen " + moneyFull(selected.bz) + "\n" +
+        "asOf 2026-09-09 · /zcompound/expenses/\n" +
+        botTag() + " — please look at this datapoint.";
+    }
+    function termFor() {
+      if (!selected) return "zcompound-expenses";
+      return "zcompound-expenses-" + selected.key + "-" + selected.year;
+    }
+
+    function mountGiscus() {
+      var host = document.querySelector(".giscus");
+      host.innerHTML = "";
+      var term = termFor();
+      document.getElementById("giscus-term").textContent = "thread: " + term;
+      var s = document.createElement("script");
+      s.src = "https://giscus.app/client.js";
+      s.setAttribute("data-repo", "jz-brightzen/phaedrusqualitybookkeeping.com");
+      s.setAttribute("data-repo-id", "R_kgDOSJNXBg");
+      s.setAttribute("data-category", "General");
+      s.setAttribute("data-category-id", "DIC_kwDOSJNXBs4DFQyE");
+      s.setAttribute("data-mapping", "specific");
+      s.setAttribute("data-term", term);
+      s.setAttribute("data-strict", "0");
+      s.setAttribute("data-reactions-enabled", "1");
+      s.setAttribute("data-emit-metadata", "0");
+      s.setAttribute("data-input-position", "top");
+      s.setAttribute("data-theme", "light");
+      s.setAttribute("data-lang", "en");
+      s.setAttribute("data-loading", "lazy");
+      s.crossOrigin = "anonymous";
+      s.async = true;
+      host.appendChild(s);
+    }
+
+    function selectBar(el) {
+      document.querySelectorAll(".bar.selected").forEach(function (n) { n.classList.remove("selected"); });
+      el.classList.add("selected");
+      selected = {
+        key: el.getAttribute("data-key"),
+        year: el.getAttribute("data-year"),
+        label: el.getAttribute("data-label"),
+        zc: +el.getAttribute("data-zc"),
+        bz: +el.getAttribute("data-bz")
+      };
+      document.getElementById("dock-empty").style.display = "none";
+      document.getElementById("dock-active").style.display = "block";
+      document.getElementById("sel-title").textContent = selected.label + " · " + selected.year;
+      document.getElementById("sel-detail").textContent = "zCompound " + moneyFull(selected.zc) + " · BrightZen " + moneyFull(selected.bz);
+      document.getElementById("prompt-box").style.display = "none";
+      mountGiscus();
+    }
+
+    chartsEl.addEventListener("click", function (e) {
+      var g = e.target.closest(".bar");
+      if (g) selectBar(g);
+    });
+
+    document.getElementById("btn-copy").addEventListener("click", function () {
+      var t = promptText();
+      var box = document.getElementById("prompt-box");
+      box.textContent = t; box.style.display = "block";
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(t).then(function () {
+          document.getElementById("btn-copy").textContent = "Copied";
+          setTimeout(function () { document.getElementById("btn-copy").textContent = "Copy prompt"; }, 1200);
+        });
+      }
+    });
+    document.getElementById("btn-discuss").addEventListener("click", function () {
+      document.getElementById("discuss").scrollIntoView({ behavior: "smooth", block: "start" });
+      mountGiscus();
+    });
+    botSel.addEventListener("change", function () {
+      if (document.getElementById("prompt-box").style.display !== "none") {
+        document.getElementById("prompt-box").textContent = promptText();
+      }
+    });
+
+    // default giscus for page-level thread until a bar is picked
+    mountGiscus();
+  })();
+  </script>
 </body>
 </html>
