@@ -4,49 +4,49 @@ layout: "zcompound-expenses"
 url: "/zcompound/expenses/"
 date: 2026-09-09
 draft: false
-summary: "zCompound Personal annual expense charts — SDG&E, Travelers, San Diego County, Garden & Pool, Jordan and Andres, Waste Management. As of 2026-09-09."
+summary: "zCompound vs BrightZen stacked annual expense charts — SDG&E, Travelers, San Diego County, Garden & Pool, Jordan and Andres, Waste Management. As of 2026-09-09."
 eyebrow: "zCompound · Personal"
 heroTitle: "Annual expenses"
-heroMeta: "**Updated 2026-09-09 PT** — zCompound Personal. Six annual charts from QBO. Noindex."
+heroMeta: "**Updated 2026-09-09 PT** — Stacked zCompound vs BrightZen. Six charts from QBO. Noindex."
 ---
 
-Company: **zCompound Personal**. Source: QuickBooks Online expense and P&L exports. As of **2026-09-09**.
+Company split: **zCompound** vs **BrightZen, Inc.** Source: QuickBooks Online. As of **2026-09-09**.
 
-Each chart shows years with recorded activity only. Missing years are gaps, not zeros invented for the axis.
+Each bar stacks the two companies for that year. Years with no activity in either company are omitted. Some years show the same dollar amount in both — charted as given.
 
 ## San Diego Gas & Electric
 
-![San Diego Gas & Electric annual expenses](/zcompound/expenses/sdge.svg "San Diego Gas & Electric")
+![San Diego Gas & Electric stacked annual expenses](/zcompound/expenses/sdge.svg "San Diego Gas & Electric")
 
-<p class="chart-caption">Total $36,982 across 10 years with activity (2015–2026). Vendor filter, all dates.</p>
+<p class="chart-caption">Stacked zCompound vs BrightZen. zCompound $36,982, BrightZen $25,338 across 12 years (2015–2026). Some years show the same amount in both companies.</p>
 
 ## Travelers
 
-![Travelers annual expenses](/zcompound/expenses/travelers.svg "Travelers")
+![Travelers stacked annual expenses](/zcompound/expenses/travelers.svg "Travelers")
 
-<p class="chart-caption">Insurance. Total $129,243 across 11 years (2015–2026).</p>
+<p class="chart-caption">Insurance. zCompound $129,243, BrightZen $67,914 (2015–2026).</p>
 
 ## San Diego County
 
-![San Diego County annual expenses](/zcompound/expenses/san_diego_county.svg "San Diego County")
+![San Diego County stacked annual expenses](/zcompound/expenses/san_diego_county.svg "San Diego County")
 
-<p class="chart-caption">Property tax. Total $89,472 across 6 years (2020–2025).</p>
+<p class="chart-caption">Property tax. zCompound $89,472, BrightZen $866 (2013–2025).</p>
 
 ## Garden & Pool
 
-![Garden & Pool annual expenses](/zcompound/expenses/garden_pool.svg "Garden & Pool")
+![Garden & Pool stacked annual expenses](/zcompound/expenses/garden_pool.svg "Garden & Pool")
 
-<p class="chart-caption">Account 6092 HouseHold Services: Garden & Pool. Total $222,887 from P&L by year (2015–2026). Transaction counts not available for this series.</p>
+<p class="chart-caption">Account 6092 Garden & Pool. zCompound $222,887; BrightZen $0 (all zero in this series).</p>
 
 ## Jordan and Andres
 
-![Jordan and Andres annual expenses](/zcompound/expenses/jordan_and_andres.svg "Jordan and Andres")
+![Jordan and Andres stacked annual expenses](/zcompound/expenses/jordan_and_andres.svg "Jordan and Andres")
 
-<p class="chart-caption">Combined Jordan Gaspar and Andres Gutierrez (includes Andreas spelling). Total $25,877 across 11 years (2015–2026).</p>
+<p class="chart-caption">Jordan Gaspar + Andreas Gutierrez. zCompound $25,877, BrightZen $6,645 (2015–2026).</p>
 
 ## Waste Management
 
-![Waste Management annual expenses](/zcompound/expenses/waste_management.svg "Waste Management")
+![Waste Management stacked annual expenses](/zcompound/expenses/waste_management.svg "Waste Management")
 
-<p class="chart-caption">Total $11,950 across 11 years (2015–2026).</p>
+<p class="chart-caption">zCompound $11,950, BrightZen $1,139 (2011–2026).</p>
 
