@@ -352,9 +352,9 @@
         var card = document.createElement("button");
         card.type = "button";
         card.className = "answer-card";
-        var who = th.bot ? ("@" + th.bot + " answering for John") : "Bot answering for John";
+        var who = th.bot ? ("@" + th.bot) : "@bot";
         var preview = th.answerPreview || "";
-        preview = preview.replace(/^@\S.+ answering for John\s*/i, "");
+        preview = preview.replace(/^@[^\n]+\s*/i, "");
         preview = preview.replace(/^\*\*QBO Local Genius\*\*\s*/i, "");
         if (preview.length > 200) preview = preview.slice(0, 200).replace(/\s+\S*$/, "") + "…";
         card.innerHTML = '<div class="who">' + who + '</div>' +
