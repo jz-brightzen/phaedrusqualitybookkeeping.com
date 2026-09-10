@@ -1,4 +1,17 @@
 {
-  "asOf": "2026-09-10T03:05:00Z",
-  "threads": []
+  "asOf": "2026-09-10T03:38:12Z",
+  "threads": [
+    {
+      "term": "papabear-charts-income-2026-Q3",
+      "number": 7,
+      "url": "https://github.com/jz-brightzen/phaedrusqualitybookkeeping.com/discussions/7",
+      "comments": 1,
+      "updatedAt": "2026-09-10T03:35:42Z",
+      "answered": false,
+      "bot": null,
+      "answerPreview": null,
+      "answerUrl": null,
+      "answerAt": null
+    }
+  ]
 }
