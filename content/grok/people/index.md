@@ -19,7 +19,7 @@ Last built 2026-09-10 PT · 497 people · Grouped by source · Maintained by CRM
 
 | Name | Company | Circle | Warmth | Last said | Last touch | Next step |
 | --- | --- | --- | --- | --- | --- | --- |
-Aaron Shepherd | GrowthFlare | Prospect | Hot | John replied ~3:44 PM PT from (BrightZen) to 'John, thoughts?': thanked him, asked if any of Aaron's fractional CFOs have 200+ clients vs a small book, said WA is ~m and John is the only person there who has ever had the title CFO, sent , said he can make Aaron's clients more productive with the platform. Waiting on Aaron | 2026-08-25 | Wait for Aaron to reply. |
+Aaron Shepherd | GrowthFlare | Prospect | Hot | John replied ~3:44 PM PT from (BrightZen) to 'John, thoughts?': thanked him, asked if any of Aaron's fractional CFOs have 200+ clients vs a small book, said WA is ~m and John is the only person there who has ever had the title CFO, said he can make Aaron's clients more productive with the platform. Waiting on Aaron | 2026-08-25 | Wait for Aaron to reply. |
 Adam Beatty | Design Lab / Logical Brands | Advisor | Warm | Advisory Board Dinner Nashville. John sent flights Sep 15–16 (AEXI5R). Hotels previously booked. Not waiting | 2026-09-10 | Closed on flights. Show up for dinner Sep 15–16. |
 Afroze Qayyum | Mash Strategy | Partner | Warm | Booked Jeff for Mon Aug 31 12:30 ET. John declined (out of office). Jeff accepted. Derek optional accepted | 2026-08-31 | Wait on Jeff Monday. You are out. |
 Afrozy Ara | LuminaData | Vendor | Warm | No separate reply since Sep 2. Narayanan is carrying the ShipCalm data thread and promised bucket details by today | 2026-09-03 | Wait. Quinth chases Narayanan, not Afrozy. |
@@ -94,7 +94,7 @@ Tony Davis | ShipCalm | Client | Cool | Andrew Hills Sep 9 sent ShipCalm renewal
 Travis Kreh | | Prospect | Warm | John wrote last night after a missed LinkedIn note: would share how he built a m fractional CFO business, offered his calendar | 2026-08-27 | Wait. Do not follow up if he does not reply. |
 Trevor Outman | | Contact | Cool | Greg Moser mailed him from Chile on Sep 3 and confirmed Thu Sep 10 at noon | 2026-09-03 | None. Surfaced via Greg. |
 Troy Nguyen | Bernstein | Advisor | Cool | Bernstein web registration. Web ID 1118668. Last touch Aug 7. Waiting if John still needs the account | 2026-08-07 | Decide if the Bernstein account is still needed. |
-Will Haeberle | Music City CPA | Advisor | Hot | Missing K-1s are blocking 2025 personal return. Waiting | 2026-08-26 | Get Will the missing K-1s. |
+Will Haeberle | Music City CPA | Advisor | Hot | John emailed: in Nashville Tue Sep 15, lands ~1:20p BNA, free until dinner 6:30 at The Optimist, wants to meet. Waiting on Will. Separate older: missing K-1s for 2025 personal return | 2026-09-10 | Wait on Will for a Tue Sep 15 meet window before 6:30 dinner. |
 Yash Gawande | 409.ai | Vendor | Warm | 409A draft is with the Imgix board. Adam asked for G2 and Clutch reviews. John did Clutch, G2 later. Not waiting hard | 2026-08-28 | Not waiting hard. G2 review later if John wants. |
 Zachary Patterson | Midtown | Client | Warm | Midtown BAA and Weekly Accounting. Needs BAA on file because WA has EMR access (HIPAA). To Viny and crew, John on cc. Ops/Viny owns. CEO/co-owner, Midtown Occupational Health | 2026-09-03 | Wait on BAA confirm. Ops/Viny owns. |
 
