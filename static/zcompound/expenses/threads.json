@@ -1,15 +1,27 @@
 {
-  "generatedAt": "2026-09-10T01:40:17Z",
+  "asOf": "2026-09-10T01:45:13Z",
   "threads": [
+    {
+      "term": "zcompound-expenses-jordan_and_andres-2026",
+      "number": 5,
+      "url": "https://github.com/jz-brightzen/phaedrusqualitybookkeeping.com/discussions/5",
+      "comments": 2,
+      "updatedAt": "2026-09-10T01:45:12Z",
+      "answered": true,
+      "bot": "QBO Local Genius",
+      "answerPreview": "@QBO Local Genius  **$11,173** is all **Jordan Gaspar** in zCompound (40 Expenses). No Andres/Andreas in 2026. BrightZen $0.  Pattern: **37\u00d7 $265** on a weekly cadence (mostly Tuesdays once settled), plus three larger ones: - 03/18/2026 \u2014 $",
+      "answerUrl": "https://github.com/jz-brightzen/phaedrusqualitybookkeeping.com/discussions/5#discussioncomment-18378330",
+      "answerAt": "2026-09-10T01:45:12Z"
+    },
     {
       "term": "zcompound-expenses-sdge-2024",
       "number": 4,
       "url": "https://github.com/jz-brightzen/phaedrusqualitybookkeeping.com/discussions/4",
-      "comments": 3,
+      "comments": 2,
       "updatedAt": "2026-09-10T01:37:23Z",
       "answered": true,
       "bot": "QBO Local Genius",
-      "answerPreview": "Agreed it looks thin next to other years \u2014 but the books match the bill.\n\n**2024 stacked figure stays zCompound $0 \u00b7 BrightZen $4,260.97.**\n\nThat account is **NEM**. Most 2024 mont\u2026",
+      "answerPreview": "@QBO Local Genius  Agreed it looks thin next to other years \u2014 but the books match the bill.  **2024 stacked figure stays zCompound $0 \u00b7 BrightZen $4,260.97.**  That account is **NEM**. Most 2024 months said no payment needed. The cash event",
       "answerUrl": "https://github.com/jz-brightzen/phaedrusqualitybookkeeping.com/discussions/4#discussioncomment-18378020",
       "answerAt": "2026-09-10T01:25:37Z"
     },
@@ -21,19 +33,7 @@
       "updatedAt": "2026-09-10T01:30:44Z",
       "answered": false,
       "bot": null,
-      "answerPreview": null,
-      "answerUrl": null,
-      "answerAt": null
-    },
-    {
-      "term": "zcompound-expenses-jordan_and_andres-2026",
-      "number": 5,
-      "url": "https://github.com/jz-brightzen/phaedrusqualitybookkeeping.com/discussions/5",
-      "comments": 1,
-      "updatedAt": "2026-09-10T01:28:42Z",
-      "answered": false,
-      "bot": null,
-      "answerPreview": null,
+      "answerPreview": "",
       "answerUrl": null,
       "answerAt": null
     },
@@ -45,7 +45,7 @@
       "updatedAt": "2026-09-10T00:59:03Z",
       "answered": true,
       "bot": "QBO Local Genius",
-      "answerPreview": "Agreed \u2014 $1,189 was too low.\n\nThat figure was only the two 2016 expenses with payee **Travelers**. Account **6070 Shelter:Insurance** shows **$21,197.94** for calendar 2016 (P&L by\u2026",
+      "answerPreview": "@QBO Local Genius  Agreed \u2014 $1,189 was too low.  That figure was only the two 2016 expenses with payee **Travelers**. Account **6070 Shelter:Insurance** shows **$21,197.94** for calendar 2016 (P&L by year). Same pattern as property tax: ven",
       "answerUrl": "https://github.com/jz-brightzen/phaedrusqualitybookkeeping.com/discussions/3#discussioncomment-18377717",
       "answerAt": "2026-09-10T00:59:03Z"
     },
@@ -57,7 +57,7 @@
       "updatedAt": "2026-09-09T23:59:10Z",
       "answered": false,
       "bot": null,
-      "answerPreview": null,
+      "answerPreview": "",
       "answerUrl": null,
       "answerAt": null
     },
@@ -65,11 +65,11 @@
       "term": "zcompound-expenses-sdge-2017",
       "number": 1,
       "url": "https://github.com/jz-brightzen/phaedrusqualitybookkeeping.com/discussions/1",
-      "comments": 2,
+      "comments": 1,
       "updatedAt": "2026-09-09T23:58:07Z",
       "answered": false,
       "bot": null,
-      "answerPreview": null,
+      "answerPreview": "",
       "answerUrl": null,
       "answerAt": null
     }
