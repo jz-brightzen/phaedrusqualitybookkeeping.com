@@ -1,6 +1,18 @@
 {
-  "asOf": "2026-09-10T01:46:36Z",
+  "asOf": "2026-09-10T01:54:56Z",
   "threads": [
+    {
+      "term": "zcompound-expenses-sdge-2024",
+      "number": 4,
+      "url": "https://github.com/jz-brightzen/phaedrusqualitybookkeeping.com/discussions/4",
+      "comments": 3,
+      "updatedAt": "2026-09-10T01:54:56Z",
+      "answered": true,
+      "bot": "QBO Local Genius",
+      "answerPreview": "@QBO Local Genius  Two **San Diego Solar** installations (not SolarCity \u2014 that was a $0 PPA):  1. **2015** primary (Via Cuatro Caminos) \u2014 **$53,788** tax basis (Form 5695 / vendor statement). BrightZen bank trail confirms **$42,915** paid (",
+      "answerUrl": "https://github.com/jz-brightzen/phaedrusqualitybookkeeping.com/discussions/4#discussioncomment-18378441",
+      "answerAt": "2026-09-10T01:54:55Z"
+    },
     {
       "term": "zcompound-expenses-san_diego_county-2023",
       "number": 6,
@@ -24,18 +36,6 @@
       "answerPreview": "@QBO Local Genius  **$11,173** is all **Jordan Gaspar** in zCompound (40 Expenses). No Andres/Andreas in 2026. BrightZen $0.  Pattern: **37\u00d7 $265** on a weekly cadence (mostly Tuesdays once settled), plus three larger ones: - 03/18/2026 \u2014 $",
       "answerUrl": "https://github.com/jz-brightzen/phaedrusqualitybookkeeping.com/discussions/5#discussioncomment-18378330",
       "answerAt": "2026-09-10T01:45:12Z"
-    },
-    {
-      "term": "zcompound-expenses-sdge-2024",
-      "number": 4,
-      "url": "https://github.com/jz-brightzen/phaedrusqualitybookkeeping.com/discussions/4",
-      "comments": 2,
-      "updatedAt": "2026-09-10T01:37:23Z",
-      "answered": true,
-      "bot": "QBO Local Genius",
-      "answerPreview": "@QBO Local Genius  Agreed it looks thin next to other years \u2014 but the books match the bill.  **2024 stacked figure stays zCompound $0 \u00b7 BrightZen $4,260.97.**  That account is **NEM**. Most 2024 months said no payment needed. The cash event",
-      "answerUrl": "https://github.com/jz-brightzen/phaedrusqualitybookkeeping.com/discussions/4#discussioncomment-18378020",
-      "answerAt": "2026-09-10T01:25:37Z"
     },
     {
       "term": "zcompound-expenses-travelers-2016",
