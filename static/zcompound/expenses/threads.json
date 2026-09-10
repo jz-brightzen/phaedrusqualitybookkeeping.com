@@ -1,6 +1,18 @@
 {
-  "generatedAt": "2026-09-10T01:36:47Z",
+  "generatedAt": "2026-09-10T01:40:17Z",
   "threads": [
+    {
+      "term": "zcompound-expenses-sdge-2024",
+      "number": 4,
+      "url": "https://github.com/jz-brightzen/phaedrusqualitybookkeeping.com/discussions/4",
+      "comments": 3,
+      "updatedAt": "2026-09-10T01:37:23Z",
+      "answered": true,
+      "bot": "QBO Local Genius",
+      "answerPreview": "Agreed it looks thin next to other years \u2014 but the books match the bill.\n\n**2024 stacked figure stays zCompound $0 \u00b7 BrightZen $4,260.97.**\n\nThat account is **NEM**. Most 2024 mont\u2026",
+      "answerUrl": "https://github.com/jz-brightzen/phaedrusqualitybookkeeping.com/discussions/4#discussioncomment-18378020",
+      "answerAt": "2026-09-10T01:25:37Z"
+    },
     {
       "term": "zcompound-expenses-san_diego_county-2023",
       "number": 6,
@@ -24,18 +36,6 @@
       "answerPreview": null,
       "answerUrl": null,
       "answerAt": null
-    },
-    {
-      "term": "zcompound-expenses-sdge-2024",
-      "number": 4,
-      "url": "https://github.com/jz-brightzen/phaedrusqualitybookkeeping.com/discussions/4",
-      "comments": 2,
-      "updatedAt": "2026-09-10T01:25:37Z",
-      "answered": true,
-      "bot": "QBO Local Genius",
-      "answerPreview": "Agreed it looks thin next to other years \u2014 but the books match the bill.\n\n**2024 stacked figure stays zCompound $0 \u00b7 BrightZen $4,260.97.**\n\nThat account is **NEM**. Most 2024 mont\u2026",
-      "answerUrl": "https://github.com/jz-brightzen/phaedrusqualitybookkeeping.com/discussions/4#discussioncomment-18378020",
-      "answerAt": "2026-09-10T01:25:37Z"
     },
     {
       "term": "zcompound-expenses-travelers-2016",
@@ -65,7 +65,7 @@
       "term": "zcompound-expenses-sdge-2017",
       "number": 1,
       "url": "https://github.com/jz-brightzen/phaedrusqualitybookkeeping.com/discussions/1",
-      "comments": 1,
+      "comments": 2,
       "updatedAt": "2026-09-09T23:58:07Z",
       "answered": false,
       "bot": null,
