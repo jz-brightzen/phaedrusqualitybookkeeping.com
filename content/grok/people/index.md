@@ -1,6 +1,6 @@
 ---
 title: "People book"
-layout: "sdcfo-candidates"
+layout: "grok-people"
 url: "/grok/people/"
 date: 2026-09-10
 draft: false
