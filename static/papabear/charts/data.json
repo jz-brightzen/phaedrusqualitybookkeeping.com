@@ -1,0 +1,20 @@
+{
+  "company": "Papabear Naturals, Inc.",
+  "asOf": "2026-09-09",
+  "metric": "Total Income",
+  "metricNote": "P&L line Total for Income from Quarterly Profit and Loss Summary (All Dates, columns by Quarters, Accrual).",
+  "byQuarter": {
+    "2024-Q1": 78570.1,
+    "2024-Q2": 236943.62,
+    "2024-Q3": 280050.49,
+    "2024-Q4": 474824.36,
+    "2025-Q1": 730707.0,
+    "2025-Q2": 817515.64,
+    "2025-Q3": 703912.2,
+    "2025-Q4": 1143175.33,
+    "2026-Q1": 784480.01,
+    "2026-Q2": 704569.43,
+    "2026-Q3": 414760.74
+  },
+  "total": 6369508.92
+}
