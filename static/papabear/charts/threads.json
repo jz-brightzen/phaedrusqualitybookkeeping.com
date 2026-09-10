@@ -1,17 +1,17 @@
 {
-  "asOf": "2026-09-10T03:38:12Z",
+  "asOf": "2026-09-10T03:51:04Z",
   "threads": [
     {
       "term": "papabear-charts-income-2026-Q3",
       "number": 7,
       "url": "https://github.com/jz-brightzen/phaedrusqualitybookkeeping.com/discussions/7",
-      "comments": 1,
-      "updatedAt": "2026-09-10T03:35:42Z",
-      "answered": false,
-      "bot": null,
-      "answerPreview": null,
-      "answerUrl": null,
-      "answerAt": null
+      "comments": 2,
+      "updatedAt": "2026-09-10T03:51:03Z",
+      "answered": true,
+      "bot": "QBO Local Genius",
+      "answerPreview": "@QBO Local Genius  **Booked Q3 MTD (QBO Total Income, accrual, asOf 2026-09-09): $414,760.74** - Jul $205,875 \u00b7 Aug $148,584 \u00b7 Sep MTD $60,302  **Projected full Q3 \u2248 $513k** (IFM **3Q26F**), not a straight-line from the chart bar.  Why not",
+      "answerUrl": "https://github.com/jz-brightzen/phaedrusqualitybookkeeping.com/discussions/7#discussioncomment-18379722",
+      "answerAt": "2026-09-10T03:51:02Z"
     }
   ]
 }
