@@ -526,8 +526,46 @@
       }
     });
 
-    // default page-level thread until a bar or discussion chip is picked
-    mountGiscus();
+    function threadQuery(term) {
+      try {
+        var u = new URL(window.location.href);
+        if (term) u.searchParams.set("thread", term);
+        else u.searchParams.delete("thread");
+        u.hash = "discuss";
+        history.replaceState(null, "", u.pathname + u.search + u.hash);
+      } catch (e) {}
+    }
+
+    function siteThreadUrl(term) {
+      return "https://phaedrusqualitybookkeeping.com/zcompound/expenses/?thread=" + encodeURIComponent(term) + "#discuss";
+    }
+
+    var _openThread = openThread;
+    openThread = function (key, year, scrollDiscuss) {
+      _openThread(key, year, scrollDiscuss);
+      threadQuery("zcompound-expenses-" + key + "-" + year);
+    };
+
+    function applyThreadFromUrl() {
+      var term = null;
+      try {
+        term = new URL(window.location.href).searchParams.get("thread");
+      } catch (e) {}
+      if (!term && window.location.hash && window.location.hash.indexOf("thread=") >= 0) {
+        term = decodeURIComponent(window.location.hash.split("thread=")[1] || "");
+      }
+      var m = term && /^zcompound-expenses-(.+)-(\d{4})$/.exec(term);
+      if (m) {
+        openThread(m[1], m[2], true);
+        return true;
+      }
+      return false;
+    }
+
+    // default page-level thread until a bar, chip, or ?thread= deep link
+    if (!applyThreadFromUrl()) {
+      mountGiscus();
+    }
     loadThreads();
   })();
   </script>
