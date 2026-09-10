@@ -80,6 +80,22 @@
     .discuss { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--border); }
     .discuss h2 { font-family: "Manrope", sans-serif; font-size: 22px; margin-bottom: 8px; }
     .discuss p { color: var(--slate-600); font-size: 14px; margin-bottom: 16px; max-width: 640px; }
+    .discuss-filters {
+      display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end;
+      margin-bottom: 14px; padding: 12px 14px; background: #fff;
+      border: 1px solid var(--border); border-radius: 10px; max-width: 720px;
+    }
+    .discuss-filters .dock-field { flex: 1 1 160px; }
+    .discuss-filters .dock-field select { width: 100%; height: 40px; border: 1px solid var(--border); border-radius: 8px; padding: 0 10px; font: 500 14px "DM Sans", sans-serif; background: #fff; color: var(--navy-900); }
+    .thread-list { margin: 0 0 16px; max-width: 720px; font-size: 13px; color: var(--slate-600); }
+    .thread-list details { margin: 0 0 6px; }
+    .thread-list summary { cursor: pointer; font-weight: 700; color: var(--navy-900); }
+    .thread-list button {
+      display: inline-block; margin: 4px 6px 0 0; padding: 4px 10px;
+      border: 1px solid var(--border); border-radius: 999px; background: var(--cloud-50);
+      font: 500 12px "DM Sans", sans-serif; color: var(--navy-900); cursor: pointer;
+    }
+    .thread-list button.is-active { background: var(--teal-500); color: var(--navy-950); border-color: transparent; }
     .setup { background: #fff8e6; border: 1px solid #f0d78c; border-radius: 10px; padding: 14px 16px; font-size: 13.5px; color: #5c4b12; margin-bottom: 16px; }
     .setup a { color: var(--blue-700); font-weight: 700; text-decoration: underline; }
     .site-footer { padding: 36px 0; text-align: center; background: var(--navy-950); color: rgba(255,255,255,0.45); font-size: 12px; }
@@ -112,7 +128,18 @@
 
     <section class="discuss" id="discuss">
       <h2>Discuss this datapoint</h2>
-      <p>Public comments via GitHub Discussions (Giscus). Each year gets its own thread. Anyone can comment.</p>
+      <p>Public comments via GitHub Discussions (Giscus). One thread per chart + year. Filter below to jump charts without digging through a mixed list.</p>
+      <div class="discuss-filters" id="discuss-filters">
+        <div class="dock-field">
+          <label for="filter-chart">Chart</label>
+          <select id="filter-chart"></select>
+        </div>
+        <div class="dock-field">
+          <label for="filter-year">Year</label>
+          <select id="filter-year"></select>
+        </div>
+      </div>
+      <div class="thread-list" id="thread-list" aria-label="Threads by chart"></div>
       <div id="giscus-term" style="font-size:12px;color:var(--slate-600);margin-bottom:10px;font-family:Roboto Mono,monospace;"></div>
       <div class="giscus"></div>
     </section>
@@ -226,7 +253,90 @@
         "asOf 2026-09-09 · /zcompound/expenses/\n" +
         botTag() + " — please look at this datapoint.";
     }
+    var filterChart = document.getElementById("filter-chart");
+    var filterYear = document.getElementById("filter-year");
+    var threadList = document.getElementById("thread-list");
+
+    function yearsForKey(key) {
+      for (var i = 0; i < data.series.length; i++) {
+        if (data.series[i].key === key) {
+          return Object.keys(data.series[i].byYear).filter(function (y) {
+            var d = data.series[i].byYear[y];
+            return (d.zCompound || 0) !== 0 || (d.brightzen || 0) !== 0;
+          }).sort();
+        }
+      }
+      return [];
+    }
+
+    function fillChartFilter() {
+      filterChart.innerHTML = "";
+      data.series.forEach(function (s) {
+        var o = document.createElement("option");
+        o.value = s.key; o.textContent = s.label;
+        filterChart.appendChild(o);
+      });
+    }
+
+    function fillYearFilter(key, preferYear) {
+      filterYear.innerHTML = "";
+      var years = yearsForKey(key);
+      years.forEach(function (y) {
+        var o = document.createElement("option");
+        o.value = y; o.textContent = y;
+        filterYear.appendChild(o);
+      });
+      if (preferYear && years.indexOf(String(preferYear)) >= 0) filterYear.value = String(preferYear);
+      else if (years.length) filterYear.value = years[years.length - 1];
+    }
+
+    function renderThreadList(activeTerm) {
+      threadList.innerHTML = "";
+      data.series.forEach(function (s) {
+        var years = yearsForKey(s.key);
+        if (!years.length) return;
+        var det = document.createElement("details");
+        if (activeTerm && activeTerm.indexOf("zcompound-expenses-" + s.key + "-") === 0) det.open = true;
+        var sum = document.createElement("summary");
+        sum.textContent = s.label;
+        det.appendChild(sum);
+        years.forEach(function (y) {
+          var term = "zcompound-expenses-" + s.key + "-" + y;
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.textContent = y;
+          btn.setAttribute("data-term", term);
+          btn.setAttribute("data-key", s.key);
+          btn.setAttribute("data-year", y);
+          if (term === activeTerm) btn.className = "is-active";
+          btn.addEventListener("click", function () {
+            applyFilter(s.key, y, true);
+          });
+          det.appendChild(btn);
+        });
+        threadList.appendChild(det);
+      });
+    }
+
+    function applyFilter(key, year, scrollDiscuss) {
+      filterChart.value = key;
+      fillYearFilter(key, year);
+      filterYear.value = String(year);
+      // sync bar selection if that bar exists
+      var bar = document.querySelector('.bar[data-key="' + key + '"][data-year="' + year + '"]');
+      if (bar) {
+        selectBar(bar, true);
+      } else {
+        selected = null;
+        mountGiscus();
+      }
+      if (scrollDiscuss) document.getElementById("discuss").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
     function termFor() {
+      if (filterChart.value && filterYear.value) {
+        return "zcompound-expenses-" + filterChart.value + "-" + filterYear.value;
+      }
       if (!selected) return "zcompound-expenses";
       return "zcompound-expenses-" + selected.key + "-" + selected.year;
     }
@@ -236,6 +346,7 @@
       host.innerHTML = "";
       var term = termFor();
       document.getElementById("giscus-term").textContent = "thread: " + term;
+      renderThreadList(term);
       var s = document.createElement("script");
       s.src = "https://giscus.app/client.js";
       s.setAttribute("data-repo", "jz-brightzen/phaedrusqualitybookkeeping.com");
@@ -268,7 +379,7 @@
       document.getElementById("prompt-box").style.display = "none";
     }
 
-    function selectBar(el) {
+    function selectBar(el, fromFilter) {
       document.querySelectorAll(".bar.selected").forEach(function (n) { n.classList.remove("selected"); });
       el.classList.add("selected");
       selected = {
@@ -287,6 +398,10 @@
       document.getElementById("sel-title").textContent = selected.label + " · " + selected.year;
       document.getElementById("sel-detail").textContent = "zCompound " + moneyFull(selected.zc) + " · BrightZen " + moneyFull(selected.bz);
       document.getElementById("prompt-box").style.display = "none";
+      if (!fromFilter) {
+        filterChart.value = selected.key;
+        fillYearFilter(selected.key, selected.year);
+      }
       mountGiscus();
     }
 
@@ -319,8 +434,24 @@
       }
     });
 
-    // default giscus for page-level thread until a bar is picked
-    mountGiscus();
+    fillChartFilter();
+    if (data.series.length) {
+      fillYearFilter(data.series[0].key);
+      filterChart.value = data.series[0].key;
+    }
+    filterChart.addEventListener("change", function () {
+      fillYearFilter(filterChart.value);
+      applyFilter(filterChart.value, filterYear.value, false);
+    });
+    filterYear.addEventListener("change", function () {
+      applyFilter(filterChart.value, filterYear.value, false);
+    });
+    // default thread: first chart, latest year (not a mixed page dump)
+    if (filterChart.value && filterYear.value) {
+      applyFilter(filterChart.value, filterYear.value, false);
+    } else {
+      mountGiscus();
+    }
   })();
   </script>
 </body>
