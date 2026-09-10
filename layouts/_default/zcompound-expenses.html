@@ -44,6 +44,29 @@
     .chart-frame .bar { cursor: pointer; }
     .chart-frame .bar:hover rect { opacity: 0.85; }
     .chart-frame .bar.selected rect { stroke: var(--navy-900); stroke-width: 2; }
+    .chart-frame .bar.has-comments rect { stroke: var(--teal-500); stroke-width: 1.5; }
+    .chart-frame .bar.has-comments .comment-dot { display: block; }
+    .comment-dot { display: none; }
+    .commented-panel {
+      margin: 0 0 20px; padding: 14px 16px; max-width: 720px;
+      background: #fff; border: 1px solid var(--border); border-radius: 10px;
+    }
+    .commented-panel h3 { font-family: "Manrope", sans-serif; font-size: 15px; margin: 0 0 8px; }
+    .commented-panel .empty { font-size: 13px; color: var(--slate-600); }
+    .commented-panel .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .commented-panel button.chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 12px; border-radius: 999px; border: 1px solid var(--border);
+      background: var(--cloud-50); font: 600 13px "DM Sans", sans-serif;
+      color: var(--navy-900); cursor: pointer;
+    }
+    .commented-panel button.chip:hover { background: var(--mist-100); }
+    .commented-panel button.chip .count {
+      display: inline-flex; min-width: 18px; height: 18px; padding: 0 5px;
+      border-radius: 999px; background: var(--teal-500); color: var(--navy-950);
+      font-size: 11px; align-items: center; justify-content: center;
+    }
+    .thread-list button.has-comments { border-color: var(--teal-500); font-weight: 700; }
     .legend { display: flex; gap: 18px; margin: 8px 0 0 8px; font-size: 12px; color: var(--slate-600); }
     .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
     .i-zc { background: var(--zc); } .i-bz { background: var(--bz); }
@@ -128,7 +151,12 @@
 
     <section class="discuss" id="discuss">
       <h2>Discuss this datapoint</h2>
-      <p>Public comments via GitHub Discussions (Giscus). One thread per chart + year. Filter below to jump charts without digging through a mixed list.</p>
+      <p>Public comments via GitHub Discussions (Giscus). One thread per chart + year. Bars with a teal outline have comments — tap them (or a chip below) to open that thread.</p>
+      <div class="commented-panel" id="commented-panel">
+        <h3>Threads with comments</h3>
+        <div class="empty" id="commented-empty">Loading…</div>
+        <div class="chip-row" id="commented-chips" style="display:none"></div>
+      </div>
       <div class="discuss-filters" id="discuss-filters">
         <div class="dock-field">
           <label for="filter-chart">Chart</label>
@@ -235,6 +263,123 @@
 
     data.series.forEach(renderChart);
 
+    var threadsByTerm = {};
+    var labelByKey = {};
+    data.series.forEach(function (s) { labelByKey[s.key] = s.label; });
+
+    function parseTerm(term) {
+      // zcompound-expenses-{key}-{year}
+      var m = /^zcompound-expenses-(.+)-(\d{4})$/.exec(term || "");
+      if (!m) return null;
+      return { key: m[1], year: m[2] };
+    }
+
+    function markCommentedBars() {
+      document.querySelectorAll(".bar.has-comments").forEach(function (n) { n.classList.remove("has-comments"); });
+      Object.keys(threadsByTerm).forEach(function (term) {
+        var th = threadsByTerm[term];
+        if (!th || !th.comments) return;
+        var p = parseTerm(term);
+        if (!p) return;
+        var bar = document.querySelector('.bar[data-key="' + p.key + '"][data-year="' + p.year + '"]');
+        if (!bar) return;
+        bar.classList.add("has-comments");
+        // comment count badge above bar if missing
+        if (!bar.querySelector(".comment-dot")) {
+          var bb = bar.getBBox ? null : null;
+          var rects = bar.querySelectorAll("rect");
+          var target = null, minY = Infinity, cx = 0;
+          for (var i = 0; i < rects.length; i++) {
+            var r = rects[i];
+            var fill = r.getAttribute("fill");
+            if (fill === "transparent") continue;
+            var y = parseFloat(r.getAttribute("y"));
+            if (y < minY) {
+              minY = y;
+              target = r;
+              cx = parseFloat(r.getAttribute("x")) + parseFloat(r.getAttribute("width")) / 2;
+            }
+          }
+          if (target) {
+            var c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            c.setAttribute("class", "comment-dot");
+            c.setAttribute("cx", String(cx + 8));
+            c.setAttribute("cy", String(minY - 14));
+            c.setAttribute("r", "5");
+            c.setAttribute("fill", "#2a9d98");
+            c.setAttribute("stroke", "#fff");
+            c.setAttribute("stroke-width", "1.5");
+            bar.appendChild(c);
+          }
+        }
+      });
+    }
+
+    function renderCommentedChips() {
+      var empty = document.getElementById("commented-empty");
+      var row = document.getElementById("commented-chips");
+      var list = Object.keys(threadsByTerm).map(function (k) { return threadsByTerm[k]; })
+        .filter(function (t) { return t && t.comments > 0; })
+        .sort(function (a, b) { return (b.updatedAt || "").localeCompare(a.updatedAt || ""); });
+      row.innerHTML = "";
+      if (!list.length) {
+        empty.style.display = "block";
+        empty.textContent = "No public comments yet. Click a year bar to start a thread.";
+        row.style.display = "none";
+        return;
+      }
+      empty.style.display = "none";
+      row.style.display = "flex";
+      list.forEach(function (th) {
+        var p = parseTerm(th.term);
+        var label = th.term;
+        if (p) label = (labelByKey[p.key] || p.key) + " · " + p.year;
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "chip";
+        btn.innerHTML = label + ' <span class="count">' + th.comments + "</span>";
+        btn.addEventListener("click", function () {
+          if (!p) return;
+          applyFilter(p.key, p.year, true);
+          // bring chart into view first if needed
+          var block = document.getElementById(p.key);
+          if (block) block.scrollIntoView({ behavior: "smooth", block: "center" });
+          setTimeout(function () {
+            document.getElementById("discuss").scrollIntoView({ behavior: "smooth", block: "start" });
+          }, 350);
+        });
+        row.appendChild(btn);
+      });
+    }
+
+    function ingestThreads(payload) {
+      threadsByTerm = {};
+      (payload.threads || []).forEach(function (th) {
+        if (th && th.term) threadsByTerm[th.term] = th;
+      });
+      markCommentedBars();
+      renderCommentedChips();
+      // refresh thread list active styling if present
+      if (typeof termFor === "function") {
+        try { renderThreadList(termFor()); } catch (e) {}
+      }
+    }
+
+    function loadThreads() {
+      function ok(j) { ingestThreads(j); }
+      fetch("/api/zcompound-threads")
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+        .then(ok)
+        .catch(function () {
+          fetch("/zcompound/expenses/threads.json")
+            .then(function (r) { return r.json(); })
+            .then(ok)
+            .catch(function () {
+              document.getElementById("commented-empty").textContent = "Could not load thread index.";
+            });
+        });
+    }
+
     var botSel = document.getElementById("bot");
     bots.forEach(function (b) {
       var o = document.createElement("option");
@@ -308,7 +453,13 @@
           btn.setAttribute("data-term", term);
           btn.setAttribute("data-key", s.key);
           btn.setAttribute("data-year", y);
-          if (term === activeTerm) btn.className = "is-active";
+          var cls = [];
+          if (term === activeTerm) cls.push("is-active");
+          if (threadsByTerm[term] && threadsByTerm[term].comments > 0) {
+            cls.push("has-comments");
+            btn.textContent = y + " · " + threadsByTerm[term].comments;
+          }
+          if (cls.length) btn.className = cls.join(" ");
           btn.addEventListener("click", function () {
             applyFilter(s.key, y, true);
           });
@@ -407,7 +558,11 @@
 
     chartsEl.addEventListener("click", function (e) {
       var g = e.target.closest(".bar");
-      if (g) selectBar(g);
+      if (!g) return;
+      selectBar(g);
+      if (g.classList.contains("has-comments")) {
+        document.getElementById("discuss").scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     });
 
     document.getElementById("btn-copy").addEventListener("click", function () {
@@ -452,6 +607,7 @@
     } else {
       mountGiscus();
     }
+    loadThreads();
   })();
   </script>
 </body>
