@@ -52,7 +52,16 @@
       background: rgba(255,255,255,0.97); border-top: 1px solid var(--border);
       box-shadow: 0 -8px 32px rgba(7,23,38,0.08); backdrop-filter: blur(10px);
     }
-    .dock-inner { max-width: var(--shell); margin: 0 auto; padding: 14px 20px 16px; }
+    .dock.is-hidden { display: none; }
+    .dock-inner { position: relative; max-width: var(--shell); margin: 0 auto; padding: 14px 20px 16px; }
+    .dock-close {
+      position: absolute; top: 8px; right: 12px; z-index: 2;
+      width: 44px; height: 44px; border: none; border-radius: 8px;
+      background: transparent; color: var(--navy-900); cursor: pointer;
+      font-size: 28px; line-height: 1; display: none; align-items: center; justify-content: center;
+    }
+    .dock.has-selection .dock-close { display: inline-flex; }
+    .dock-close:hover { background: var(--mist-100); }
     .dock-empty { color: var(--slate-600); font-size: 14px; }
     .dock-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
     .dock-point { flex: 1 1 220px; }
@@ -108,9 +117,10 @@
     </section>
   </main>
 
-  <div class="dock" id="dock">
+  <div class="dock is-hidden" id="dock" aria-hidden="true">
     <div class="dock-inner">
-      <div class="dock-empty" id="dock-empty">Select a year on any chart to talk about that datapoint.</div>
+      <button type="button" class="dock-close" id="dock-close" aria-label="Close">×</button>
+      <div class="dock-empty" id="dock-empty" style="display:none">Select a year on any chart to talk about that datapoint.</div>
       <div id="dock-active" style="display:none">
         <div class="dock-row">
           <div class="dock-point">
@@ -245,6 +255,18 @@
       host.appendChild(s);
     }
 
+    function clearSelection() {
+      selected = null;
+      document.querySelectorAll(".bar.selected").forEach(function (n) { n.classList.remove("selected"); });
+      var dock = document.getElementById("dock");
+      dock.classList.add("is-hidden");
+      dock.classList.remove("has-selection");
+      dock.setAttribute("aria-hidden", "true");
+      document.getElementById("dock-active").style.display = "none";
+      document.getElementById("dock-empty").style.display = "none";
+      document.getElementById("prompt-box").style.display = "none";
+    }
+
     function selectBar(el) {
       document.querySelectorAll(".bar.selected").forEach(function (n) { n.classList.remove("selected"); });
       el.classList.add("selected");
@@ -255,6 +277,10 @@
         zc: +el.getAttribute("data-zc"),
         bz: +el.getAttribute("data-bz")
       };
+      var dock = document.getElementById("dock");
+      dock.classList.remove("is-hidden");
+      dock.classList.add("has-selection");
+      dock.setAttribute("aria-hidden", "false");
       document.getElementById("dock-empty").style.display = "none";
       document.getElementById("dock-active").style.display = "block";
       document.getElementById("sel-title").textContent = selected.label + " · " + selected.year;
@@ -282,6 +308,9 @@
     document.getElementById("btn-discuss").addEventListener("click", function () {
       document.getElementById("discuss").scrollIntoView({ behavior: "smooth", block: "start" });
       mountGiscus();
+    });
+    document.getElementById("dock-close").addEventListener("click", function () {
+      clearSelection();
     });
     botSel.addEventListener("change", function () {
       if (document.getElementById("prompt-box").style.display !== "none") {
