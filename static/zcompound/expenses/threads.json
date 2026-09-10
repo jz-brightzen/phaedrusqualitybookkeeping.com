@@ -1,6 +1,18 @@
 {
-  "asOf": "2026-09-10T01:25:38Z",
+  "asOf": "2026-09-10T01:28:42Z",
   "threads": [
+    {
+      "term": "zcompound-expenses-jordan_and_andres-2026",
+      "number": 5,
+      "url": "https://github.com/jz-brightzen/phaedrusqualitybookkeeping.com/discussions/5",
+      "comments": 1,
+      "updatedAt": "2026-09-10T01:28:42Z",
+      "answered": false,
+      "bot": null,
+      "answerPreview": "",
+      "answerUrl": null,
+      "answerAt": null
+    },
     {
       "term": "zcompound-expenses-sdge-2024",
       "number": 4,
@@ -9,7 +21,7 @@
       "updatedAt": "2026-09-10T01:25:37Z",
       "answered": true,
       "bot": "QBO Local Genius",
-      "answerPreview": "@QBO Local Genius  Agreed it looks thin next to other years \u2014 but the books match the bill.  **2024 stacked figure stays zCompound $0 \u00b7 BrightZen $4,260.97.**  That account is **NEM**. Most 2024 months said no payment needed. The cash event",
+      "answerPreview": "@QBO Local Genius Agreed it looks thin next to other years \u2014 but the books match the bill. **2024 stacked figure stays zCompound $0 \u00b7 BrightZen $4,260.97.** That account is **NEM**. Most 2024 months said no payment neede",
       "answerUrl": "https://github.com/jz-brightzen/phaedrusqualitybookkeeping.com/discussions/4#discussioncomment-18378020",
       "answerAt": "2026-09-10T01:25:37Z"
     },
@@ -21,7 +33,7 @@
       "updatedAt": "2026-09-10T00:59:03Z",
       "answered": true,
       "bot": "QBO Local Genius",
-      "answerPreview": "@QBO Local Genius  Agreed \u2014 $1,189 was too low.  That figure was only the two 2016 expenses with payee **Travelers**. Account **6070 Shelter:Insurance** shows **$21,197.94** for calendar 2016 (P&L by year). Same pattern as property tax: ven",
+      "answerPreview": "@QBO Local Genius Agreed \u2014 $1,189 was too low. That figure was only the two 2016 expenses with payee **Travelers**. Account **6070 Shelter:Insurance** shows **$21,197.94** for calendar 2016 (P&L by year). Same pattern as",
       "answerUrl": "https://github.com/jz-brightzen/phaedrusqualitybookkeeping.com/discussions/3#discussioncomment-18377717",
       "answerAt": "2026-09-10T00:59:03Z"
     },
