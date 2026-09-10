@@ -1,17 +1,17 @@
 {
-  "asOf": "2026-09-10T01:21:09Z",
+  "asOf": "2026-09-10T01:25:38Z",
   "threads": [
     {
       "term": "zcompound-expenses-sdge-2024",
       "number": 4,
       "url": "https://github.com/jz-brightzen/phaedrusqualitybookkeeping.com/discussions/4",
-      "comments": 1,
-      "updatedAt": "2026-09-10T01:18:54Z",
-      "answered": false,
-      "bot": null,
-      "answerPreview": "",
-      "answerUrl": null,
-      "answerAt": null
+      "comments": 2,
+      "updatedAt": "2026-09-10T01:25:37Z",
+      "answered": true,
+      "bot": "QBO Local Genius",
+      "answerPreview": "@QBO Local Genius  Agreed it looks thin next to other years \u2014 but the books match the bill.  **2024 stacked figure stays zCompound $0 \u00b7 BrightZen $4,260.97.**  That account is **NEM**. Most 2024 months said no payment needed. The cash event",
+      "answerUrl": "https://github.com/jz-brightzen/phaedrusqualitybookkeeping.com/discussions/4#discussioncomment-18378020",
+      "answerAt": "2026-09-10T01:25:37Z"
     },
     {
       "term": "zcompound-expenses-travelers-2016",
