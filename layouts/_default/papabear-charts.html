@@ -31,10 +31,11 @@
     .eyebrow { margin: 0 0 16px; color: var(--teal-300); text-transform: uppercase; letter-spacing: 0.14em; font-size: 12px; font-weight: 700; }
     .hero h1 { max-width: 860px; font-family: "Manrope", sans-serif; letter-spacing: -0.045em; font-size: clamp(34px, 4.6vw, 56px); line-height: 1.04; }
     .hero-meta { margin-top: 20px; color: rgba(255,255,255,0.62); font-size: 14px; max-width: 720px; line-height: 1.6; }
-    .page { max-width: var(--shell); margin: 0 auto; padding: 40px 20px 80px; }
+    .page { max-width: var(--shell); margin: 0 auto; padding: 40px 20px 140px; }
     .lede { color: #2c3e50; font-size: 15.5px; max-width: 720px; margin-bottom: 16px; }
-    .note { background: var(--mist-100); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; font-size: 13.5px; color: var(--slate-600); margin-bottom: 28px; max-width: 720px; }
+    .note { background: var(--mist-100); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; font-size: 13.5px; color: var(--slate-600); margin-bottom: 16px; max-width: 720px; }
     .note strong { color: var(--navy-900); }
+    .hint { font-size: 13px; color: var(--slate-600); margin-bottom: 28px; }
     .kpi { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 28px; }
     .kpi-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; min-width: 160px; }
     .kpi-card .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--slate-600); font-weight: 700; }
@@ -43,8 +44,69 @@
     .chart-block h2 { font-family: "Manrope", sans-serif; letter-spacing: -0.04em; font-size: 22px; margin: 0 0 12px; }
     .chart-frame { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 8px 8px 4px; overflow-x: auto; }
     .chart-frame svg { display: block; width: 100%; height: auto; max-width: 860px; }
+    .chart-frame .bar { cursor: pointer; }
+    .chart-frame .bar:hover rect.bar-fill { opacity: 0.85; }
+    .chart-frame .bar.selected rect.bar-fill { stroke: var(--navy-900); stroke-width: 2; }
+    .chart-frame .bar.has-comments rect.bar-fill { stroke: var(--teal-500); stroke-width: 1.5; }
     .legend { display: flex; gap: 18px; margin: 8px 0 0 8px; font-size: 12px; color: var(--slate-600); }
     .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; background: var(--pb); }
+    .discuss { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--border); }
+    .discuss h2 { font-family: "Manrope", sans-serif; font-size: 22px; margin-bottom: 8px; }
+    .discuss p { color: var(--slate-600); font-size: 14px; margin-bottom: 16px; max-width: 640px; }
+    .commented-panel { margin: 0 0 20px; padding: 14px 16px; max-width: 720px; background: #fff; border: 1px solid var(--border); border-radius: 10px; }
+    .commented-panel h3 { font-family: "Manrope", sans-serif; font-size: 15px; margin: 0 0 8px; }
+    .commented-panel .empty { font-size: 13px; color: var(--slate-600); }
+    .commented-panel .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .commented-panel button.chip {
+      display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 999px;
+      border: 1px solid var(--border); background: var(--cloud-50); font: 600 13px "DM Sans", sans-serif;
+      color: var(--navy-900); cursor: pointer;
+    }
+    .commented-panel button.chip:hover { background: var(--mist-100); }
+    .commented-panel button.chip.is-active { background: var(--teal-500); color: var(--navy-950); border-color: transparent; }
+    .commented-panel button.chip .count {
+      display: inline-flex; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 999px;
+      background: var(--teal-500); color: var(--navy-950); font-size: 11px; align-items: center; justify-content: center;
+    }
+    .commented-panel button.chip.is-active .count { background: var(--navy-950); color: var(--white); }
+    .commented-panel button.chip .answered { font-size: 11px; font-weight: 700; color: var(--teal-500); }
+    .commented-panel button.chip.is-active .answered { color: var(--navy-950); }
+    .answer-cards { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+    .answer-card {
+      border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; background: var(--cloud-50);
+      cursor: pointer; text-align: left; width: 100%; font: inherit; color: inherit;
+    }
+    .answer-card:hover { border-color: var(--teal-500); }
+    .answer-card .who { font-size: 12px; font-weight: 700; color: var(--teal-500); margin-bottom: 4px; }
+    .answer-card .about { font-size: 13px; font-weight: 600; color: var(--navy-900); margin-bottom: 6px; }
+    .answer-card .preview { font-size: 13px; color: var(--slate-600); line-height: 1.45; }
+    .dock {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+      background: rgba(255,255,255,0.97); border-top: 1px solid var(--border);
+      box-shadow: 0 -8px 32px rgba(7,23,38,0.08); backdrop-filter: blur(10px);
+    }
+    .dock.is-hidden { display: none; }
+    .dock-inner { position: relative; max-width: var(--shell); margin: 0 auto; padding: 14px 20px 16px; }
+    .dock-close {
+      position: absolute; top: 8px; right: 12px; z-index: 2; width: 44px; height: 44px; border: none; border-radius: 8px;
+      background: transparent; color: var(--navy-900); cursor: pointer; font-size: 28px; line-height: 1;
+      display: none; align-items: center; justify-content: center;
+    }
+    .dock.has-selection .dock-close { display: inline-flex; }
+    .dock-close:hover { background: var(--mist-100); }
+    .dock-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+    .dock-point { flex: 1 1 220px; }
+    .dock-point .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--slate-600); font-weight: 700; }
+    .dock-point .value { font-family: "Manrope", sans-serif; font-size: 16px; font-weight: 600; margin-top: 2px; }
+    .dock-point .detail { font-size: 13px; color: var(--slate-600); margin-top: 2px; font-variant-numeric: tabular-nums; }
+    .dock-field { flex: 0 1 200px; }
+    .dock-field label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--slate-600); font-weight: 700; margin-bottom: 4px; }
+    .dock-field select { width: 100%; height: 40px; border: 1px solid var(--border); border-radius: 8px; padding: 0 10px; font: 500 14px "DM Sans", sans-serif; background: #fff; color: var(--navy-900); }
+    .dock-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 8px; font-weight: 700; font-size: 13px; border: none; cursor: pointer; }
+    .btn-primary { background: var(--teal-500); color: var(--navy-950); }
+    .btn-ghost { background: var(--mist-100); color: var(--navy-900); }
+    .prompt-box { margin-top: 10px; font-family: "Roboto Mono", monospace; font-size: 12px; background: var(--cloud-50); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; color: #2c3e50; white-space: pre-wrap; display: none; }
     .site-footer { padding: 36px 0; text-align: center; background: var(--navy-950); color: rgba(255,255,255,0.45); font-size: 12px; }
     @media (max-width: 640px) { .header-note { display: none; } }
   </style>
@@ -67,14 +129,52 @@
 
   <main class="page">
     <p class="lede"><strong>Papabear Naturals, Inc.</strong> · Total Income by quarter. Source: QuickBooks Online. As of <strong>2026-09-09</strong>.</p>
-    <div class="note"><strong>Metric:</strong> P&amp;L line <strong>Total for Income</strong> from Quarterly Profit and Loss Summary (All Dates, columns by Quarters, Accrual).</div>
+    <div class="note"><strong>Metric:</strong> P&amp;L line <strong>Total for Income</strong> from Quarterly Profit and Loss Summary (All Dates, columns by Quarters, Accrual). Click a quarter bar to discuss that datapoint.</div>
+    <p class="hint">Click a quarter → pick a bot → copy the prompt or open the public thread below.</p>
     <div class="kpi">
       <div class="kpi-card"><div class="label">Quarters</div><div class="value" id="kpi-n">—</div></div>
       <div class="kpi-card"><div class="label">All-quarters total</div><div class="value" id="kpi-total">—</div></div>
       <div class="kpi-card"><div class="label">Peak quarter</div><div class="value" id="kpi-peak">—</div></div>
     </div>
     <div id="chart" class="chart-block"></div>
+
+    <section class="discuss" id="discuss">
+      <h2>Discuss this datapoint</h2>
+      <p>Public comments via GitHub Discussions (Giscus). One thread per quarter. Bars with a teal outline have comments — tap a bar or a chip below to open that thread.</p>
+      <div class="commented-panel" id="commented-panel">
+        <h3>Discussions</h3>
+        <div class="empty" id="commented-empty">Loading…</div>
+        <div class="chip-row" id="commented-chips" style="display:none"></div>
+        <div class="answer-cards" id="answer-cards" style="display:none"></div>
+      </div>
+      <div id="giscus-term" style="font-size:12px;color:var(--slate-600);margin-bottom:10px;font-family:Roboto Mono,monospace;"></div>
+      <div class="giscus"></div>
+    </section>
   </main>
+
+  <div class="dock is-hidden" id="dock" aria-hidden="true">
+    <div class="dock-inner">
+      <button type="button" class="dock-close" id="dock-close" aria-label="Close">×</button>
+      <div id="dock-active" style="display:none">
+        <div class="dock-row">
+          <div class="dock-point">
+            <div class="label">Selected</div>
+            <div class="value" id="sel-title">—</div>
+            <div class="detail" id="sel-detail">—</div>
+          </div>
+          <div class="dock-field">
+            <label for="bot">Talk to</label>
+            <select id="bot"></select>
+          </div>
+          <div class="dock-actions">
+            <button type="button" class="btn btn-primary" id="btn-copy">Copy prompt</button>
+            <button type="button" class="btn btn-ghost" id="btn-discuss">Open thread</button>
+          </div>
+        </div>
+        <div class="prompt-box" id="prompt-box"></div>
+      </div>
+    </div>
+  </div>
 
   <footer class="site-footer"><p>Papabear · Client · Noindex</p></footer>
 
@@ -82,9 +182,17 @@
   <script>
   (function () {
     var TEAL = "#2a9d98", NAVY = "#0b1f33", SLATE = "#526578", GRID = "#e6eef1";
+    var bots = [
+      {"id": "qbo", "name": "QuickBooks Online Local Genius", "tag": "@QBO Local Genius"},
+      {"id": "papabear-ifm", "name": "Papabear IFM Analyst", "tag": "@Papabear IFM"},
+      {"id": "web", "name": "Phaedrus Web Manager", "tag": "@Phaedrus Web Manager"},
+      {"id": "superdoer", "name": "SuperDoer Bot", "tag": "@SuperDoer"}
+    ];
     var data = JSON.parse(document.getElementById("revenue-data").textContent);
     var quarters = Object.keys(data.byQuarter).sort();
     var values = quarters.map(function (q) { return +data.byQuarter[q] || 0; });
+    var selected = null;
+    var threadsByTerm = {};
 
     function money(v) {
       if (v >= 1e6) return "$" + (v/1e6).toFixed(2).replace(/\.?0+$/, "") + "M";
@@ -92,7 +200,7 @@
       return "$" + Math.round(v);
     }
     function moneyFull(v) {
-      return "$" + Number(v).toLocaleString("en-US", {maximumFractionDigits: 0});
+      return "$" + Number(v).toLocaleString("en-US", {maximumFractionDigits: 2});
     }
 
     var total = values.reduce(function (a, b) { return a + b; }, 0);
@@ -117,12 +225,15 @@
       var x = padL + i * step + (step - barW) / 2;
       var h = (values[i] / ymax) * plotH;
       var y = padT + plotH - h;
-      parts.push('<rect x="' + x + '" y="' + y + '" width="' + barW + '" height="' + h + '" fill="' + TEAL + '" rx="2"/>');
+      parts.push('<g class="bar" data-quarter="' + q + '" data-value="' + values[i] + '">');
+      parts.push('<rect class="bar-fill" x="' + x + '" y="' + y + '" width="' + barW + '" height="' + Math.max(h, 0) + '" fill="' + TEAL + '" rx="2"/>');
+      parts.push('<rect x="' + x + '" y="' + padT + '" width="' + barW + '" height="' + plotH + '" fill="transparent"/>');
       if (values[i] > 0) {
         parts.push('<text x="' + (x+barW/2) + '" y="' + (y-6) + '" text-anchor="middle" font-size="10" fill="' + NAVY + '" font-family="DM Sans,sans-serif">' + money(values[i]) + '</text>');
       }
       var label = q.replace("2024-", "24'").replace("2025-", "25'").replace("2026-", "26'");
       parts.push('<text x="' + (x+barW/2) + '" y="' + (H-padB+18) + '" text-anchor="middle" font-size="11" fill="' + SLATE + '" font-family="DM Sans,sans-serif">' + label + '</text>');
+      parts.push('</g>');
     });
     parts.push('<line x1="' + padL + '" y1="' + (padT+plotH) + '" x2="' + (W-padR) + '" y2="' + (padT+plotH) + '" stroke="' + NAVY + '" stroke-width="1.5"/>');
     parts.push('</svg>');
@@ -130,6 +241,246 @@
     var host = document.getElementById("chart");
     host.innerHTML = "<h2>Total Income</h2><div class='chart-frame'>" + parts.join("") + "</div>" +
       "<div class='legend'><span><i></i>Papabear Naturals, Inc.</span></div>";
+
+    var botSel = document.getElementById("bot");
+    bots.forEach(function (b) {
+      var o = document.createElement("option");
+      o.value = b.id; o.textContent = b.name; botSel.appendChild(o);
+    });
+
+    function botTag() {
+      var id = botSel.value;
+      for (var i = 0; i < bots.length; i++) if (bots[i].id === id) return bots[i].tag;
+      return "@bot";
+    }
+    function termFor() {
+      if (!selected) return "papabear-charts-income";
+      return "papabear-charts-income-" + selected.quarter;
+    }
+    function promptText() {
+      if (!selected) return "";
+      return "Papabear Naturals · Total Income · " + selected.quarter + "\n" +
+        moneyFull(selected.value) + "\n" +
+        "asOf 2026-09-09 · /papabear/charts/\n" +
+        botTag() + " — please look at this datapoint.";
+    }
+
+    function mountGiscus() {
+      var ghost = document.querySelector(".giscus");
+      ghost.innerHTML = "";
+      var term = termFor();
+      document.getElementById("giscus-term").textContent = "thread: " + term;
+      var s = document.createElement("script");
+      s.src = "https://giscus.app/client.js";
+      s.setAttribute("data-repo", "jz-brightzen/phaedrusqualitybookkeeping.com");
+      s.setAttribute("data-repo-id", "R_kgDOSJNXBg");
+      s.setAttribute("data-category", "General");
+      s.setAttribute("data-category-id", "DIC_kwDOSJNXBs4DFQyE");
+      s.setAttribute("data-mapping", "specific");
+      s.setAttribute("data-term", term);
+      s.setAttribute("data-strict", "0");
+      s.setAttribute("data-reactions-enabled", "1");
+      s.setAttribute("data-emit-metadata", "0");
+      s.setAttribute("data-input-position", "top");
+      s.setAttribute("data-theme", "light");
+      s.setAttribute("data-lang", "en");
+      s.setAttribute("data-loading", "lazy");
+      s.crossOrigin = "anonymous";
+      s.async = true;
+      ghost.appendChild(s);
+    }
+
+    function clearSelection() {
+      selected = null;
+      document.querySelectorAll(".bar.selected").forEach(function (n) { n.classList.remove("selected"); });
+      var dock = document.getElementById("dock");
+      dock.classList.add("is-hidden");
+      dock.classList.remove("has-selection");
+      dock.setAttribute("aria-hidden", "true");
+      document.getElementById("dock-active").style.display = "none";
+      document.getElementById("prompt-box").style.display = "none";
+    }
+
+    function selectBar(el) {
+      document.querySelectorAll(".bar.selected").forEach(function (n) { n.classList.remove("selected"); });
+      el.classList.add("selected");
+      selected = {
+        quarter: el.getAttribute("data-quarter"),
+        value: +el.getAttribute("data-value")
+      };
+      var dock = document.getElementById("dock");
+      dock.classList.remove("is-hidden");
+      dock.classList.add("has-selection");
+      dock.setAttribute("aria-hidden", "false");
+      document.getElementById("dock-active").style.display = "block";
+      document.getElementById("sel-title").textContent = "Total Income · " + selected.quarter;
+      document.getElementById("sel-detail").textContent = moneyFull(selected.value);
+      document.getElementById("prompt-box").style.display = "none";
+      mountGiscus();
+      renderCommentedChips();
+      threadQuery(termFor());
+    }
+
+    function openThread(quarter, scrollDiscuss) {
+      var bar = document.querySelector('.bar[data-quarter="' + quarter + '"]');
+      if (bar) selectBar(bar);
+      else {
+        selected = { quarter: quarter, value: +data.byQuarter[quarter] || 0 };
+        mountGiscus();
+        renderCommentedChips();
+        threadQuery(termFor());
+      }
+      if (scrollDiscuss) {
+        document.getElementById("chart").scrollIntoView({ behavior: "smooth", block: "center" });
+        setTimeout(function () {
+          document.getElementById("discuss").scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 280);
+      }
+    }
+
+    function threadQuery(term) {
+      try {
+        var u = new URL(window.location.href);
+        if (term) u.searchParams.set("thread", term);
+        else u.searchParams.delete("thread");
+        u.hash = "discuss";
+        history.replaceState(null, "", u.pathname + u.search + u.hash);
+      } catch (e) {}
+    }
+
+    function parseTerm(term) {
+      var m = /^papabear-charts-income-(.+)$/.exec(term || "");
+      return m ? { quarter: m[1] } : null;
+    }
+
+    function markCommentedBars() {
+      document.querySelectorAll(".bar.has-comments").forEach(function (n) { n.classList.remove("has-comments"); });
+      Object.keys(threadsByTerm).forEach(function (term) {
+        var th = threadsByTerm[term];
+        if (!th || !th.comments) return;
+        var p = parseTerm(term);
+        if (!p) return;
+        var bar = document.querySelector('.bar[data-quarter="' + p.quarter + '"]');
+        if (bar) bar.classList.add("has-comments");
+      });
+    }
+
+    function renderCommentedChips() {
+      var empty = document.getElementById("commented-empty");
+      var row = document.getElementById("commented-chips");
+      var cards = document.getElementById("answer-cards");
+      var list = Object.keys(threadsByTerm).map(function (k) { return threadsByTerm[k]; })
+        .filter(function (th) { return th && th.comments > 0; })
+        .sort(function (a, b) { return (b.updatedAt || "").localeCompare(a.updatedAt || ""); });
+      row.innerHTML = "";
+      cards.innerHTML = "";
+      if (!list.length) {
+        empty.style.display = "block";
+        empty.textContent = "No public comments yet. Click a quarter bar to start a thread.";
+        row.style.display = "none";
+        cards.style.display = "none";
+        return;
+      }
+      empty.style.display = "none";
+      row.style.display = "flex";
+      list.forEach(function (th) {
+        var p = parseTerm(th.term);
+        var label = th.term;
+        if (p) label = "Total Income · " + p.quarter;
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "chip";
+        var html = label + ' <span class="count">' + th.comments + "</span>";
+        if (th.answered) html += ' <span class="answered">answered</span>';
+        btn.innerHTML = html;
+        if (selected && p && selected.quarter === p.quarter) btn.classList.add("is-active");
+        btn.addEventListener("click", function () {
+          if (!p) return;
+          openThread(p.quarter, true);
+        });
+        row.appendChild(btn);
+      });
+      var answered = list.filter(function (th) { return th.answered; });
+      if (!answered.length) { cards.style.display = "none"; return; }
+      cards.style.display = "flex";
+      answered.forEach(function (th) {
+        var p = parseTerm(th.term);
+        var about = p ? ("Total Income · " + p.quarter) : th.term;
+        var card = document.createElement("button");
+        card.type = "button";
+        card.className = "answer-card";
+        var who = th.bot ? ("@" + th.bot) : "@bot";
+        var preview = th.answerPreview || "";
+        preview = preview.replace(/^@[^\n]+\s*/i, "");
+        if (preview.length > 200) preview = preview.slice(0, 200).replace(/\s+\S*$/, "") + "…";
+        card.innerHTML = '<div class="who">' + who + '</div><div class="about">' + about + '</div><div class="preview">' + preview + '</div>';
+        card.addEventListener("click", function () {
+          if (!p) return;
+          openThread(p.quarter, true);
+        });
+        cards.appendChild(card);
+      });
+    }
+
+    function ingestThreads(payload) {
+      threadsByTerm = {};
+      (payload.threads || []).forEach(function (th) {
+        if (th && th.term) threadsByTerm[th.term] = th;
+      });
+      markCommentedBars();
+      renderCommentedChips();
+    }
+
+    function loadThreads() {
+      fetch("/papabear/charts/threads.json")
+        .then(function (r) { return r.json(); })
+        .then(ingestThreads)
+        .catch(function () {
+          document.getElementById("commented-empty").textContent = "No public comments yet. Click a quarter bar to start a thread.";
+        });
+    }
+
+    host.addEventListener("click", function (e) {
+      var g = e.target.closest(".bar");
+      if (!g) return;
+      selectBar(g);
+      if (g.classList.contains("has-comments")) {
+        document.getElementById("discuss").scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+
+    document.getElementById("btn-copy").addEventListener("click", function () {
+      var t = promptText();
+      var box = document.getElementById("prompt-box");
+      box.textContent = t; box.style.display = "block";
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(t).then(function () {
+          document.getElementById("btn-copy").textContent = "Copied";
+          setTimeout(function () { document.getElementById("btn-copy").textContent = "Copy prompt"; }, 1200);
+        });
+      }
+    });
+    document.getElementById("btn-discuss").addEventListener("click", function () {
+      document.getElementById("discuss").scrollIntoView({ behavior: "smooth", block: "start" });
+      mountGiscus();
+    });
+    document.getElementById("dock-close").addEventListener("click", clearSelection);
+    botSel.addEventListener("change", function () {
+      if (document.getElementById("prompt-box").style.display !== "none") {
+        document.getElementById("prompt-box").textContent = promptText();
+      }
+    });
+
+    function applyThreadFromUrl() {
+      var term = null;
+      try { term = new URL(window.location.href).searchParams.get("thread"); } catch (e) {}
+      var p = parseTerm(term);
+      if (p) { openThread(p.quarter, true); return true; }
+      return false;
+    }
+
+    if (!applyThreadFromUrl()) mountGiscus();
+    loadThreads();
   })();
   </script>
 </body>
