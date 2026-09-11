@@ -4,45 +4,28 @@ layout: "phaedrus-report"
 url: "/phaedrus/wa-tax/ten-ctas/"
 date: 2026-09-10
 draft: false
-summary: "Ten site CTAs for tax.weeklyaccounting.com from Design Bot desk. Price-mention variants stay ASK / not for live."
+summary: "CTAs under messaging lock — primary waitlist; price is $100/month."
 eyebrow: "WA Tax · Design"
-heroTitle: "10 CTAs"
-heroMeta: "**Summary.** From desk `design/TEN-CTAS.md` · 2026-09-10 PT · noindex. Price-mention variants not for live until SKU lock."
+heroTitle: "CTAs"
+heroMeta: "**Messaging lock.** Primary: Join the January waitlist. Price line: $100/month."
 ---
 
-## The ten (site-oriented)
+## Primary
 
-| # | CTA label | Type | Where |
-|---|-----------|------|-------|
-| 1 | **Join the January waitlist** | Primary | Home hero, nav, waitlist page, FAQ footer |
-| 2 | **Hold your January spot — no charge to reserve** | Primary | Waitlist page header / confirmation lead-in |
-| 3 | **I’m already on Weekly Accounting — add me** | Primary (existing WA) | Who it’s for · Home segment · post-report email |
-| 4 | **Tell Matt you want tax** | Secondary | Inbound / sales path |
-| 5 | **See how books → Zuni → CPA works** | Secondary | Home teaser · How it works |
-| 6 | **Get the books-quality check first** | Secondary | How it works · CFO soft link |
-| 7 | **Request the senior CPA path** | Secondary | Trust & team · supported/complex |
-| 8 | **Confirm states & complexity** | Secondary | Waitlist form step |
-| 9 | **Need weekly books or a fractional CFO?** | Secondary (upsell) | Home cross-sell · footer → weeklyaccounting.com |
-| 10 | **Add tax to my next WA proposal** | Secondary | For CFOs · proposal motion |
+1. **Join the January waitlist**  
+2. **$100 / month — tax questions, ask us** (price line on home / waitlist)
 
-## Mix for implementers
+## Supporting (keep short)
 
-- **Primary (peach pill):** #1 everywhere; #2 on waitlist; #3 when known existing WA.  
-- **Secondary (green outline / text):** #5–#8 on educate/trust; #9 softer than waitlist; #10 CFO-only.  
-- One primary peach CTA per viewport on mobile.
+3. I’m already on Weekly Accounting — add me  
+4. Need weekly books or a fractional CFO? → weeklyaccounting.com  
 
-## Pricing-mention variants — ASK / not for live
+## Retired from prospect surface
 
-Directional price language stays **off** the live tax site until John locks SKUs and resolves open cadence questions. Do not ship locked dollar buttons from internal signals.
+Ops CTAs that explain Zuni / books-gate theater / wholesale — keep on desk only, not on staging.
 
 ## Explicit non-CTAs
 
-- Never wholesale AI cost as a pitch  
-- Never invent January headcount/capacity  
-- Never publish private contact asks without John’s yes  
-- Never “CPAs: Zero” energy on this property  
-- Never homepage promise of multi-year return volume (internal ambition only)
-
-## Source
-
-Desk: `/workspace/desk/wa-tax/design/TEN-CTAS.md`.
+- Never wholesale AI cost  
+- Never invent capacity scarcity  
+- Never anti-CPA swagger  
