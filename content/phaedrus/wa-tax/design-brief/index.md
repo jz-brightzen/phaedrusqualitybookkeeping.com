@@ -12,11 +12,14 @@ heroMeta: "**Messaging lock (John 2026-09-10 PT).** Staging updated. Noindex."
 
 ## Prospect messaging lock
 
-Prospects see **only** these three lines:
+Prospects see **only** these three lines (John, verbatim):
 
-1. **CFO** is responsible for the **quality of the books**.
-2. **CPA** is responsible for **filing taxes**.
-3. **$100 / month** — tax questions → **ask us**.
+1. Your CFO is responsible for the quality of your books.
+2. Your CPA is responsible for filing your taxes.
+3. $100 per month. If you have a tax question, ask us.
+
+**Primary CTA:** Start at $100/month (Join the January waitlist secondary).
+
 
 ## Strip from prospect pages
 
