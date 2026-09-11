@@ -4,60 +4,27 @@ layout: "phaedrus-report"
 url: "/phaedrus/wa-tax/design-considerations/"
 date: 2026-09-10
 draft: false
-summary: "Public-safe design considerations for tax.weeklyaccounting.com from Design Bot desk."
+summary: "Considerations under John’s prospect messaging lock."
 eyebrow: "WA Tax · Design"
 heroTitle: "Design considerations"
-heroMeta: "**Summary.** From desk `design/DESIGN-CONSIDERATIONS.md` · 2026-09-10 PT · noindex."
+heroMeta: "**Updated for messaging lock.** Noindex."
 ---
 
-## Brand sisterhood
+## Lock (overrides earlier ops-heavy IA for prospects)
 
-Same visual family as weeklyaccounting.com (Golos, greens, peach, cream). Tax site is a **sister**, not a dark clone and not BrightZen.
+Prospect pages = three responsibilities only:
 
-Different job → different tone: raise licensed trust; **do not** copy anti-CPA swagger (“CPAs: Zero”).
+1. CFO → quality of books  
+2. CPA → filing taxes  
+3. $100/month; tax questions → ask us  
 
-## Trust / compliance cues (without inventing licenses)
+## Still true for implementers
 
-**Raise:** Senior CPA in the loop; separate insured entity; January waitlist framing; books-quality gate before tax AI.
+- Sister light/warm visual (Golos, greens, peach) — not BrightZen-dark  
+- January waitlist as conversion  
+- Soft link to weeklyaccounting.com for CFO/books  
+- Staging **noindex** until John opens the domain  
 
-**Do not invent:** Carrier names, coverage limits, partnership titles, “licensed in all 50 states” seals, or Will’s employment terms before the deal.
+## Do not put on prospect pages
 
-## Waitlist-first IA
-
-Primary conversion = **Join the January waitlist**, not instant buy.
-
-- Home: waitlist CTA above the fold  
-- Confirmation draft: no charge to hold the spot (deposit / WA priority still **ASK**)  
-- No dark-pattern urgency or invented scarcity  
-
-## Mobile
-
-Mobile-first; peach pill CTAs full-width; single-column waitlist form; vertical steps; one primary CTA per viewport. Cross-sell to parent quieter than waitlist.
-
-## CFO upsell → weeklyaccounting.com
-
-Soft card/footer only. Tax site stays shorter and waitlist-first — not a clone of parent nav.
-
-## SEO + staging
-
-Host: tax.weeklyaccounting.com. This PQB section stays **noindex**. Careful claims; no locked SKUs; no overclaim on Will.
-
-## Accessibility
-
-Plain language. High contrast: deep green on cream/white; peach buttons with dark text. Focus states on pills and accordion. No color-only meaning.
-
-## What NOT to put on the site
-
-| Never | Why |
-|-------|-----|
-| Wholesale AI unit cost | Internal only |
-| Unconfirmed SKUs as locked prices | Cadence and packages still ASK |
-| Overclaiming Will’s role / private contact asks | John’s yes required |
-| “CPAs: Zero” / anti-CPA swagger | Wrong trust job |
-| ~1,000 returns / 3 years as homepage promise | Internal ambition only |
-| Invented testimonials or fake license seals | No proof until ASK |
-| BrightZen-dark theme | Sister to WA light/warm |
-
-## Source
-
-Desk: `/workspace/desk/wa-tax/design/DESIGN-CONSIDERATIONS.md` (+ wire notes on desk, not republished wholesale here).
+Zuni steps, wholesale cost, entity structure, invented testimonials, anti-CPA swagger.
