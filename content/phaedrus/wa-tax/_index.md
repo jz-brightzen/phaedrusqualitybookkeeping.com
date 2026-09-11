@@ -14,7 +14,29 @@ heroLede: "Sister site design pack summaries. Light/warm like weeklyaccounting.c
 <div class="page-rows">
 
   <a class="page-row" href="/phaedrus/wa-tax/design-brief/">
-    <div class="row-icon">✏️</div>
+    <div class="row-icon">✏️
+  <a class="page-row" href="/phaedrus/wa-tax/wire-notes/">
+    <div class="row-icon">📐</div>
+    <div class="row-main">
+      <div class="row-title">Wire notes</div>
+      <p class="row-desc">Text wireframes for home, how it works, waitlist form, trust, FAQ. From Design Bot desk.</p>
+      <div class="row-improve">
+        <div class="improve-label">Improve next</div>
+        <ul>
+          <li>Refresh when TAX-SITE-WIRE-NOTES.md changes</li>
+          <li>Keep price FAQ as ASK — no locked dollars on PQB</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row-activity">
+      <div class="activity-label">Recent</div>
+      <ul>
+        <li><span class="act-date">09/10</span> Added from design/TAX-SITE-WIRE-NOTES.md</li>
+      </ul>
+    </div>
+  </a>
+
+</div>
     <div class="row-main">
       <div class="row-title">Design brief</div>
       <p class="row-desc">Sister brand, visual tokens, waitlist-first IA, trust cues. Summarized from Design Bot desk brief.</p>
