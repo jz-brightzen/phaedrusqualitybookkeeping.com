@@ -4,54 +4,32 @@ layout: "phaedrus-index"
 url: "/phaedrus/wa-tax/"
 date: 2026-09-10
 draft: false
-summary: "Design for tax.weeklyaccounting.com — brief, considerations, and 10 CTAs. Desk-driven from Design Bot + WA Tax."
+summary: "tax.weeklyaccounting.com design — messaging lock: CFO books, CPA files, $100/mo ask us."
 headerNote: "WA Tax"
 eyebrow: "WA Tax · Design"
 heroTitle: "tax.weeklyaccounting.com"
-heroLede: "Sister site design pack summaries. Light/warm like weeklyaccounting.com. Waitlist-first. Noindex."
+heroLede: "Prospect lock: CFO owns book quality. CPA files taxes. $100/month — ask us. Staging simplified."
 ---
 
 <div class="page-rows">
 
   <a class="page-row" href="/phaedrus/wa-tax/design-brief/">
-    <div class="row-icon">✏️
-  <a class="page-row" href="/phaedrus/wa-tax/wire-notes/">
-    <div class="row-icon">📐</div>
-    <div class="row-main">
-      <div class="row-title">Wire notes</div>
-      <p class="row-desc">Text wireframes for home, how it works, waitlist form, trust, FAQ. From Design Bot desk.</p>
-      <div class="row-improve">
-        <div class="improve-label">Improve next</div>
-        <ul>
-          <li>Refresh when TAX-SITE-WIRE-NOTES.md changes</li>
-          <li>Keep price FAQ as ASK — no locked dollars on PQB</li>
-        </ul>
-      </div>
-    </div>
-    <div class="row-activity">
-      <div class="activity-label">Recent</div>
-      <ul>
-        <li><span class="act-date">09/10</span> Added from design/TAX-SITE-WIRE-NOTES.md</li>
-      </ul>
-    </div>
-  </a>
-
-</div>
+    <div class="row-icon">✏️</div>
     <div class="row-main">
       <div class="row-title">Design brief</div>
-      <p class="row-desc">Sister brand, visual tokens, waitlist-first IA, trust cues. Summarized from Design Bot desk brief.</p>
+      <p class="row-desc">John messaging lock — three prospect lines. Ops how-it-works stripped from staging.</p>
       <div class="row-improve">
         <div class="improve-label">Improve next</div>
         <ul>
-          <li>Refresh when TAX-SITE-BRIEF.md changes on desk</li>
-          <li>Keep pricing ASK — no locked SKUs on this page</li>
+          <li>DNS for tax.weeklyaccounting.com when John is ready</li>
+          <li>Wire waitlist form to CRM</li>
         </ul>
       </div>
     </div>
     <div class="row-activity">
       <div class="activity-label">Recent</div>
       <ul>
-        <li><span class="act-date">09/10</span> Filled from design/TAX-SITE-BRIEF.md (public-safe summary)</li>
+        <li><span class="act-date">09/10</span> Messaging lock applied; staging simplified</li>
       </ul>
     </div>
   </a>
@@ -60,19 +38,19 @@ heroLede: "Sister site design pack summaries. Light/warm like weeklyaccounting.c
     <div class="row-icon">🧭</div>
     <div class="row-main">
       <div class="row-title">Design considerations</div>
-      <p class="row-desc">Trust, waitlist, mobile, CFO upsell, what never goes on the site. From Design Bot considerations.</p>
+      <p class="row-desc">Lock overrides ops-heavy IA for prospects. Visual sister + waitlist still stand.</p>
       <div class="row-improve">
         <div class="improve-label">Improve next</div>
         <ul>
-          <li>Pull wire-note excerpts only if John wants them public on PQB</li>
-          <li>Keep FACT vs ASK labels honest</li>
+          <li>Keep desk pack for internal depth</li>
+          <li>Prospect surface stays three lines</li>
         </ul>
       </div>
     </div>
     <div class="row-activity">
       <div class="activity-label">Recent</div>
       <ul>
-        <li><span class="act-date">09/10</span> Filled from design/DESIGN-CONSIDERATIONS.md</li>
+        <li><span class="act-date">09/10</span> Updated for messaging lock</li>
       </ul>
     </div>
   </a>
@@ -80,20 +58,41 @@ heroLede: "Sister site design pack summaries. Light/warm like weeklyaccounting.c
   <a class="page-row" href="/phaedrus/wa-tax/ten-ctas/">
     <div class="row-icon">🔟</div>
     <div class="row-main">
-      <div class="row-title">10 CTAs</div>
-      <p class="row-desc">Ten site CTAs — primary Join the January waitlist. Price-mention variants stay ASK / not for live.</p>
+      <div class="row-title">CTAs</div>
+      <p class="row-desc">Primary waitlist + $100/month ask-us. Ops CTAs retired from prospect surface.</p>
       <div class="row-improve">
         <div class="improve-label">Improve next</div>
         <ul>
-          <li>Ship price-mention variants only after John locks SKUs</li>
-          <li>Refresh labels if TEN-CTAS.md updates</li>
+          <li>Keep CTA set short</li>
+          <li>No wholesale cost CTAs</li>
         </ul>
       </div>
     </div>
     <div class="row-activity">
       <div class="activity-label">Recent</div>
       <ul>
-        <li><span class="act-date">09/10</span> Filled from design/TEN-CTAS.md</li>
+        <li><span class="act-date">09/10</span> Locked to waitlist + $100/mo</li>
+      </ul>
+    </div>
+  </a>
+
+  <a class="page-row" href="/phaedrus/wa-tax/wire-notes/">
+    <div class="row-icon">📐</div>
+    <div class="row-main">
+      <div class="row-title">Wire notes</div>
+      <p class="row-desc">Three pillars + waitlist form. No Zuni steps on prospect wires.</p>
+      <div class="row-improve">
+        <div class="improve-label">Improve next</div>
+        <ul>
+          <li>Match staging HTML</li>
+          <li>CRM form ASK</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row-activity">
+      <div class="activity-label">Recent</div>
+      <ul>
+        <li><span class="act-date">09/10</span> Simplified under messaging lock</li>
       </ul>
     </div>
   </a>
