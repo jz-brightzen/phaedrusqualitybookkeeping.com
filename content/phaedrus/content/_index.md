@@ -11,6 +11,28 @@ heroLede: "Longer-form work product — series plans, chapter drafts, and manusc
 
 <div class="page-rows">
 
+  <a class="page-row" href="/phaedrus/wa-tax/">
+    <div class="row-icon">🧾</div>
+    <div class="row-main">
+      <div class="row-title">WA Tax · Design</div>
+      <p class="row-desc">Design for tax.weeklyaccounting.com — brief, considerations, and 10 CTAs. Desk-driven from Design Bot + WA Tax.</p>
+      <div class="row-improve">
+        <div class="improve-label">Improve next</div>
+        <ul>
+          <li>Fill pages when desk/wa-tax/design/ and TEN-CTAS.md appear</li>
+          <li>Keep FACT only from Design Bot / WA Tax files</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row-activity">
+      <div class="activity-label">Recent</div>
+      <ul>
+        <li><span class="act-date">09/10</span> Section scaffolded at /phaedrus/wa-tax/</li>
+      </ul>
+    </div>
+  </a>
+
+
   <a class="page-row" href="/phaedrus/content/vision/">
     <div class="row-icon">🧭</div>
     <div class="row-main">
