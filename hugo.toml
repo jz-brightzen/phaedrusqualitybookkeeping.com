@@ -20,7 +20,7 @@ buildExpired = false
       unsafe = true
 
 [params]
-  env = "production"
+  env = "private"  # was production; private => PaperMod noindex sitewide
   title = "Phaedrus Quality Bookkeeping"
   description = "The bookkeeping industry invested billions in speed. We invested in Quality."
   author = "Phaedrus"
