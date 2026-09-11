@@ -119,3 +119,8 @@ Named for the philosopher who lost his mind chasing Quality. Built by the people
 
 [frontmatter]
   lastmod = ["lastmod", ":fileModTime"]
+
+# Sitewide noindex (PaperMod: robotsNoIndex beats IsProduction)
+[[cascade]]
+  [cascade.params]
+    robotsNoIndex = true
