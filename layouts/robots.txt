@@ -1,9 +1,2 @@
 User-agent: *
-Disallow: /phaedrus/
-Disallow: /grok/
-Disallow: /family/
-Disallow: /companies/
-Disallow: /zcompound/
-Disallow: /papabear/
-Allow: /
-Sitemap: https://phaedrusqualitybookkeeping.com/sitemap.xml
+Disallow: /
