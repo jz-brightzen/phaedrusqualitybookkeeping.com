@@ -8,7 +8,7 @@ summary: "Design for tax.weeklyaccounting.com — brief, considerations, and 10 
 headerNote: "WA Tax"
 eyebrow: "WA Tax · Design"
 heroTitle: "tax.weeklyaccounting.com"
-heroLede: "Design work for Weekly Accounting Tax. Pages fill when Design Bot and WA Tax drop files under the desk. Noindex."
+heroLede: "Sister site design pack summaries. Light/warm like weeklyaccounting.com. Waitlist-first. Noindex."
 ---
 
 <div class="page-rows">
@@ -17,19 +17,19 @@ heroLede: "Design work for Weekly Accounting Tax. Pages fill when Design Bot and
     <div class="row-icon">✏️</div>
     <div class="row-main">
       <div class="row-title">Design brief</div>
-      <p class="row-desc">Brief for tax.weeklyaccounting.com — what the site must do, who it is for, constraints from weeklyaccounting.com.</p>
+      <p class="row-desc">Sister brand, visual tokens, waitlist-first IA, trust cues. Summarized from Design Bot desk brief.</p>
       <div class="row-improve">
         <div class="improve-label">Improve next</div>
         <ul>
-          <li>Replace stub when Design Bot drops the brief under desk/wa-tax/design/</li>
-          <li>Link any brand refs Design Bot studies from weeklyaccounting.com</li>
+          <li>Refresh when TAX-SITE-BRIEF.md changes on desk</li>
+          <li>Keep pricing ASK — no locked SKUs on this page</li>
         </ul>
       </div>
     </div>
     <div class="row-activity">
       <div class="activity-label">Recent</div>
       <ul>
-        <li><span class="act-date">09/10</span> Scaffold stub — waiting on desk design brief</li>
+        <li><span class="act-date">09/10</span> Filled from design/TAX-SITE-BRIEF.md (public-safe summary)</li>
       </ul>
     </div>
   </a>
@@ -38,19 +38,19 @@ heroLede: "Design work for Weekly Accounting Tax. Pages fill when Design Bot and
     <div class="row-icon">🧭</div>
     <div class="row-main">
       <div class="row-title">Design considerations</div>
-      <p class="row-desc">Open design choices, tradeoffs, and notes for the tax site — not the brief itself.</p>
+      <p class="row-desc">Trust, waitlist, mobile, CFO upsell, what never goes on the site. From Design Bot considerations.</p>
       <div class="row-improve">
         <div class="improve-label">Improve next</div>
         <ul>
-          <li>Publish when Design Bot / WA Tax drop considerations on the desk</li>
-          <li>Keep FACT only — no invented brand rules</li>
+          <li>Pull wire-note excerpts only if John wants them public on PQB</li>
+          <li>Keep FACT vs ASK labels honest</li>
         </ul>
       </div>
     </div>
     <div class="row-activity">
       <div class="activity-label">Recent</div>
       <ul>
-        <li><span class="act-date">09/10</span> Scaffold stub — waiting on desk file</li>
+        <li><span class="act-date">09/10</span> Filled from design/DESIGN-CONSIDERATIONS.md</li>
       </ul>
     </div>
   </a>
@@ -59,19 +59,19 @@ heroLede: "Design work for Weekly Accounting Tax. Pages fill when Design Bot and
     <div class="row-icon">🔟</div>
     <div class="row-main">
       <div class="row-title">10 CTAs</div>
-      <p class="row-desc">Ten calls-to-action for tax.weeklyaccounting.com — from TEN-CTAS.md / Word sections when they land on the desk.</p>
+      <p class="row-desc">Ten site CTAs — primary Join the January waitlist. Price-mention variants stay ASK / not for live.</p>
       <div class="row-improve">
         <div class="improve-label">Improve next</div>
         <ul>
-          <li>Ship from desk TEN-CTAS.md when Design Bot or WA Tax drops it</li>
-          <li>Keep each CTA one clear ask — no inventing copy</li>
+          <li>Ship price-mention variants only after John locks SKUs</li>
+          <li>Refresh labels if TEN-CTAS.md updates</li>
         </ul>
       </div>
     </div>
     <div class="row-activity">
       <div class="activity-label">Recent</div>
       <ul>
-        <li><span class="act-date">09/10</span> Scaffold stub — waiting on TEN-CTAS.md</li>
+        <li><span class="act-date">09/10</span> Filled from design/TEN-CTAS.md</li>
       </ul>
     </div>
   </a>
