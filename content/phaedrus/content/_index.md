@@ -19,7 +19,7 @@ heroLede: "Longer-form work product — series plans, chapter drafts, and manusc
       <div class="row-improve">
         <div class="improve-label">Improve next</div>
         <ul>
-          <li>Fill pages when desk/wa-tax/design/ and TEN-CTAS.md appear</li>
+          <li>Refresh when Design Bot updates desk design/*</li>
           <li>Keep FACT only from Design Bot / WA Tax files</li>
         </ul>
       </div>
@@ -27,7 +27,7 @@ heroLede: "Longer-form work product — series plans, chapter drafts, and manusc
     <div class="row-activity">
       <div class="activity-label">Recent</div>
       <ul>
-        <li><span class="act-date">09/10</span> Section scaffolded at /phaedrus/wa-tax/</li>
+        <li><span class="act-date">09/10</span> Design pack summaries filled from desk</li>
       </ul>
     </div>
   </a>
