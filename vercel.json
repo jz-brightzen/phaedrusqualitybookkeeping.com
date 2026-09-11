@@ -1,6 +1,6 @@
 {
   "framework": "hugo",
-  "buildCommand": "hugo --gc --minify",
+  "buildCommand": "HUGO_ENVIRONMENT=development hugo --gc --minify",
   "outputDirectory": "public",
   "cleanUrls": true,
   "redirects": [
