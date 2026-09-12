@@ -17,7 +17,7 @@ heroLede: "Value prop: Estimate your tax liability every week. Supporting: CFO b
     <div class="row-icon">✏️</div>
     <div class="row-main">
       <div class="row-title">Design brief</div>
-      <p class="row-desc">Lead: weekly tax liability estimate. Supporting roles + $100/mo on staging.</p>
+      <p class="row-desc">H1 + three exact supporting lines under it. CTA Start at $100/month.</p>
       <div class="row-improve">
         <div class="improve-label">Improve next</div>
         <ul>
@@ -29,7 +29,7 @@ heroLede: "Value prop: Estimate your tax liability every week. Supporting: CFO b
     <div class="row-activity">
       <div class="activity-label">Recent</div>
       <ul>
-        <li><span class="act-date">09/10</span> Value prop: estimate tax liability every week</li>
+        <li><span class="act-date">09/10</span> Exact H1 + three supporting lines on staging</li>
       </ul>
     </div>
   </a>
