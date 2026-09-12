@@ -4,11 +4,11 @@ layout: "phaedrus-index"
 url: "/phaedrus/wa-tax/"
 date: 2026-09-10
 draft: false
-summary: "tax.weeklyaccounting.com design — messaging lock: CFO books, CPA files, $100/mo ask us."
+summary: "tax.weeklyaccounting.com design — value prop: estimate tax liability every week."
 headerNote: "WA Tax"
 eyebrow: "WA Tax · Design"
 heroTitle: "tax.weeklyaccounting.com"
-heroLede: "Prospect lock: CFO owns book quality. CPA files taxes. $100/month — ask us. Staging simplified."
+heroLede: "Value prop: Estimate your tax liability every week. Supporting: CFO books, CPA files, $100/mo."
 ---
 
 <div class="page-rows">
@@ -17,7 +17,7 @@ heroLede: "Prospect lock: CFO owns book quality. CPA files taxes. $100/month —
     <div class="row-icon">✏️</div>
     <div class="row-main">
       <div class="row-title">Design brief</div>
-      <p class="row-desc">John messaging lock — three prospect lines. Ops how-it-works stripped from staging.</p>
+      <p class="row-desc">Lead: weekly tax liability estimate. Supporting roles + $100/mo on staging.</p>
       <div class="row-improve">
         <div class="improve-label">Improve next</div>
         <ul>
@@ -29,7 +29,7 @@ heroLede: "Prospect lock: CFO owns book quality. CPA files taxes. $100/month —
     <div class="row-activity">
       <div class="activity-label">Recent</div>
       <ul>
-        <li><span class="act-date">09/10</span> Messaging lock applied; staging simplified</li>
+        <li><span class="act-date">09/10</span> Value prop: estimate tax liability every week</li>
       </ul>
     </div>
   </a>
