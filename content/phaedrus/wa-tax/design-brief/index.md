@@ -4,23 +4,23 @@ layout: "phaedrus-report"
 url: "/phaedrus/wa-tax/design-brief/"
 date: 2026-09-11
 draft: false
-summary: "Value prop: Estimate your tax liability every week. Supporting: CFO books, CPA files, $100/mo."
+summary: "H1: Estimate your tax liability every week. Three supporting lines under H1. CTA Start at $100/month."
 eyebrow: "WA Tax · Design"
 heroTitle: "Design brief"
-heroMeta: "**Value prop lock (John 2026-09-11 PT).** Staging updated. Noindex."
+heroMeta: "**Value prop + supporting lines (John / Design Bot 2026-09-11 PT).** Staging. Noindex."
 ---
 
-## Value prop (lead with this)
+## Hero (exact)
 
-**Estimate your tax liability every week.**
+**H1:** Estimate your tax liability every week.
 
-That is the headline promise on staging.
+**Supporting under H1 (exact, not the headline):**
 
-## Supporting (not the lead)
+1. Your CFO is responsible for the quality of your books.
+2. Your CPA is responsible for filing your taxes.
+3. $100 per month. If you have a tax question, ask us.
 
-- CFO owns quality of the books (feeds the estimate)
-- CPA files the taxes
-- $100/month — tax questions, ask us
+**Primary CTA:** Start at $100/month
 
 ## Staging
 
@@ -28,7 +28,7 @@ https://tax-weeklyaccounting-com.vercel.app
 
 ## Do not put on prospect pages
 
-Zuni / wholesale AI cost / entity ops theater.
+Zuni / $35 wholesale / entity / Will.
 
 ## Soft upsell
 
