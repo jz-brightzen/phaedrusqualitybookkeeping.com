@@ -2,39 +2,34 @@
 title: "Design brief — tax.weeklyaccounting.com"
 layout: "phaedrus-report"
 url: "/phaedrus/wa-tax/design-brief/"
-date: 2026-09-10
+date: 2026-09-11
 draft: false
-summary: "John messaging lock for tax.weeklyaccounting.com prospect pages."
+summary: "Value prop: Estimate your tax liability every week. Supporting: CFO books, CPA files, $100/mo."
 eyebrow: "WA Tax · Design"
 heroTitle: "Design brief"
-heroMeta: "**Messaging lock (John 2026-09-10 PT).** Staging updated. Noindex."
+heroMeta: "**Value prop lock (John 2026-09-11 PT).** Staging updated. Noindex."
 ---
 
-## Prospect messaging lock
+## Value prop (lead with this)
 
-Prospects see **only** these three lines (John, verbatim):
+**Estimate your tax liability every week.**
 
-1. Your CFO is responsible for the quality of your books.
-2. Your CPA is responsible for filing your taxes.
-3. $100 per month. If you have a tax question, ask us.
+That is the headline promise on staging.
 
-**Primary CTA:** Start at $100/month (Join the January waitlist secondary).
+## Supporting (not the lead)
 
-
-## Strip from prospect pages
-
-Do **not** put ops how-it-works on the public/staging tax site:
-
-- Zuni / tax AI pipeline detail  
-- Wholesale AI cost  
-- Entity / insurance / LP-PLLC theater  
-
-Internal desk design pack can keep depth. Prospect surface stays the three lines + January waitlist.
+- CFO owns quality of the books (feeds the estimate)
+- CPA files the taxes
+- $100/month — tax questions, ask us
 
 ## Staging
 
-https://tax-weeklyaccounting-com.vercel.app — simplified to this lock.
+https://tax-weeklyaccounting-com.vercel.app
+
+## Do not put on prospect pages
+
+Zuni / wholesale AI cost / entity ops theater.
 
 ## Soft upsell
 
-Need weekly books / fractional CFO → [weeklyaccounting.com](https://weeklyaccounting.com).
+Need weekly books or a fractional CFO → [weeklyaccounting.com](https://weeklyaccounting.com).
