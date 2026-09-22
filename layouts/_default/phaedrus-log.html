@@ -317,7 +317,7 @@
           <span class="active-card-title">Morning Email Scan</span>
           <span class="status-dot dot-cron" title="Cron"></span>
         </div>
-        <p class="active-card-desc">Daily 7 AM PT: z@brightzen.com via gws + z@zdanowski.com via gog. Ran OK 09/20. Both scans healthy.</p>
+        <p class="active-card-desc">Daily 7 AM PT: z@brightzen.com via gws + z@zdanowski.com via gog. Errored 09/21 &mdash; needs investigation.</p>
         <div class="active-card-meta">
           <span class="meta-chip chip-channel">cron</span>
           <span class="htag">#Gmail</span>
@@ -329,7 +329,7 @@
           <span class="active-card-title">LinkedIn Inbox Scan</span>
           <span class="status-dot dot-cron" title="Cron"></span>
         </div>
-        <p class="active-card-desc">Daily 8 AM cron &mdash; reads LinkedIn inbox and sent invites via Playwright. Ran OK 09/20. Both morning scans healthy.</p>
+        <p class="active-card-desc">Daily 8 AM cron &mdash; reads LinkedIn inbox and sent invites via Playwright. Ran OK 09/21.</p>
         <div class="active-card-meta">
           <span class="meta-chip chip-channel">cron</span>
           <span class="htag">#LinkedIn</span> <span class="htag">#SDCFO</span> <span class="htag">#Playwright</span>
@@ -341,7 +341,7 @@
           <span class="active-card-title">Nightly Session Log</span>
           <span class="status-dot dot-cron" title="Cron"></span>
         </div>
-        <p class="active-card-desc">Daily 10 PM PT cron. Twelfth consecutive run (09/09&ndash;09/20). 09/20 quiet Sunday: zero commits, no daily notes, no interactive sessions. All cron healthy.</p>
+        <p class="active-card-desc">Daily 10 PM PT cron. Thirteenth consecutive run (09/09&ndash;09/21). 09/21: pipeline tracker data fix shipped; morning email scan errored.</p>
         <div class="active-card-meta">
           <span class="meta-chip chip-channel">cron</span>
           <span class="htag">#Log</span> <span class="htag">#Automation</span>
@@ -473,7 +473,7 @@
         <div class="sheet-name">Phaedrus System Log</div>
         <div class="sheet-menus"><span>File</span><span>Edit</span><span>View</span><span>Insert</span><span>Format</span><span>Data</span><span>Help</span></div>
       </div>
-      <span class="sheet-updated">91 entries &middot; 2026-02-27 &rarr; 2026-09-10 &middot; Maintained by Phaedrus</span>
+      <span class="sheet-updated">92 entries &middot; 2026-02-27 &rarr; 2026-09-21 &middot; Maintained by Phaedrus</span>
     </div>
     <div class="formula-bar">
       <span class="fx">fx</span>
@@ -588,13 +588,14 @@
           <tr class="stage-band"><td class="row-num">93</td><td colspan="5">Identity<span class="stage-count">&mdash; 1 entry</span></td></tr>
           <tr><td class="row-num">94</td><td class="date-cell">02/27/26</td><td class="cat-cell"><span class="cat-pill cat-identity">Identity</span></td><td class="title-cell">Phaedrus born &mdash; initial setup</td><td class="detail-cell">Named Phaedrus &#x1F989;; Calendar, Gmail, Brave, Chrome, Notion <span class="htag">#OpenClaw</span> <span class="htag">#Day1</span></td><td class="impact-cell"><span class="impact-pill imp-high">High</span></td></tr>
 
-          <tr class="stage-band"><td class="row-num">95</td><td colspan="5">Bug Fixes &amp; Recovery<span class="stage-count">&mdash; 6 entries</span></td></tr>
+          <tr class="stage-band"><td class="row-num">95</td><td colspan="5">Bug Fixes &amp; Recovery<span class="stage-count">&mdash; 7 entries</span></td></tr>
           <tr><td class="row-num">96</td><td class="date-cell">02/28/26</td><td class="cat-cell"><span class="cat-pill cat-fixes">Fix</span></td><td class="title-cell">Slack connector crash + recovery</td><td class="detail-cell">Slack down; BlueBubbles fallback; gateway restart <span class="htag">#Slack</span> <span class="htag">#OpenClaw</span></td><td class="impact-cell"><span class="impact-pill imp-medium">Medium</span></td></tr>
           <tr><td class="row-num">97</td><td class="date-cell">03/18/26</td><td class="cat-cell"><span class="cat-pill cat-fixes">Fix</span></td><td class="title-cell">Splashtop remote access failure</td><td class="detail-cell">User process dead; sudo blocked; AppleScript silent fail; unresolved <span class="htag">#Splashtop</span> <span class="htag">#Remote</span></td><td class="impact-cell"><span class="impact-pill imp-medium">Medium</span></td></tr>
           <tr><td class="row-num">98</td><td class="date-cell">04/09/26</td><td class="cat-cell"><span class="cat-pill cat-fixes">Fix</span></td><td class="title-cell">QBO bot detection blocks login</td><td class="detail-cell">Chrome debug port broken; Intuit button hardened; cookie encryption <span class="htag">#QBO</span> <span class="htag">#Intuit</span></td><td class="impact-cell"><span class="impact-pill imp-medium">Medium</span></td></tr>
           <tr><td class="row-num">99</td><td class="date-cell">04/25/26</td><td class="cat-cell"><span class="cat-pill cat-fixes">Fix</span></td><td class="title-cell">Vercel auto-deploy webhook fixed</td><td class="detail-cell">HBS post 404; webhook broken; forced vercel --prod <span class="htag">#Vercel</span> <span class="htag">#PQB</span></td><td class="impact-cell"><span class="impact-pill imp-medium">Medium</span></td></tr>
           <tr><td class="row-num">100</td><td class="date-cell">08/15/26</td><td class="cat-cell"><span class="cat-pill cat-fixes">Fix</span></td><td class="title-cell">Fable 5 timeout issues</td><td class="detail-cell">Idle timeouts (120s); API instability + 1MB+ context; back to Opus <span class="htag">#Anthropic</span> <span class="htag">#Fable</span></td><td class="impact-cell"><span class="impact-pill imp-medium">Medium</span></td></tr>
           <tr><td class="row-num">101</td><td class="date-cell">08/17/26</td><td class="cat-cell"><span class="cat-pill cat-fixes">Fix</span></td><td class="title-cell">Email scan routing fix</td><td class="detail-cell">gmail-triage hardcoded gog; fix: brightzen&rarr;gws, zdanowski&rarr;gog <span class="htag">#Gmail</span> <span class="htag">#gws</span></td><td class="impact-cell"><span class="impact-pill imp-medium">Medium</span></td></tr>
+          <tr><td class="row-num">102</td><td class="date-cell">09/21/26</td><td class="cat-cell"><span class="cat-pill cat-fixes">Fix</span></td><td class="title-cell">Pipeline tracker data correction</td><td class="detail-cell">7 SDCFO candidates incorrectly marked accepted on 09/12 moved back to Cold Outreach <span class="htag">#SDCFO</span> <span class="htag">#Recruiting</span></td><td class="impact-cell"><span class="impact-pill imp-low">Low</span></td></tr>
         </tbody>
       </table>
     </div>
