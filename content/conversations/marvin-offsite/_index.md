@@ -19,7 +19,7 @@ Pocket summaries from the Sep 28, 2026 Marvin / ShipCom strategy summit. Summari
 1. [Marvin Offsite and ShipCon Strategy](/conversations/marvin-offsite/shipcon-strategy/) (6:52 AM, 2h 24m) — Summit kickoff; pre-revenue → six-month collective strategy for ShipCom.
 2. [Mavin OS Offsite](/conversations/marvin-offsite/mavin-os-offsite/) (9:16 AM, 1h 32m) — System of resolution, The Bin, four-phase roadmap.
 3. [Marvin OS Product and Data Strategy](/conversations/marvin-offsite/product-and-data-strategy/) (10:49 AM, 1h 34m) — Bin UX, memory, Oct 1 production, 436 Tray.io migrations.
-4. [PSG Monday Metrics](/conversations/marvin-offsite/psg-monday-metrics/) (12:23 PM, 4h 33m) — ShipCom lab; $14k/mo SaaS replace; $50/user + services; six-month mission.
+4. [ShipCom · Marvin Monday Metrics](/conversations/marvin-offsite/shipcom-marvin-monday-metrics/) (12:23 PM, 4h 33m) — ShipCom lab; $14k/mo SaaS replace; $50/user + services; six-month mission. (MMM calendar slot; not Phoenix Strategy Group.)
 5. [Strategy Summit Day One Wrap Up](/conversations/marvin-offsite/day-one-wrap-up/) (5:07 PM, 1h 42m) — Order-resolution sales hook; revenue-first; Oct 7 Facebook CFO test.
 
 [← All conversations](/conversations/)
