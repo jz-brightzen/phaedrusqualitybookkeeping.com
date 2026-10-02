@@ -56,7 +56,7 @@ Beyond Income Statement / Balance Sheet / Cash Flow — a **Growth Statement** (
 ## Todos (from Pocket)
 
 - Convert census presentation to PDF (John)
-- Bank account setup follow-up (John)
+- Provide ID for bank account setup (John)
 - Define product auditability metrics (Other)
 - Migrate Shopify → Info Plus workflow (Other)
 - Establish UAT process (Other)
