@@ -2,32 +2,26 @@
 title: "Pocket · latest summary"
 layout: "family-report"
 url: "/conversations/pocket/"
-date: 2026-09-10
+date: 2026-09-28
 draft: false
 nofeed: true
 noindex: true
-summary: "Pocket conversation Sept 10 ~6:17 PM — background noise only. From Transcript Bot desk."
+summary: "Latest substantive Pocket: Strategy Summit Day One Wrap Up (Sep 28). Full page on the Marvin Offsite hub."
 eyebrow: "Conversations · Pocket"
-heroTitle: "Conversation · Sept 10, 6:17 PM"
-heroMeta: "**Summary only.** Pocket · 2026-09-10 · Desk file pocket/latest-summary.md · noindex. Nightly re-check ~9:30 PM PT."
+heroTitle: "Pocket · latest"
+heroMeta: "**Summary only.** Pocket email digest · 2026-09-28 · Desk pocket/latest-summary.md · noindex."
 ---
 
-- recording: Conversation on Sept 10th at 6:17 PM
-- date/time: Sep 10, 2026 ~6:07–6:17 PM PT (~10 min)
-- url: https://app.heypocket.com/app/recordings/d33bba2e-f2e6-44b5-80e1-8cae7dd4b375
-- transcript: `2026-09-10-conversation-6-17pm.md`
-- pulled by: SuperDoer (signed-in box browser)
-- nightly re-check: 2026-09-10 ~9:30 PM PT — still the newest recording
+Newest *substantive* Pocket summary on the desk is **Strategy Summit Day One Wrap Up** (Sep 28, 2026 · 5:07 PM PT · 1h 42m). Digest-sourced. Full public page:
 
-## Key points
+[Strategy Summit Day One Wrap Up](/conversations/marvin-offsite/day-one-wrap-up/) on the [Marvin Offsite hub](/conversations/marvin-offsite/).
 
-(FACT from the Pocket file only.)
+## Gist (from Pocket digest)
 
-- Pocket’s on-page summary: “The conversation contained no words.”
-- Transcript view shows only `[background noise]` — no speaker labels, no spoken words detected.
-- No action items shown on the page.
-- Still the newest Pocket recording as of the nightly re-check.
+Shift Marvin OS / ShipCom from plumbing to opinionated automated workflows — a system of resolution across Shopify, Amazon, and ShipStation. Revenue-first: demos and services now. Primary sales hook is order-resolution visibility. Facebook-first growth test for a fractional CFO offer (due Oct 7 in the digest).
 
-## Action items
+Full session list for Sep 28: [Marvin Offsite hub](/conversations/marvin-offsite/).
 
-None (none shown in Pocket).
+Client cash-forecast and prospect/private Pocket digests stay off this site.
+
+[← All conversations](/conversations/)
