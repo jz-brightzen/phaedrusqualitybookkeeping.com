@@ -2,25 +2,23 @@
 title: "Pocket · latest summary"
 layout: "family-report"
 url: "/conversations/pocket/"
-date: 2026-09-28
+date: 2026-10-06
 draft: false
 nofeed: true
 noindex: true
-summary: "Latest substantive Pocket: Strategy Summit Day One Wrap Up (Sep 28). Full page on the Marvin Offsite hub."
+summary: "Latest substantive Pocket: Marvin OS and Token Economics (Oct 6). Venture Studio, token economy, 13-week forecast."
 eyebrow: "Conversations · Pocket"
 heroTitle: "Pocket · latest"
-heroMeta: "**Summary only.** Pocket email digest · 2026-09-28 · Desk pocket/latest-summary.md · noindex."
+heroMeta: "**Summary only.** Pocket email digest · 2026-10-06 · Desk pocket/latest-summary.md · noindex."
 ---
 
-Newest *substantive* Pocket summary on the desk is **Strategy Summit Day One Wrap Up** (Sep 28, 2026 · 5:07 PM PT · 1h 42m). Digest-sourced. Full public page:
+Newest *substantive* Pocket summary on the desk is **Marvin OS and Token Economics** (Oct 6, 2026 · 5:38 PM PT · 1h 49m). Digest-sourced. Full public page:
 
-[Strategy Summit Day One Wrap Up](/conversations/marvin-offsite/day-one-wrap-up/) on the [Marvin Offsite hub](/conversations/marvin-offsite/).
+[Marvin OS and Token Economics](/conversations/marvin-os-token-economics/)
 
 ## Gist (from Pocket digest)
 
-Shift Marvin OS / ShipCom from plumbing to opinionated automated workflows — a system of resolution across Shopify, Amazon, and ShipStation. Revenue-first: demos and services now. Primary sales hook is order-resolution visibility. Facebook-first growth test for a fractional CFO offer (due Oct 7 in the digest).
-
-Full session list for Sep 28: [Marvin Offsite hub](/conversations/marvin-offsite/).
+Marvin OS as a Venture Studio: democratizing software through AI, a human-rollover token economy ($2k/mo, $1/token) to fund the team, and a first "minnow" — a 13-week cash forecast for ShipCom and BrightZen (QBO → Sheets). Testinator workflow to validate value props before building. Revenue share over equity.
 
 Client cash-forecast and prospect/private Pocket digests stay off this site.
 
