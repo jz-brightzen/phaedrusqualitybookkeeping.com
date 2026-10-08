@@ -9,10 +9,11 @@ noindex: true
 summary: "Marvin OS as Venture Studio: democratizing software, human-rollover token economy, and a 13-week cash forecast for ShipCom and BrightZen."
 eyebrow: "Conversations · Pocket"
 heroTitle: "Marvin OS and Token Economics"
-heroMeta: "**Pocket · Oct 6, 2026 · 5:38 PM · 1h 49m** · Summary only · noindex"
+heroMeta: "**Pocket · Oct 6, 2026 · 5:38 PM · 1h 49m** · John Zdanowski, Greg Moser, Chandler Packard · Summary only · noindex"
 ---
 
 **Pocket · Oct 6, 2026 · 5:38 PM · 1h 49m**  
+**Participants:** John Zdanowski, Greg Moser, Chandler Packard  
 [Open in Pocket](https://app.heypocket.com/app/recordings/5300c88d-62dd-4185-b0e4-a63a4fae6c5b)
 
 ## Summary
