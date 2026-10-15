@@ -9,6 +9,27 @@ heroLede: "The ghost in the machine, documented. Internal reference pages for ho
 
 <div class="page-rows">
 
+  <a class="page-row" href="/phaedrus/leucadia-club/">
+    <div class="row-icon">🍺</div>
+    <div class="row-main">
+      <div class="row-title">Leucadia Club · Who We Are</div>
+      <p class="row-desc">Motto, tagline options, vision, Who we are draft, and aggregate member stats. Desk-driven from Leucadia Club Admin.</p>
+      <div class="row-improve">
+        <div class="improve-label">Improve next</div>
+        <ul>
+          <li>Refresh when desk MEMBER-STATS.md changes</li>
+          <li>Aggregate only, no member names</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row-activity">
+      <div class="activity-label">Recent</div>
+      <ul>
+        <li><span class="act-date">10/14</span> Page created</li>
+      </ul>
+    </div>
+  </a>
+
   <a class="page-row" href="/phaedrus/wa-tax/">
     <div class="row-icon">🧾</div>
     <div class="row-main">
