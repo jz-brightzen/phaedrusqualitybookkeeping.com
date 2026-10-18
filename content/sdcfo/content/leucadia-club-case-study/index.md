@@ -55,7 +55,7 @@ And the club's board and members have one place to find each other, reserve the 
 
 A members' club is a small business with the same problem every small business has: money moves through several systems, and the books are only as good as the last time someone reconciled them.
 
-We fixed the foundation first, then built the AI on top of clean data. That order matters. An AI on messy books gives you fast, confident, wrong answers. An AI on clean, connected books gives you answers you can use.
+We fixed the foundation first, then built the AI on top of clean data. That order matters. An AI on messy books gives you fast, confident, wrong answers. An AI on clean, connected books gives you answers you can use. And it doesn't just answer. It helps you understand the limits of your business.
 
 That's the promise behind [CFO for Your AI](/sdcfo/content/cfo-for-your-ai/): we organize your data, connect it, and keep it working, so you can just ask.
 
