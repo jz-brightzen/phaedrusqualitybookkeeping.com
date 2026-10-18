@@ -7,7 +7,7 @@ draft: false
 summary: "We organize your financial data and connect it to Claude. You ask. It answers from books you can trust. We handle the keys, apps, connectors, and tokens."
 eyebrow: "SDCFO · Content"
 heroTitle: "Talk to your numbers in Claude. We make it work."
-heroMeta: "**CFO for your AI.** We organize your books, bank, payments, and payroll into one clean source, then connect it to Claude. You ask the question. We handle the keys, the apps, the connectors, and the tokens that expire."
+heroMeta: "**CFO for your AI.** We organize your books, bank, payments, and payroll into one clean source, then connect it to Claude. You ask the question. It doesn't just answer. It helps you understand the limits of your business better. We handle the keys, the apps, the connectors, and the tokens that expire."
 ---
 
 You already use Claude. You'd like to ask it about your business. How much cash will we have in March? Which customers are we losing money on? Why was October's margin down?
@@ -63,6 +63,20 @@ Real questions, answered from your own books:
 - Draft the monthly update for my board from these numbers.
 
 Ask Claude to show where each number came from: the report, the account, the date range. We set it up so it can.
+
+## It doesn't just answer
+
+It helps you understand the limits of your business better.
+
+Every business has edges. How long the cash lasts. How much work the team can take on before something slips. How low a price can go before a sale stops paying for itself. Most owners carry these in their heads, roughly. Clean, connected books know them precisely.
+
+So Claude can do more than report what happened. It can show you how far you can push before something breaks:
+
+- If our biggest customer left next month, how many months of cash would we have?
+- What's the lowest price we can charge for our main service and still cover its direct costs?
+- If payroll went up 10% and sales stayed flat, what breaks first, and when?
+
+Knowing where the limits are is what lets you move with confidence. That's the CFO part.
 
 ## Who it's for
 
