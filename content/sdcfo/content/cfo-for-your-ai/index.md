@@ -86,6 +86,10 @@ It isn't a new app to learn. You keep using Claude.
 
 It isn't a replacement for judgment. Claude can be wrong. Clean data and clear definitions make it wrong far less often, and the weekly review catches the rest. If you want a CFO in the room, that's the [CFO System](https://www.sdcfogroup.com/cfo-system).
 
+## See it in practice
+
+We did this for a small nonprofit members' club in Encinitas: moved the books online, cleaned them up, and built an AI that checks Square, the bank, and QuickBooks against each other. [Read the Leucadia Club case study](/sdcfo/content/leucadia-club-case-study/).
+
 ## Start
 
 Bring one question you can't get answered today. We'll connect one system and show you the answer in Claude.
