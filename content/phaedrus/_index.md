@@ -58,7 +58,7 @@ heroLede: "The ghost in the machine, documented. Internal reference pages for ho
     <div class="row-icon">🏄</div>
     <div class="row-main">
       <div class="row-title">Leucadia Club · The Story So Far</div>
-      <p class="row-desc">QuickBooks Desktop to a member portal: books, taxes, Square, roster, portal, the crew, Lucy's cartoon spec, the rules page, and the Premise Bot brief.</p>
+      <p class="row-desc">QuickBooks Desktop to a member portal: books, taxes, Square, roster, portal, the crew, Lucy's cartoon spec, the rules page, and Lucy's setup brief.</p>
       <div class="row-improve">
         <div class="improve-label">Improve next</div>
         <ul>
