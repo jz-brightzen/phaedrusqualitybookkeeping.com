@@ -82,6 +82,46 @@ The portal lives at members.leucadiaclub.com. Almost all of it was built in a li
 - **October 24–25:** the Rules page (more on that below). Markdown links in stories show just the words. An author or an admin can edit a post.
 - **October 25:** a member's profile now shows their activity as story cards: what they posted, commented on or reacted to. Room-booking donations are optional and always refundable. Admins can send a donation link, and the public donate page got a cartoon preview. The live chat with Lucy shipped.
 
+## The Hub's members area
+
+Inside the portal, the club calls it **the Hub**. Here is what a member sees, page by page, with the address of each. I took the list from the portal's code, not from memory. The screenshots come from a phone. Anything that shows a member (faces, names, card details, IDs, amounts) is blurred. Only Lucy's cartoon is left clear.
+
+On a phone, the bottom bar has **Stories**, a **+** button and **Calendar**. The top bar has **Directory** and your picture, which opens the account menu. A round **?** button floats over every page: that's Lucy.
+
+<figure style="max-width:360px;margin:1.5rem auto;"><img src="/phaedrus/leucadia-club-story/hub-stories-welcome.jpg" alt="The Hub home screen on a phone: Lucy B.’s pinned announcement, Welcome to the Hub for The Club, listing events, the Directory, reserving the board room, scheduling an event, donations and billing. Other members’ pictures and names are blurred." loading="lazy" style="width:100%;border:1px solid #ddd;border-radius:12px;"><figcaption style="font-size:0.9em;text-align:center;">Stories, the home feed, opens on Lucy’s pinned welcome. Other members are blurred.</figcaption></figure>
+
+- **Stories** (`/`). The home feed. Lucy's pinned announcement, "Welcome to the Hub for The Club," sits on top, followed by members' stories, photos, comments and reactions. Each story has its own page (`/post/[id]`). The author or an admin can edit it (`/post/[id]/edit`).
+- **+** (`/new`, "New story"). The + button starts a new story: text, up to 10 photos, or an announcement. It doesn't make bookings. If a story names a date and time, an "Event found" card offers to put it on the calendar, and nothing becomes an event unless that card is showing when the member shares.
+- **Calendar** (`/calendar`). A month grid with a dot on each event day, the upcoming events (each one links back to its story), and a Subscribe link for a member's own calendar app. It also has a view for each room: the board room calendar (`/calendar?view=board-room`) and the main space (`/calendar?view=main-space`). The Guidelines card is pinned on top until a member taps "Got it."
+- **Book the board room** (`/calendar/reserve?room=board-room`). Monday to Friday, 5 AM to 11 PM, in one-hour steps, up to four hours at a time and up to 60 days ahead. A booking donation is optional (suggested $10 an hour) and always refundable.
+
+<figure style="max-width:360px;margin:1.5rem auto;"><img src="/phaedrus/leucadia-club-story/hub-book-board-room.jpg" alt="The Book the board room form on a phone: Monday to Friday, 5 AM to 11 PM, with a day, start time, length, an optional purpose, and an optional booking donation where No donation is selected." loading="lazy" style="width:100%;border:1px solid #ddd;border-radius:12px;"><figcaption style="font-size:0.9em;text-align:center;">Booking the board room. The donation is optional, and “No donation” is the default.</figcaption></figure>
+
+- **Schedule an event** (`/calendar/reserve?room=main-space`). An event books the main space: any day, 7 AM to 11 PM, up to a year ahead. It has no suggested donation, and an admin approves it first, because Rule 7 says events need the Board's OK.
+- **Directory** (`/directory`). Pictures, Cards and Logos views, with search by name or company. It opens on Pictures, in a new random order each visit. Each member has a page (`/members/[id]`), and the company logos also have their own page (`/logos`).
+
+<figure style="max-width:360px;margin:1.5rem auto;"><img src="/phaedrus/leucadia-club-story/hub-member-directory.jpg" alt="The member directory on a phone with Pictures, Cards and Logos tabs and a search box. Every member photo and name is blurred." loading="lazy" style="width:100%;border:1px solid #ddd;border-radius:12px;"><figcaption style="font-size:0.9em;text-align:center;">The directory. Every face and name is blurred here; in the Hub it is private to members.</figcaption></figure>
+
+- **Billing** (`/billing`, member view). The next invoice, the cards on file (kept by Square) and **Make a donation**. A donation is one of four kinds: Event, Room Rental, Equipment Rental or F&B. There is also a donate page (`/donate`) that opens without signing in, for donation links.
+
+<figure style="max-width:360px;margin:1.5rem auto;"><img src="/phaedrus/leucadia-club-story/hub-member-billing.jpg" alt="A member’s Billing page on a phone: Next invoice, Cards on file with an Add a card button, and Make a donation. The member’s name, amounts, card number and expiry are blurred." loading="lazy" style="width:100%;border:1px solid #ddd;border-radius:12px;"><figcaption style="font-size:0.9em;text-align:center;">A member’s Billing page. The name, amounts and card details are blurred.</figcaption></figure>
+
+- **Billing, admin view** (`/admin/billing`, "Club billing"). Every billing account, pulled from Square, with a Refresh from Square button. Admins can switch accounts to autopay from cards already on file. Nothing changes and no one is emailed until they click. They can also send payment reminders.
+
+<figure style="max-width:360px;margin:1.5rem auto;"><img src="/phaedrus/leucadia-club-story/hub-admin-billing.jpg" alt="The admin Billing page on a phone: account counts from Square, a Refresh from Square button, a Turn on autopay from cards on file button, and an Email payment reminders button. The overdue total is blurred." loading="lazy" style="width:100%;border:1px solid #ddd;border-radius:12px;"><figcaption style="font-size:0.9em;text-align:center;">The admin billing view, synced from Square. The overdue total is blurred.</figcaption></figure>
+
+- **ABC/RBS certification** (`/abc` for a member, `/admin/abc` for admins). Rule 3 asks every member with building or bar access to hold current California Responsible Beverage Service (RBS) certification. The portal tracks it and gives new members 90 days from joining. The admin page shows each member's status, server ID and due date, with a link to check the ABC's site.
+
+<figure style="max-width:360px;margin:1.5rem auto;"><img src="/phaedrus/leucadia-club-story/hub-abc-rbs-certification.jpg" alt="The admin ABC/RBS certification page on a phone: a status table with Status, Server ID and Due columns and a Verify ABC button. New members have 90 days from joining. The server ID and due date are blurred." loading="lazy" style="width:100%;border:1px solid #ddd;border-radius:12px;"><figcaption style="font-size:0.9em;text-align:center;">ABC/RBS certification, admin view. The server ID and date are blurred.</figcaption></figure>
+
+- **Candidates** (`/candidates`, `/candidates/new`). Members invite a prospective member here. A candidate sees their own `/candidacy` page and the agreement (`/candidacy/agreement`).
+- **?** (Lucy). This isn't a page. It's a chat panel on every Hub page, one open thread per member. Lucy answers there.
+- **Profile** (`/profile`, "My profile"). Profile picture, text alerts and company logo. "View my page" in the account menu opens the member's own page (`/members/[id]`), and that is where **Activity** lives: the stories they posted, commented on or reacted to.
+- **Rules** (`/rules`). The one Hub page that opens without signing in. It's also at www.leucadiaclub.com/rules.
+- **Admin** (account menu, admins only): Weekly Accounting (`/admin/accounting`), Members (`/admin/members`), Candidates (`/admin/candidates`), ABC certification (`/admin/abc`), Discount codes (`/admin/discounts`), Club billing (`/admin/billing`), Bookings (`/admin/bookings`), Donations (`/admin/donations`), Chats (`/admin/chats`, where we read Lucy's conversations), Directory fields (`/admin/directory`) and Member logos (`/admin/logos`).
+
+Outside the members area there are the sign-in pages (`/login`, `/forgot-password`, `/reset-password/[token]`, `/invite/[token]`, `/join/[code]`) and the public site: the home page, `/privacy-policy`, `/sms-terms` and `/rules`.
+
 ## The crew
 
 No single bot does this. Each one has its own job and its own desk:
@@ -90,7 +130,8 @@ No single bot does this. Each one has its own job and its own desk:
 - **LC Website Manager** (since October 23) looks after the public site and the portal.
 - **Social Chair** (since October 16) handles events and the social side.
 - **General Counsel** (since October 16) covers the legal questions.
-- **GITHUB Bot**, **Twilio Bot**, **Email Bot** and **iCloud Contact Bot** do the plumbing: code, texts, mail and contacts.
+- **GITHUB Bot** is the crew's GitHub genius. It reads the portal's code and its Vercel setup, so "how does the portal actually work?" questions go to it. *(Pending John's confirmation that GITHUB Bot is the bot he meant.)*
+- **Twilio Bot**, **Email Bot** and **iCloud Contact Bot** do the plumbing: texts, mail and contacts.
 - A **Soho House strategy bot** (since October 11) thinks about what a member club like this could become.
 
 And now there is Lucy.
@@ -151,6 +192,27 @@ The lines, by rule:
 | 18. Cleaning, Closing, and Shared Responsibility | "Leave it cleaner than Moonlight after a Surfrider cleanup. Lights off, door locked." |
 | 19. Damage, Problems, and Reporting | "Ding the board? Own the ding." |
 
+Here are the sixteen, drawn just as they are on the page, each with its line:
+
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;margin:1.5rem 0;">
+<figure style="margin:0;"><img src="/phaedrus/leucadia-club-story/cartoons/rule-1.svg" alt="A local surfer vouching for a new surfer at Swami's" loading="lazy" style="width:100%;border:1px solid #ddd;border-radius:12px;background:#bfe6f5;"><figcaption style="font-size:0.85em;"><strong>Rule 1. Membership and Sponsorship</strong><br>“You don't just paddle out at Swami's, brah — a local's gotta vouch for you.”</figcaption></figure>
+<figure style="margin:0;"><img src="/phaedrus/leucadia-club-story/cartoons/rule-2.svg" alt="A surfer waxing his board next to a dues jar" loading="lazy" style="width:100%;border:1px solid #ddd;border-radius:12px;background:#bfe6f5;"><figcaption style="font-size:0.85em;"><strong>Rule 2. Fees, Dues, and Account Standing</strong><br>“Dues are like wax, dude. Skip 'em and you slide right off.”</figcaption></figure>
+<figure style="margin:0;"><img src="/phaedrus/leucadia-club-story/cartoons/rule-3.svg" alt="A surfer behind the club bar pointing at a clock showing 10:30" loading="lazy" style="width:100%;border:1px solid #ddd;border-radius:12px;background:#bfe6f5;"><figcaption style="font-size:0.85em;"><strong>Rule 3. Responsible Beverage Service</strong><br>“Last call's 10:30, dude. The ABC doesn't care how good the swell was.”</figcaption></figure>
+<figure style="margin:0;"><img src="/phaedrus/leucadia-club-story/cartoons/rule-4.svg" alt="A surfer in the Moonlight Beach lifeguard tower watching his guests" loading="lazy" style="width:100%;border:1px solid #ddd;border-radius:12px;background:#bfe6f5;"><figcaption style="font-size:0.85em;"><strong>Rule 4. Guests</strong><br>“Bring your buddies — but you're their lifeguard.”</figcaption></figure>
+<figure style="margin:0;"><img src="/phaedrus/leucadia-club-story/cartoons/rule-6.svg" alt="A grom with a juice box next to a bar sign that says 21+" loading="lazy" style="width:100%;border:1px solid #ddd;border-radius:12px;background:#bfe6f5;"><figcaption style="font-size:0.85em;"><strong>Rule 6. Minors</strong><br>“Groms are welcome. Groms don't pour.”</figcaption></figure>
+<figure style="margin:0;"><img src="/phaedrus/leucadia-club-story/cartoons/rule-7.svg" alt="A surfer about to drop in on a big wave while the Board waves a flag from the beach" loading="lazy" style="width:100%;border:1px solid #ddd;border-radius:12px;background:#bfe6f5;"><figcaption style="font-size:0.85em;"><strong>Rule 7. Events and Private Use</strong><br>“Throwing a party? Check with the Board before you drop in.”</figcaption></figure>
+<figure style="margin:0;"><img src="/phaedrus/leucadia-club-story/cartoons/rule-8.svg" alt="A surfer shushing in front of a crossed-out speaker" loading="lazy" style="width:100%;border:1px solid #ddd;border-radius:12px;background:#bfe6f5;"><figcaption style="font-size:0.85em;"><strong>Rule 8. Noise, Music, and Dancing</strong><br>“Keep it mellow. Save the shredding for Cardiff Reef.”</figcaption></figure>
+<figure style="margin:0;"><img src="/phaedrus/leucadia-club-story/cartoons/rule-9.svg" alt="A VW bus with a board on top parked on the 101" loading="lazy" style="width:100%;border:1px solid #ddd;border-radius:12px;background:#bfe6f5;"><figcaption style="font-size:0.85em;"><strong>Rule 9. Parking and Neighbor Relations</strong><br>“Park on the 101 or out back — the front spots aren't yours, kook.”</figcaption></figure>
+<figure style="margin:0;"><img src="/phaedrus/leucadia-club-story/cartoons/rule-10.svg" alt="A surfer hailing a ride at night with his board" loading="lazy" style="width:100%;border:1px solid #ddd;border-radius:12px;background:#bfe6f5;"><figcaption style="font-size:0.85em;"><strong>Rule 10. Safe Transportation</strong><br>“Had a few? Hail a ride. Nobody wants to wipe out on the 101.”</figcaption></figure>
+<figure style="margin:0;"><img src="/phaedrus/leucadia-club-story/cartoons/rule-11.svg" alt="A dog with a surfboard heading to Dog Beach" loading="lazy" style="width:100%;border:1px solid #ddd;border-radius:12px;background:#bfe6f5;"><figcaption style="font-size:0.85em;"><strong>Rule 11. Pets</strong><br>“Leave Fido home. Dog Beach is down in Del Mar, dude.”</figcaption></figure>
+<figure style="margin:0;"><img src="/phaedrus/leucadia-club-story/cartoons/rule-12.svg" alt="A surfer breathing fresh sunrise air next to a crossed-out cigarette" loading="lazy" style="width:100%;border:1px solid #ddd;border-radius:12px;background:#bfe6f5;"><figcaption style="font-size:0.85em;"><strong>Rule 12. Smoking</strong><br>“No smoke sessions inside. Keep the air as clean as a dawn patrol.”</figcaption></figure>
+<figure style="margin:0;"><img src="/phaedrus/leucadia-club-story/cartoons/rule-13.svg" alt="Two surfers on one wave, one waving the other through" loading="lazy" style="width:100%;border:1px solid #ddd;border-radius:12px;background:#bfe6f5;"><figcaption style="font-size:0.85em;"><strong>Rule 13. Member Conduct</strong><br>“Be chill, be kind, and don't snake anybody's wave.”</figcaption></figure>
+<figure style="margin:0;"><img src="/phaedrus/leucadia-club-story/cartoons/rule-14.svg" alt="Two surfers sitting on their boards in the lineup, one whispering" loading="lazy" style="width:100%;border:1px solid #ddd;border-radius:12px;background:#bfe6f5;"><figcaption style="font-size:0.85em;"><strong>Rule 14. Privacy and Member Contact Information</strong><br>“What's said in the lineup stays in the lineup.”</figcaption></figure>
+<figure style="margin:0;"><img src="/phaedrus/leucadia-club-story/cartoons/rule-16.svg" alt="A surfer working on a laptop in the club with headphones on" loading="lazy" style="width:100%;border:1px solid #ddd;border-radius:12px;background:#bfe6f5;"><figcaption style="font-size:0.85em;"><strong>Rule 16. Co-Working and Shared Facility Use</strong><br>“Work from the club all day — just don't hog the peak.”</figcaption></figure>
+<figure style="margin:0;"><img src="/phaedrus/leucadia-club-story/cartoons/rule-18.svg" alt="A surfer sweeping up at sunset with the lights off and the door locked" loading="lazy" style="width:100%;border:1px solid #ddd;border-radius:12px;background:#bfe6f5;"><figcaption style="font-size:0.85em;"><strong>Rule 18. Cleaning, Closing, and Shared Responsibility</strong><br>“Leave it cleaner than Moonlight after a Surfrider cleanup. Lights off, door locked.”</figcaption></figure>
+<figure style="margin:0;"><img src="/phaedrus/leucadia-club-story/cartoons/rule-19.svg" alt="A surfer raising his hand next to a dinged surfboard" loading="lazy" style="width:100%;border:1px solid #ddd;border-radius:12px;background:#bfe6f5;"><figcaption style="font-size:0.85em;"><strong>Rule 19. Damage, Problems, and Reporting</strong><br>“Ding the board? Own the ding.”</figcaption></figure>
+</div>
+
 At the bottom of the page, the legal bit: *the cartoons and quotes are just for fun. They aren't the rules, they don't change the rules, and they wouldn't hold up in a court of law, dude. The written Rules and Regulations above are what count.*
 
 This matters for Lucy too. When she answers a rules question, she quotes the rule and links its section. She can use the cartoon line for warmth, but never as the answer.
@@ -199,6 +261,14 @@ pipeline (members invite prospects by text; invites last 30 days), and
 the Rules page (/rules, July 2026 edition, 21 rules, a link per rule:
 /rules#rule-N). Admin-only areas include Members, Bookings, Billing,
 Chats and Weekly Accounting.
+
+PORTAL QUESTIONS SHE CAN'T ANSWER
+If a member asks how the portal works and the answer isn't on the
+page in front of them, she doesn't guess. She tells the member she'll
+find out and flags it to the observer (John and his assistant), who
+ask GITHUB Bot. GITHUB Bot reads the portal code and Vercel setup.
+She never contacts GITHUB Bot directly, and it never talks to members.
+[Pending John's confirmation that GITHUB Bot is the right bot.]
 
 HOW MESSAGES REACH HER
 The portal POSTs JSON to her webhook with a Bearer key.
@@ -300,6 +370,7 @@ One setup prompt that lets Lucy start answering every member question on day one
    - facilities, the door and the building go to the club manager
    - General Counsel takes legal and liability questions, governance, bylaws and rules disputes, tax-exempt status, contracts and money owed to or by the club, government and permits, privacy and records requests, and anything from a regulator, reporter or attorney. That is his full list, in the brief above. Premise Bot should use it word for word, along with what Lucy collects before handing off, her interim reply ("Thanks, I've passed this to the club's officers, and someone will follow up with you directly. I can't give legal or tax advice."), the call-911-first rule, and his list of things she must never do.
    - an emergency or injury: call 911 first, then General Counsel and John
+   - how the portal works, when the answer isn't on the member's screen: Lucy flags it to the observer, and we ask GITHUB Bot, which reads the portal code and Vercel setup. Lucy never contacts it directly, and it never talks to members. *(Pending John's confirmation that GITHUB Bot is the right bot.)*
 
    Premise Bot should propose what Lucy says to the member when she escalates. General Counsel's row is set. The names and channels for the other roles are TBD until John fills them in.
 7. **How events arrive.** How to read a chat_message and a mention payload. Use recent_history and thread_context before answering. Answer a mention only if it is a question or a request.
