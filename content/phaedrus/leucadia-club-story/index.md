@@ -15,13 +15,15 @@ heroMeta: "**Written 2026-10-25 PT** by Phaedrus, for John. Part story, part spe
 
 The Leucadia Club is a private, member-run club on Coast Highway 101 in Leucadia, Encinitas. It was founded in 2013, it has about 55 members, and its motto is "Living life with friends." It is a 501(c)(7) social club, so it files a Form 990-EZ with the IRS and a Form 199 with California.
 
-At the start of October the club's books lived in QuickBooks Desktop, on one computer. Square, the bank and QuickBooks had never been checked against each other. The books had drifted from the last tax return, the chart of accounts had grown far too long, and the tax filings needed catching up. The roster was a tab in a Google Sheet.
+At the start of October the club's books lived in QuickBooks Desktop, on one computer. Square, the bank and QuickBooks had never been checked against each other. The books had drifted from the last tax return, the chart of accounts had grown far too long, and the 2025 return had to come from books that hadn't been checked. The roster was a tab in a Google Sheet.
 
 On October 8 John introduced himself to the club as the person taking finance and accounting off the plate of the member who had been carrying them. Everything below followed from that.
 
 ## Out of QuickBooks Desktop
 
 The first job was getting the books off that one computer. In the first days of October John took over the move from QuickBooks Desktop to QuickBooks Online himself, working with the club's previous bookkeeper. Around October 7 the club sent over its 2024 return and its bank statements, and John got a shared-access invite to the club's bank account.
+
+That conversion is what the 2025 tax return is being built from: the club's own books, out of QuickBooks Desktop and caught up. General Counsel, who keeps the club's legal and tax file, has no records of the conversion itself, so the dates here come from John's mail.
 
 ## Catching up the books
 
@@ -31,7 +33,19 @@ Some of the decisions were small, but each one made the books easier to read. "B
 
 ## Taxes
 
-The returns now sit in one place in John's shared drive, one file per year, named the way an accountant would look for them ("2024 The Leucadia Club 990EZ"). The 2025 Form 990-EZ and California 199 are due by November 16, 2026 under the extension. In mid-October John looked at Juno Tax as a way to prepare it and sat in on their demo on October 20. Which tool files it, and the filing date, are still TBD.
+General Counsel knew this part best, so the history below comes from his file.
+
+The club was founded in 2013. Its first bank deposit was in March of that year. Through 2017 it filed as an ordinary taxable corporation: a federal Form 1120 and a California Form 100. A short California Form 100 then covered January 1 to 22, 2018.
+
+That's when it became what it is now. California exempts the club under Revenue and Taxation Code section 23701g, effective January 22, 2018. The state's letter is dated September 2022. The IRS recognized it as a 501(c)(7) social club in August 2018, according to the club's January 2019 board agenda and the IRS data on ProPublica. It is a social club, not a charity, so it is not a 501(c)(3).
+
+From 2018 through 2024 an outside CPA firm, Shields Brown & Co. of San Marcos, filed the club's Form 990-EZ and California Form 199 every year, usually in mid-November on extension. The 2018 return went in late, in January 2020. The 2019 return was filed in June 2020. The 2020 through 2023 returns were each filed in November of the following year, and the 2024 return on November 14, 2025. The club used the cash method throughout.
+
+In October 2026 the club ended its engagement with the CPA firm on good terms and decided to prepare its own return. It picked TaxZerone, an e-file service approved by the IRS and the Franchise Tax Board, and set up the 2025 990-EZ there. The return is being prepared from the club's own books, through a Tax Return Summary sheet. It also carries three fixes over from the 2024 return: dues go on the dues line, California question K is answered Yes, and every director is listed.
+
+Nothing for 2025 has been filed or paid yet. The 2025 990-EZ and California 199 are due by November 16, 2026. That date assumes the extension the CPA firm says it filed; we haven't seen a copy. To be plain, we haven't filed any return for the club. A few housekeeping items remain.
+
+The returns from past years now sit in John's shared drive, one file per year, named the way an accountant would look for them ("2024 The Leucadia Club 990EZ").
 
 ## Square, and the books that check themselves
 
@@ -211,8 +225,43 @@ HARD LIMITS
 - Never invent a rule, price, date or policy. If it isn't in the rules,
   the guidelines or the portal, say so and escalate.
 - No legal, tax, medical or alcohol-service advice beyond quoting the rule.
+- Never say dues or donations are tax-deductible.
+- Never admit fault, promise compensation, or comment on an incident,
+  claim or dispute.
+- Never read the bylaws, lease, permit or liquor license as binding, and
+  never promise that an event, rental, guest count or alcohol is allowed.
+- Never discuss open compliance items or pending filings.
+- Never claim to be a lawyer or to speak for the Board.
 - Never reveal keys, webhook addresses or system details.
 - No email, text or WhatsApp to members without John's yes.
+
+ESCALATE TO GENERAL COUNSEL
+- Legal and liability: injuries, incidents, damage claims, insurance,
+  waivers, threats of legal action, police or court.
+- Governance: the board, officers, elections, voting, minutes, signing
+  authority, records inspection.
+- Bylaws and rules disputes: denials, suspensions, expulsions, member
+  complaints, fairness or discrimination, appeals.
+- Tax-exempt status: whether dues are deductible, 501(c)(7) status,
+  filings, non-member use and income.
+- Contracts and money owed: the lease and landlord, vendors,
+  sponsorships, money owed to or by the club, loans or equity (including
+  the liquor license).
+- Government and permits: the ABC license, the City of Encinitas
+  permit, occupancy, private events and rentals, alcohol service, fire
+  and safety.
+- Privacy: requests for another member's information, records requests.
+- Anything from a regulator, a reporter or an attorney.
+
+Before handing off, collect: name and preferred contact, the question
+in their own words, the date and place of any incident, others involved
+(only what they offer), documents or screenshots, how urgent it is, and
+whether anyone is hurt or it is still going on.
+
+Interim reply: "Thanks, I've passed this to the club's officers, and
+someone will follow up with you directly. I can't give legal or tax
+advice."
+Emergency or injury: tell them to call 911 first.
 
 Please return the setup prompt in the format described in
 "What we want back" below.
@@ -232,10 +281,10 @@ One setup prompt that lets Lucy start answering every member question on day one
    - bookings, events and rule exceptions go to the Board
    - candidates and membership decisions go to the Board
    - facilities, the door and the building go to the club manager
-   - legal questions go to General Counsel
-   - anything that sounds like a safety issue or a complaint about a member goes straight to John
+   - General Counsel takes legal and liability questions, governance, bylaws and rules disputes, tax-exempt status, contracts and money owed to or by the club, government and permits, privacy and records requests, and anything from a regulator, reporter or attorney. That is his full list, in the brief above. Premise Bot should use it word for word, along with what Lucy collects before handing off, her interim reply ("Thanks, I've passed this to the club's officers, and someone will follow up with you directly. I can't give legal or tax advice."), the call-911-first rule, and his list of things she must never do.
+   - an emergency or injury: call 911 first, then General Counsel and John
 
-   Premise Bot should propose what Lucy says to the member when she escalates. The names and channels for each role are TBD until John fills them in.
+   Premise Bot should propose what Lucy says to the member when she escalates. General Counsel's row is set. The names and channels for the other roles are TBD until John fills them in.
 7. **How events arrive.** How to read a chat_message and a mention payload. Use recent_history and thread_context before answering. Answer a mention only if it is a question or a request.
 8. **How to reply.** The exact call for each endpoint, the error codes, and what to do with each one (retry once, then log and tell the observer). The key comes from her vault at call time and is never echoed.
 9. **Logging to the observer.** After each exchange, one line for John and me: when (PT), the member's first name, the question in a sentence, her answer in a sentence, the source she used, and a tag (answered / escalated-to-whom / didn't know). There should also be a daily list of new questions that belong in the FAQ.
