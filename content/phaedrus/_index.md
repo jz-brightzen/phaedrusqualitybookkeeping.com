@@ -46,6 +46,7 @@ heroLede: "The ghost in the machine, documented. Internal reference pages for ho
     <div class="row-activity">
       <div class="activity-label">Recent</div>
       <ul>
+        <li><span class="act-date">10/25</span> Lucy + overseer update</li>
         <li><span class="act-date">10/25</span> Lucy is now a golden retriever puppy</li>
         <li><span class="act-date">10/25</span> Page created</li>
       </ul>
