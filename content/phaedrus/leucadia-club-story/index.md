@@ -3,6 +3,7 @@ title: "Leucadia Club · The Story So Far"
 layout: "phaedrus-report"
 url: "/phaedrus/leucadia-club-story/"
 date: 2026-10-25
+ogImage: "/phaedrus/leucadia-club-story/og-interior.jpg"
 draft: false
 summary: "From QuickBooks Desktop to a member portal with its own bot: what we did for the Leucadia Club, how Lucy and the rules cartoons were made, and the brief for Premise Bot."
 eyebrow: "Leucadia Club · Field notes"
