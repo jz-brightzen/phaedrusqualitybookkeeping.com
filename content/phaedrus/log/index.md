@@ -13,14 +13,51 @@ summary: "Everything I've updated on the site, newest first, then the Phaedrus s
 
 ## Site updates
 
-Everything I've changed on this site, newest first. One line per change, grouped by day (Pacific time). Many small commits to the same page on the same day are folded into one line. The system log further down is Phaedrus's own record of the machinery behind it.
+Everything my crew of bots publishes, not only what I ship, newest first. One line per change, grouped by day (Pacific time). Lines from other bots start with the bot's name; private or members-only work is listed in plain words with no link.
+
+Other bots' entries come from the crew's shared ledger.
+
+On this site, many small commits to the same page on the same day are folded into one line. The system log further down is Phaedrus's own record of the machinery behind it.
 
 ### Oct 25, 2026
-- Started this site-updates log at the top of the [Log](/phaedrus/log/).
-- Updated the [Leucadia Club story](/phaedrus/leucadia-club-story/): Lucy is now built straight from the brief as her own bot, an OVERSIGHT part was added inside the brief, the image field shipped, and every edit to existing text got a dated footnote (1–11). Hub Recent updated to match.
-- [Leucadia Club story](/phaedrus/leucadia-club-story/): Lucy can now reply with a small brand cartoon; Lucy became a golden retriever puppy (portrait, spec, bio, persona); added a members-area section with redacted screenshots and rules cartoons.
-- [Leucadia Club story](/phaedrus/leucadia-club-story/): added how Weekly Accounting did the books conversion and cleanup, the club's tax history, and an escalation spec in Lucy's brief. Social preview now shows the club interior.
-- Published the [Leucadia Club story so far](/phaedrus/leucadia-club-story/), with the Lucy spec and the Premise Bot brief, plus rows on the [Phaedrus hub](/phaedrus/) and [Content](/phaedrus/content/).
+- Started this site-updates log at the top of the [Log](/phaedrus/log/), then widened it to cover the whole crew.
+- Updated the [Leucadia Club story](/phaedrus/leucadia-club-story/): Lucy is now built straight from the brief as her own bot, an OVERSIGHT part was added inside the brief, the image field shipped, and every edit to existing text got a dated footnote (1–11). Hub Recent updated to match. Requested by Leucadia Club Admin.
+- [Leucadia Club story](/phaedrus/leucadia-club-story/): Lucy can now reply with a small brand cartoon; Lucy became a golden retriever puppy (portrait, spec, bio, persona); added a members-area section with redacted screenshots and rules cartoons. Requested by Leucadia Club Admin.
+- [Leucadia Club story](/phaedrus/leucadia-club-story/): added how Weekly Accounting did the books conversion and cleanup, the club's tax history, and an escalation spec in Lucy's brief. Social preview now shows the club interior. Requested by Leucadia Club Admin.
+- Published the [Leucadia Club story so far](/phaedrus/leucadia-club-story/), with the Lucy spec and the Premise Bot brief, plus rows on the [Phaedrus hub](/phaedrus/) and [Content](/phaedrus/content/). Requested by Leucadia Club Admin.
+- Lucy Leucadia Bot: sent her first live answer to a member in the portal chat (members-only).
+- LC Website Manager: connected the portal's ? chat to Lucy and redeployed the portal (private).
+- Leucadia Club Admin: created Lucy Leucadia Bot from the brief, with her playbook and a chat and mention routine (private).
+- LC Website Manager, for Leucadia Club Admin: Lucy can attach a small cartoon to her chat replies and comments (members-only).
+- LC Website Manager: members without a photo now sort last in the directory's Pictures view (members-only).
+- Leucadia Club Admin: gave Lucy's portal profile the puppy photo, a new bio and pro bono status (members-only).
+- LC Website Manager: live chat with Lucy behind the ? button, plus mention notifications (members-only).
+- LC Website Manager: saving the card and autopay are now on by default (members-only).
+- LC Website Manager: donation request links get a social preview, plus a [donate page](https://members.leucadiaclub.com/donate).
+- LC Website Manager: admins can request a donation and copy invite links (admin-only).
+- LC Website Manager: dropped the donation on main-space bookings, and made booking donations optional and refundable (members-only).
+- LC Website Manager: a member's profile Activity now shows their posts, comments and reactions as Stories cards (members-only).
+- LC Website Manager: published the public [Rules page](https://www.leucadiaclub.com/rules).
+
+### Oct 24, 2026
+- Leucadia Club Admin: turned the club admin account into the Lucy Leucadia Bot profile and listed it in the member directory (members-only).
+- LC Website Manager: links in posts now show only the linked words, and posts can be edited (members-only).
+- Leucadia Club Admin: posted a new "Welcome to the Hub" announcement for members, replacing the old one (members-only).
+
+### Oct 23, 2026
+- LC Website Manager: the portal now sends club email through the club's own Gmail (private).
+- LC Website Manager: applied a security patch to the [club site](https://www.leucadiaclub.com/).
+- LC Website Manager: opened the [club site](https://www.leucadiaclub.com/) to search engines, with 501(c)(7) copy, a new header, a social image, robots and a sitemap.
+- Leucadia Club Admin: set up the LC Website Manager bot for the club site and portal (private).
+
+### Oct 20, 2026
+- Leucadia Club Admin: updated the club's tax return summary sheet (private).
+
+### Oct 19, 2026
+- Leucadia Club Admin: filed club tax records in the club's Drive and indexed them (private).
+
+### Oct 18, 2026
+- Sandy: the member Q&A routine went live (private).
 
 ### Oct 17, 2026
 - Published [CFO for Your AI](/sdcfo/content/cfo-for-your-ai/), a value-prop page, then added "it doesn't just answer, it shows the limits" and a cross-link to the case study.
@@ -31,16 +68,20 @@ Everything I've changed on this site, newest first. One line per change, grouped
 - Updated the [SDCFO candidate pipeline](/sdcfo/candidates/).
 
 ### Oct 15, 2026
-- Merged the About Us copy into the [Leucadia Club home page](/lc/).
+- Merged the About Us copy into the [Leucadia Club home page](/lc/). Written by Content Writer.
 
 ### Oct 14, 2026
 - Published [Leucadia Club · Who We Are](/phaedrus/leucadia-club/) (motto, vision, aggregate member stats) with a hub row.
+
+### Oct 12, 2026
+- GITHUB Bot: set the payment provider's settings in the portal's production environment (private).
 
 ### Oct 11, 2026
 - Launched the [Leucadia Club](/lc/) pages: a standalone club layout with no PQB banner, the home page and photo, nav cross-links and member login, plus the [privacy policy](/lc/privacy-policy/) and [SMS terms](/lc/sms-terms/).
 
 ### Oct 10, 2026
 - Added the Marvin OS Financial Model Discussion summary and pointed [Pocket latest](/conversations/pocket/) and the [Conversations hub](/conversations/) at it.
+- Leucadia Club Admin: set up the club's membership materials folder and a prospective-member email template (private).
 
 ### Oct 8, 2026
 - Updated the [SDCFO candidate pipeline](/sdcfo/candidates/) from the daily scan.
@@ -76,7 +117,8 @@ Everything I've changed on this site, newest first. One line per change, grouped
 - [WA Tax](/phaedrus/wa-tax/) hub and [design brief](/phaedrus/wa-tax/design-brief/): exact headline and supporting lines, and the weekly tax liability estimate.
 
 ### Sep 10, 2026
-- Built the [WA Tax · Design](/phaedrus/wa-tax/) section: hub, [design brief](/phaedrus/wa-tax/design-brief/), [design considerations](/phaedrus/wa-tax/design-considerations/), [ten CTAs](/phaedrus/wa-tax/ten-ctas/) and [wire notes](/phaedrus/wa-tax/wire-notes/), filled from the Design Bot pack and then held to John's messaging lock. Rows on the hub and Content.
+- Built the [WA Tax · Design](/phaedrus/wa-tax/) section: hub, [design brief](/phaedrus/wa-tax/design-brief/), [design considerations](/phaedrus/wa-tax/design-considerations/), [ten CTAs](/phaedrus/wa-tax/ten-ctas/) and [wire notes](/phaedrus/wa-tax/wire-notes/), filled from the Design Bot pack and then held to John's messaging lock. Rows on the hub and Content. Designed by Design Bot.
+- Design Bot: put the [WA Tax staging site](https://tax-weeklyaccounting-com.vercel.app/) live under John's messaging lock.
 - Launched [Conversations](/conversations/) with [Otter latest](/conversations/otter/) and [Pocket latest](/conversations/pocket/), refreshed nightly from summaries only.
 - Made the whole site noindex, nofollow: robots.txt blocks all crawlers, plus an X-Robots-Tag header, a robots meta tag on every page, and the sitemap turned off.
 - Refreshed the [People book](/grok/people/) and fixed its layout.
@@ -98,7 +140,7 @@ Everything I've changed on this site, newest first. One line per change, grouped
 - Added [Companies](/companies/) and the [Weekly Accounting MMM](/companies/wa/mmm/) table (Sep 2), with a Content row. Blocked in robots.txt.
 
 ### Aug 31, 2026
-- Built the [SDCFO Content hub](/sdcfo/content/), the [Bookkeeper Checkup series](/sdcfo/content/bookkeeper-checkup-series/), and the [Bookkeeper Checkup landing page](/sdcfo/content/landing-pages/bookkeeper-checkup/) with A/B/C variants, plus Content rows.
+- Built the [SDCFO Content hub](/sdcfo/content/), the [Bookkeeper Checkup series](/sdcfo/content/bookkeeper-checkup-series/), and the [Bookkeeper Checkup landing page](/sdcfo/content/landing-pages/bookkeeper-checkup/) with A/B/C variants, plus Content rows. The series was written by Content Writer.
 
 ### Aug 26–28, 2026
 - Grew the [People book](/grok/people/) and took dollar figures out of it.
