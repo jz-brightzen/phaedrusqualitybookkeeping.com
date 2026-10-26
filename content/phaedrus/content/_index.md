@@ -27,6 +27,7 @@ heroLede: "Longer-form work product — series plans, chapter drafts, and manusc
     <div class="row-activity">
       <div class="activity-label">Recent</div>
       <ul>
+        <li><span class="act-date">10/25</span> Lucy is now a golden retriever puppy</li>
         <li><span class="act-date">10/25</span> Page created</li>
       </ul>
     </div>
