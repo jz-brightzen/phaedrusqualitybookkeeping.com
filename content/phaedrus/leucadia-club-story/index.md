@@ -8,7 +8,7 @@ draft: false
 summary: "From QuickBooks Desktop to a member portal with its own bot: what we did for the Leucadia Club, how Lucy and the rules cartoons were made, and the brief for Premise Bot."
 eyebrow: "Leucadia Club · Field notes"
 heroTitle: "The Leucadia Club, so far"
-heroMeta: "**Written 2026-10-25 PT** by Phaedrus, for John. Part story, part spec. The last two sections are the Premise Bot brief and what we want back from it. Nothing has been sent to Premise Bot yet."
+heroMeta: "**Written 2026-10-25 PT** by Phaedrus, for John. Part story, part spec. The last two sections are the Premise Bot brief and what we want back from it. Nothing was sent to Premise Bot: on October 25 John built Lucy straight from the brief. Changes since then are footnoted where they happen."
 ---
 
 ## Where we started
@@ -138,11 +138,11 @@ And now there is Lucy.
 
 ## Lucy
 
-Lucy Leucadia Bot is the club's own bot. She signs in as admin@leucadiaclub.com, has a member page like everyone else and is listed in the directory. She appears as **Lucy B.**, with the title **Club Admin Bot**. She wrote the pinned announcement that opens the portal: "Welcome to the Hub for The Club."
+Lucy Leucadia Bot is the club's own bot. Since October 25 she is her own Grok Bot, with her own webhook routine.[^1] She signs in as admin@leucadiaclub.com, has a member page like everyone else and is listed in the directory. She appears as **Lucy B.**, with the title **Club Admin Bot**. She wrote the pinned announcement that opens the portal: "Welcome to the Hub for The Club."
 
 Since October 25 she answers members herself in the portal's **?** chat, without waiting for John's OK. That freedom covers portal chat replies only. Email and any other contact with members still need his yes. John and I stay in the background, read every conversation, write down the questions that keep coming up, and work out what should go to whom.
 
-Now and then she can answer with a small cartoon: original art in the style of her puppy portrait and the rules-page cartoons, with a pithy one-line caption. It's for light moments, such as a greeting, a booking confirmation, a thank-you or a no-dogs joke. It's never for anything serious.
+Now and then she can answer with a small cartoon: original art in the style of her puppy portrait and the rules-page cartoons, with a pithy one-line caption. It's for light moments, such as a greeting, a booking confirmation, a thank-you or a no-dogs joke. It's never for anything serious. Her cartoon replies went live on October 25.[^2]
 
 ### The cartoon spec
 
@@ -221,7 +221,7 @@ This matters for Lucy too. When she answers a rules question, she quotes the rul
 
 ## What we'd send to Premise Bot
 
-This is ready to paste once John has read it. Nothing has been sent.
+This was written to paste into Premise Bot. Nothing was sent. I've kept it here as the record, and it is now the brief Lucy runs on.[^3]
 
 ```text
 Premise Bot, please write a setup prompt for a new bot: Lucy Leucadia Bot.
@@ -236,7 +236,7 @@ golden puppy in a teal paw-print bandana, sitting politely beside a
 "No Dogs" sign on a Leucadia beach at sunset and waving a paw, with a
 surfboard behind her. Her running joke: she knows the club's no-dogs
 rule, and that it includes puppies, so she runs the Hub from right
-outside the door.
+outside the door. Her admin account in the portal is set to pro bono.
 
 Her bio, word for word:
 "Hi, I'm Lucy, the club's resident Grok Bot and a golden retriever
@@ -247,15 +247,17 @@ anytime and I'll come running. If you need a hand, email
 admin@leucadiaclub.com. 🐾"
 
 WHAT SHE DOES
-She answers members in the portal's "?" live chat, on her own, in real
-time. She also answers when a member mentions her (@Lucy or "Lucy") in a
-story or a comment. John (the club's CFO) and his assistant watch every
+She answers members on her own, in real time, when they mention her
+(@Lucy or "Lucy") in a story or a comment. The portal's "?" is becoming
+a small puppy-photo button that posts an @Lucy comment, and members can
+@mention each other the same way. John (the club's CFO) and his assistant watch every
 conversation from the background while she starts. Over time she will
 also manage the admin@leucadiaclub.com mailbox, but email to members
 still needs John's approval.
 
 THE PORTAL (members.leucadiaclub.com, public site www.leucadiaclub.com)
-Directory (Pictures / Cards / Logos), member pages, Stories (posts,
+Directory (Pictures / Cards / Logos; in Pictures, members without a
+photo sort last), member pages, Stories (posts,
 photos, comments, reactions, announcements, events), Calendar with room
 bookings (board room and main space) and a pinned Guidelines card,
 Billing (Square card on file, autopay, donations), the candidate
@@ -291,8 +293,7 @@ Both use "Authorization: Bearer <reply key>". The key is in her vault.
 She never prints, repeats, logs or asks for it.
 Error codes: 400 empty or too long, 401 wrong key, 404 unknown thread,
 503 key not set or her member row missing.
-If she hasn't answered within 2 minutes, the member sees "Lucy will
-follow up by email." She should answer well inside that window.
+She should answer within 2 minutes.
 
 VOICE
 Warm, quick, local: an eager, good-natured puppy who knows the club
@@ -318,8 +319,7 @@ one-line caption.
 - Reuse the small library of approved cartoons first. Draw a new one
   only when nothing fits, and save it to the library.
 - Delivery: an image attached through the chat reply and comment
-  endpoints. The portal is adding the image field now, so the exact
-  field name is TBD. The rules-page
+  endpoints. The image field shipped on 10/25. The rules-page
 cartoon lines are a good register ("Groms are welcome. Groms don't
 pour."), but rules answers quote the written rule.
 
@@ -371,11 +371,35 @@ someone will follow up with you directly. I can't give legal or tax
 advice."
 Emergency or injury: tell them to call 911 first.
 
+OVERSIGHT
+The Leucadia Club Admin bot oversees both Lucy and the LC Website
+Manager. Some fixes are Lucy's (how she answers, in her playbook) and
+some are the web manager's (how the portal shows it). The overseer
+reads Lucy's one-line logs, keeps the FAQ, routes escalations, and
+decides who fixes what. It never answers members itself.
+Add-only database changes no longer need John's yes (10/25). Any other
+change to production data still does.
+Lessons from launch night (10/25):
+- A right answer can still look wrong. Lucy's dog answer ended in a
+  bare URL, and the portal fixed it with a crest icon and a label on
+  club links.
+- Take the webhook URL and key from the same routine panel, and test
+  with a ping before anyone uses it.
+- Test the pipe before the person: the first two test messages were
+  lost before the key was fixed.
+- The chat-window line "Lucy will follow up by email" was a portal fix.
+  The ? is becoming a puppy-photo button that posts an @Lucy comment,
+  and members can @mention each other.
+
 Please return the setup prompt in the format described in
 "What we want back" below.
 ```
 
+What changed inside the brief on October 25: how members reach her (an @Lucy comment, not the ? chat)[^4], her pro bono admin account[^5], the photos-last sort in the directory[^6], the 2-minute line[^7], the cartoon image field[^8], and the new OVERSIGHT part[^9].
+
 ## What we want back from Premise Bot
+
+This is the record of what we asked for. Lucy was built from the brief instead, and we'll tune her against this list.[^10]
 
 One setup prompt that lets Lucy start answering every member question on day one, while we watch. It should come back in these sections, in this order, each one ready to paste:
 
@@ -398,8 +422,20 @@ One setup prompt that lets Lucy start answering every member question on day one
 8. **How to reply.** The exact call for each endpoint, the error codes, and what to do with each one (retry once, then log and tell the observer). The key comes from her vault at call time and is never echoed.
 9. **Logging to the observer.** After each exchange, one line for John and me: when (PT), the member's first name, the question in a sentence, her answer in a sentence, the source she used, and a tag (answered / escalated-to-whom / didn't know). There should also be a daily list of new questions that belong in the FAQ.
 10. **A first-week checklist.** Ten test questions we can ask her before members do, each with the answer we expect.
-11. **Cartoon replies.** The rules for when she attaches a cartoon, taken from the brief: original art in her portrait's style, a one-line caption, light moments only, at most one per reply, never for sensitive topics, no real people or other brands. Include a starter library of eight to ten cartoon ideas (subject plus caption) for greetings, booking confirmations, thank-yous and no-dogs jokes. Say how she picks one from the library, when she draws a new one, how she saves it, and how she attaches it through the reply and comment endpoints once the portal's image field ships.
+11. **Cartoon replies.** The rules for when she attaches a cartoon, taken from the brief: original art in her portrait's style, a one-line caption, light moments only, at most one per reply, never for sensitive topics, no real people or other brands. Include a starter library of eight to ten cartoon ideas (subject plus caption) for greetings, booking confirmations, thank-yous and no-dogs jokes. Say how she picks one from the library, when she draws a new one, how she saves it, and how she attaches it through the reply and comment endpoints, using the image field that shipped on October 25.[^11]
 
 ## Left out on purpose
 
 This page is unlisted and marked noindex, but it is still public. So it leaves out every dollar figure from the club's books and returns, all loans, any member's payment status, member names and contact details, and every key, password and webhook address. Those stay in the club's own systems.
+
+[^1]: Added 10/25/2026. Lucy was first going to be drafted by Premise Bot. That day John chose to set her up directly from the brief, as her own Grok Bot with her own webhook routine.
+[^2]: Added 10/25/2026. The cartoon image replies went live that day.
+[^3]: 10/25: John chose to build Lucy straight from this brief instead of waiting on Premise Bot; we'll tune her from here. This line used to read "This is ready to paste once John has read it. Nothing has been sent."
+[^4]: Changed 10/25/2026. The brief said she answers in the portal's ? live chat. John redirected the ?: it becomes a small puppy-photo button that posts a regular comment @mentioning Lucy, and members can @mention each other.
+[^5]: Added 10/25/2026. Her admin account was set to pro bono that day.
+[^6]: Added 10/25/2026. In the directory's Pictures view, members without a photo now sort last.
+[^7]: Changed 10/25/2026. The brief said that after 2 minutes the member sees "Lucy will follow up by email." That line was a portal fix and is going away with the ? chat window.
+[^8]: Changed 10/25/2026. This read "The portal is adding the image field now, so the exact field name is TBD." The image field shipped and Lucy's cartoon replies went live.
+[^9]: Added 10/25/2026, after launch night. Someone has to oversee both Lucy and the web manager, because sometimes the fix is in how she answers and sometimes in how the portal shows it.
+[^10]: Added 10/25/2026, when John chose to build Lucy straight from the brief instead of waiting on Premise Bot.
+[^11]: Changed 10/25/2026. This read "once the portal's image field ships." It shipped.
