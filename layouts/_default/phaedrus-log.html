@@ -256,6 +256,21 @@
       <span class="header-note">Internal · System Log</span>
     </div>
   </header>
+  {{ with .Content }}
+  <style>
+    .site-updates { max-width: var(--shell); margin: 24px auto 0; background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 26px 32px 18px; font-family: "DM Sans", sans-serif; color: var(--cell-text); }
+    .site-updates h2 { font-family: "Manrope", sans-serif; font-size: 28px; font-weight: 700; letter-spacing: -0.04em; color: var(--navy-900); margin-bottom: 8px; }
+    .site-updates > p { color: var(--slate-600); font-size: 14px; line-height: 1.55; margin-bottom: 14px; }
+    .site-updates h3 { font: 700 13px "Manrope", sans-serif; color: var(--teal-500); text-transform: uppercase; letter-spacing: 0.04em; margin: 18px 0 6px; padding-top: 12px; border-top: 1px solid var(--grid-line); }
+    .site-updates ul { list-style: disc; padding-left: 20px; }
+    .site-updates li { font-size: 14px; line-height: 1.55; margin: 3px 0; }
+    .site-updates a { color: var(--sheet-green-mid); text-decoration: underline; text-underline-offset: 2px; }
+    .site-updates-scroll { max-height: 70vh; overflow-y: auto; padding-right: 8px; }
+  </style>
+  <section class="site-updates" id="site-updates">
+    {{ . }}
+  </section>
+  {{ end }}
 
   <section class="active-section">
     <div class="active-header">
