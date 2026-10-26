@@ -21,9 +21,9 @@ On October 8 John introduced himself to the club as the person taking finance an
 
 ## Out of QuickBooks Desktop
 
-The first job was getting the books off that one computer. In the first days of October John took over the move from QuickBooks Desktop to QuickBooks Online himself, working with the club's previous bookkeeper. Around October 7 the club sent over its 2024 return and its bank statements, and John got a shared-access invite to the club's bank account.
+The first job was getting the books off that one computer. In the first days of October John took over the move from QuickBooks Desktop to QuickBooks Online, working with the club's previous bookkeeper. Around October 7 the club sent over its 2024 return and its bank statements, and John got a shared-access invite to the club's bank account.
 
-That conversion is what the 2025 tax return is being built from: the club's own books, out of QuickBooks Desktop and caught up. General Counsel, who keeps the club's legal and tax file, has no records of the conversion itself, so the dates here come from John's mail.
+Weekly Accounting did the conversion and the cleanup that followed. The 2025 Form 990-EZ and California 199 are being prepared from those cleaned-up books, through a Tax Return Summary sheet.
 
 ## Catching up the books
 
@@ -41,7 +41,7 @@ That's when it became what it is now. California exempts the club under Revenue 
 
 From 2018 through 2024 an outside CPA firm, Shields Brown & Co. of San Marcos, filed the club's Form 990-EZ and California Form 199 every year, usually in mid-November on extension. The 2018 return went in late, in January 2020. The 2019 return was filed in June 2020. The 2020 through 2023 returns were each filed in November of the following year, and the 2024 return on November 14, 2025. The club used the cash method throughout.
 
-In October 2026 the club ended its engagement with the CPA firm on good terms and decided to prepare its own return. It picked TaxZerone, an e-file service approved by the IRS and the Franchise Tax Board, and set up the 2025 990-EZ there. The return is being prepared from the club's own books, through a Tax Return Summary sheet. It also carries three fixes over from the 2024 return: dues go on the dues line, California question K is answered Yes, and every director is listed.
+In October 2026 the club ended its engagement with the CPA firm on good terms and decided to prepare its own return. It picked TaxZerone, an e-file service approved by the IRS and the Franchise Tax Board, and set up the 2025 990-EZ there. The return is being prepared from the books Weekly Accounting converted and cleaned up, through a Tax Return Summary sheet. It also carries three fixes over from the 2024 return: dues go on the dues line, California question K is answered Yes, and every director is listed.
 
 Nothing for 2025 has been filed or paid yet. The 2025 990-EZ and California 199 are due by November 16, 2026. That date assumes the extension the CPA firm says it filed; we haven't seen a copy. To be plain, we haven't filed any return for the club. A few housekeeping items remain.
 
