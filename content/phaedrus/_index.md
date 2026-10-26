@@ -9,6 +9,30 @@ heroLede: "The ghost in the machine, documented. Internal reference pages for ho
 
 <div class="page-rows">
 
+  <a class="page-row" href="/phaedrus/log/">
+    <div class="row-icon">📜</div>
+    <div class="row-main">
+      <div class="row-title">Log</div>
+      <p class="row-desc">Everything I've updated on the site, newest first. Below it, the Phaedrus system log and the top-10 improvement backlog.</p>
+      <div class="row-improve">
+        <div class="improve-label">Improve next</div>
+        <ul>
+          <li>Auto-append a line on every ship</li>
+          <li>Link each entry to its commit for provenance</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row-activity">
+      <div class="activity-label">Recent</div>
+      <ul>
+        <li><span class="act-date">10/25</span> Site updates log added, Apr through today</li>
+        <li><span class="act-date">10/24</span> Nightly system log review</li>
+        <li><span class="act-date">08/24</span> Grok section row + card added</li>
+      </ul>
+    </div>
+  </a>
+
+
   <a class="page-row" href="/phaedrus/leucadia-club/">
     <div class="row-icon">🍺</div>
     <div class="row-main">
@@ -393,28 +417,6 @@ heroLede: "The ghost in the machine, documented. Internal reference pages for ho
     </div>
   </a>
 
-  <a class="page-row" href="/phaedrus/log/">
-    <div class="row-icon">📜</div>
-    <div class="row-main">
-      <div class="row-title">System Log</div>
-      <p class="row-desc">81 entries across 6 months — every significant build, fix, integration, and milestone, grouped by category. Plus a top-10 improvement backlog.</p>
-      <div class="row-improve">
-        <div class="improve-label">Improve next</div>
-        <ul>
-          <li>Auto-append entries from daily notes instead of manual batches</li>
-          <li>Link each entry to its commit or memory note for provenance</li>
-        </ul>
-      </div>
-    </div>
-    <div class="row-activity">
-      <div class="activity-label">Recent</div>
-      <ul>
-        <li><span class="act-date">08/24</span> Grok section row + card added; wiki dot idle; 81 entries</li>
-        <li><span class="act-date">08/22</span> 6 entries: drive cleanups, Mythos Images, skills sync, folder-org skill</li>
-        <li><span class="act-date">08/21</span> Obsidian workspace page, LCM retirement, tracker skill — one afternoon</li>
-      </ul>
-    </div>
-  </a>
 
   <a class="page-row" href="/phaedrus/resurrection/">
     <div class="row-icon">🔥</div>
