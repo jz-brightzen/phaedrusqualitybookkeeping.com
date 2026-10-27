@@ -1,0 +1,193 @@
+{{- $h := site.Data.kasa.history -}}
+{{- $np := len $h.polls -}}
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ .Title }} · zCompound</title>
+  <meta name="description" content="{{ .Params.summary | default .Description }}">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy-950: #071726; --navy-900: #0b1f33; --blue-700: #146c94; --teal-500: #2a9d98;
+      --teal-300: #39d0c6; --mist-100: #eaf4f6; --cloud-50: #f8fbfc; --slate-600: #526578;
+      --white: #ffffff; --border: rgba(11, 31, 51, 0.14);
+      --shell: min(1000px, calc(100vw - 32px));
+      --on: #F5C542; --off: #9CA3AF; --unk: #F8B4B4;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { color: var(--navy-900); background: var(--cloud-50); font-family: "DM Sans", sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 40; background: rgba(7,23,38,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.12); }
+    .header-inner { max-width: var(--shell); margin: 0 auto; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; }
+    .header-brand { color: var(--white); font-family: "Manrope", sans-serif; font-size: 17px; font-weight: 700; letter-spacing: -0.03em; }
+    .header-note { color: rgba(255,255,255,0.55); font-size: 12px; }
+    .hero { color: var(--white); padding: 120px 0 44px; background: radial-gradient(circle at 84% 18%, rgba(245,197,66,0.22), transparent 34%), var(--navy-950); }
+    .hero-inner { max-width: var(--shell); margin: 0 auto; padding: 0 16px; }
+    .eyebrow { margin: 0 0 14px; color: var(--teal-300); text-transform: uppercase; letter-spacing: 0.14em; font-size: 12px; font-weight: 700; }
+    .hero h1 { font-family: "Manrope", sans-serif; letter-spacing: -0.045em; font-size: clamp(34px, 4.6vw, 54px); line-height: 1.04; }
+    .hero-meta { margin-top: 16px; color: rgba(255,255,255,0.7); font-size: 15px; }
+    .page { max-width: var(--shell); margin: 0 auto; padding: 32px 16px 96px; }
+    .lede { font-size: 15.5px; color: #2c3e50; max-width: 720px; margin-bottom: 18px; }
+    .lede code { font-size: 13px; background: var(--mist-100); padding: 1px 5px; border-radius: 4px; }
+    h2 { font-family: "Manrope", sans-serif; letter-spacing: -0.04em; font-size: 24px; margin: 40px 0 10px; }
+    h3 { font-family: "Manrope", sans-serif; letter-spacing: -0.03em; font-size: 17px; margin: 0 0 8px; }
+    .summary { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 0 0 14px; }
+    .tot { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: #fff; border: 1px solid var(--border); font-weight: 700; font-size: 14px; }
+    .sw { width: 14px; height: 14px; border-radius: 50%; display: inline-block; border: 1px solid rgba(0,0,0,0.15); flex: none; }
+    .on .sw, .sw.on { background: var(--on); box-shadow: 0 0 8px rgba(245,197,66,0.8); }
+    .off .sw, .sw.off { background: var(--off); }
+    .unknown .sw, .sw.unknown { background: var(--unk); }
+    .approx { display: inline-block; font-size: 13px; font-weight: 700; color: #8a5a00; background: #fff6dc; border: 1px dashed #d9a520; border-radius: 8px; padding: 6px 10px; margin: 4px 0 16px; }
+    /* Floor plan */
+    .plan { display: grid; gap: 14px; grid-template-columns: 3fr 1.3fr; grid-template-areas: "house out" "yard yard"; }
+    .house, .outb, .yard { border-radius: 14px; padding: 12px; position: relative; }
+    .house { grid-area: house; background: #fff; border: 3px solid var(--navy-900); display: grid; gap: 10px;
+      grid-template-columns: 1fr 1fr 1fr; grid-template-areas: "upstairs bedroom office" "den kitchen kitchen" "foyer gym laundry"; }
+    .outb { grid-area: out; display: grid; gap: 14px; grid-template-areas: "mancave" "barn"; align-content: start; }
+    .yard { grid-area: yard; background: repeating-linear-gradient(45deg, #eef7ee, #eef7ee 10px, #e4f1e4 10px, #e4f1e4 20px); border: 2px dashed #7fae7f; }
+    .zone-label { position: absolute; top: -10px; left: 14px; background: var(--cloud-50); padding: 0 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-600); }
+    .room { border: 2px solid #c8d2da; border-radius: 10px; padding: 10px; background: #fbfcfd; min-height: 90px; }
+    .outb .room { border: 3px solid var(--navy-800, #12324a); background: #fff; }
+    .yard .room { border: none; background: transparent; padding: 6px 4px; min-height: 0; }
+    .room-head { display: flex; justify-content: space-between; align-items: baseline; gap: 6px; margin-bottom: 6px; }
+    .room-name { font-family: "Manrope", sans-serif; font-weight: 700; font-size: 14px; }
+    .room-count { font-size: 11.5px; color: var(--slate-600); white-space: nowrap; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px 4px 6px; border-radius: 999px; font-size: 12.5px; font-weight: 600; border: 1px solid var(--border); background: #fff; }
+    .chip.on { background: #fff4d1; border-color: #e8b52a; }
+    .chip.off { background: #f1f2f4; color: #4b5563; }
+    .chip.unknown { background: #fdeeee; border-color: #f1a0a0; }
+    .unsure { margin-top: 18px; background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
+    @media (max-width: 760px) {
+      .plan { grid-template-columns: 1fr; grid-template-areas: "house" "out" "yard"; }
+      .house { grid-template-columns: 1fr 1fr; grid-template-areas: "upstairs bedroom" "office den" "kitchen kitchen" "foyer foyer" "gym laundry"; }
+      .header-note { display: none; }
+    }
+    /* Over time */
+    .room-hist { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 14px; margin: 0 0 18px; }
+    .hist-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 10px; margin-bottom: 8px; }
+    .spark { display: block; }
+    .spark-cap { font-size: 11.5px; color: var(--slate-600); }
+    .tl-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid #e5e9ee; border-radius: 8px; }
+    table.tl { border-collapse: separate; border-spacing: 0; font-size: 12.5px; min-width: 100%; }
+    .tl th, .tl td { padding: 0; border-bottom: 1px solid #eef1f4; }
+    .tl thead th { font-weight: 600; color: var(--slate-600); font-size: 11px; padding: 6px 4px; white-space: nowrap; text-align: center; background: #fafbfc; }
+    .tl th.name { position: sticky; left: 0; z-index: 2; background: #fff; text-align: left; padding: 5px 10px 5px 8px; white-space: nowrap; font-weight: 600; color: var(--navy-900); font-size: 12.5px; border-right: 1px solid #e5e9ee; max-width: 46vw; overflow: hidden; text-overflow: ellipsis; }
+    .tl thead th.name { background: #fafbfc; z-index: 3; color: var(--slate-600); font-size: 11px; }
+    .tl td.c { min-width: 58px; height: 26px; border-left: 2px solid #fff; }
+    .tl td.on { background: var(--on); } .tl td.off { background: var(--off); } .tl td.unknown { background: var(--unk); }
+    .foot { margin-top: 30px; font-size: 13px; color: var(--slate-600); }
+    .site-footer { padding: 32px 0; text-align: center; background: var(--navy-950); color: rgba(255,255,255,0.45); font-size: 12px; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="header-brand" href="/zcompound/">zCompound</a>
+      <span class="header-note">{{ .Params.eyebrow | default "zCompound" }}</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">{{ .Params.eyebrow | default "zCompound" }}</p>
+      <h1>{{ .Params.heroTitle | default .Title }}</h1>
+      <p class="hero-meta">{{ $h.snapshot_label }} · {{ $h.light_count }} lights</p>
+    </div>
+  </section>
+
+  <main class="page">
+    <div class="lede">{{ .Content }}</div>
+
+    <div class="summary">
+      <span class="tot on"><span class="sw"></span>{{ $h.totals.on }} on</span>
+      <span class="tot off"><span class="sw"></span>{{ $h.totals.off }} off</span>
+      <span class="tot unknown"><span class="sw"></span>{{ $h.totals.unknown }} unknown (didn't answer)</span>
+    </div>
+    <div class="approx">Approximate layout, guessed from light names. Not a real floor plan.</div>
+
+    {{- define "partials/kasa-room.html" -}}
+      {{- $r := . -}}
+      <div class="room" style="grid-area: {{ $r.area }}">
+        <div class="room-head"><span class="room-name">{{ $r.name }}</span><span class="room-count">{{ $r.latest_on }} of {{ $r.count }} on</span></div>
+        <div class="chips">
+          {{- range $r.lights }}<span class="chip {{ .latest }}" title="{{ .alias }}: {{ .latest }}"><span class="sw {{ .latest }}"></span>{{ .alias }}</span>{{ end -}}
+        </div>
+      </div>
+    {{- end -}}
+
+    <div class="plan" role="img" aria-label="Approximate floor plan with lights colored by state">
+      <div class="house"><span class="zone-label">House</span>
+        {{- range $h.rooms }}{{ if in (slice "upstairs" "bedroom" "office" "den" "kitchen" "foyer" "gym" "laundry") .area }}{{ partial "kasa-room.html" . }}{{ end }}{{ end -}}
+      </div>
+      <div class="outb">
+        {{- range $h.rooms }}{{ if in (slice "mancave" "barn") .area }}{{ partial "kasa-room.html" . }}{{ end }}{{ end -}}
+      </div>
+      <div class="yard"><span class="zone-label">Yard</span>
+        {{- range $h.rooms }}{{ if eq .area "yard" }}{{ partial "kasa-room.html" . }}{{ end }}{{ end -}}
+      </div>
+    </div>
+
+    {{- range $h.rooms }}{{ if eq .area "unsure" }}
+    <div class="unsure">
+      <h3>Not sure where ({{ .count }})</h3>
+      <p class="spark-cap" style="margin-bottom:8px">{{ .latest_on }} of {{ .count }} on. The names don't say which room these are in.</p>
+      <div class="chips">
+        {{- range .lights }}<span class="chip {{ .latest }}" title="{{ .alias }}: {{ .latest }}"><span class="sw {{ .latest }}"></span>{{ .alias }}</span>{{ end -}}
+      </div>
+    </div>
+    {{ end }}{{ end -}}
+
+    <h2>Over time</h2>
+    <p class="lede">Every poll so far ({{ $np }}{{ if $np }}, {{ (index $h.polls 0).label }} to {{ (index $h.polls (sub $np 1)).label }} PT{{ end }}). Each row is a light, each column a poll. A light that didn't answer, or wasn't in a poll, shows as unknown. The small chart shows how many lights in the room were on at each poll.</p>
+    <div class="summary" style="margin-bottom:20px">
+      <span class="tot on"><span class="sw"></span>on</span>
+      <span class="tot off"><span class="sw"></span>off</span>
+      <span class="tot unknown"><span class="sw"></span>unknown</span>
+    </div>
+
+    {{- range $h.rooms }}
+    {{- $r := . -}}
+    {{- $bw := 14 -}}{{- $gap := 4 -}}{{- $ch := 36 -}}
+    {{- $w := add (mul $np (add $bw $gap)) $gap -}}
+    <div class="room-hist">
+      <div class="hist-top">
+        <h3>{{ $r.name }} <span class="room-count">({{ $r.count }} lights)</span></h3>
+        <div>
+          <svg class="spark" width="{{ $w }}" height="{{ add $ch 4 }}" viewBox="0 0 {{ $w }} {{ add $ch 4 }}" role="img" aria-label="{{ $r.name }}: lights on per poll">
+            <line x1="0" y1="{{ add $ch 2 }}" x2="{{ $w }}" y2="{{ add $ch 2 }}" stroke="#cbd5e1" stroke-width="1"/>
+            {{- range $i, $c := $r.on_counts }}
+            {{- $bh := 0.0 }}{{ if gt $r.count 0 }}{{ $bh = div (mul (float $c) $ch) (float $r.count) }}{{ end }}
+            {{- if and (gt $c 0) (lt $bh 2.0) }}{{ $bh = 2.0 }}{{ end }}
+            <rect x="{{ add $gap (mul $i (add $bw $gap)) }}" y="{{ sub (add $ch 2) $bh }}" width="{{ $bw }}" height="{{ $bh }}" rx="2" fill="#F5C542"><title>{{ (index $h.polls $i).label }}: {{ $c }} of {{ $r.count }} on</title></rect>
+            {{- end }}
+          </svg>
+          <div class="spark-cap">lights on per poll (max {{ $r.count }})</div>
+        </div>
+      </div>
+      <div class="tl-wrap">
+        <table class="tl">
+          <thead><tr><th class="name" scope="col">Light</th>{{ range $h.polls }}<th scope="col">{{ .time }}</th>{{ end }}</tr></thead>
+          <tbody>
+          {{- range $r.lights }}
+            <tr><th class="name" scope="row" title="{{ .alias }}">{{ .alias }}</th>{{ range $i, $s := .history }}<td class="c {{ $s }}" title="{{ (index $h.polls $i).label }}: {{ $s }}"></td>{{ end }}</tr>
+          {{- end }}
+          <tr><th class="name" scope="row" style="color:var(--slate-600);font-weight:500">On</th>{{ range $r.on_counts }}<td style="text-align:center;font-size:11.5px;color:var(--slate-600)">{{ . }}</td>{{ end }}</tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    {{- end }}
+
+    <p class="foot">Only each light's name and on/off state are shown. Room placement is a guess from the names. Times are Pacific. Noindex.</p>
+  </main>
+
+  <footer class="site-footer"><p>zCompound · Home · Noindex</p></footer>
+</body>
+</html>

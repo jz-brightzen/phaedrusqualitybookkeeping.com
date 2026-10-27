@@ -1,0 +1,689 @@
+{
+ "snapshot_label": "Snapshot 10/26/2026, 8:58 PM PT",
+ "generated_note": "Built from Kasa polls; alias and on/off only.",
+ "light_count": 56,
+ "totals": {
+  "on": 23,
+  "off": 30,
+  "unknown": 3
+ },
+ "polls": [
+  {
+   "label": "10/26 8:44 PM",
+   "time": "8:44 PM",
+   "date": "10/26"
+  },
+  {
+   "label": "10/26 8:52 PM",
+   "time": "8:52 PM",
+   "date": "10/26"
+  },
+  {
+   "label": "10/26 8:58 PM",
+   "time": "8:58 PM",
+   "date": "10/26"
+  }
+ ],
+ "rooms": [
+  {
+   "name": "Upstairs",
+   "area": "upstairs",
+   "count": 1,
+   "latest_on": 1,
+   "on_counts": [
+    1,
+    1,
+    1
+   ],
+   "lights": [
+    {
+     "alias": "Upstairs Lamp",
+     "latest": "on",
+     "history": [
+      "on",
+      "on",
+      "on"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Bedroom",
+   "area": "bedroom",
+   "count": 2,
+   "latest_on": 0,
+   "on_counts": [
+    0,
+    0,
+    0
+   ],
+   "lights": [
+    {
+     "alias": "Bedroom Attic",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    },
+    {
+     "alias": "Bedroom Wall",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Office",
+   "area": "office",
+   "count": 2,
+   "latest_on": 0,
+   "on_counts": [
+    0,
+    0,
+    0
+   ],
+   "lights": [
+    {
+     "alias": "Office Attic",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    },
+    {
+     "alias": "Office Credenza",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Den",
+   "area": "den",
+   "count": 4,
+   "latest_on": 3,
+   "on_counts": [
+    4,
+    4,
+    3
+   ],
+   "lights": [
+    {
+     "alias": "Den Accent",
+     "latest": "on",
+     "history": [
+      "on",
+      "on",
+      "on"
+     ]
+    },
+    {
+     "alias": "Den Lamp 1",
+     "latest": "on",
+     "history": [
+      "on",
+      "on",
+      "on"
+     ]
+    },
+    {
+     "alias": "Den Lamp 2",
+     "latest": "on",
+     "history": [
+      "on",
+      "on",
+      "on"
+     ]
+    },
+    {
+     "alias": "Den Lamp 3",
+     "latest": "unknown",
+     "history": [
+      "on",
+      "on",
+      "unknown"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Kitchen",
+   "area": "kitchen",
+   "count": 6,
+   "latest_on": 3,
+   "on_counts": [
+    3,
+    3,
+    3
+   ],
+   "lights": [
+    {
+     "alias": "Cabinet Accent",
+     "latest": "on",
+     "history": [
+      "on",
+      "on",
+      "on"
+     ]
+    },
+    {
+     "alias": "Coffee Light",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    },
+    {
+     "alias": "Hutch",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    },
+    {
+     "alias": "Island Accent",
+     "latest": "on",
+     "history": [
+      "on",
+      "on",
+      "on"
+     ]
+    },
+    {
+     "alias": "Island Lamps",
+     "latest": "on",
+     "history": [
+      "on",
+      "on",
+      "on"
+     ]
+    },
+    {
+     "alias": "Kitchen Celing",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Foyer",
+   "area": "foyer",
+   "count": 3,
+   "latest_on": 2,
+   "on_counts": [
+    2,
+    2,
+    2
+   ],
+   "lights": [
+    {
+     "alias": "Foyer",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    },
+    {
+     "alias": "Front Door",
+     "latest": "on",
+     "history": [
+      "on",
+      "on",
+      "on"
+     ]
+    },
+    {
+     "alias": "Hall Lamps",
+     "latest": "on",
+     "history": [
+      "on",
+      "on",
+      "on"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Gym",
+   "area": "gym",
+   "count": 1,
+   "latest_on": 0,
+   "on_counts": [
+    0,
+    0,
+    0
+   ],
+   "lights": [
+    {
+     "alias": "Gym Lamp",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Laundry",
+   "area": "laundry",
+   "count": 1,
+   "latest_on": 1,
+   "on_counts": [
+    1,
+    1,
+    1
+   ],
+   "lights": [
+    {
+     "alias": "Laundry Accent",
+     "latest": "on",
+     "history": [
+      "on",
+      "on",
+      "on"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Mancave",
+   "area": "mancave",
+   "count": 6,
+   "latest_on": 0,
+   "on_counts": [
+    0,
+    0,
+    0
+   ],
+   "lights": [
+    {
+     "alias": "Lantern Mancave",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    },
+    {
+     "alias": "Mancave North Rope light",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    },
+    {
+     "alias": "Mancave Strip North",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    },
+    {
+     "alias": "Mancave Strip West",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    },
+    {
+     "alias": "Mancave Wall East",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    },
+    {
+     "alias": "Patio Mancave",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Barn / Makerlab",
+   "area": "barn",
+   "count": 2,
+   "latest_on": 2,
+   "on_counts": [
+    2,
+    2,
+    2
+   ],
+   "lights": [
+    {
+     "alias": "Barn Lanterns",
+     "latest": "on",
+     "history": [
+      "on",
+      "on",
+      "on"
+     ]
+    },
+    {
+     "alias": "Makerlab Outside",
+     "latest": "on",
+     "history": [
+      "on",
+      "on",
+      "on"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Outside",
+   "area": "yard",
+   "count": 5,
+   "latest_on": 1,
+   "on_counts": [
+    1,
+    1,
+    1
+   ],
+   "lights": [
+    {
+     "alias": "Landscape avocado",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    },
+    {
+     "alias": "Lantern Jacks",
+     "latest": "on",
+     "history": [
+      "on",
+      "on",
+      "on"
+     ]
+    },
+    {
+     "alias": "Lullings Inside",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    },
+    {
+     "alias": "Patio Kitchen",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    },
+    {
+     "alias": "Pergola",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Not sure where",
+   "area": "unsure",
+   "count": 23,
+   "latest_on": 10,
+   "on_counts": [
+    9,
+    10,
+    10
+   ],
+   "lights": [
+    {
+     "alias": "Dance Floor",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    },
+    {
+     "alias": "Lamp 1",
+     "latest": "on",
+     "history": [
+      "unknown",
+      "on",
+      "on"
+     ]
+    },
+    {
+     "alias": "Lamp 2",
+     "latest": "on",
+     "history": [
+      "on",
+      "on",
+      "on"
+     ]
+    },
+    {
+     "alias": "Lamp 3",
+     "latest": "on",
+     "history": [
+      "on",
+      "on",
+      "on"
+     ]
+    },
+    {
+     "alias": "Lamp 4",
+     "latest": "on",
+     "history": [
+      "on",
+      "on",
+      "on"
+     ]
+    },
+    {
+     "alias": "Lamp 5",
+     "latest": "on",
+     "history": [
+      "on",
+      "on",
+      "on"
+     ]
+    },
+    {
+     "alias": "Lamp 6",
+     "latest": "on",
+     "history": [
+      "on",
+      "on",
+      "on"
+     ]
+    },
+    {
+     "alias": "Lamp 7",
+     "latest": "on",
+     "history": [
+      "on",
+      "on",
+      "on"
+     ]
+    },
+    {
+     "alias": "Marble Light",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    },
+    {
+     "alias": "Piano Lamp",
+     "latest": "on",
+     "history": [
+      "on",
+      "on",
+      "on"
+     ]
+    },
+    {
+     "alias": "Skylight 1",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    },
+    {
+     "alias": "Standing Lamp 1",
+     "latest": "unknown",
+     "history": [
+      "unknown",
+      "unknown",
+      "unknown"
+     ]
+    },
+    {
+     "alias": "Table",
+     "latest": "on",
+     "history": [
+      "on",
+      "on",
+      "on"
+     ]
+    },
+    {
+     "alias": "Tiffany lamp",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    },
+    {
+     "alias": "Tiffany Lamp",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    },
+    {
+     "alias": "TP-LINK_Smart Plug_6CE9",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    },
+    {
+     "alias": "TP-LINK_Smart Plug_6CF3",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    },
+    {
+     "alias": "TP-LINK_Smart Plug_71D4",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    },
+    {
+     "alias": "TP-LINK_Smart Plug_6077",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    },
+    {
+     "alias": "TV Accent",
+     "latest": "on",
+     "history": [
+      "on",
+      "on",
+      "on"
+     ]
+    },
+    {
+     "alias": "Unnamed device",
+     "latest": "unknown",
+     "history": [
+      "unknown",
+      "unknown",
+      "unknown"
+     ]
+    },
+    {
+     "alias": "Wood Lamp 1",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    },
+    {
+     "alias": "Wood Lamp 2",
+     "latest": "off",
+     "history": [
+      "off",
+      "off",
+      "off"
+     ]
+    }
+   ]
+  }
+ ]
+}
