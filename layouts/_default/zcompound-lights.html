@@ -1,5 +1,6 @@
-{{- $h := site.Data.kasa.history -}}
+{{- $h := hugo.Data.kasa.history -}}
 {{- $np := len $h.polls -}}
+{{- $ctl := eq .Params.lightsControls true -}}
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 <head>
@@ -69,6 +70,20 @@
       .house { grid-template-columns: 1fr 1fr; grid-template-areas: "upstairs bedroom" "office den" "kitchen kitchen" "foyer foyer" "gym laundry"; }
       .header-note { display: none; }
     }
+    .asof { font-size: 13px; color: var(--slate-600); }
+    .ctl { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px; margin: 0 0 16px; font-size: 13.5px; }
+    .ctl input { font: inherit; padding: 6px 10px; border: 1px solid #c8d2da; border-radius: 8px; width: 160px; }
+    .ctl button, .ctl a { font: 600 13px "DM Sans", sans-serif; }
+    .ctl button { padding: 6px 12px; border-radius: 8px; border: 0; background: var(--teal-500); color: #fff; cursor: pointer; }
+    .ctl a { color: var(--blue-700); text-decoration: underline; cursor: pointer; }
+    .ctl .msg { color: var(--slate-600); }
+    .ctl .msg.err { color: #b42318; }
+    .tg { margin-left: 4px; width: 30px; height: 17px; border-radius: 999px; border: 1px solid rgba(0,0,0,0.2); background: var(--off); position: relative; cursor: pointer; padding: 0; flex: none; }
+    .tg::after { content: ""; position: absolute; top: 1px; left: 1px; width: 13px; height: 13px; border-radius: 50%; background: #fff; transition: left .15s; }
+    .tg[aria-pressed="true"] { background: var(--on); }
+    .tg[aria-pressed="true"]::after { left: 14px; }
+    .tg:disabled { opacity: .45; cursor: not-allowed; }
+    .tg.pending { opacity: .6; cursor: progress; }
     /* Over time */
     .room-hist { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 14px; margin: 0 0 18px; }
     .hist-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 10px; margin-bottom: 8px; }
@@ -98,7 +113,7 @@
     <div class="hero-inner">
       <p class="eyebrow">{{ .Params.eyebrow | default "zCompound" }}</p>
       <h1>{{ .Params.heroTitle | default .Title }}</h1>
-      <p class="hero-meta">{{ $h.snapshot_label }} · {{ $h.light_count }} lights</p>
+      <p class="hero-meta">{{ if $ctl }}<span id="kasa-when">{{ $h.snapshot_label }}</span>{{ else }}{{ $h.snapshot_label }}{{ end }} · {{ $h.light_count }} lights</p>
     </div>
   </section>
 
@@ -109,28 +124,40 @@
       <span class="tot on"><span class="sw"></span>{{ $h.totals.on }} on</span>
       <span class="tot off"><span class="sw"></span>{{ $h.totals.off }} off</span>
       <span class="tot unknown"><span class="sw"></span>{{ $h.totals.unknown }} unknown (didn't answer)</span>
+      {{- if $ctl }}<span class="asof" id="kasa-asof" hidden></span>{{ end }}
     </div>
+    {{- if $ctl }}
+    <div class="ctl" id="kasa-ctl">
+      <form id="kasa-unlock" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+        <label for="kasa-pass"><strong>Control lights:</strong></label>
+        <input id="kasa-pass" type="password" autocomplete="off" placeholder="Passcode">
+        <button type="submit">Unlock</button>
+      </form>
+      <span id="kasa-live" hidden><strong>Live</strong> · refreshes every 30s · <a id="kasa-forget" role="button" tabindex="0">Forget passcode</a></span>
+      <span class="msg" id="kasa-msg"></span>
+    </div>
+    {{- end }}
     <div class="approx">Approximate layout, guessed from light names. Not a real floor plan.</div>
 
     {{- define "partials/kasa-room.html" -}}
-      {{- $r := . -}}
+      {{- $r := .r -}}{{- $ctl := .ctl -}}
       <div class="room" style="grid-area: {{ $r.area }}">
         <div class="room-head"><span class="room-name">{{ $r.name }}</span><span class="room-count">{{ $r.latest_on }} of {{ $r.count }} on</span></div>
         <div class="chips">
-          {{- range $r.lights }}<span class="chip {{ .latest }}" title="{{ .alias }}: {{ .latest }}"><span class="sw {{ .latest }}"></span>{{ .alias }}</span>{{ end -}}
+          {{- range $r.lights }}<span class="chip {{ .latest }}" data-alias="{{ .alias }}" data-state="{{ .latest }}" title="{{ .alias }}: {{ .latest }}"><span class="sw {{ .latest }}"></span>{{ .alias }}{{ if $ctl }}<button type="button" class="tg" hidden disabled aria-pressed="false" aria-label="Turn {{ .alias }} on or off"></button>{{ end }}</span>{{ end -}}
         </div>
       </div>
     {{- end -}}
 
     <div class="plan" role="img" aria-label="Approximate floor plan with lights colored by state">
       <div class="house"><span class="zone-label">House</span>
-        {{- range $h.rooms }}{{ if in (slice "upstairs" "bedroom" "office" "den" "kitchen" "foyer" "gym" "laundry") .area }}{{ partial "kasa-room.html" . }}{{ end }}{{ end -}}
+        {{- range $h.rooms }}{{ if in (slice "upstairs" "bedroom" "office" "den" "kitchen" "foyer" "gym" "laundry") .area }}{{ partial "kasa-room.html" (dict "r" . "ctl" $ctl) }}{{ end }}{{ end -}}
       </div>
       <div class="outb">
-        {{- range $h.rooms }}{{ if in (slice "mancave" "barn") .area }}{{ partial "kasa-room.html" . }}{{ end }}{{ end -}}
+        {{- range $h.rooms }}{{ if in (slice "mancave" "barn") .area }}{{ partial "kasa-room.html" (dict "r" . "ctl" $ctl) }}{{ end }}{{ end -}}
       </div>
       <div class="yard"><span class="zone-label">Yard</span>
-        {{- range $h.rooms }}{{ if eq .area "yard" }}{{ partial "kasa-room.html" . }}{{ end }}{{ end -}}
+        {{- range $h.rooms }}{{ if eq .area "yard" }}{{ partial "kasa-room.html" (dict "r" . "ctl" $ctl) }}{{ end }}{{ end -}}
       </div>
     </div>
 
@@ -139,7 +166,7 @@
       <h3>Not sure where ({{ .count }})</h3>
       <p class="spark-cap" style="margin-bottom:8px">{{ .latest_on }} of {{ .count }} on. The names don't say which room these are in.</p>
       <div class="chips">
-        {{- range .lights }}<span class="chip {{ .latest }}" title="{{ .alias }}: {{ .latest }}"><span class="sw {{ .latest }}"></span>{{ .alias }}</span>{{ end -}}
+        {{- range .lights }}<span class="chip {{ .latest }}" data-alias="{{ .alias }}" data-state="{{ .latest }}" title="{{ .alias }}: {{ .latest }}"><span class="sw {{ .latest }}"></span>{{ .alias }}{{ if $ctl }}<button type="button" class="tg" hidden disabled aria-pressed="false" aria-label="Turn {{ .alias }} on or off"></button>{{ end }}</span>{{ end -}}
       </div>
     </div>
     {{ end }}{{ end -}}
@@ -189,5 +216,153 @@
   </main>
 
   <footer class="site-footer"><p>zCompound · Home · Noindex</p></footer>
+  {{- if $ctl }}
+  <script>
+  (function () {
+    // Same-origin queue: the page talks to /api/lights/*; the Mac mini polls the queue and reports back.
+    var KEY = 'kasaPasscode';
+    var SNAP = {{ $h.snapshot_label }};
+    var form = document.getElementById('kasa-unlock');
+    var input = document.getElementById('kasa-pass');
+    var live = document.getElementById('kasa-live');
+    var msg = document.getElementById('kasa-msg');
+    var when = document.getElementById('kasa-when');
+    var asof = document.getElementById('kasa-asof');
+    var timer = null;
+    var chips = Array.prototype.slice.call(document.querySelectorAll('.chip[data-alias]'));
+
+    function pass() { try { return sessionStorage.getItem(KEY) || ''; } catch (e) { return ''; } }
+    function setPass(v) { try { v ? sessionStorage.setItem(KEY, v) : sessionStorage.removeItem(KEY); } catch (e) {} }
+    function say(t, err) { msg.textContent = t || ''; msg.className = 'msg' + (err ? ' err' : ''); }
+    function fmt(iso) {
+      var d = new Date(iso); if (isNaN(d)) return '';
+      return d.toLocaleString('en-US', { timeZone: 'America/Los_Angeles', month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' }) + ' PT';
+    }
+    function showWhen(updated, stale) {
+      if (!updated) { when.textContent = 'Live · no report from the house yet'; asof.hidden = true; return; }
+      var t = 'Live as of ' + fmt(updated) + (stale ? ' (stale: no report for 3+ min)' : '');
+      when.textContent = t; asof.textContent = t; asof.hidden = false;
+    }
+    function snapshotView() { when.textContent = SNAP; asof.hidden = true; }
+
+    function paint(chip, state) {
+      if (state !== 'on' && state !== 'off') state = 'unknown';
+      chip.dataset.state = state;
+      chip.classList.remove('on', 'off', 'unknown'); chip.classList.add(state);
+      var sw = chip.querySelector('.sw'); if (sw) { sw.className = 'sw ' + state; }
+      chip.title = chip.dataset.alias + ': ' + state;
+      var b = chip.querySelector('.tg');
+      if (b && !b.classList.contains('pending')) { b.setAttribute('aria-pressed', state === 'on' ? 'true' : 'false'); b.disabled = state === 'unknown'; }
+    }
+    function totals() {
+      var t = { on: 0, off: 0, unknown: 0 };
+      chips.forEach(function (c) { t[c.dataset.state] = (t[c.dataset.state] || 0) + 1; });
+      var s = document.querySelector('.summary'); if (!s) return;
+      ['on', 'off', 'unknown'].forEach(function (k) {
+        var el = s.querySelector('.tot.' + k); if (!el) return;
+        el.lastChild.textContent = t[k] + (k === 'unknown' ? ' unknown (didn\u2019t answer)' : ' ' + k);
+      });
+    }
+
+    function Fail(status, text) { this.status = status; this.message = text; }
+    function api(path, opts) {
+      opts = opts || {};
+      opts.headers = Object.assign({ 'X-Passcode': pass() }, opts.headers || {});
+      opts.cache = 'no-store'; opts.credentials = 'same-origin';
+      return fetch('/api/lights' + path, opts).then(function (r) {
+        return r.json().catch(function () { return {}; }).then(function (j) {
+          if (r.ok) return j;
+          if (r.status === 401) { lock('Passcode not accepted. Try again.'); throw new Fail(401, ''); }
+          if (r.status === 429) { lock(j.scope === 'global' ? 'Too many wrong passcodes. Controls are locked for everyone for 15 minutes.' : 'Too many wrong passcodes. Wait a minute and try again.'); throw new Fail(429, ''); }
+          if (r.status === 503) { lock('The light bridge isn\u2019t set up yet.'); throw new Fail(503, ''); }
+          if (r.status === 404) throw new Fail(404, 'the house doesn\u2019t know that light right now');
+          throw new Fail(r.status, 'error ' + r.status);
+        });
+      }, function () { throw new Fail(0, 'network error'); });
+    }
+    function quiet(e) { return e && (e.status === 401 || e.status === 429 || e.status === 503); }
+
+    function applyState(j) {
+      var st = (j && j.lights) || {};
+      chips.forEach(function (c) {
+        var b = c.querySelector('.tg'); if (b && b.classList.contains('pending')) return;
+        paint(c, Object.prototype.hasOwnProperty.call(st, c.dataset.alias) ? st[c.dataset.alias] : 'unknown');
+      });
+      totals(); showWhen(j.updated, j.stale);
+    }
+    function refresh() {
+      if (!pass() || document.hidden) return Promise.resolve();
+      return api('/state').then(function (j) {
+        if (!live.hidden) applyState(j);
+        else { showControls(); applyState(j); }
+      }).catch(function (e) { if (!quiet(e)) say('Couldn\u2019t refresh (' + e.message + ').', true); });
+    }
+    function showControls() {
+      form.hidden = true; live.hidden = false;
+      chips.forEach(function (c) { var b = c.querySelector('.tg'); if (b) { b.hidden = false; b.disabled = c.dataset.state === 'unknown'; b.setAttribute('aria-pressed', c.dataset.state === 'on' ? 'true' : 'false'); } });
+    }
+    function unlock() {
+      say('Checking\u2026');
+      refresh().then(function () { if (pass() && !live.hidden) say(''); });
+      clearInterval(timer); timer = setInterval(refresh, 30000);
+    }
+    function lock(text) {
+      setPass(''); clearInterval(timer); timer = null;
+      form.hidden = false; live.hidden = true; input.value = '';
+      chips.forEach(function (c) { var b = c.querySelector('.tg'); if (b) { b.hidden = true; b.disabled = true; b.classList.remove('pending'); } });
+      snapshotView(); say(text || '', !!text); if (text) input.focus();
+    }
+
+    function waitResult(id, tries) {
+      return new Promise(function (resolve, reject) {
+        var n = 0;
+        (function tick() {
+          setTimeout(function () {
+            api('/result?id=' + encodeURIComponent(id)).then(function (j) {
+              if (j && j.state) return resolve(j);
+              if (++n >= tries) return reject(new Fail(-1, 'timed out'));
+              tick();
+            }, reject);
+          }, 1000);
+        })();
+      });
+    }
+
+    chips.forEach(function (c) {
+      var b = c.querySelector('.tg'); if (!b) return;
+      b.addEventListener('click', function () {
+        if (b.disabled || b.classList.contains('pending')) return;
+        var alias = c.dataset.alias; // sent exactly as reported; never lowercased or normalized
+        var prev = c.dataset.state, want = prev !== 'on';
+        paint(c, want ? 'on' : 'off'); totals();
+        b.classList.add('pending'); b.disabled = true;
+        function done(state) { b.classList.remove('pending'); paint(c, state); totals(); }
+        api('/toggle', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ alias: alias, on: want }) })
+          .then(function (j) { return waitResult(j.id, 15); })
+          .then(function (r) {
+            if (r.error || r.state === 'error') { done(r.state === 'on' || r.state === 'off' ? r.state : prev); say('Couldn\u2019t switch ' + alias + ': ' + (r.error || 'the house reported an error') + '.', true); return; }
+            done(r.state);
+            if (r.state !== (want ? 'on' : 'off')) say(alias + ' is ' + r.state + '.', true);
+          })
+          .catch(function (e) {
+            if (quiet(e)) return;
+            done(prev);
+            say(e.status === -1 ? 'Timed out waiting for the house to switch ' + alias + '. Put it back.' : 'Couldn\u2019t switch ' + alias + ' (' + e.message + ').', true);
+          });
+      });
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); var v = input.value; if (!v) return;
+      setPass(v); input.value = ''; unlock();
+    });
+    var forget = document.getElementById('kasa-forget');
+    forget.addEventListener('click', function () { lock('Passcode forgotten.'); });
+    forget.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); lock('Passcode forgotten.'); } });
+    document.addEventListener('visibilitychange', function () { if (!document.hidden) refresh(); });
+    if (pass()) unlock();
+  })();
+  </script>
+  {{- end }}
 </body>
 </html>
