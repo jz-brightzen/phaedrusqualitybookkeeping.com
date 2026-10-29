@@ -5,10 +5,11 @@
 <html lang="en" dir="auto">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>{{ .Title }} · zCompound</title>
   <meta name="description" content="{{ .Params.summary | default .Description }}">
   <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#071726">
   <link rel="icon" href="/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,78 +19,154 @@
       --navy-950: #071726; --navy-900: #0b1f33; --blue-700: #146c94; --teal-500: #2a9d98;
       --teal-300: #39d0c6; --mist-100: #eaf4f6; --cloud-50: #f8fbfc; --slate-600: #526578;
       --white: #ffffff; --border: rgba(11, 31, 51, 0.14);
-      --shell: min(1000px, calc(100vw - 32px));
+      --shell: min(1000px, 100%);
       --on: #F5C542; --off: #9CA3AF; --unk: #F8B4B4;
+      --tap: 44px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { color: var(--navy-900); background: var(--cloud-50); font-family: "DM Sans", sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+    [hidden] { display: none !important; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { color: var(--navy-900); background: var(--cloud-50); font-family: "DM Sans", sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.5; font-size: 16px; }
     a { color: inherit; text-decoration: none; }
-    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 40; background: rgba(7,23,38,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.12); }
-    .header-inner { max-width: var(--shell); margin: 0 auto; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; }
-    .header-brand { color: var(--white); font-family: "Manrope", sans-serif; font-size: 17px; font-weight: 700; letter-spacing: -0.03em; }
-    .header-note { color: rgba(255,255,255,0.55); font-size: 12px; }
-    .hero { color: var(--white); padding: 120px 0 44px; background: radial-gradient(circle at 84% 18%, rgba(245,197,66,0.22), transparent 34%), var(--navy-950); }
-    .hero-inner { max-width: var(--shell); margin: 0 auto; padding: 0 16px; }
-    .eyebrow { margin: 0 0 14px; color: var(--teal-300); text-transform: uppercase; letter-spacing: 0.14em; font-size: 12px; font-weight: 700; }
-    .hero h1 { font-family: "Manrope", sans-serif; letter-spacing: -0.045em; font-size: clamp(34px, 4.6vw, 54px); line-height: 1.04; }
-    .hero-meta { margin-top: 16px; color: rgba(255,255,255,0.7); font-size: 15px; }
-    .page { max-width: var(--shell); margin: 0 auto; padding: 32px 16px 96px; }
-    .lede { font-size: 15.5px; color: #2c3e50; max-width: 720px; margin-bottom: 18px; }
-    .lede code { font-size: 13px; background: var(--mist-100); padding: 1px 5px; border-radius: 4px; }
-    h2 { font-family: "Manrope", sans-serif; letter-spacing: -0.04em; font-size: 24px; margin: 40px 0 10px; }
-    h3 { font-family: "Manrope", sans-serif; letter-spacing: -0.03em; font-size: 17px; margin: 0 0 8px; }
-    .summary { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 0 0 14px; }
-    .tot { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: #fff; border: 1px solid var(--border); font-weight: 700; font-size: 14px; }
+    button, input, select { font: inherit; color: inherit; }
+    button { cursor: pointer; }
+    :focus-visible { outline: 3px solid var(--teal-300); outline-offset: 2px; }
+
+    /* Sticky header: brand, on/off counts, passcode, hub banner */
+    .bar { position: sticky; top: 0; z-index: 40; background: #071726; color: var(--white); border-bottom: 1px solid rgba(255,255,255,0.12); padding: 8px 12px calc(8px); padding-left: max(12px, env(safe-area-inset-left)); padding-right: max(12px, env(safe-area-inset-right)); }
+    .bar-inner { max-width: var(--shell); margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+    .brand { font-family: "Manrope", sans-serif; font-weight: 700; font-size: 16px; letter-spacing: -0.03em; min-height: var(--tap); display: inline-flex; align-items: center; margin-right: auto; }
+    .brand small { font: 500 12px "DM Sans", sans-serif; color: rgba(255,255,255,0.6); margin-left: 8px; letter-spacing: 0; }
+    .counts { display: flex; gap: 6px; flex-wrap: wrap; }
+    .cnt { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; min-height: 32px; border-radius: 999px; background: rgba(255,255,255,0.1); font-weight: 700; font-size: 14px; white-space: nowrap; }
+    .cnt .lbl { font-weight: 500; color: rgba(255,255,255,0.75); }
+    .bar-ctl { flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: 14px; }
+    .bar-ctl form { display: flex; gap: 8px; align-items: center; flex: 1 1 auto; max-width: 420px; }
+    .bar-ctl input { min-height: var(--tap); font-size: 16px; padding: 8px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.08); color: #fff; flex: 1 1 auto; min-width: 0; width: 100%; }
+    .bar-ctl input::placeholder { color: rgba(255,255,255,0.55); }
+    .btn { min-height: var(--tap); min-width: var(--tap); padding: 8px 16px; border-radius: 10px; border: 0; background: var(--teal-500); color: #fff; font-weight: 700; font-size: 15px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
+    .btn.ghost { background: transparent; border: 1px solid currentColor; }
+    .btn.light { background: #fff; color: var(--navy-900); border: 1px solid var(--border); }
+    .btn.warm { background: var(--on); color: var(--navy-950); }
+    .btn:disabled { opacity: .45; cursor: not-allowed; }
+    .live-row { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; }
+    .when { color: rgba(255,255,255,0.8); font-size: 13.5px; }
+    .msg { font-size: 14px; color: rgba(255,255,255,0.85); }
+    .msg.err { color: #ffb4a8; }
+    .hub { flex: 1 1 100%; background: #b42318; color: #fff; border-radius: 10px; padding: 10px 12px; font-weight: 700; font-size: 14.5px; }
+
     .sw { width: 14px; height: 14px; border-radius: 50%; display: inline-block; border: 1px solid rgba(0,0,0,0.15); flex: none; }
-    .on .sw, .sw.on { background: var(--on); box-shadow: 0 0 8px rgba(245,197,66,0.8); }
-    .off .sw, .sw.off { background: var(--off); }
-    .unknown .sw, .sw.unknown { background: var(--unk); }
+    .sw.on { background: var(--on); box-shadow: 0 0 8px rgba(245,197,66,0.8); }
+    .sw.off { background: var(--off); }
+    .sw.unknown { background: var(--unk); }
+
+    .hero { color: var(--white); padding: 22px 16px 22px; background: radial-gradient(circle at 84% 18%, rgba(245,197,66,0.22), transparent 34%), var(--navy-950); }
+    .hero-inner { max-width: var(--shell); margin: 0 auto; }
+    .eyebrow { margin: 0 0 6px; color: var(--teal-300); text-transform: uppercase; letter-spacing: 0.14em; font-size: 12px; font-weight: 700; }
+    .hero h1 { font-family: "Manrope", sans-serif; letter-spacing: -0.045em; font-size: clamp(28px, 4.6vw, 46px); line-height: 1.05; }
+    .hero-meta { margin-top: 6px; color: rgba(255,255,255,0.7); font-size: 14px; }
+    .page { max-width: var(--shell); margin: 0 auto; padding: 16px 12px 80px; }
+    .lede { font-size: 15px; color: #2c3e50; max-width: 720px; margin-bottom: 12px; overflow-wrap: anywhere; }
+    .lede code { font-size: 13px; background: var(--mist-100); padding: 1px 5px; border-radius: 4px; }
+    h2 { font-family: "Manrope", sans-serif; letter-spacing: -0.04em; font-size: 22px; margin: 0; }
+    h3 { font-family: "Manrope", sans-serif; letter-spacing: -0.03em; font-size: 17px; margin: 0 0 8px; }
+    .key { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13.5px; color: var(--slate-600); margin: 0 0 12px; }
+    .key span { display: inline-flex; align-items: center; gap: 6px; }
+    .tools { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
+
+    /* Lights by room: one column, collapsible */
+    .list { display: grid; gap: 10px; }
+    details.rg { background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    details.rg > summary { list-style: none; min-height: 52px; display: flex; align-items: center; gap: 10px; padding: 8px 14px; cursor: pointer; user-select: none; }
+    details.rg > summary::-webkit-details-marker { display: none; }
+    details.rg > summary::before { content: "\25B8"; font-size: 14px; color: var(--slate-600); transition: transform .15s; flex: none; }
+    details.rg[open] > summary::before { transform: rotate(90deg); }
+    .rg-name { font-family: "Manrope", sans-serif; font-weight: 700; font-size: 16px; flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere; }
+    .rg-count { font-size: 13px; color: var(--slate-600); white-space: nowrap; }
+    .rg-count b { color: #8a5a00; }
+    details.rg.unassigned { border-style: dashed; }
+    ul.lr-list { list-style: none; border-top: 1px solid #eef1f4; }
+    li.lr { display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 4px 8px 4px 14px; border-bottom: 1px solid #eef1f4; }
+    li.lr:last-child { border-bottom: 0; }
+    li.lr.on { background: #fffaf0; }
+    .lr-name { flex: 1 1 auto; min-width: 0; font-weight: 600; font-size: 15px; overflow-wrap: anywhere; }
+    .lr-st { font-size: 12.5px; color: var(--slate-600); white-space: nowrap; }
+    li.lr.on .lr-st { color: #8a5a00; font-weight: 700; }
+    li.lr.unknown .lr-st { color: #b42318; }
+    /* Toggle: 56x44 hit area, switch drawn inside */
+    .tg { flex: none; width: 60px; height: var(--tap); border: 0; background: transparent; position: relative; padding: 0; }
+    .tg::before { content: ""; position: absolute; left: 8px; top: 9px; width: 44px; height: 26px; border-radius: 999px; background: var(--off); border: 1px solid rgba(0,0,0,0.2); transition: background .15s; }
+    .tg::after { content: ""; position: absolute; left: 11px; top: 12px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.3); transition: left .15s; }
+    .tg[aria-pressed="true"]::before { background: var(--on); }
+    .tg[aria-pressed="true"]::after { left: 29px; }
+    .tg:disabled { opacity: .4; cursor: not-allowed; }
+    .tg.pending { opacity: .6; cursor: progress; }
+
+    /* Identify mode */
+    .idp { background: #fff; border: 2px solid var(--on); border-radius: 14px; padding: 14px; margin: 0 0 14px; }
+    .idp-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 6px; }
+    .idp p { font-size: 14.5px; color: #2c3e50; margin-bottom: 10px; }
+    .step { background: #fff8e1; border-radius: 12px; padding: 12px; margin: 0 0 12px; }
+    .step-name { font-family: "Manrope", sans-serif; font-weight: 700; font-size: 19px; overflow-wrap: anywhere; }
+    .step-status { font-size: 15px; margin: 4px 0 10px; font-weight: 600; }
+    .step-status.watch { color: #8a5a00; }
+    .step-status.err { color: #b42318; }
+    .pick { display: grid; gap: 8px; margin-bottom: 10px; }
+    .pick label { font-size: 13.5px; font-weight: 700; color: var(--slate-600); }
+    .pick select, .pick input { min-height: var(--tap); font-size: 16px; padding: 8px 10px; border: 1px solid #c8d2da; border-radius: 10px; background: #fff; width: 100%; max-width: 360px; }
+    .step-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+    .idlist { list-style: none; display: grid; gap: 6px; }
+    .idlist li { display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 4px 4px 4px 12px; border: 1px solid #eef1f4; border-radius: 10px; }
+    .idlist li.cur { border-color: var(--on); background: #fffaf0; }
+    .idlist li.done { opacity: .55; }
+    .idlist .nm { flex: 1 1 auto; min-width: 0; font-weight: 600; overflow-wrap: anywhere; }
+    .idlist .rm { font-size: 12.5px; color: var(--slate-600); white-space: nowrap; }
+    .chk { display: inline-flex; align-items: center; gap: 8px; min-height: var(--tap); font-size: 14px; }
+    .chk input { width: 22px; height: 22px; }
+
+    /* Secondary sections */
+    details.sec { margin-top: 18px; background: #fff; border: 1px solid var(--border); border-radius: 12px; }
+    details.sec > summary { list-style: none; min-height: 52px; display: flex; align-items: center; gap: 10px; padding: 8px 14px; cursor: pointer; }
+    details.sec > summary::-webkit-details-marker { display: none; }
+    details.sec > summary::before { content: "\25B8"; color: var(--slate-600); transition: transform .15s; }
+    details.sec[open] > summary::before { transform: rotate(90deg); }
+    .sec-body { padding: 4px 12px 14px; }
     .approx { display: inline-block; font-size: 13px; font-weight: 700; color: #8a5a00; background: #fff6dc; border: 1px dashed #d9a520; border-radius: 8px; padding: 6px 10px; margin: 4px 0 16px; }
-    /* Floor plan */
+    /* Floor plan (approximate, original guesses from names) */
     .plan { display: grid; gap: 14px; grid-template-columns: 3fr 1.3fr; grid-template-areas: "house out" "yard yard"; }
-    .house, .outb, .yard { border-radius: 14px; padding: 12px; position: relative; }
+    .house, .outb, .yard { border-radius: 14px; padding: 12px; position: relative; min-width: 0; }
     .house { grid-area: house; background: #fff; border: 3px solid var(--navy-900); display: grid; gap: 10px;
       grid-template-columns: 1fr 1fr 1fr; grid-template-areas: "upstairs bedroom office" "den kitchen kitchen" "foyer gym laundry"; }
     .outb { grid-area: out; display: grid; gap: 14px; grid-template-areas: "mancave" "barn"; align-content: start; }
     .yard { grid-area: yard; background: repeating-linear-gradient(45deg, #eef7ee, #eef7ee 10px, #e4f1e4 10px, #e4f1e4 20px); border: 2px dashed #7fae7f; }
-    .zone-label { position: absolute; top: -10px; left: 14px; background: var(--cloud-50); padding: 0 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-600); }
-    .room { border: 2px solid #c8d2da; border-radius: 10px; padding: 10px; background: #fbfcfd; min-height: 90px; }
-    .outb .room { border: 3px solid var(--navy-800, #12324a); background: #fff; }
+    .zone-label { position: absolute; top: -10px; left: 14px; background: #fff; padding: 0 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-600); }
+    .room { border: 2px solid #c8d2da; border-radius: 10px; padding: 10px; background: #fbfcfd; min-height: 90px; min-width: 0; }
+    .outb .room { border: 3px solid #12324a; background: #fff; }
     .yard .room { border: none; background: transparent; padding: 6px 4px; min-height: 0; }
-    .room-head { display: flex; justify-content: space-between; align-items: baseline; gap: 6px; margin-bottom: 6px; }
+    .room-head { display: flex; justify-content: space-between; align-items: baseline; gap: 6px; margin-bottom: 6px; flex-wrap: wrap; }
     .room-name { font-family: "Manrope", sans-serif; font-weight: 700; font-size: 14px; }
     .room-count { font-size: 11.5px; color: var(--slate-600); white-space: nowrap; }
     .chips { display: flex; flex-wrap: wrap; gap: 6px; }
-    .chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px 4px 6px; border-radius: 999px; font-size: 12.5px; font-weight: 600; border: 1px solid var(--border); background: #fff; }
+    .chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px 4px 6px; border-radius: 999px; font-size: 12.5px; font-weight: 600; border: 1px solid var(--border); background: #fff; max-width: 100%; overflow-wrap: anywhere; }
     .chip.on { background: #fff4d1; border-color: #e8b52a; }
     .chip.off { background: #f1f2f4; color: #4b5563; }
     .chip.unknown { background: #fdeeee; border-color: #f1a0a0; }
-    .unsure { margin-top: 18px; background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
+    .unsure { margin-top: 18px; border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
     @media (max-width: 760px) {
-      .plan { grid-template-columns: 1fr; grid-template-areas: "house" "out" "yard"; }
-      .house { grid-template-columns: 1fr 1fr; grid-template-areas: "upstairs bedroom" "office den" "kitchen kitchen" "foyer foyer" "gym laundry"; }
-      .header-note { display: none; }
+      .plan { grid-template-columns: minmax(0, 1fr); grid-template-areas: "house" "out" "yard"; }
+      .house { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "upstairs bedroom" "office den" "kitchen kitchen" "foyer foyer" "gym laundry"; }
+      .brand small { display: none; }
     }
-    .asof { font-size: 13px; color: var(--slate-600); }
-    .ctl { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px; margin: 0 0 16px; font-size: 13.5px; }
-    .ctl input { font: inherit; padding: 6px 10px; border: 1px solid #c8d2da; border-radius: 8px; width: 160px; }
-    .ctl button, .ctl a { font: 600 13px "DM Sans", sans-serif; }
-    .ctl button { padding: 6px 12px; border-radius: 8px; border: 0; background: var(--teal-500); color: #fff; cursor: pointer; }
-    .ctl a { color: var(--blue-700); text-decoration: underline; cursor: pointer; }
-    .ctl .msg { color: var(--slate-600); }
-    .ctl .msg.err { color: #b42318; }
-    .tg { margin-left: 4px; width: 30px; height: 17px; border-radius: 999px; border: 1px solid rgba(0,0,0,0.2); background: var(--off); position: relative; cursor: pointer; padding: 0; flex: none; }
-    .tg::after { content: ""; position: absolute; top: 1px; left: 1px; width: 13px; height: 13px; border-radius: 50%; background: #fff; transition: left .15s; }
-    .tg[aria-pressed="true"] { background: var(--on); }
-    .tg[aria-pressed="true"]::after { left: 14px; }
-    .tg:disabled { opacity: .45; cursor: not-allowed; }
-    .tg.pending { opacity: .6; cursor: progress; }
+    @media (min-width: 761px) {
+      .bar-ctl { flex: 0 1 auto; }
+      .list { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+    }
     /* Over time */
-    .room-hist { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 14px; margin: 0 0 18px; }
+    .room-hist { border: 1px solid var(--border); border-radius: 12px; padding: 12px; margin: 0 0 14px; min-width: 0; }
     .hist-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 10px; margin-bottom: 8px; }
-    .spark { display: block; }
+    .spark { display: block; max-width: 100%; height: auto; }
     .spark-cap { font-size: 11.5px; color: var(--slate-600); }
-    .tl-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid #e5e9ee; border-radius: 8px; }
+    .tl-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid #e5e9ee; border-radius: 8px; max-width: 100%; }
     table.tl { border-collapse: separate; border-spacing: 0; font-size: 12.5px; min-width: 100%; }
     .tl th, .tl td { padding: 0; border-bottom: 1px solid #eef1f4; }
     .tl thead th { font-weight: 600; color: var(--slate-600); font-size: 11px; padding: 6px 4px; white-space: nowrap; text-align: center; background: #fafbfc; }
@@ -97,15 +174,31 @@
     .tl thead th.name { background: #fafbfc; z-index: 3; color: var(--slate-600); font-size: 11px; }
     .tl td.c { min-width: 58px; height: 26px; border-left: 2px solid #fff; }
     .tl td.on { background: var(--on); } .tl td.off { background: var(--off); } .tl td.unknown { background: var(--unk); }
-    .foot { margin-top: 30px; font-size: 13px; color: var(--slate-600); }
-    .site-footer { padding: 32px 0; text-align: center; background: var(--navy-950); color: rgba(255,255,255,0.45); font-size: 12px; }
+    .foot { margin-top: 24px; font-size: 13px; color: var(--slate-600); }
+    .site-footer { padding: 28px 16px; text-align: center; background: var(--navy-950); color: rgba(255,255,255,0.45); font-size: 12px; }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="header-brand" href="/zcompound/">zCompound</a>
-      <span class="header-note">{{ .Params.eyebrow | default "zCompound" }}</span>
+  <header class="bar" id="kasa-bar">
+    <div class="bar-inner">
+      <a class="brand" href="/zcompound/">zCompound<small>{{ .Params.heroTitle | default .Title }}</small></a>
+      <div class="counts" aria-live="polite">
+        <span class="cnt" id="kasa-n-on"><span class="sw on"></span><span class="n">{{ $h.totals.on }}</span><span class="lbl">on</span></span>
+        <span class="cnt" id="kasa-n-off"><span class="sw off"></span><span class="n">{{ $h.totals.off }}</span><span class="lbl">off</span></span>
+        <span class="cnt" id="kasa-n-unknown"><span class="sw unknown"></span><span class="n">{{ $h.totals.unknown }}</span><span class="lbl">no answer</span></span>
+      </div>
+      {{- if $ctl }}
+      <div class="bar-ctl" id="kasa-ctl">
+        <form id="kasa-unlock">
+          <label for="kasa-pass" class="when" style="white-space:nowrap">Controls</label>
+          <input id="kasa-pass" type="password" autocomplete="off" placeholder="Passcode" enterkeyhint="go">
+          <button type="submit" class="btn">Unlock</button>
+        </form>
+        <span id="kasa-live" class="live-row" hidden><span class="when" id="kasa-asof"></span><button type="button" class="btn ghost" id="kasa-forget">Forget passcode</button></span>
+        <span class="msg" id="kasa-msg" role="status"></span>
+      </div>
+      <div class="hub" id="kasa-hub" role="alert" hidden></div>
+      {{- end }}
     </div>
   </header>
 
@@ -113,157 +206,256 @@
     <div class="hero-inner">
       <p class="eyebrow">{{ .Params.eyebrow | default "zCompound" }}</p>
       <h1>{{ .Params.heroTitle | default .Title }}</h1>
-      <p class="hero-meta">{{ if $ctl }}<span id="kasa-when">{{ $h.snapshot_label }}</span>{{ else }}{{ $h.snapshot_label }}{{ end }} · {{ $h.light_count }} lights</p>
+      <p class="hero-meta"><span id="kasa-when">{{ $h.snapshot_label }}</span> · {{ $h.light_count }} lights</p>
     </div>
   </section>
 
   <main class="page">
     <div class="lede">{{ .Content }}</div>
+    <div class="key"><span><span class="sw on"></span>On</span><span><span class="sw off"></span>Off</span><span><span class="sw unknown"></span>Unknown (didn't answer)</span></div>
 
-    <div class="summary">
-      <span class="tot on"><span class="sw"></span>{{ $h.totals.on }} on</span>
-      <span class="tot off"><span class="sw"></span>{{ $h.totals.off }} off</span>
-      <span class="tot unknown"><span class="sw"></span>{{ $h.totals.unknown }} unknown (didn't answer)</span>
-      {{- if $ctl }}<span class="asof" id="kasa-asof" hidden></span>{{ end }}
-    </div>
     {{- if $ctl }}
-    <div class="ctl" id="kasa-ctl">
-      <form id="kasa-unlock" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-        <label for="kasa-pass"><strong>Control lights:</strong></label>
-        <input id="kasa-pass" type="password" autocomplete="off" placeholder="Passcode">
-        <button type="submit">Unlock</button>
-      </form>
-      <span id="kasa-live" hidden><strong>Live</strong> · refreshes every 30s · <a id="kasa-forget" role="button" tabindex="0">Forget passcode</a></span>
-      <span class="msg" id="kasa-msg"></span>
+    <div class="tools">
+      <button type="button" class="btn warm" id="kasa-id-open" disabled aria-expanded="false" aria-controls="kasa-id">Identify a light</button>
+      <button type="button" class="btn light" id="kasa-expand">Open all rooms</button>
     </div>
+    <section class="idp" id="kasa-id" hidden aria-labelledby="kasa-id-h">
+      <div class="idp-head"><h2 id="kasa-id-h">Identify a light</h2><button type="button" class="btn light" id="kasa-id-close">Done</button></div>
+      <p>Tap <strong>Blink</strong> on a light. It flips on and off for a few seconds. Find it, then pick its room. Room names only label this page; the lights themselves aren't renamed.</p>
+      <div class="step" id="kasa-step" hidden>
+        <div class="step-name" id="kasa-step-name"></div>
+        <div class="step-status" id="kasa-step-status" role="status"></div>
+        <div class="pick">
+          <label for="kasa-room">Room</label>
+          <select id="kasa-room"></select>
+          <input id="kasa-room-new" type="text" maxlength="40" placeholder="New room name" autocomplete="off" hidden>
+        </div>
+        <div class="step-btns">
+          <button type="button" class="btn" id="kasa-save">Save room</button>
+          <button type="button" class="btn warm" id="kasa-again">Blink again</button>
+          <button type="button" class="btn light" id="kasa-miss">Didn't see it</button>
+          <button type="button" class="btn light" id="kasa-next">Next</button>
+        </div>
+      </div>
+      <label class="chk"><input type="checkbox" id="kasa-id-all"> Include lights that already have a room</label>
+      <ul class="idlist" id="kasa-idlist"></ul>
+    </section>
     {{- end }}
-    <div class="approx">Approximate layout, guessed from light names. Not a real floor plan.</div>
+
+    <div class="list" id="kasa-list">
+      {{- range $h.rooms }}
+      {{- $home := cond (eq .area "unsure") "Unassigned" .name -}}
+      <details class="rg{{ if eq .area "unsure" }} unassigned{{ end }}" data-room="{{ $home }}" open>
+        <summary><span class="rg-name">{{ $home }}</span><span class="rg-count"><b>{{ .latest_on }}</b> of {{ .count }} on</span></summary>
+        <ul class="lr-list">
+          {{- range .lights }}
+          <li class="lr {{ .latest }}" data-alias="{{ .alias }}" data-state="{{ .latest }}" data-home="{{ $home }}"><span class="sw {{ .latest }}"></span><span class="lr-name">{{ .alias }}</span><span class="lr-st">{{ if eq .latest "on" }}On{{ else if eq .latest "off" }}Off{{ else }}No answer{{ end }}</span>{{ if $ctl }}<button type="button" class="tg" hidden disabled aria-pressed="false" aria-label="Turn {{ .alias }} on or off"></button>{{ end }}</li>
+          {{- end }}
+        </ul>
+      </details>
+      {{- end }}
+    </div>
 
     {{- define "partials/kasa-room.html" -}}
-      {{- $r := .r -}}{{- $ctl := .ctl -}}
+      {{- $r := . -}}
       <div class="room" style="grid-area: {{ $r.area }}">
         <div class="room-head"><span class="room-name">{{ $r.name }}</span><span class="room-count">{{ $r.latest_on }} of {{ $r.count }} on</span></div>
         <div class="chips">
-          {{- range $r.lights }}<span class="chip {{ .latest }}" data-alias="{{ .alias }}" data-state="{{ .latest }}" title="{{ .alias }}: {{ .latest }}"><span class="sw {{ .latest }}"></span>{{ .alias }}{{ if $ctl }}<button type="button" class="tg" hidden disabled aria-pressed="false" aria-label="Turn {{ .alias }} on or off"></button>{{ end }}</span>{{ end -}}
+          {{- range $r.lights }}<span class="chip {{ .latest }}" data-alias="{{ .alias }}" title="{{ .alias }}: {{ .latest }}"><span class="sw {{ .latest }}"></span>{{ .alias }}</span>{{ end -}}
         </div>
       </div>
     {{- end -}}
 
-    <div class="plan" role="img" aria-label="Approximate floor plan with lights colored by state">
-      <div class="house"><span class="zone-label">House</span>
-        {{- range $h.rooms }}{{ if in (slice "upstairs" "bedroom" "office" "den" "kitchen" "foyer" "gym" "laundry") .area }}{{ partial "kasa-room.html" (dict "r" . "ctl" $ctl) }}{{ end }}{{ end -}}
-      </div>
-      <div class="outb">
-        {{- range $h.rooms }}{{ if in (slice "mancave" "barn") .area }}{{ partial "kasa-room.html" (dict "r" . "ctl" $ctl) }}{{ end }}{{ end -}}
-      </div>
-      <div class="yard"><span class="zone-label">Yard</span>
-        {{- range $h.rooms }}{{ if eq .area "yard" }}{{ partial "kasa-room.html" (dict "r" . "ctl" $ctl) }}{{ end }}{{ end -}}
-      </div>
-    </div>
-
-    {{- range $h.rooms }}{{ if eq .area "unsure" }}
-    <div class="unsure">
-      <h3>Not sure where ({{ .count }})</h3>
-      <p class="spark-cap" style="margin-bottom:8px">{{ .latest_on }} of {{ .count }} on. The names don't say which room these are in.</p>
-      <div class="chips">
-        {{- range .lights }}<span class="chip {{ .latest }}" data-alias="{{ .alias }}" data-state="{{ .latest }}" title="{{ .alias }}: {{ .latest }}"><span class="sw {{ .latest }}"></span>{{ .alias }}{{ if $ctl }}<button type="button" class="tg" hidden disabled aria-pressed="false" aria-label="Turn {{ .alias }} on or off"></button>{{ end }}</span>{{ end -}}
-      </div>
-    </div>
-    {{ end }}{{ end -}}
-
-    <h2>Over time</h2>
-    <p class="lede">Every poll so far ({{ $np }}{{ if $np }}, {{ (index $h.polls 0).label }} to {{ (index $h.polls (sub $np 1)).label }} PT{{ end }}). Each row is a light, each column a poll. A light that didn't answer, or wasn't in a poll, shows as unknown. The small chart shows how many lights in the room were on at each poll.</p>
-    <div class="summary" style="margin-bottom:20px">
-      <span class="tot on"><span class="sw"></span>on</span>
-      <span class="tot off"><span class="sw"></span>off</span>
-      <span class="tot unknown"><span class="sw"></span>unknown</span>
-    </div>
-
-    {{- range $h.rooms }}
-    {{- $r := . -}}
-    {{- $bw := 14 -}}{{- $gap := 4 -}}{{- $ch := 36 -}}
-    {{- $w := add (mul $np (add $bw $gap)) $gap -}}
-    <div class="room-hist">
-      <div class="hist-top">
-        <h3>{{ $r.name }} <span class="room-count">({{ $r.count }} lights)</span></h3>
-        <div>
-          <svg class="spark" width="{{ $w }}" height="{{ add $ch 4 }}" viewBox="0 0 {{ $w }} {{ add $ch 4 }}" role="img" aria-label="{{ $r.name }}: lights on per poll">
-            <line x1="0" y1="{{ add $ch 2 }}" x2="{{ $w }}" y2="{{ add $ch 2 }}" stroke="#cbd5e1" stroke-width="1"/>
-            {{- range $i, $c := $r.on_counts }}
-            {{- $bh := 0.0 }}{{ if gt $r.count 0 }}{{ $bh = div (mul (float $c) $ch) (float $r.count) }}{{ end }}
-            {{- if and (gt $c 0) (lt $bh 2.0) }}{{ $bh = 2.0 }}{{ end }}
-            <rect x="{{ add $gap (mul $i (add $bw $gap)) }}" y="{{ sub (add $ch 2) $bh }}" width="{{ $bw }}" height="{{ $bh }}" rx="2" fill="#F5C542"><title>{{ (index $h.polls $i).label }}: {{ $c }} of {{ $r.count }} on</title></rect>
-            {{- end }}
-          </svg>
-          <div class="spark-cap">lights on per poll (max {{ $r.count }})</div>
+    <details class="sec" id="kasa-plan">
+      <summary><h2>Floor plan</h2><span class="rg-count">approximate</span></summary>
+      <div class="sec-body">
+        <div class="approx">Approximate layout, guessed from light names. Not a real floor plan.</div>
+        <div class="plan" role="img" aria-label="Approximate floor plan with lights colored by state">
+          <div class="house"><span class="zone-label">House</span>
+            {{- range $h.rooms }}{{ if in (slice "upstairs" "bedroom" "office" "den" "kitchen" "foyer" "gym" "laundry") .area }}{{ partial "kasa-room.html" . }}{{ end }}{{ end -}}
+          </div>
+          <div class="outb">
+            {{- range $h.rooms }}{{ if in (slice "mancave" "barn") .area }}{{ partial "kasa-room.html" . }}{{ end }}{{ end -}}
+          </div>
+          <div class="yard"><span class="zone-label">Yard</span>
+            {{- range $h.rooms }}{{ if eq .area "yard" }}{{ partial "kasa-room.html" . }}{{ end }}{{ end -}}
+          </div>
         </div>
+        {{- range $h.rooms }}{{ if eq .area "unsure" }}
+        <div class="unsure">
+          <h3>Not sure where ({{ .count }})</h3>
+          <p class="spark-cap" style="margin-bottom:8px">The names don't say which room these are in. Rooms you pick with Identify show in the list above; the plan keeps the original guesses.</p>
+          <div class="chips">
+            {{- range .lights }}<span class="chip {{ .latest }}" data-alias="{{ .alias }}" title="{{ .alias }}: {{ .latest }}"><span class="sw {{ .latest }}"></span>{{ .alias }}</span>{{ end -}}
+          </div>
+        </div>
+        {{ end }}{{ end -}}
       </div>
-      <div class="tl-wrap">
-        <table class="tl">
-          <thead><tr><th class="name" scope="col">Light</th>{{ range $h.polls }}<th scope="col">{{ .time }}</th>{{ end }}</tr></thead>
-          <tbody>
-          {{- range $r.lights }}
-            <tr><th class="name" scope="row" title="{{ .alias }}">{{ .alias }}</th>{{ range $i, $s := .history }}<td class="c {{ $s }}" title="{{ (index $h.polls $i).label }}: {{ $s }}"></td>{{ end }}</tr>
-          {{- end }}
-          <tr><th class="name" scope="row" style="color:var(--slate-600);font-weight:500">On</th>{{ range $r.on_counts }}<td style="text-align:center;font-size:11.5px;color:var(--slate-600)">{{ . }}</td>{{ end }}</tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    {{- end }}
+    </details>
 
-    <p class="foot">Only each light's name and on/off state are shown. Room placement is a guess from the names. Times are Pacific. Noindex.</p>
+    <details class="sec" id="kasa-hist">
+      <summary><h2>Over time</h2><span class="rg-count">{{ $np }} polls</span></summary>
+      <div class="sec-body">
+        <p class="lede">Every poll so far ({{ $np }}{{ if $np }}, {{ (index $h.polls 0).label }} to {{ (index $h.polls (sub $np 1)).label }} PT{{ end }}). Each row is a light, each column a poll. A light that didn't answer, or wasn't in a poll, shows as unknown. The small chart shows how many lights in the room were on at each poll.</p>
+        {{- range $h.rooms }}
+        {{- $r := . -}}
+        {{- $bw := 14 -}}{{- $gap := 4 -}}{{- $ch := 36 -}}
+        {{- $w := add (mul $np (add $bw $gap)) $gap -}}
+        <div class="room-hist">
+          <div class="hist-top">
+            <h3>{{ $r.name }} <span class="room-count">({{ $r.count }} lights)</span></h3>
+            <div>
+              <svg class="spark" width="{{ $w }}" height="{{ add $ch 4 }}" viewBox="0 0 {{ $w }} {{ add $ch 4 }}" role="img" aria-label="{{ $r.name }}: lights on per poll">
+                <line x1="0" y1="{{ add $ch 2 }}" x2="{{ $w }}" y2="{{ add $ch 2 }}" stroke="#cbd5e1" stroke-width="1"/>
+                {{- range $i, $c := $r.on_counts }}
+                {{- $bh := 0.0 }}{{ if gt $r.count 0 }}{{ $bh = div (mul (float $c) $ch) (float $r.count) }}{{ end }}
+                {{- if and (gt $c 0) (lt $bh 2.0) }}{{ $bh = 2.0 }}{{ end }}
+                <rect x="{{ add $gap (mul $i (add $bw $gap)) }}" y="{{ sub (add $ch 2) $bh }}" width="{{ $bw }}" height="{{ $bh }}" rx="2" fill="#F5C542"><title>{{ (index $h.polls $i).label }}: {{ $c }} of {{ $r.count }} on</title></rect>
+                {{- end }}
+              </svg>
+              <div class="spark-cap">lights on per poll (max {{ $r.count }})</div>
+            </div>
+          </div>
+          <div class="tl-wrap">
+            <table class="tl">
+              <thead><tr><th class="name" scope="col">Light</th>{{ range $h.polls }}<th scope="col">{{ .time }}</th>{{ end }}</tr></thead>
+              <tbody>
+              {{- range $r.lights }}
+                <tr><th class="name" scope="row" title="{{ .alias }}">{{ .alias }}</th>{{ range $i, $s := .history }}<td class="c {{ $s }}" title="{{ (index $h.polls $i).label }}: {{ $s }}"></td>{{ end }}</tr>
+              {{- end }}
+              <tr><th class="name" scope="row" style="color:var(--slate-600);font-weight:500">On</th>{{ range $r.on_counts }}<td style="text-align:center;font-size:11.5px;color:var(--slate-600)">{{ . }}</td>{{ end }}</tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        {{- end }}
+      </div>
+    </details>
+
+    <p class="foot">Only each light's name, on/off state and room label are shown. Room labels are page-only. Times are Pacific. Noindex.</p>
   </main>
 
   <footer class="site-footer"><p>zCompound · Home · Noindex</p></footer>
+  <script>
+  (function () {
+    // Wide screens open the floor plan and history; phones keep them collapsed and start with rooms closed.
+    var wide = window.matchMedia && window.matchMedia('(min-width: 761px)').matches;
+    if (wide) { document.getElementById('kasa-plan').open = true; document.getElementById('kasa-hist').open = true; }
+    else Array.prototype.forEach.call(document.querySelectorAll('details.rg'), function (d) { d.open = false; });
+  })();
+  </script>
   {{- if $ctl }}
   <script>
   (function () {
     // Same-origin queue: the page talks to /api/lights/*; the Mac mini polls the queue and reports back.
+    // Everything user- or server-supplied is written with textContent, never innerHTML.
     var KEY = 'kasaPasscode';
     var SNAP = {{ $h.snapshot_label }};
-    var form = document.getElementById('kasa-unlock');
-    var input = document.getElementById('kasa-pass');
-    var live = document.getElementById('kasa-live');
-    var msg = document.getElementById('kasa-msg');
-    var when = document.getElementById('kasa-when');
-    var asof = document.getElementById('kasa-asof');
-    var timer = null;
-    var chips = Array.prototype.slice.call(document.querySelectorAll('.chip[data-alias]'));
+    var UNASSIGNED = 'Unassigned';
+    var ROOM_RE = /^[\p{L}\p{N}][\p{L}\p{N} '\u2019&().,\/#+-]*$/u;
+    var $ = function (id) { return document.getElementById(id); };
+    var form = $('kasa-unlock'), input = $('kasa-pass'), live = $('kasa-live'), msg = $('kasa-msg');
+    var when = $('kasa-when'), asof = $('kasa-asof'), hubEl = $('kasa-hub'), list = $('kasa-list');
+    var idOpen = $('kasa-id-open'), idPanel = $('kasa-id'), idList = $('kasa-idlist'), idAll = $('kasa-id-all');
+    var step = $('kasa-step'), stepName = $('kasa-step-name'), stepStatus = $('kasa-step-status');
+    var roomSel = $('kasa-room'), roomNew = $('kasa-room-new');
+    var btnSave = $('kasa-save'), btnAgain = $('kasa-again'), btnMiss = $('kasa-miss'), btnNext = $('kasa-next');
+    var timer = null, lastRep = null, unlocked = false, offline = false, rooms = {}, roomsLoaded = false;
+    var cur = null, blinking = false, seen = {};
+    function arr(x) { return Array.prototype.slice.call(x); }
+    function has(o, k) { return Object.prototype.hasOwnProperty.call(o, k); }
+    function rows() { return arr(list.querySelectorAll('li.lr[data-alias]')); }
+    function rowFor(alias) { return rows().filter(function (r) { return r.dataset.alias === alias; })[0] || null; }
+    var LABEL = { on: 'On', off: 'Off', unknown: 'No answer' };
 
     function pass() { try { return sessionStorage.getItem(KEY) || ''; } catch (e) { return ''; } }
-    function setPass(v) { try { v ? sessionStorage.setItem(KEY, v) : sessionStorage.removeItem(KEY); } catch (e) {} }
+    function setPass(v) { if (!v) lastRep = null; try { v ? sessionStorage.setItem(KEY, v) : sessionStorage.removeItem(KEY); } catch (e) {} }
     function say(t, err) { msg.textContent = t || ''; msg.className = 'msg' + (err ? ' err' : ''); }
     function fmt(iso) {
       var d = new Date(iso); if (isNaN(d)) return '';
-      return d.toLocaleString('en-US', { timeZone: 'America/Los_Angeles', month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' }) + ' PT';
+      return d.toLocaleString('en-US', { timeZone: 'America/Los_Angeles', month: 'numeric', day: 'numeric', hour: 'numeric', minute: '2-digit' }) + ' PT';
     }
-    function showWhen(updated, stale) {
-      if (!updated) { when.textContent = 'Live · no report from the house yet'; asof.hidden = true; return; }
-      var t = 'Live as of ' + fmt(updated) + (stale ? ' (stale: no report for 3+ min)' : '');
-      when.textContent = t; asof.textContent = t; asof.hidden = false;
+    function hhmm(iso) {
+      var d = new Date(iso); if (isNaN(d)) return '';
+      var o = { timeZone: 'America/Los_Angeles' };
+      var t = d.toLocaleTimeString('en-US', Object.assign({ hour: 'numeric', minute: '2-digit' }, o));
+      var sameDay = d.toLocaleDateString('en-US', o) === new Date().toLocaleDateString('en-US', o);
+      return (sameDay ? '' : d.toLocaleDateString('en-US', Object.assign({ month: 'numeric', day: 'numeric' }, o)) + ' ') + t + ' PT';
     }
-    function snapshotView() { when.textContent = SNAP; asof.hidden = true; }
 
-    function paint(chip, state) {
+    // ---------- painting ----------
+    function paintEl(el, state) {
+      el.classList.remove('on', 'off', 'unknown'); el.classList.add(state);
+      var sw = el.querySelector('.sw'); if (sw) sw.className = 'sw ' + state;
+    }
+    function paint(alias, state) {
       if (state !== 'on' && state !== 'off') state = 'unknown';
-      chip.dataset.state = state;
-      chip.classList.remove('on', 'off', 'unknown'); chip.classList.add(state);
-      var sw = chip.querySelector('.sw'); if (sw) { sw.className = 'sw ' + state; }
-      chip.title = chip.dataset.alias + ': ' + state;
-      var b = chip.querySelector('.tg');
-      if (b && !b.classList.contains('pending')) { b.setAttribute('aria-pressed', state === 'on' ? 'true' : 'false'); b.disabled = state === 'unknown'; }
+      var r = rowFor(alias); if (!r) return;
+      r.dataset.state = state; paintEl(r, state);
+      r.querySelector('.lr-st').textContent = LABEL[state];
+      var b = r.querySelector('.tg');
+      if (b && !b.classList.contains('pending')) { b.setAttribute('aria-pressed', state === 'on' ? 'true' : 'false'); b.disabled = !unlocked || offline || state === 'unknown'; }
+      arr(document.querySelectorAll('.chip[data-alias]')).forEach(function (c) { if (c.dataset.alias === alias) { paintEl(c, state); c.title = alias + ': ' + state; } });
     }
     function totals() {
       var t = { on: 0, off: 0, unknown: 0 };
-      chips.forEach(function (c) { t[c.dataset.state] = (t[c.dataset.state] || 0) + 1; });
-      var s = document.querySelector('.summary'); if (!s) return;
-      ['on', 'off', 'unknown'].forEach(function (k) {
-        var el = s.querySelector('.tot.' + k); if (!el) return;
-        el.lastChild.textContent = t[k] + (k === 'unknown' ? ' unknown (didn\u2019t answer)' : ' ' + k);
+      rows().forEach(function (r) { t[r.dataset.state] = (t[r.dataset.state] || 0) + 1; });
+      ['on', 'off', 'unknown'].forEach(function (k) { $('kasa-n-' + k).querySelector('.n').textContent = t[k]; });
+      groups().forEach(function (g) {
+        var rs = arr(g.querySelectorAll('li.lr')), on = rs.filter(function (r) { return r.dataset.state === 'on'; }).length;
+        var c = g.querySelector('.rg-count'); c.textContent = ''; var b = document.createElement('b'); b.textContent = on; c.appendChild(b);
+        c.appendChild(document.createTextNode(' of ' + rs.length + ' on'));
+        g.hidden = rs.length === 0;
       });
     }
 
+    // ---------- rooms (server map, falling back to the name-based guesses) ----------
+    function groups() { return arr(list.querySelectorAll('details.rg')); }
+    function groupFor(name) {
+      var g = groups().filter(function (x) { return x.dataset.room === name; })[0];
+      if (g) return g;
+      g = document.createElement('details'); g.className = 'rg'; g.dataset.room = name; g.open = true;
+      var s = document.createElement('summary'), n = document.createElement('span'), c = document.createElement('span');
+      n.className = 'rg-name'; n.textContent = name; c.className = 'rg-count'; s.appendChild(n); s.appendChild(c); g.appendChild(s);
+      var ul = document.createElement('ul'); ul.className = 'lr-list'; g.appendChild(ul);
+      var un = groups().filter(function (x) { return x.dataset.room === UNASSIGNED; })[0];
+      list.insertBefore(g, un || null);
+      return g;
+    }
+    function roomOf(r) { return has(rooms, r.dataset.alias) ? rooms[r.dataset.alias] : r.dataset.home; }
+    function regroup() {
+      rows().forEach(function (r) {
+        var g = groupFor(roomOf(r)), ul = g.querySelector('ul');
+        if (r.parentNode !== ul) ul.appendChild(r);
+      });
+      groups().forEach(function (g) {
+        var ul = g.querySelector('ul');
+        arr(ul.children).sort(function (a, b) { return a.dataset.alias.localeCompare(b.dataset.alias, 'en', { numeric: true }); }).forEach(function (r) { ul.appendChild(r); });
+      });
+      totals();
+    }
+    function roomNames() {
+      var s = {};
+      groups().forEach(function (g) { if (g.dataset.room !== UNASSIGNED && g.querySelector('li.lr')) s[g.dataset.room] = 1; });
+      Object.keys(rooms).forEach(function (a) { if (rooms[a] !== UNASSIGNED) s[rooms[a]] = 1; });
+      return Object.keys(s).sort(function (a, b) { return a.localeCompare(b); });
+    }
+    function addRow(alias) { // a light the house reports that the snapshot didn't have
+      var li = document.createElement('li'); li.className = 'lr unknown'; li.dataset.alias = alias; li.dataset.state = 'unknown'; li.dataset.home = UNASSIGNED;
+      var sw = document.createElement('span'); sw.className = 'sw unknown';
+      var nm = document.createElement('span'); nm.className = 'lr-name'; nm.textContent = alias;
+      var st = document.createElement('span'); st.className = 'lr-st'; st.textContent = LABEL.unknown;
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'tg'; b.setAttribute('aria-pressed', 'false'); b.setAttribute('aria-label', 'Turn ' + alias + ' on or off');
+      li.appendChild(sw); li.appendChild(nm); li.appendChild(st); li.appendChild(b);
+      groupFor(UNASSIGNED).querySelector('ul').appendChild(li); wireToggle(li);
+      return li;
+    }
+    function loadRooms() {
+      return api('/rooms').then(function (j) { rooms = (j && j.rooms) || {}; roomsLoaded = true; regroup(); if (!idPanel.hidden) renderIdList(); })
+        .catch(function (e) { if (!quiet(e)) say('Couldn\u2019t load room labels (' + e.message + ').', true); });
+    }
+
+    // ---------- api ----------
     function Fail(status, text) { this.status = status; this.message = text; }
     function api(path, opts) {
       opts = opts || {};
@@ -275,42 +467,64 @@
           if (r.status === 401) { lock('Passcode not accepted. Try again.'); throw new Fail(401, ''); }
           if (r.status === 429) { lock(j.scope === 'global' ? 'Too many wrong passcodes. Controls are locked for everyone for 15 minutes.' : 'Too many wrong passcodes. Wait a minute and try again.'); throw new Fail(429, ''); }
           if (r.status === 503) { lock('The light bridge isn\u2019t set up yet.'); throw new Fail(503, ''); }
+          if (r.status === 409) { setHub(true, j.lastReport || null); throw new Fail(409, 'the home hub is offline'); }
           if (r.status === 404) throw new Fail(404, 'the house doesn\u2019t know that light right now');
+          if (r.status === 400) throw new Fail(400, j.error || 'not accepted');
           throw new Fail(r.status, 'error ' + r.status);
         });
       }, function () { throw new Fail(0, 'network error'); });
     }
     function quiet(e) { return e && (e.status === 401 || e.status === 429 || e.status === 503); }
 
+    // ---------- hub status ----------
+    function setHub(off, last) {
+      offline = !!off; if (last) lastRep = last;
+      if (offline && unlocked) { hubEl.textContent = 'Home hub offline \u2014 ' + (lastRep ? 'last report ' + hhmm(lastRep) : 'no report yet') + '. Buttons are paused until it\u2019s back.'; hubEl.hidden = false; }
+      else hubEl.hidden = true;
+      syncButtons();
+    }
+    function syncButtons() {
+      rows().forEach(function (r) { var b = r.querySelector('.tg'); if (b && !b.classList.contains('pending')) b.disabled = !unlocked || offline || r.dataset.state === 'unknown'; });
+      arr(idList.querySelectorAll('button')).forEach(function (b) { b.disabled = offline || blinking; });
+      btnAgain.disabled = offline || blinking;
+    }
+    function showWhen(updated) {
+      if (!updated) { when.textContent = 'Live \u00b7 no report from the house yet'; asof.textContent = 'No report yet'; return; }
+      when.textContent = 'Live as of ' + fmt(updated); asof.textContent = 'Live as of ' + hhmm(updated);
+    }
     function applyState(j) {
       var st = (j && j.lights) || {};
-      chips.forEach(function (c) {
-        var b = c.querySelector('.tg'); if (b && b.classList.contains('pending')) return;
-        paint(c, Object.prototype.hasOwnProperty.call(st, c.dataset.alias) ? st[c.dataset.alias] : 'unknown');
+      Object.keys(st).forEach(function (a) { if (!rowFor(a)) addRow(a); });
+      rows().forEach(function (r) {
+        var b = r.querySelector('.tg'); if (b && b.classList.contains('pending')) return;
+        paint(r.dataset.alias, has(st, r.dataset.alias) ? st[r.dataset.alias] : 'unknown');
       });
-      totals(); showWhen(j.updated, j.stale);
+      regroup(); showWhen(j.lastReport || j.updated);
+      setHub(j.offline !== undefined ? j.offline : j.stale, j.lastReport || j.updated);
     }
     function refresh() {
       if (!pass() || document.hidden) return Promise.resolve();
       return api('/state').then(function (j) {
-        if (!live.hidden) applyState(j);
-        else { showControls(); applyState(j); }
+        if (!unlocked) showControls();
+        applyState(j);
+        if (!roomsLoaded) return loadRooms();
       }).catch(function (e) { if (!quiet(e)) say('Couldn\u2019t refresh (' + e.message + ').', true); });
     }
     function showControls() {
-      form.hidden = true; live.hidden = false;
-      chips.forEach(function (c) { var b = c.querySelector('.tg'); if (b) { b.hidden = false; b.disabled = c.dataset.state === 'unknown'; b.setAttribute('aria-pressed', c.dataset.state === 'on' ? 'true' : 'false'); } });
+      unlocked = true; form.hidden = true; live.hidden = false; idOpen.disabled = false;
+      rows().forEach(function (r) { var b = r.querySelector('.tg'); if (b) { b.hidden = false; } });
     }
     function unlock() {
       say('Checking\u2026');
-      refresh().then(function () { if (pass() && !live.hidden) say(''); });
+      refresh().then(function () { if (pass() && unlocked && msg.textContent === 'Checking\u2026') say(''); });
       clearInterval(timer); timer = setInterval(refresh, 30000);
     }
     function lock(text) {
-      setPass(''); clearInterval(timer); timer = null;
-      form.hidden = false; live.hidden = true; input.value = '';
-      chips.forEach(function (c) { var b = c.querySelector('.tg'); if (b) { b.hidden = true; b.disabled = true; b.classList.remove('pending'); } });
-      snapshotView(); say(text || '', !!text); if (text) input.focus();
+      setPass(''); clearInterval(timer); timer = null; unlocked = false; roomsLoaded = false; rooms = {};
+      form.hidden = false; live.hidden = true; input.value = ''; hubEl.hidden = true;
+      rows().forEach(function (r) { var b = r.querySelector('.tg'); if (b) { b.hidden = true; b.disabled = true; b.classList.remove('pending'); } });
+      closeId(); idOpen.disabled = true; regroup();
+      when.textContent = SNAP; say(text || '', !!text); if (text) input.focus();
     }
 
     function waitResult(id, tries) {
@@ -328,37 +542,138 @@
       });
     }
 
-    chips.forEach(function (c) {
-      var b = c.querySelector('.tg'); if (!b) return;
+    // ---------- toggles ----------
+    function wireToggle(r) {
+      var b = r.querySelector('.tg'); if (!b) return;
+      b.hidden = !unlocked;
       b.addEventListener('click', function () {
-        if (b.disabled || b.classList.contains('pending')) return;
-        var alias = c.dataset.alias; // sent exactly as reported; never lowercased or normalized
-        var prev = c.dataset.state, want = prev !== 'on';
-        paint(c, want ? 'on' : 'off'); totals();
+        if (b.disabled || b.classList.contains('pending') || offline) return;
+        var alias = r.dataset.alias; // sent exactly as reported; never lowercased or normalized
+        var prev = r.dataset.state, want = prev !== 'on';
+        paint(alias, want ? 'on' : 'off'); totals();
         b.classList.add('pending'); b.disabled = true;
-        function done(state) { b.classList.remove('pending'); paint(c, state); totals(); }
+        function done(state) { b.classList.remove('pending'); paint(alias, state); totals(); }
         api('/toggle', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ alias: alias, on: want }) })
           .then(function (j) { return waitResult(j.id, 15); })
-          .then(function (r) {
-            if (r.error || r.state === 'error') { done(r.state === 'on' || r.state === 'off' ? r.state : prev); say('Couldn\u2019t switch ' + alias + ': ' + (r.error || 'the house reported an error') + '.', true); return; }
-            done(r.state);
-            if (r.state !== (want ? 'on' : 'off')) say(alias + ' is ' + r.state + '.', true);
+          .then(function (res) {
+            if (res.error || res.state === 'error') { done(res.state === 'on' || res.state === 'off' ? res.state : prev); say('Couldn\u2019t switch ' + alias + ': ' + (res.error || 'the house reported an error') + '.', true); return; }
+            done(res.state);
+            if (res.state !== (want ? 'on' : 'off')) say(alias + ' is ' + res.state + '.', true);
           })
           .catch(function (e) {
             if (quiet(e)) return;
             done(prev);
-            say(e.status === -1 ? 'Timed out waiting for the house to switch ' + alias + '. Put it back.' : 'Couldn\u2019t switch ' + alias + ' (' + e.message + ').', true);
+            say(e.status === -1 ? 'Timed out waiting for the house to switch ' + alias + '.' : 'Couldn\u2019t switch ' + alias + ' (' + e.message + ').', true);
           });
       });
+    }
+    rows().forEach(wireToggle);
+
+    // ---------- identify mode ----------
+    function idQueue() {
+      var rs = rows().slice().sort(function (a, b) { return a.dataset.alias.localeCompare(b.dataset.alias, 'en', { numeric: true }); });
+      var un = rs.filter(function (r) { return roomOf(r) === UNASSIGNED; });
+      return idAll.checked ? un.concat(rs.filter(function (r) { return roomOf(r) !== UNASSIGNED; })) : un;
+    }
+    function renderIdList() {
+      idList.textContent = '';
+      var q = idQueue();
+      if (!q.length) { var e = document.createElement('li'); e.textContent = 'Every light has a room. Tick the box to re-check one.'; idList.appendChild(e); return; }
+      q.forEach(function (r) {
+        var a = r.dataset.alias, li = document.createElement('li');
+        if (cur === a) li.className = 'cur'; else if (seen[a]) li.className = 'done';
+        var sw = document.createElement('span'); sw.className = 'sw ' + r.dataset.state;
+        var nm = document.createElement('span'); nm.className = 'nm'; nm.textContent = a;
+        var rm = document.createElement('span'); rm.className = 'rm'; rm.textContent = roomOf(r) === UNASSIGNED ? (seen[a] === 'miss' ? 'not seen' : '') : roomOf(r);
+        var b = document.createElement('button'); b.type = 'button'; b.className = 'btn warm'; b.textContent = 'Blink'; b.disabled = offline || blinking;
+        b.setAttribute('aria-label', 'Blink ' + a);
+        b.addEventListener('click', function () { startStep(a, true); });
+        li.appendChild(sw); li.appendChild(nm); li.appendChild(rm); li.appendChild(b); idList.appendChild(li);
+      });
+    }
+    function fillRooms(a) {
+      roomSel.textContent = '';
+      var r = rowFor(a), have = r ? roomOf(r) : UNASSIGNED;
+      var o0 = document.createElement('option'); o0.value = ''; o0.textContent = 'Pick a room\u2026'; roomSel.appendChild(o0);
+      roomNames().forEach(function (n) { var o = document.createElement('option'); o.value = n; o.textContent = n; if (n === have) o.selected = true; roomSel.appendChild(o); });
+      var on = document.createElement('option'); on.value = '__new'; on.textContent = 'New room\u2026'; roomSel.appendChild(on);
+      if (have !== UNASSIGNED) { var ou = document.createElement('option'); ou.value = '__clear'; ou.textContent = 'Unassigned (clear)'; roomSel.appendChild(ou); }
+      roomNew.hidden = true; roomNew.value = '';
+    }
+    function status(t, cls) { stepStatus.textContent = t; stepStatus.className = 'step-status' + (cls ? ' ' + cls : ''); }
+    function startStep(a, blink) {
+      cur = a; step.hidden = false; stepName.textContent = a; fillRooms(a); renderIdList();
+      status(blink ? '' : 'Tap Blink again to see it.', '');
+      if (blink) doBlink(a);
+      step.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }
+    function doBlink(a) {
+      if (offline) { status('Home hub offline. Blink is paused.', 'err'); return; }
+      blinking = true; syncButtons(); status('Sending\u2026', '');
+      api('/identify', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ alias: a }) })
+        .then(function (j) { status('Watch for the light that blinks.', 'watch'); return waitResult(j.id, 30); })
+        .then(function (res) {
+          if (cur !== a) return;
+          if (res.error === 'rejected') status('The home hub can\u2019t blink lights yet (bridge update pending).', 'err');
+          else if (res.error || res.state === 'error') status('Couldn\u2019t blink it: ' + (res.error || 'the house reported an error') + '.', 'err');
+          else status('Done blinking. Did you see it? Pick its room, or tap Didn\u2019t see it.', 'watch');
+          if (res.state === 'on' || res.state === 'off') { paint(a, res.state); totals(); }
+        })
+        .catch(function (e) {
+          if (quiet(e) || cur !== a) return;
+          status(e.status === -1 ? 'No word back from the house yet. It may still blink; tap Blink again if not.' : 'Couldn\u2019t blink it (' + e.message + ').', 'err');
+        })
+        .then(function () { blinking = false; syncButtons(); renderIdList(); });
+    }
+    function nextLight() {
+      var q = idQueue().map(function (r) { return r.dataset.alias; });
+      var i = q.indexOf(cur), rest = q.slice(i + 1).concat(q.slice(0, Math.max(i, 0)));
+      var n = rest.filter(function (a) { return !seen[a]; })[0];
+      if (!n) { cur = null; step.hidden = true; renderIdList(); say('That\u2019s every light in the list.'); return; }
+      startStep(n, false);
+    }
+    roomSel.addEventListener('change', function () { roomNew.hidden = roomSel.value !== '__new'; if (!roomNew.hidden) roomNew.focus(); });
+    btnSave.addEventListener('click', function () {
+      if (!cur) return;
+      var v = roomSel.value, room;
+      if (v === '__clear') room = '';
+      else if (v === '__new') room = roomNew.value.normalize('NFC').replace(/\s+/g, ' ').trim();
+      else room = v;
+      if (v === '') { status('Pick a room first.', 'err'); return; }
+      if (room && (room.length > 40 || !ROOM_RE.test(room))) { status('Room names: up to 40 letters, numbers, spaces and \u2019 & ( ) . , / # + -', 'err'); return; }
+      if (room && room.toLowerCase() === UNASSIGNED.toLowerCase()) room = '';
+      var a = cur; btnSave.disabled = true; status('Saving\u2026', '');
+      api('/rooms', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ alias: a, room: room || null }) })
+        .then(function (j) {
+          if (j.room) rooms[a] = j.room; else delete rooms[a];
+          seen[a] = 'saved'; regroup(); say(a + (j.room ? ' \u2192 ' + j.room : ' is unassigned again') + '.');
+          nextLight();
+        })
+        .catch(function (e) { if (!quiet(e)) status('Couldn\u2019t save (' + e.message + ').', 'err'); })
+        .then(function () { btnSave.disabled = false; });
+    });
+    btnAgain.addEventListener('click', function () { if (cur && !blinking) doBlink(cur); });
+    btnMiss.addEventListener('click', function () { if (!cur) return; seen[cur] = 'miss'; nextLight(); });
+    btnNext.addEventListener('click', function () { if (!cur) return; seen[cur] = seen[cur] || 'skip'; nextLight(); });
+    idAll.addEventListener('change', renderIdList);
+    function closeId() { idPanel.hidden = true; idOpen.setAttribute('aria-expanded', 'false'); cur = null; step.hidden = true; }
+    idOpen.addEventListener('click', function () {
+      if (!idPanel.hidden) { closeId(); return; }
+      idPanel.hidden = false; idOpen.setAttribute('aria-expanded', 'true'); seen = {};
+      loadRooms().then(renderIdList); renderIdList();
+      idPanel.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    });
+    $('kasa-id-close').addEventListener('click', closeId);
+    $('kasa-expand').addEventListener('click', function () {
+      var gs = groups(), open = !gs.every(function (g) { return g.open; });
+      gs.forEach(function (g) { g.open = open; }); this.textContent = open ? 'Close all rooms' : 'Open all rooms';
     });
 
     form.addEventListener('submit', function (e) {
       e.preventDefault(); var v = input.value; if (!v) return;
-      setPass(v); input.value = ''; unlock();
+      setPass(v); input.value = ''; input.blur(); unlock();
     });
-    var forget = document.getElementById('kasa-forget');
-    forget.addEventListener('click', function () { lock('Passcode forgotten.'); });
-    forget.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); lock('Passcode forgotten.'); } });
+    $('kasa-forget').addEventListener('click', function () { lock('Passcode forgotten.'); });
     document.addEventListener('visibilitychange', function () { if (!document.hidden) refresh(); });
     if (pass()) unlock();
   })();

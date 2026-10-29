@@ -1,9 +1,11 @@
 // /api/lights/:action — one function (Hobby caps a deployment at 12 functions).
-// Browser (X-Passcode): state, toggle, result. Mac mini (Bearer): queue, report.
+// Browser (X-Passcode): state, toggle, identify, rooms, result. Mac mini (Bearer): queue, report.
 const L = require('../../lib/lights');
 const handlers = {
   state: require('../../lib/lights-handlers/state'),
   toggle: require('../../lib/lights-handlers/toggle'),
+  identify: require('../../lib/lights-handlers/identify'),
+  rooms: require('../../lib/lights-handlers/rooms'),
   result: require('../../lib/lights-handlers/result'),
   queue: require('../../lib/lights-handlers/queue'),
   report: require('../../lib/lights-handlers/report'),
