@@ -1,6 +1,7 @@
 {{- $h := hugo.Data.kasa.history -}}
 {{- $np := len $h.polls -}}
 {{- $ctl := eq .Params.lightsControls true -}}
+{{- $staticRooms := or hugo.Data.kasa.rooms dict -}}
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 <head>
@@ -243,14 +244,20 @@
     {{- end }}
 
     <div class="list" id="kasa-list">
+      {{- /* Static room labels (data/kasa/rooms.json, alias -> room) beat the name-based guesses; the server map beats both at runtime. */ -}}
+      {{- $names := slice -}}{{- range $h.rooms }}{{ $names = $names | append (cond (eq .area "unsure") "Unassigned" .name) }}{{ end -}}
+      {{- $placed := slice -}}
+      {{- range $h.rooms }}{{ $g := cond (eq .area "unsure") "Unassigned" .name }}{{ range .lights }}{{ $to := $g }}{{ with index $staticRooms .alias }}{{ if in $names . }}{{ $to = . }}{{ end }}{{ end }}{{ $placed = $placed | append (dict "l" . "home" $to) }}{{ end }}{{ end -}}
       {{- range $h.rooms }}
       {{- $home := cond (eq .area "unsure") "Unassigned" .name -}}
-      <details class="rg{{ if eq .area "unsure" }} unassigned{{ end }}" data-room="{{ $home }}" open>
-        <summary><span class="rg-name">{{ $home }}</span><span class="rg-count"><b>{{ .latest_on }}</b> of {{ .count }} on</span></summary>
+      {{- $mine := where $placed "home" $home -}}
+      {{- $on := len (where $mine "l.latest" "on") -}}
+      <details class="rg{{ if eq .area "unsure" }} unassigned{{ end }}" data-room="{{ $home }}" open{{ if not $mine }} hidden{{ end }}>
+        <summary><span class="rg-name">{{ $home }}</span><span class="rg-count"><b>{{ $on }}</b> of {{ len $mine }} on</span></summary>
         <ul class="lr-list">
-          {{- range .lights }}
+          {{- range sort $mine "l.alias" }}{{ with .l }}
           <li class="lr {{ .latest }}" data-alias="{{ .alias }}" data-state="{{ .latest }}" data-home="{{ $home }}"><span class="sw {{ .latest }}"></span><span class="lr-name">{{ .alias }}</span><span class="lr-st">{{ if eq .latest "on" }}On{{ else if eq .latest "off" }}Off{{ else }}No answer{{ end }}</span>{{ if $ctl }}<button type="button" class="tg" hidden disabled aria-pressed="false" aria-label="Turn {{ .alias }} on or off"></button>{{ end }}</li>
-          {{- end }}
+          {{- end }}{{ end }}
         </ul>
       </details>
       {{- end }}
@@ -352,6 +359,7 @@
     var KEY = 'kasaPasscode';
     var SNAP = {{ $h.snapshot_label }};
     var UNASSIGNED = 'Unassigned';
+    var STATIC_ROOMS = {{ $staticRooms }};
     var ROOM_RE = /^[\p{L}\p{N}][\p{L}\p{N} '\u2019&().,\/#+-]*$/u;
     var $ = function (id) { return document.getElementById(id); };
     var form = $('kasa-unlock'), input = $('kasa-pass'), live = $('kasa-live'), msg = $('kasa-msg');
@@ -441,13 +449,13 @@
       return Object.keys(s).sort(function (a, b) { return a.localeCompare(b); });
     }
     function addRow(alias) { // a light the house reports that the snapshot didn't have
-      var li = document.createElement('li'); li.className = 'lr unknown'; li.dataset.alias = alias; li.dataset.state = 'unknown'; li.dataset.home = UNASSIGNED;
+      var li = document.createElement('li'); li.className = 'lr unknown'; li.dataset.alias = alias; li.dataset.state = 'unknown'; li.dataset.home = has(STATIC_ROOMS, alias) && groups().some(function (g) { return g.dataset.room === STATIC_ROOMS[alias]; }) ? STATIC_ROOMS[alias] : UNASSIGNED;
       var sw = document.createElement('span'); sw.className = 'sw unknown';
       var nm = document.createElement('span'); nm.className = 'lr-name'; nm.textContent = alias;
       var st = document.createElement('span'); st.className = 'lr-st'; st.textContent = LABEL.unknown;
       var b = document.createElement('button'); b.type = 'button'; b.className = 'tg'; b.setAttribute('aria-pressed', 'false'); b.setAttribute('aria-label', 'Turn ' + alias + ' on or off');
       li.appendChild(sw); li.appendChild(nm); li.appendChild(st); li.appendChild(b);
-      groupFor(UNASSIGNED).querySelector('ul').appendChild(li); wireToggle(li);
+      groupFor(li.dataset.home).querySelector('ul').appendChild(li); wireToggle(li);
       return li;
     }
     function loadRooms() {
