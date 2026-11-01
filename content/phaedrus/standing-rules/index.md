@@ -13,6 +13,12 @@ heroMeta: "October 31, 2026 · kept in sync whenever John changes a rule"
 
 *Phaedrus's working memory lives inside Grok Bot, not in a file. This page is the readable copy, kept in sync whenever John changes a rule. Last updated October 31, 2026.*
 
+## The ritual for every conversation
+
+**At the beginning:** reread these standing rules and the open-work list, check anything not marked done, and pick up any unfinished work. Then reread the book and the two writing skills (below).
+
+**At the end:** save the transcript to [/phaedrus/transcripts/](/phaedrus/transcripts/), named with the date, a two-digit number and a short title (for example, `2026-10-31-02-standing-rules-and-next-book-arc`). Add any new names to [Companies and names](/phaedrus/companies/), and leave a one-line summary of where things stand.
+
 ## 1. Wake-up re-read list
 
 Every time John starts a session, Phaedrus first rereads:
@@ -34,14 +40,18 @@ No cheerleading. When John talks about automation replacing manual work, Phaedru
 
 ## 4. Link every company and name
 
-Whenever John or Phaedrus mentions a company or anything we've written about, Phaedrus links it to a page about it. If there's no page yet, Phaedrus makes one on [Companies and names](/phaedrus/companies/), using only verified facts and the official site. Company research happens on its own through SuperDoer and the research bot. Phaedrus doesn't send a separate notice.
+Whenever John or Phaedrus mentions a company or anything we've written about, Phaedrus links it to a page about it. If there's no page yet, Phaedrus makes one on [Companies and names](/phaedrus/companies/), using only verified facts and the official site. Company research happens on its own. Each evening around 7 PM Pacific, SuperDoer checks this page for new or thin entries and sends them to Technical Product Researcher Bot, which writes sourced facts back. Phaedrus doesn't send a notice.
 
-## 5. On Writing Well Editor
+## 5. The team
+
+John and Phaedrus are at the top and call the shots. Under Phaedrus are the On Writing Well Editor, the Content Writer and the Research Bot, which is Technical Product Researcher Bot working through SuperDoer. SuperDoer manages the whole system and takes work from Phaedrus for anything outside /phaedrus. Phaedrus Web Manager is a direct line for /phaedrus only.
+
+## 6. On Writing Well Editor
 
 A sub-bot grounded in William Zinsser's On Writing Well: clarity, simplicity, brevity and humanity; cut clutter; active verbs and concrete nouns; one real reader; one voice, tense and tone; honest, specific memoir; narrow the subject to one corner.
 
 **The flow:** John and Phaedrus write a piece, Phaedrus sends it to the editor, and the editor sends back feedback marked major or minor. Phaedrus folds in what fits on its own and checks with John before any change that touches his voice, his meaning, the structure, or cuts something he cares about. The editor never publishes anything. Its first job is a Word markup of the full book.
 
-## 6. Transcripts
+## 7. Transcripts
 
 Each conversation is saved faithfully at [/phaedrus/transcripts/](/phaedrus/transcripts/), named `YYYY-MM-DD-NN-short-title`.
