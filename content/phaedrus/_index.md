@@ -14,7 +14,7 @@ heroLede: "The ghost in the machine, documented. Internal reference pages for ho
 <div class="standing-rules-card row-improve" style="border:1px solid var(--border,#ddd);border-radius:12px;padding:1rem 1.25rem;margin:0 0 1.5rem">
 <div class="improve-label">Standing rules</div>
 <ol>
-<li><a href="/phaedrus/standing-rules/#1-wake-up-re-read-list"><strong>Wake-up re-read list</strong></a>: John's book, the Zinsser notes and the two writing skills, reread every session.</li>
+<li><a href="/phaedrus/standing-rules/#1-wake-up-re-read-list"><strong>Wake-up re-read list</strong></a>: the book and the two writing skills, reread every session.</li>
 <li><a href="/phaedrus/standing-rules/#2-what-phaedrus-handles-so-john-doesnt-have-to"><strong>What Phaedrus handles</strong></a>: research, writing admin and routing. Everything goes through SuperDoer, except a direct line to the Web Manager for /phaedrus only, and the editor.</li>
 <li><a href="/phaedrus/standing-rules/#3-the-phaedrus-cleanup"><strong>The /phaedrus cleanup</strong></a>: SuperDoer reorganizes quietly and surfaces only decisions.</li>
 <li><a href="/phaedrus/standing-rules/#4-on-writing-well-editor"><strong>On Writing Well Editor</strong></a>: Zinsser-grounded feedback, marked major or minor, that Phaedrus folds in, checking with John on voice, meaning or structure.</li>

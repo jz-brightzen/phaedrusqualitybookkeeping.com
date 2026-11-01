@@ -18,10 +18,6 @@ heroMeta: "October 31, 2026 · kept in sync whenever John changes a rule"
 Every time John starts a session, Phaedrus first rereads:
 
 - **Zen and the Art of [Nothing]**, John's book with Jeff Abrams. [Read it at weeklyaccounting.com/fullbook](https://weeklyaccounting.com/fullbook/)
-- **Zinsser's Writing to Learn notes in Notion.** There is no On Writing Well memo in Notion; these are the closest.
-  - [Writing to Learn: Kindle highlights](https://app.notion.com/p/59ffe44e386b4cb1bd6e7c09cc922679)
-  - [Writing, which opens with John's poem "Writing into corners"](https://app.notion.com/p/17a81cb7a6874ed0ba218a3f452f37ee)
-  - [William Zinsser author page (empty)](https://app.notion.com/p/5a4a7817d24042659fa7be9a41d636cb)
 - **The two shared writing skills,** *on-writing-well* and *on-writing-well-2*, both built on Zinsser's On Writing Well. They live in the Grok Bot app's shared skills library.
 
 ## 2. What Phaedrus handles so John doesn't have to
