@@ -14,10 +14,10 @@ About BrightZen: [brightzen.com](https://brightzen.com)
 
 October 31, 2026, on a voice call. Raw notes of what John said, as relayed from the call. Not yet edited.
 
-*Spelling:* BrightZen is confirmed by John ([brightzen.com](https://brightzen.com)). Dean Wynn is confirmed from John's records (deanwynn.com), a low-priced bookkeeping brand.
+*Spelling:* BrightZen is confirmed by John ([brightzen.com](https://brightzen.com)). Dean Wynn Financial is confirmed from John's records (deanwynn.com). John describes it as a low-priced bookkeeping brand.
 
 ## About BrightZen (from brightzen.com, read 2026-10-31)
-[BrightZen Capital](/phaedrus/companies/#brightzen) is John and Jeff Abrams's family office, "built around a business operating system designed to create long-term value." It partners with entrepreneurs to replace guesswork with structure and argues that businesses fail from unclear signals rather than a lack of capital. Its tagline is "Big visions & positive unit economics change YOUR world." John's work there is built on The Fourth Statement. The portfolio links to Weekly Accounting, Phoenix Strategy Group, Assembled Brands, Assembled Systems, ShipCalm, Forecastr and Legix.
+[BrightZen Capital](/phaedrus/companies/#brightzen) is John and Jeff Abrams's family office, "built around a business operating system designed to create long-term value." It partners with entrepreneurs to replace guesswork with structure and argues that businesses fail from unclear signals rather than a lack of capital. Its tagline is "Big visions & positive unit economics change YOUR world." John's work there is built on The Fourth Statement. The portfolio links to Weekly Accounting, Phoenix Strategy Group, Assembled Brands, Assembled Systems, [ShipCalm](/phaedrus/companies/#shipcalm), [Forecastr](/phaedrus/companies/#forecastr) and [Legix](/phaedrus/companies/#legix).
 
 ## Why this book, why now
 - It connects to Zen and the Art of [Nothing], which named book three as Weekly Accounting and the New Map for Business.
@@ -36,7 +36,7 @@ October 31, 2026, on a voice call. Raw notes of what John said, as relayed from 
 - [Weekly Accounting](/phaedrus/companies/#weekly-accounting) grew from a [BrightZen](/phaedrus/companies/#brightzen) revenue stream into a separate C corp with a management team and channels. It's lean and limited by supply.
 - Client manager training was underinvested.
 - Weekly Accounting's architecture will transform.
-- BrightZen also built [Phoenix Strategy Group](/phaedrus/companies/#phoenix-strategy-group), portfolio management, [Assembled Brands](/phaedrus/companies/#assembled-brands), [Dean Wynn](/phaedrus/companies/#dean-wynn) and [Assembled Systems](/phaedrus/companies/#assembled-systems).
+- BrightZen also built [Phoenix Strategy Group](/phaedrus/companies/#phoenix-strategy-group), portfolio management, [Assembled Brands](/phaedrus/companies/#assembled-brands), [Dean Wynn Financial](/phaedrus/companies/#dean-wynn) and [Assembled Systems](/phaedrus/companies/#assembled-systems).
 
 ## What the book does
 - It softens minds toward accounting orthodoxy.

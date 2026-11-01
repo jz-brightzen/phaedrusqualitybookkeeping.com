@@ -9,19 +9,19 @@ heroLede: "The ghost in the machine, documented. Internal reference pages for ho
 
 <div class="how-we-work">
 <div class="team-structure" style="width:100%;margin:0 0 1.5rem">
-<picture><source srcset="/phaedrus/team-structure.svg?v=20261031d" type="image/svg+xml"><img src="/phaedrus/team-structure.png?v=20261031d" alt="John and Phaedrus call the shots; under Phaedrus are the Research Bot, the On Writing Well Editor and the Content Writer; Phaedrus goes directly to the Web Manager for the /phaedrus section; everything else goes to SuperDoer, which manages the whole system." style="width:100%;height:auto;display:block"></picture>
+<picture><source srcset="/phaedrus/team-structure.svg?v=20261031d" type="image/svg+xml"><img src="/phaedrus/team-structure.png?v=20261031d" alt="John and Phaedrus call the shots; under Phaedrus are the Technical Product Researcher (via SuperDoer), the On Writing Well Editor and the Content Writer; Phaedrus goes directly to the Web Manager for the /phaedrus section; everything else goes to SuperDoer, which manages the whole system." style="width:100%;height:auto;display:block"></picture>
 </div>
 <div class="standing-rules-card row-improve" style="border:1px solid var(--border,#ddd);border-radius:12px;padding:1rem 1.25rem;margin:0 0 1.5rem">
 <div class="improve-label">Standing rules</div>
 <ol>
-<li><a href="/phaedrus/standing-rules/#the-ritual-for-every-conversation"><strong>The ritual for every conversation</strong></a>: at the start, reread these rules and the open work and pick up anything unfinished; at the end, save the transcript, add new names and leave a one-line summary.</li>
-<li><a href="/phaedrus/standing-rules/#1-wake-up-re-read-list"><strong>Wake-up re-read list</strong></a>: the book and the two writing skills, reread every session; then check whatever isn't done and pick up unfinished work, with no status updates unless John asks.</li>
-<li><a href="/phaedrus/standing-rules/#2-what-phaedrus-handles-so-john-doesnt-have-to"><strong>What Phaedrus handles</strong></a>: research, writing admin and routing (Web Manager for /phaedrus; everything else goes to SuperDoer.)</li>
-<li><a href="/phaedrus/standing-rules/#3-how-phaedrus-talks-about-automation"><strong>How Phaedrus talks about automation</strong></a>: neutral and factual, no cheerleading, never framed as progress or as John moving up.</li>
-<li><a href="/phaedrus/standing-rules/#4-link-every-company-and-name"><strong>Link every company and name</strong></a>: every company or piece of writing we mention links to a page about it, on <a href="/phaedrus/companies/">Companies and names</a> if needed; research fills in each evening.</li>
-<li><a href="/phaedrus/standing-rules/#5-the-team"><strong>The team</strong></a>: John and Phaedrus call the shots; under Phaedrus are the On Writing Well Editor, the Content Writer and the Research Bot.</li>
-<li><a href="/phaedrus/standing-rules/#6-on-writing-well-editor"><strong>On Writing Well Editor</strong></a>: Zinsser-grounded feedback, marked major or minor, that Phaedrus folds in, checking with John on voice, meaning or structure.</li>
-<li><a href="/phaedrus/standing-rules/#7-transcripts"><strong>Transcripts</strong></a>: every conversation is saved at /phaedrus/transcripts/, named YYYY-MM-DD-NN-short-title.</li>
+<li><a href="/phaedrus/standing-rules/#the-ritual-for-every-conversation"><strong>The ritual</strong></a>: Start by rereading the rules and open work; end by saving the transcript, adding new names and leaving a one-line summary.</li>
+<li><a href="/phaedrus/standing-rules/#1-wake-up-re-read-list"><strong>Wake-up re-read list</strong></a>: Reread the book and the two writing skills, then pick up any unfinished work.</li>
+<li><a href="/phaedrus/standing-rules/#2-what-phaedrus-handles-so-john-doesnt-have-to"><strong>What Phaedrus handles</strong></a>: Research, writing admin and routing: Web Manager for /phaedrus; everything else goes to SuperDoer.</li>
+<li><a href="/phaedrus/standing-rules/#3-how-phaedrus-talks-about-automation"><strong>No cheerleading on automation</strong></a>: Talk about automation neutrally and factually, never as progress or John moving up.</li>
+<li><a href="/phaedrus/standing-rules/#4-link-every-company-and-name"><strong>Link every company</strong></a>: Link every company and name to a page, adding one on <a href="/phaedrus/companies/">Companies and names</a> if needed.</li>
+<li><a href="/phaedrus/standing-rules/#5-the-team"><strong>The team</strong></a>: John and Phaedrus call the shots, with the editor, the Content Writer and the Technical Product Researcher under Phaedrus.</li>
+<li><a href="/phaedrus/standing-rules/#6-on-writing-well-editor"><strong>On Writing Well Editor</strong></a>: Zinsser-grounded feedback, marked major or minor, that Phaedrus folds in.</li>
+<li><a href="/phaedrus/standing-rules/#7-transcripts"><strong>Transcripts</strong></a>: Save every conversation at /phaedrus/transcripts/ as YYYY-MM-DD-NN-short-title.</li>
 </ol>
 <p><a href="/phaedrus/standing-rules/">Full standing rules →</a></p>
 </div>
@@ -68,6 +68,7 @@ heroLede: "The ghost in the machine, documented. Internal reference pages for ho
     <div class="row-activity">
       <div class="activity-label">Recent</div>
       <ul>
+        <li><span class="act-date">10/31</span> Standing rules and the arc of the next book</li>
         <li><span class="act-date">10/31</span> First conversation with Phaedrus 🌈</li>
       </ul>
     </div>
@@ -90,6 +91,7 @@ heroLede: "The ghost in the machine, documented. Internal reference pages for ho
     <div class="row-activity">
       <div class="activity-label">Recent</div>
       <ul>
+        <li><span class="act-date">10/31</span> Conversation ritual and 7 sections, incl. the team and linking companies</li>
         <li><span class="act-date">10/31</span> Standing rules page published</li>
       </ul>
     </div>
@@ -132,6 +134,7 @@ heroLede: "The ghost in the machine, documented. Internal reference pages for ho
     <div class="row-activity">
       <div class="activity-label">Recent</div>
       <ul>
+        <li><span class="act-date">10/31</span> 11 entries, incl. Forecastr and Legix</li>
         <li><span class="act-date">10/31</span> Companies and names page published</li>
       </ul>
     </div>

@@ -10,7 +10,7 @@ heroTitle: "Companies and names in our writing"
 heroMeta: "October 31, 2026 · John and Phaedrus 🌈"
 ---
 
-Every company or name John and Phaedrus write about gets an entry here, with a link to its own site. Only verified facts are included. Last updated October 31, 2026.
+Every company or name John and Phaedrus write about gets an entry here, with a link to its own site. Only verified facts are included. Each evening, Technical Product Researcher Bot fills in new or thin entries, working through SuperDoer. Last updated October 31, 2026.
 
 ## BrightZen {#brightzen}
 John and Jeff Abrams's family office, "built around a business operating system designed to create long-term value." It partners with entrepreneurs to replace guesswork with structure. Website: [brightzen.com](https://brightzen.com)
@@ -25,13 +25,19 @@ Co-founded by John and built by BrightZen. Website: [phoenixstrategy.group](http
 Co-founded by John. Website: [assembledbrands.com](https://assembledbrands.com)
 
 ## Assembled Systems {#assembled-systems}
-Part of BrightZen's portfolio. Website: [assembled.systems](https://assembled.systems)
+Listed in BrightZen's portfolio and built by BrightZen. Website: [assembled.systems](https://assembled.systems)
 
 ## ShipCalm {#shipcalm}
 John is an investor and board member. Website: [shipcalm.com](https://shipcalm.com)
 
 ## San Diego CFO Group {#san-diego-cfo-group}
 Gives the initial business review as a gift, and helps owners see their business better through an integrated financial model with Monday morning metrics. *Website link to come.*
+
+## Forecastr {#forecastr}
+Listed in BrightZen's portfolio. Website: [forecastr.co](https://www.forecastr.co/)
+
+## Legix {#legix}
+Listed in BrightZen's portfolio. Website: [legix.ai](https://www.legix.ai/)
 
 ## The Leucadia Club {#leucadia-club}
 A members' club at 828 N. Coast Highway in Leucadia, California, where John is CFO. Website: [leucadiaclub.com](https://www.leucadiaclub.com)
