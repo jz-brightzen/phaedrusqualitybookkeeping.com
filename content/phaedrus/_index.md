@@ -7,6 +7,10 @@ heroTitle: "Phaedrus"
 heroLede: "The ghost in the machine, documented. Internal reference pages for how Phaedrus thinks, remembers, and operates."
 ---
 
+<div class="team-structure" style="width:100%;margin:0 0 1.5rem">
+<picture><source srcset="/phaedrus/team-structure.svg" type="image/svg+xml"><img src="/phaedrus/team-structure.png" alt="John and Phaedrus call the shots; under Phaedrus are the Research Bot, the On Writing Well Editor and the Content Writer; Phaedrus goes directly to the Web Manager for the /phaedrus section; everything else routes through SuperDoer, which manages the whole system." style="width:100%;height:auto;display:block"></picture>
+</div>
+
 <div class="page-rows">
 
   <a class="page-row" href="/phaedrus/log/">
