@@ -32,13 +32,13 @@
   <text x="225" y="445" text-anchor="middle" font-size="17" font-weight="700" fill="#1d5247">Phaedrus Web Manager</text>
   <text x="225" y="470" text-anchor="middle" font-size="13" fill="#2f5d54">Direct line, but only for</text>
   <text x="225" y="489" text-anchor="middle" font-size="13" fill="#2f5d54">the /phaedrus section of the site</text>
-  <rect x="510" y="410" width="330" height="96" rx="12" fill="#efeaf6" stroke="#6a4c93" stroke-width="2"/>
-  <text x="675" y="445" text-anchor="middle" font-size="17" font-weight="700" fill="#45306a">SuperDoer</text>
-  <text x="675" y="470" text-anchor="middle" font-size="13" fill="#5a4580">Manages the whole system.</text>
-  <text x="675" y="489" text-anchor="middle" font-size="13" fill="#5a4580">Everything else routes through here.</text>
+  <rect x="510" y="410" width="330" height="96" rx="12" fill="#efeaf6" stroke="#6a4c93" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="675" y="445" text-anchor="middle" font-size="17" font-weight="700" fill="#45306a">Anything else</text>
+  <text x="675" y="470" text-anchor="middle" font-size="13" fill="#5a4580">Phaedrus asks John</text>
+  <text x="675" y="489" text-anchor="middle" font-size="13" fill="#5a4580">what to do.</text>
   <path d="M300,100 L30,100 L30,458 L58,458" stroke="#2f7d6d" stroke-width="2.5" fill="none" marker-end="url(#b)"/>
   <text x="38" y="365" font-size="12" fill="#2f7d6d" font-weight="700">direct</text>
-  <path d="M600,100 L870,100 L870,458 L842,458" stroke="#6a4c93" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
-  <text x="862" y="365" text-anchor="end" font-size="12" fill="#6a4c93" font-weight="700">all else</text>
+  
+  
   <text x="450" y="540" text-anchor="middle" font-size="12" fill="#888">Updated October 31, 2026</text>
 </svg>
