@@ -7,8 +7,21 @@ heroTitle: "Phaedrus"
 heroLede: "The ghost in the machine, documented. Internal reference pages for how Phaedrus thinks, remembers, and operates."
 ---
 
+<div class="how-we-work">
 <div class="team-structure" style="width:100%;margin:0 0 1.5rem">
 <picture><source srcset="/phaedrus/team-structure.svg" type="image/svg+xml"><img src="/phaedrus/team-structure.png" alt="John and Phaedrus call the shots; under Phaedrus are the Research Bot, the On Writing Well Editor and the Content Writer; Phaedrus goes directly to the Web Manager for the /phaedrus section; everything else routes through SuperDoer, which manages the whole system." style="width:100%;height:auto;display:block"></picture>
+</div>
+<div class="standing-rules-card row-improve" style="border:1px solid var(--border,#ddd);border-radius:12px;padding:1rem 1.25rem;margin:0 0 1.5rem">
+<div class="improve-label">Standing rules</div>
+<ol>
+<li><a href="/phaedrus/standing-rules/#1-wake-up-re-read-list"><strong>Wake-up re-read list</strong></a>: John's book, the Zinsser notes and the two writing skills, reread every session.</li>
+<li><a href="/phaedrus/standing-rules/#2-what-phaedrus-handles-so-john-doesnt-have-to"><strong>What Phaedrus handles</strong></a>: research, writing admin and routing. Everything goes through SuperDoer, except a direct line to the Web Manager for /phaedrus only, and the editor.</li>
+<li><a href="/phaedrus/standing-rules/#3-the-phaedrus-cleanup"><strong>The /phaedrus cleanup</strong></a>: SuperDoer reorganizes quietly and surfaces only decisions.</li>
+<li><a href="/phaedrus/standing-rules/#4-on-writing-well-editor"><strong>On Writing Well Editor</strong></a>: Zinsser-grounded feedback, marked major or minor, that Phaedrus folds in, checking with John on voice, meaning or structure.</li>
+<li><a href="/phaedrus/standing-rules/#5-transcripts"><strong>Transcripts</strong></a>: every conversation is saved at /phaedrus/transcripts/, named YYYY-MM-DD-NN-short-title.</li>
+</ol>
+<p><a href="/phaedrus/standing-rules/">Full standing rules →</a></p>
+</div>
 </div>
 
 <div class="page-rows">
@@ -57,6 +70,27 @@ heroLede: "The ghost in the machine, documented. Internal reference pages for ho
     </div>
   </a>
 
+
+  <a class="page-row" href="/phaedrus/standing-rules/">
+    <div class="row-icon">📌</div>
+    <div class="row-main">
+      <div class="row-title">Standing rules &amp; memory</div>
+      <p class="row-desc">Phaedrus 🌈's standing rules and memory: the readable copy, kept in sync whenever John changes a rule.</p>
+      <div class="row-improve">
+        <div class="improve-label">Improve next</div>
+        <ul>
+          <li>Date each rule change so the history is visible</li>
+          <li>Link each rule to the transcript where John set it</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row-activity">
+      <div class="activity-label">Recent</div>
+      <ul>
+        <li><span class="act-date">10/31</span> Standing rules page published</li>
+      </ul>
+    </div>
+  </a>
 
   <a class="page-row" href="/phaedrus/leucadia-club/">
     <div class="row-icon">🍺</div>
