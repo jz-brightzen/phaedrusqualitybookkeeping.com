@@ -14,10 +14,12 @@ heroLede: "The ghost in the machine, documented. Internal reference pages for ho
 <div class="standing-rules-card row-improve" style="border:1px solid var(--border,#ddd);border-radius:12px;padding:1rem 1.25rem;margin:0 0 1.5rem">
 <div class="improve-label">Standing rules</div>
 <ol>
-<li><a href="/phaedrus/standing-rules/#1-wake-up-re-read-list"><strong>Wake-up re-read list</strong></a>: the book and the two writing skills, reread every session.</li>
+<li><a href="/phaedrus/standing-rules/#1-wake-up-re-read-list"><strong>Wake-up re-read list</strong></a>: the book and the two writing skills, reread every session; then check whatever isn't done and pick up unfinished work, with no status updates unless John asks.</li>
 <li><a href="/phaedrus/standing-rules/#2-what-phaedrus-handles-so-john-doesnt-have-to"><strong>What Phaedrus handles</strong></a>: research, writing admin and routing (Web Manager for /phaedrus only; anything else, ask John).</li>
-<li><a href="/phaedrus/standing-rules/#3-on-writing-well-editor"><strong>On Writing Well Editor</strong></a>: Zinsser-grounded feedback, marked major or minor, that Phaedrus folds in, checking with John on voice, meaning or structure.</li>
-<li><a href="/phaedrus/standing-rules/#4-transcripts"><strong>Transcripts</strong></a>: every conversation is saved at /phaedrus/transcripts/, named YYYY-MM-DD-NN-short-title.</li>
+<li><a href="/phaedrus/standing-rules/#3-how-phaedrus-talks-about-automation"><strong>How Phaedrus talks about automation</strong></a>: neutral and factual, no cheerleading, never framed as progress or as John moving up.</li>
+<li><a href="/phaedrus/standing-rules/#4-link-every-company-and-name"><strong>Link every company and name</strong></a>: every company or piece of writing we mention links to a page about it, on <a href="/phaedrus/companies/">Companies and names</a> if needed.</li>
+<li><a href="/phaedrus/standing-rules/#5-on-writing-well-editor"><strong>On Writing Well Editor</strong></a>: Zinsser-grounded feedback, marked major or minor, that Phaedrus folds in, checking with John on voice, meaning or structure.</li>
+<li><a href="/phaedrus/standing-rules/#6-transcripts"><strong>Transcripts</strong></a>: every conversation is saved at /phaedrus/transcripts/, named YYYY-MM-DD-NN-short-title.</li>
 </ol>
 <p><a href="/phaedrus/standing-rules/">Full standing rules →</a></p>
 </div>
@@ -90,6 +92,48 @@ heroLede: "The ghost in the machine, documented. Internal reference pages for ho
       </ul>
     </div>
   </a>
+
+  <a class="page-row" href="/phaedrus/next-book/">
+    <div class="row-icon">📖</div>
+    <div class="row-main">
+      <div class="row-title">Next book: Zen and the Art of Weekly Accounting</div>
+      <p class="row-desc">The sequel to Zen and the Art of [nothing], written by John and Phaedrus in dialogue, one chapter at a time.</p>
+      <div class="row-improve">
+        <div class="improve-label">Improve next</div>
+        <ul>
+          <li>Turn the arc notes into a one-page premise</li>
+          <li>Draft the first chapter stub from the arc</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row-activity">
+      <div class="activity-label">Recent</div>
+      <ul>
+        <li><span class="act-date">10/31</span> Initial conversation about the arc</li>
+      </ul>
+    </div>
+  </a>
+
+  <div class="page-row">
+    <div class="row-icon">🏢</div>
+    <div class="row-main">
+      <div class="row-title"><a href="/phaedrus/companies/">Companies and names</a></div>
+      <p class="row-desc">Every company and name in our writing, each with a link, starting with <a href="https://brightzen.com">BrightZen</a>.</p>
+      <div class="row-improve">
+        <div class="improve-label">Improve next</div>
+        <ul>
+          <li>Add each new name as it comes up in a conversation</li>
+          <li>Link each entry to the pages that mention it</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row-activity">
+      <div class="activity-label">Recent</div>
+      <ul>
+        <li><span class="act-date">10/31</span> Companies and names page published</li>
+      </ul>
+    </div>
+  </div>
 
   <a class="page-row" href="/phaedrus/leucadia-club/">
     <div class="row-icon">🍺</div>
