@@ -22,7 +22,6 @@ October 31, 2026, on a voice call. Raw notes of what John said, as relayed from 
 ## Why this book, why now
 - It connects to Zen and the Art of [Nothing], which named book three as Weekly Accounting and the New Map for Business.
 - Now is the right time because the last 8411 step is done.
-- It runs from the domain's inception, through "here's your book," to connecting business systems to the platform.
 - Growing a local business matters, because business has become services from people you never see.
 
 ## The gift
