@@ -1,0 +1,17 @@
+{{- $pages := sort .Page.Pages "File.ContentBaseName" "desc" -}}
+{{- $pages = sort $pages "Date" "desc" -}}
+<div class="page-rows">
+{{- range $pages }}
+  <a class="page-row" href="{{ .RelPermalink }}">
+    <div class="row-icon">🎙️</div>
+    <div class="row-main">
+      <div class="row-title">{{ .Title }}</div>
+      <p class="row-desc">{{ .Summary | plainify }}</p>
+    </div>
+    <div class="row-activity">
+      <div class="activity-label">Recent</div>
+      <ul><li><span class="act-date">{{ .Date.Format "01/02" }}</span> Transcript posted</li></ul>
+    </div>
+  </a>
+{{- end }}
+</div>

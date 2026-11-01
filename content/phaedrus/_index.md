@@ -32,6 +32,27 @@ heroLede: "The ghost in the machine, documented. Internal reference pages for ho
     </div>
   </a>
 
+  <a class="page-row" href="/phaedrus/transcripts/">
+    <div class="row-icon">🎙️</div>
+    <div class="row-main">
+      <div class="row-title">Transcripts</div>
+      <p class="row-desc">Transcripts of John's conversations with Phaedrus, newest first.</p>
+      <div class="row-improve">
+        <div class="improve-label">Improve next</div>
+        <ul>
+          <li>Add the next conversation's transcript</li>
+          <li>Link each transcript to the writing it produced</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row-activity">
+      <div class="activity-label">Recent</div>
+      <ul>
+        <li><span class="act-date">10/31</span> First conversation with Phaedrus 🌈</li>
+      </ul>
+    </div>
+  </a>
+
 
   <a class="page-row" href="/phaedrus/leucadia-club/">
     <div class="row-icon">🍺</div>
@@ -121,7 +142,7 @@ heroLede: "The ghost in the machine, documented. Internal reference pages for ho
     </div>
   </a>
 
-    <a class="page-row" href="/sdcfo/plan/">
+  <a class="page-row" href="/sdcfo/plan/">
     <div class="row-icon">📜</div>
     <div class="row-main">
       <div class="row-title">SDCFO living plan</div>
@@ -142,9 +163,6 @@ heroLede: "The ghost in the machine, documented. Internal reference pages for ho
       </ul>
     </div>
   </a>
-
-
-  
 
   <a class="page-row" href="/phaedrus/content/vision/">
     <div class="row-icon">🧭</div>
