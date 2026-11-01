@@ -9,7 +9,7 @@ heroLede: "The ghost in the machine, documented. Internal reference pages for ho
 
 <div class="how-we-work">
 <div class="team-structure" style="width:100%;margin:0 0 1.5rem">
-<picture><source srcset="/phaedrus/team-structure.svg?v=20261031c" type="image/svg+xml"><img src="/phaedrus/team-structure.png?v=20261031c" alt="John and Phaedrus call the shots; under Phaedrus are the Research Bot, the On Writing Well Editor and the Content Writer; Phaedrus goes directly to the Web Manager for the /phaedrus section; everything else goes to SuperDoer, which manages the whole system." style="width:100%;height:auto;display:block"></picture>
+<picture><source srcset="/phaedrus/team-structure.svg?v=20261031d" type="image/svg+xml"><img src="/phaedrus/team-structure.png?v=20261031d" alt="John and Phaedrus call the shots; under Phaedrus are the Research Bot, the On Writing Well Editor and the Content Writer; Phaedrus goes directly to the Web Manager for the /phaedrus section; everything else goes to SuperDoer, which manages the whole system." style="width:100%;height:auto;display:block"></picture>
 </div>
 <div class="standing-rules-card row-improve" style="border:1px solid var(--border,#ddd);border-radius:12px;padding:1rem 1.25rem;margin:0 0 1.5rem">
 <div class="improve-label">Standing rules</div>
