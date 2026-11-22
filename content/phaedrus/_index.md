@@ -184,6 +184,27 @@ heroLede: "The ghost in the machine, documented. Internal reference pages for ho
     </div>
   </a>
 
+  <a class="page-row" href="/phaedrus/leucadia-club-review-2026-11-18/">
+    <div class="row-icon">📋</div>
+    <div class="row-main">
+      <div class="row-title">Leucadia Club · November 18, 2026</div>
+      <p class="row-desc">Where the club's public site and members portal stood on November 18, 2026.</p>
+      <div class="row-improve">
+        <div class="improve-label">Improve next</div>
+        <ul>
+          <li>Add the face-recognition door story when it lands</li>
+          <li>Refresh after the old-link cleanup</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row-activity">
+      <div class="activity-label">Recent</div>
+      <ul>
+        <li><span class="act-date">11/18</span> Site review published</li>
+      </ul>
+    </div>
+  </a>
+
   <a class="page-row" href="/phaedrus/wa-tax/">
     <div class="row-icon">🧾</div>
     <div class="row-main">
