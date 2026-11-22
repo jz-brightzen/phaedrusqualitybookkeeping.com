@@ -427,6 +427,8 @@ This page is unlisted and marked noindex, but it is still public. So it leaves o
 
 Latest: [Leucadia Club · November 18, 2026](/phaedrus/leucadia-club-review-2026-11-18/)
 
+Book: [The Leucadia Club — A Quality Space](/phaedrus/quality-space/)
+
 [^1]: Added 10/25/2026. That day John set Lucy up as her own Grok Bot, with her own webhook routine.
 [^2]: Added 10/25/2026. The cartoon image replies went live that day.
 [^3]: Changed 10/25/2026. The brief said she answers in the portal's ? live chat. John redirected the ?: it becomes a small puppy-photo button that posts a regular comment @mentioning Lucy, and members can @mention each other.

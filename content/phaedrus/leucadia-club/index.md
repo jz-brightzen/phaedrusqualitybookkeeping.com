@@ -82,3 +82,5 @@ If you know a member, ask them about the club. If you don't yet, we're happy to 
 - **Individual contributors and managers:** enterprise account executives, account managers, consultants, portfolio managers, brokers.
 
 About a quarter of members have a tie to life sciences, and about a third advise, audit, insure or fund other businesses.
+
+Book: [The Leucadia Club — A Quality Space](/phaedrus/quality-space/)
