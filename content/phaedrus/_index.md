@@ -208,8 +208,8 @@ heroLede: "The ghost in the machine, documented. Internal reference pages for ho
   <a class="page-row" href="/phaedrus/quality-space/">
     <div class="row-icon">📖</div>
     <div class="row-main">
-      <div class="row-title">The Leucadia Club — A Quality Space</div>
-      <p class="row-desc">Stories from building the club, told by John.</p>
+      <div class="row-title">The Leucadia Club — Building a [Quality Space]</div>
+      <p class="row-desc">Stories from building the club.</p>
       <div class="row-improve">
         <div class="improve-label">Improve next</div>
         <ul>
@@ -221,6 +221,7 @@ heroLede: "The ghost in the machine, documented. Internal reference pages for ho
     <div class="row-activity">
       <div class="activity-label">Recent</div>
       <ul>
+        <li><span class="act-date">11/21</span> New look, like LeucadiaClub.com, and a book cover</li>
         <li><span class="act-date">11/21</span> First story: The Face at the Door</li>
       </ul>
     </div>

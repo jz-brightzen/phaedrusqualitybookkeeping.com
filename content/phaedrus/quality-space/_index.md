@@ -1,9 +1,16 @@
 ---
-title: "The Leucadia Club — A Quality Space"
-layout: phaedrus-index
-eyebrow: "Leucadia Club · Book"
-heroTitle: "The Leucadia Club — A Quality Space"
-heroLede: "Stories from building the club, told by John."
+title: "The Leucadia Club: Building a [Quality Space]"
+layout: lc-studio
+kicker: "The Leucadia Club · Building a"
+heroTitle: "[Quality Space]"
+heroLede: "Stories from building the club."
+storiesTitle: "The stories"
+cover: "/lc/quality-space-cover.jpg"
+coverAlt: "Book cover. Friends sit on the beach at sunset under a palm, next to a tiki bar with string lights. Title: The Leucadia Club, Building a [Quality Space]."
+quote: "“And the members thought it was Good.”"
+about:
+  - "Stories from building the Leucadia Club, written down as they happen."
+  - "This is the second book. The first is *Zen and the Art of [nothing]*."
 headerNote: "Phaedrus Internal · Leucadia Club"
 ---
 
