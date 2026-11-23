@@ -1,0 +1,92 @@
+{{- /* The whole book as numbered pages, for the cover page. In order: the epigraph, the
+       contents, one opening page per chapter, then a page (or pages) for everything listed
+       in backMatter: the appendix, the notes. The words come from the cover page's front
+       matter (epigraph, epigraphSource, chapters, backMatter) and from the pages that
+       backMatter links to: a page with "definitions" is drawn as a definitions page; any
+       other page has its text set as running pages.
+
+       /lc/book.js splits running text into as many pages as it needs and writes the page
+       numbers into the contents. A page is tied to its contents line by data-key (on the
+       page) and data-page-for (on the line). The numbers at the foot of the pages are CSS. */ -}}
+<div class="bk-pages bk-numbered" data-book>
+  {{ with .Params.epigraph }}
+  <section class="bk-sheet" aria-label="Epigraph">
+    <div class="bk-sheet-in bk-sheet-epigraph">
+      <blockquote><p>{{ . }}</p></blockquote>
+      {{ with $.Params.epigraphSource }}<p class="bk-sheet-by">{{ . | markdownify }}</p>{{ end }}
+      <p class="bk-sheet-mark" aria-hidden="true">∞</p>
+    </div>
+  </section>
+  {{ end }}
+  <section class="bk-sheet" aria-label="Contents">
+    <div class="bk-sheet-in bk-sheet-contents">
+      <h2>Contents</h2>
+      <ol class="bk-toc">
+        {{ range $i, $c := .Params.chapters }}
+        <li>
+          <p class="bk-toc-chapter bk-toc-row"><span>{{ add $i 1 }}. {{ $c.title }}</span><span class="bk-toc-num" data-page-for="ch-{{ add $i 1 }}"></span></p>
+          {{ with $c.note }}<p class="bk-toc-line">{{ strings.TrimSuffix "." . }}</p>{{ end }}
+          {{ range $c.items }}<p class="bk-toc-line">{{ .when }} · {{ .what }}{{ with .who }} · {{ . }}{{ end }}</p>{{ end }}
+        </li>
+        {{ end }}
+      </ol>
+      {{ range $si, $s := .Params.backMatter }}
+      <div class="bk-toc-appendix">
+        <p class="bk-toc-appendix-title bk-toc-row"><span>{{ $s.title }}</span><span class="bk-toc-num" data-page-for="bm-{{ $si }}-0"></span></p>
+        {{ range $ii, $it := $s.items }}
+        <p class="bk-toc-line bk-toc-row"><span>{{ if $it.href }}<a href="{{ $it.href }}">{{ $it.title }}</a>{{ else }}{{ $it.title }}{{ end }}</span><span class="bk-toc-num" data-page-for="bm-{{ $si }}-{{ $ii }}"></span></p>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </section>
+  {{ range $i, $c := .Params.chapters }}
+  <section class="bk-sheet" data-key="ch-{{ add $i 1 }}" aria-label="Chapter {{ add $i 1 }}: {{ $c.title }}">
+    <div class="bk-sheet-in bk-sheet-opener">
+      <p class="bk-sheet-label">Chapter {{ add $i 1 }}</p>
+      <h3>{{ $c.title }}</h3>
+      {{ with $c.note }}<p class="bk-sheet-note">{{ . }}</p>{{ end }}
+      {{ with $c.items }}
+      <ul class="bk-sheet-list">
+        {{ range . }}<li>{{ .when }} · {{ .what }}{{ with .who }} · {{ . }}{{ end }}</li>{{ end }}
+      </ul>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+  {{ range $si, $s := .Params.backMatter }}
+  {{ range $ii, $it := $s.items }}
+  {{ with $it.href }}
+  {{ with site.GetPage (strings.TrimSuffix "/" .) }}
+  {{ if .Params.definitions }}
+  <section class="bk-sheet" data-key="bm-{{ $si }}-{{ $ii }}" aria-label="{{ $s.title }}: {{ .Title }}">
+    <div class="bk-sheet-in bk-sheet-opener">
+      <p class="bk-sheet-label">{{ $s.title }}</p>
+      <h3>{{ .Params.heroTitle | default .Title }}</h3>
+      <dl class="bk-defs">
+        {{ range .Params.definitions }}
+        <div>
+          <dt>[{{ .term }}]</dt>
+          <dd>{{ .text | markdownify }}</dd>
+        </div>
+        {{ end }}
+      </dl>
+    </div>
+  </section>
+  {{ else }}
+  {{- /* Links and pictures written relative to that page are pointed back at it. */ -}}
+  {{ $text := replaceRE `(href|src)="([A-Za-z0-9_.-][^":]*)"` (printf `$1="%s$2"` .RelPermalink) .Content }}
+  <section class="bk-sheet bk-flow" data-key="bm-{{ $si }}-{{ $ii }}" aria-label="{{ $s.title }}: {{ .Title }}">
+    <div class="bk-sheet-in bk-sheet-opener bk-flow-src">
+      <p class="bk-sheet-label">{{ $s.title }}</p>
+      <h3>{{ .Params.heroTitle | default .Title }}</h3>
+      {{ with .Params.heroMeta }}<p class="bk-sheet-note">{{ . | markdownify }}</p>{{ end }}
+      {{ $text | safeHTML }}
+    </div>
+  </section>
+  {{ end }}
+  {{ end }}
+  {{ end }}
+  {{ end }}
+  {{ end }}
+</div>

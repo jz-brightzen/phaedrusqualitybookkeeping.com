@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   {{- /* The book's cover page, in the look of LeucadiaClub.com: the coast photo, the
-         covers, the epigraph and contents pages (from this page's own front matter), then
-         the sections written in the body. Each section in the body is a div with class
+         covers in a stack (a tap switches them), the whole book as numbered pages (the
+         partial lc-studio/book.html, helped by /lc/book.js), then the sections written in
+         the body. Each section in the body is a div with class
          hm-pair holding an h2 (its name) and a div with class page-rows (its rows, the same
          row markup as any /phaedrus/ landing). Reading pages use lc-studio-page.html. */ -}}
   {{ partial "lc-studio/head.html" . }}
@@ -23,15 +24,17 @@
       {{ with .Params.covers }}
       <section class="hm-block hm-gap">
         <div class="hm-wrap">
-          <div class="bk-covers">
-            {{ range . }}
-            <figure class="bk-cover">
-              <a href="{{ .src }}"><img src="{{ .src }}" width="1200" height="1800" alt="{{ .alt }}"></a>
-              {{ with .caption }}<figcaption>{{ . }}</figcaption>{{ end }}
-            </figure>
-            {{ end }}
+          <div class="bk-stack-wrap">
+            <div class="bk-stack" data-stack>
+              {{ range $i, $c := . }}
+              <button type="button" class="bk-stack-card{{ if eq $i 0 }} is-front{{ end }}" data-caption="{{ $c.caption }}" aria-label="{{ $c.caption }} cover. Press to bring the other cover to the front.">
+                <img src="{{ $c.src }}" width="1200" height="1800" alt="{{ $c.alt }}">
+              </button>
+              {{ end }}
+            </div>
+            <p class="bk-stack-note"><span data-stack-caption>{{ (index . 0).caption }}</span><span data-stack-hint hidden> · Tap the cover to switch</span></p>
           </div>
-          {{ if or $.Params.epigraph $.Params.chapters }}{{ partial "lc-studio/book-pages.html" $ }}{{ end }}
+          {{ if or $.Params.epigraph $.Params.chapters }}{{ partial "lc-studio/book.html" $ }}{{ end }}
         </div>
       </section>
       {{ end }}
@@ -57,5 +60,6 @@
     </main>
     {{ partial "lc-studio/footer.html" . }}
   </div>
+  <script src="/lc/book.js" defer></script>
 </body>
 </html>

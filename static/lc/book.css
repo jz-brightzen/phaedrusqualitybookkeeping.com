@@ -33,32 +33,63 @@
   text-decoration-color: color-mix(in oklab, currentColor 45%, transparent);
 }
 
-/* ---------- The cover page: the covers ---------- */
+/* ---------- The cover page: the covers, stacked ----------
+   One cover lies on top of the other. A tap or a click on the stack brings the other one to
+   the front (book.js); without the script both are simply there, one behind. */
 
-[data-theme="studio"] .bk-covers {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-xl);
-  max-width: 58rem;
+[data-theme="studio"] .bk-stack-wrap {
+  max-width: 30rem;
   margin-inline: auto;
 }
 
-[data-theme="studio"] .bk-cover a {
-  display: block;
-}
-
-[data-theme="studio"] .bk-cover img {
-  width: 100%;
+[data-theme="studio"] .bk-stack {
+  position: relative;
+  width: 84%;
   aspect-ratio: 2 / 3;
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-sheet);
+  margin: var(--space-md) auto 0;
 }
 
-[data-theme="studio"] .bk-cover figcaption {
-  margin-top: var(--space-md);
+[data-theme="studio"] .bk-stack-card {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-base);
+  display: block;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-card);
+  background: none;
+  box-shadow: var(--shadow-sheet);
+  cursor: pointer;
+  filter: brightness(0.78);
+  transform: translate(13%, 3.5%) rotate(5deg);
+  transition: transform var(--dur-long) var(--ease-out), filter var(--dur-long) var(--ease-out);
+}
+
+[data-theme="studio"] .bk-stack-card.is-front {
+  z-index: var(--z-raised);
+  filter: none;
+  transform: translate(-6%, 0) rotate(-2deg);
+}
+
+[data-theme="studio"] .bk-stack-card img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+}
+
+[data-theme="studio"] .bk-stack-card:focus-visible {
+  outline: var(--space-3xs) solid var(--color-focus);
+  outline-offset: var(--space-2xs);
+}
+
+[data-theme="studio"] .bk-stack-note {
+  max-width: none;
+  margin-top: var(--space-xl);
   font-size: var(--text-xs);
   font-weight: 500;
   letter-spacing: 0.12em;
+  text-align: center;
   text-transform: uppercase;
   color: var(--color-muted);
 }
@@ -237,10 +268,12 @@
   font-size: var(--text-sm);
 }
 
-/* ---------- Two pages of the book: the epigraph and the contents ----------
-   Set the way the first book sets them: white pages, Times, the epigraph centred and closed
-   with an ∞, the contents as bold numbered chapters with plain lines under each. The type is
-   sized from the page's own width, so a page looks the same at any size. */
+/* ---------- The book's pages ----------
+   White pages set the way the first book sets its own: Times, the epigraph centred and closed
+   with an ∞, the contents as bold numbered chapters with plain lines under each, each chapter
+   opening with CHAPTER N and its title. All the type is sized from the page's own width, so a
+   page breaks its lines the same way at any size; book.js relies on that to split long text
+   into pages. */
 
 [data-theme="studio"] .bk-pages {
   display: grid;
@@ -250,8 +283,8 @@
   margin-inline: auto;
 }
 
-[data-theme="studio"] .bk-covers + .bk-pages {
-  margin-top: var(--space-xl);
+[data-theme="studio"] .bk-stack-wrap + .bk-pages {
+  margin-top: var(--space-2xl);
 }
 
 /* A page on its own (the Definitions page) sits in the middle. */
@@ -261,25 +294,55 @@
 }
 
 [data-theme="studio"] .bk-sheet {
+  position: relative;
   container-type: inline-size;
   aspect-ratio: 2 / 3;
   border-radius: var(--radius-card);
   background: #fff;
   box-shadow: var(--shadow-sheet);
   color: #111;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 [data-theme="studio"] .bk-sheet-in {
   padding: 0 11%;
   font-family: "Times New Roman", Times, "Liberation Serif", serif;
   font-size: 15px;
-  font-size: clamp(13px, 3.5cqw, 19px);
+  font-size: 3.5cqw;
   line-height: 1.35;
 }
 
 [data-theme="studio"] .bk-sheet p {
   max-width: none;
 }
+
+[data-theme="studio"] .bk-sheet a:not(.hm-btn):not(.hm-brand) {
+  color: inherit;
+}
+
+/* Page numbers, bottom right as in the first book. Only where the pages are a book in order
+   (the cover page), not on a page shown by itself. */
+[data-theme="studio"] .bk-numbered {
+  counter-reset: bk-page;
+}
+
+[data-theme="studio"] .bk-numbered > .bk-sheet {
+  counter-increment: bk-page;
+}
+
+[data-theme="studio"] .bk-numbered > .bk-sheet::after {
+  content: counter(bk-page);
+  position: absolute;
+  right: 11%;
+  bottom: 5.5%;
+  font-family: "Times New Roman", Times, "Liberation Serif", serif;
+  font-size: 14px;
+  font-size: 3.3cqw;
+  line-height: 1;
+}
+
+/* The epigraph */
 
 [data-theme="studio"] .bk-sheet-epigraph {
   padding-top: 46%;
@@ -306,9 +369,11 @@
   line-height: 1;
 }
 
+/* The contents */
+
 [data-theme="studio"] .bk-sheet-contents {
   padding-top: 17%;
-  padding-bottom: 12%;
+  padding-bottom: 14%;
 }
 
 [data-theme="studio"] .bk-sheet-contents h2 {
@@ -331,7 +396,21 @@
 }
 
 [data-theme="studio"] .bk-toc li + li {
-  margin-top: 1.25em;
+  margin-top: 1.1em;
+}
+
+/* A contents line with its page number at the right edge. */
+[data-theme="studio"] .bk-toc-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+[data-theme="studio"] .bk-toc-num {
+  flex: none;
+  font-family: "Times New Roman", Times, "Liberation Serif", serif;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
 }
 
 [data-theme="studio"] .bk-toc-chapter {
@@ -339,19 +418,77 @@
 }
 
 [data-theme="studio"] .bk-toc-appendix {
-  margin-top: 1.25em;
+  margin-top: 1.1em;
 }
 
 /* The first book sets the word APPENDIX in its cover capitals (Zenzero, where installed);
-   every section named after the chapters is set the same way. */
-[data-theme="studio"] .bk-toc-appendix-title {
+   every section named after the chapters, and every CHAPTER N, is set the same way. */
+[data-theme="studio"] .bk-toc-appendix-title,
+[data-theme="studio"] .bk-sheet-label {
   font-family: "Zenzero Grotesk Sans", "Avenir Next Condensed", "Arial Narrow", sans-serif;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
-[data-theme="studio"] .bk-sheet a:not(.hm-btn):not(.hm-brand) {
+[data-theme="studio"] .bk-toc-appendix-title .bk-toc-num {
+  font-weight: 700;
+}
+
+[data-theme="studio"] .bk-toc-line {
+  /* A line too long for the page wraps with its second line set in a little. */
+  padding-left: 1.2em;
+  text-indent: -1.2em;
+  font-family: Calibri, Carlito, "Gill Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.92em;
+}
+
+[data-theme="studio"] .bk-toc-line.bk-toc-row {
+  padding-left: 0;
+  text-indent: 0;
+}
+
+/* A page that opens something: a chapter, the appendix, a note. CHAPTER N, then the title. */
+
+[data-theme="studio"] .bk-sheet-opener,
+[data-theme="studio"] .bk-sheet-flow {
+  padding-top: 17%;
+  padding-bottom: 15%;
+}
+
+[data-theme="studio"] .bk-sheet-label {
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+[data-theme="studio"] .bk-sheet h3 {
+  max-width: none;
+  margin: 0.8em 0 1.3em;
+  font-family: Palatino, "Palatino Linotype", "Book Antiqua", "Times New Roman", serif;
+  font-size: 1.75em;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.15;
+  text-align: center;
+  text-wrap: balance;
   color: inherit;
+}
+
+[data-theme="studio"] .bk-sheet-note {
+  text-align: center;
+  text-wrap: balance;
+}
+
+[data-theme="studio"] .bk-sheet-list {
+  margin: 1.3em 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: Calibri, Carlito, "Gill Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.92em;
+  text-align: center;
+}
+
+[data-theme="studio"] .bk-sheet-list li + li {
+  margin-top: 0.35em;
 }
 
 [data-theme="studio"] .bk-defs {
@@ -370,12 +507,81 @@
   margin: 0.15em 0 0;
 }
 
-[data-theme="studio"] .bk-toc-line {
-  /* A line too long for the page wraps with its second line set in a little. */
-  padding-left: 1.2em;
-  text-indent: -1.2em;
-  font-family: Calibri, Carlito, "Gill Sans", "Helvetica Neue", Arial, sans-serif;
-  font-size: 0.92em;
+/* Running text (a note, later a chapter). On the cover page book.js pours it into as many
+   pages as it needs; .bk-flow-body is the part of a page the text may fill. Without the
+   script the text stays in one long page (.bk-flow-src). */
+
+[data-theme="studio"] .bk-sheet-flow {
+  position: absolute;
+  inset: 0;
+}
+
+[data-theme="studio"] .bk-flow-body {
+  height: 100%;
+  overflow: hidden;
+}
+
+[data-theme="studio"] .bk-flow-body > * + *,
+[data-theme="studio"] .bk-flow-src > * + * {
+  margin-top: 0.75em;
+}
+
+[data-theme="studio"] .bk-flow-body h2,
+[data-theme="studio"] .bk-flow-src h2 {
+  max-width: none;
+  margin: 1.3em 0 0;
+  font-family: inherit;
+  font-size: 1.05em;
+  font-variant: small-caps;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.25;
+  text-align: center;
+  color: inherit;
+}
+
+[data-theme="studio"] .bk-flow-body blockquote,
+[data-theme="studio"] .bk-flow-src blockquote {
+  margin-inline: 0;
+  margin-bottom: 0;
+  padding-left: 1em;
+  border-left: 1px solid #999;
+  font-size: 0.94em;
+}
+
+[data-theme="studio"] .bk-flow-src blockquote p + p {
+  margin-top: 0.6em;
+}
+
+/* Whatever opens a page starts at the top of it. */
+[data-theme="studio"] .bk-flow-body > :first-child {
+  margin-top: 0;
+}
+
+/* One quotation split over several blocks (and pages) reads as one. */
+[data-theme="studio"] .bk-flow-body blockquote + blockquote {
+  margin-top: 0;
+  padding-top: 0.6em;
+}
+
+[data-theme="studio"] .bk-flow-body hr,
+[data-theme="studio"] .bk-flow-src hr {
+  width: 30%;
+  height: 1px;
+  margin: 1.4em auto 0;
+  border: 0;
+  background: #999;
+}
+
+[data-theme="studio"] .bk-flow-body .bk-sheet-label + h3,
+[data-theme="studio"] .bk-flow-src .bk-sheet-label + h3 {
+  margin: 0.8em 0 0;
+}
+
+[data-theme="studio"] .bk-flow-body .bk-sheet-note,
+[data-theme="studio"] .bk-flow-src .bk-sheet-note {
+  margin: 0.9em 0 1.6em;
+  font-style: italic;
 }
 
 [data-theme="studio"] .bk-note {
@@ -396,11 +602,18 @@
 }
 
 @media (max-width: 40rem) {
-  [data-theme="studio"] .bk-covers,
   [data-theme="studio"] .bk-pages {
     grid-template-columns: minmax(0, 1fr);
     gap: var(--space-xl);
     max-width: 22rem;
+  }
+
+  [data-theme="studio"] .bk-stack-wrap {
+    max-width: 22rem;
+  }
+
+  [data-theme="studio"] .bk-stack {
+    width: 74%;
   }
 
   [data-theme="studio"] a.page-row:not(.hm-btn):not(.hm-brand) {
