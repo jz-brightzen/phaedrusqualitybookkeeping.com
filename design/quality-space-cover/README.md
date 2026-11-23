@@ -1,4 +1,4 @@
-# The covers of "The Leucadia Club: Building a [Quality Space]"
+# The covers of "Building a [Quality Space]: Stories from The Leucadia Club"
 
 The two covers on `/phaedrus/quality-space/` are drawn by code, not by hand. Change the code,
 run one command, and the pictures on the site are replaced.
@@ -28,7 +28,7 @@ straight into `static/lc/`. To look before replacing them, give it another folde
 
 Everything is in `covers.tsx`. The top of that file says where each thing lives. In short:
 
-- **Words:** `Title()` (the three title lines and the bottom line with the ∞ marks) and
+- **Words:** `Title()` (the two title lines and the bottom line with the ∞ marks) and
   `Quote()` (the line above the friends).
 - **Colours:** `LAGOON` (Tiki lounge) and `AFTERGLOW` (Tiki torches).
 - **The scene:** `Scene()` places the palm, the friends, the sun and the extras. Each piece

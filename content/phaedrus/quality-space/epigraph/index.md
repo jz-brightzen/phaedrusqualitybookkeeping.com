@@ -1,7 +1,7 @@
 ---
 title: "Epigraph and chapters"
 layout: lc-studio-page
-eyebrow: "The Leucadia Club — Building a [Quality Space]"
+eyebrow: "Building a [Quality Space]"
 heroTitle: "Epigraph"
 summary: "The line the book opens with, and its five chapters."
 date: 2026-11-22

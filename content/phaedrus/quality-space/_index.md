@@ -1,5 +1,5 @@
 ---
-title: "The Leucadia Club: Building a [Quality Space]"
+title: "Building a [Quality Space]: Stories from The Leucadia Club"
 layout: lc-studio
 kicker: "Building a"
 heroTitle: "[Quality Space]"
@@ -10,10 +10,10 @@ cover: "/lc/quality-space-cover.jpg"
 covers:
   - src: "/lc/quality-space-cover.jpg"
     caption: "Tiki lounge"
-    alt: "Book cover, Tiki lounge. Friends sit on the beach at sunset under a palm, next to a tiki bar with string lights. Title: The Leucadia Club, Building a [Quality Space]."
+    alt: "Book cover, Tiki lounge. Friends sit on the beach at sunset under a palm, next to a tiki bar with string lights. Title: Building a [Quality Space]. Stories from The Leucadia Club."
   - src: "/lc/quality-space-cover-torches.jpg"
     caption: "Tiki torches"
-    alt: "Book cover, Tiki torches. Friends sit on the beach under a palm at a purple and orange sunset, between two tiki torches. Title: The Leucadia Club, Building a [Quality Space]."
+    alt: "Book cover, Tiki torches. Friends sit on the beach under a palm at a purple and orange sunset, between two tiki torches. Title: Building a [Quality Space]. Stories from The Leucadia Club."
 open:
   href: "/phaedrus/quality-space/epigraph/"
   label: "Open the book"

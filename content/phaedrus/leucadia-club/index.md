@@ -83,4 +83,4 @@ If you know a member, ask them about the club. If you don't yet, we're happy to 
 
 About a quarter of members have a tie to life sciences, and about a third advise, audit, insure or fund other businesses.
 
-Book: [The Leucadia Club — Building a [Quality Space]](/phaedrus/quality-space/)
+Book: [Building a [Quality Space]: Stories from The Leucadia Club](/phaedrus/quality-space/)

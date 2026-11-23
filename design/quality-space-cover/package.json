@@ -1,7 +1,7 @@
 {
   "name": "quality-space-cover",
   "private": true,
-  "description": "Draws the covers of The Leucadia Club: Building a [Quality Space].",
+  "description": "Draws the covers of Building a [Quality Space]: Stories from The Leucadia Club.",
   "type": "module",
   "scripts": {
     "covers": "sh render.sh"

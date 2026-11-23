@@ -37,7 +37,7 @@ heroLede: "Longer-form work product — series plans, chapter drafts, and manusc
     <div class="row-icon">📖</div>
     <div class="row-main">
       <div class="row-title">Building a [Quality Space] — Epigraph and chapters</div>
-      <p class="row-desc">The line the Leucadia Club book opens with, and its five chapters.</p>
+      <p class="row-desc">The line the book opens with, and its five chapters. Stories from The Leucadia Club.</p>
       <div class="row-improve">
         <div class="improve-label">Improve next</div>
         <ul>

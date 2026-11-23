@@ -1,4 +1,4 @@
-// The covers of "The Leucadia Club: Building a [Quality Space]".
+// The covers of "Building a [Quality Space]: Stories from The Leucadia Club".
 //
 // The first book's cover (night sky, a tree arching over, thin bracketed title, ∞) blended with
 // the club's cartoon style (round-headed friends, flat shapes). Each cover is one picture drawn
@@ -153,10 +153,7 @@ const FIRST_BOOK: Type = { caps: ZEN, capsWeight: 400, big: MONT, bigWeight: 100
 function Title({ color, gold, soft, type }: { color: string; gold: string; soft: string; type: Type }) {
   return (
     <g fill={color} textAnchor="middle">
-      <text x={W / 2} y={222} fontFamily={type.caps} fontWeight={type.capsWeight} fontSize={112} letterSpacing={type.track}>
-        THE LEUCADIA CLUB
-      </text>
-      <text x={W / 2} y={296} fontFamily={type.caps} fontWeight={type.capsWeight} fontSize={52} letterSpacing={type.track + 3} fill={soft}>
+      <text x={W / 2} y={282} fontFamily={type.caps} fontWeight={type.capsWeight} fontSize={84} letterSpacing={type.track + 4}>
         BUILDING A
       </text>
       <text x={W / 2} y={452} fontFamily={type.big} fontWeight={type.bigWeight} fontSize={type.bigSize} letterSpacing={1}>
@@ -166,7 +163,7 @@ function Title({ color, gold, soft, type }: { color: string; gold: string; soft:
         ∞
       </text>
       <text x={W / 2} y={1631} fontFamily={type.caps} fontWeight={type.capsWeight} fontSize={58} letterSpacing={type.track - 1} fill={soft}>
-        STORIES FROM BUILDING THE CLUB
+        STORIES FROM THE LEUCADIA CLUB
       </text>
       <text x={W / 2} y={1726} fontFamily={THIN} fontWeight={300} fontSize={120} fill={gold}>
         ∞
