@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   {{- /* The book's cover page, in the look of LeucadiaClub.com: the coast photo, the
-         covers, then the stories. The body is the usual "page-rows" markup, so a story is
+         covers, the epigraph and contents pages (taken from the page named in bookPages),
+         then the stories. The body is the usual "page-rows" markup, so a story is
          added the same way as a row on any /phaedrus/ landing. Reading pages use
          lc-studio-page.html. */ -}}
   {{ partial "lc-studio/head.html" . }}
@@ -30,7 +31,7 @@
             </figure>
             {{ end }}
           </div>
-          {{ with $.Params.open }}<p class="bk-open"><a class="hm-btn" href="{{ .href }}">{{ .label }}</a></p>{{ end }}
+          {{ with $.Params.bookPages }}{{ with site.GetPage . }}{{ partial "lc-studio/book-pages.html" . }}{{ end }}{{ end }}
         </div>
       </section>
       {{ end }}

@@ -1,0 +1,31 @@
+{{- /* Two pages of the book, set the way the first book (Zen and the Art of [nothing]) sets
+       them: the epigraph (centred serif, closed with an ∞) and the contents (bold numbered
+       chapters, plain lines under each). The words come from the front matter of the page
+       passed in: epigraph, epigraphSource, chapters (title, note, items: when / what / who). */ -}}
+<div class="bk-pages">
+  {{ with .Params.epigraph }}
+  <section class="bk-sheet" aria-label="Epigraph">
+    <div class="bk-sheet-in bk-sheet-epigraph">
+      <blockquote><p>{{ . }}</p></blockquote>
+      {{ with $.Params.epigraphSource }}<p class="bk-sheet-by">{{ . | markdownify }}</p>{{ end }}
+      <p class="bk-sheet-mark" aria-hidden="true">∞</p>
+    </div>
+  </section>
+  {{ end }}
+  {{ with .Params.chapters }}
+  <section class="bk-sheet" aria-label="Contents">
+    <div class="bk-sheet-in bk-sheet-contents">
+      <h2>Contents</h2>
+      <ol class="bk-toc">
+        {{ range $i, $c := . }}
+        <li>
+          <p class="bk-toc-chapter">{{ add $i 1 }}. {{ $c.title }}</p>
+          {{ with $c.note }}<p class="bk-toc-line">{{ strings.TrimSuffix "." . }}</p>{{ end }}
+          {{ range $c.items }}<p class="bk-toc-line">{{ .when }} · {{ .what }}{{ with .who }} · {{ . }}{{ end }}</p>{{ end }}
+        </li>
+        {{ end }}
+      </ol>
+    </div>
+  </section>
+  {{ end }}
+</div>

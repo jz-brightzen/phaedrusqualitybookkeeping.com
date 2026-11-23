@@ -63,12 +63,6 @@
   color: var(--color-muted);
 }
 
-[data-theme="studio"] .bk-open {
-  display: flex;
-  justify-content: center;
-  margin-top: var(--space-2xl);
-}
-
 /* ---------- The stories: the standard page-rows markup, drawn the club's way ---------- */
 
 [data-theme="studio"] .page-rows {
@@ -236,98 +230,107 @@
   font-size: var(--text-sm);
 }
 
-/* ---------- The epigraph and the chapter list ---------- */
+/* ---------- Two pages of the book: the epigraph and the contents ----------
+   Set the way the first book sets them: white pages, Times, the epigraph centred and closed
+   with an ∞, the contents as bold numbered chapters with plain lines under each. The type is
+   sized from the page's own width, so a page looks the same at any size. */
 
-[data-theme="studio"] .bk-epigraph {
-  max-width: 26ch;
+[data-theme="studio"] .bk-pages {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-xl);
+  max-width: 58rem;
+  margin-inline: auto;
+}
+
+[data-theme="studio"] .bk-covers + .bk-pages {
+  margin-top: var(--space-xl);
+}
+
+[data-theme="studio"] .bk-sheet {
+  container-type: inline-size;
+  aspect-ratio: 2 / 3;
+  border-radius: var(--radius-card);
+  background: #fff;
+  box-shadow: var(--shadow-sheet);
+  color: #111;
+}
+
+[data-theme="studio"] .bk-sheet-in {
+  padding: 0 11%;
+  font-family: "Times New Roman", Times, "Liberation Serif", serif;
+  font-size: 15px;
+  font-size: clamp(13px, 3.5cqw, 19px);
+  line-height: 1.35;
+}
+
+[data-theme="studio"] .bk-sheet p {
+  max-width: none;
+}
+
+[data-theme="studio"] .bk-sheet-epigraph {
+  padding-top: 46%;
+  padding-bottom: 12%;
+  text-align: center;
+}
+
+[data-theme="studio"] .bk-sheet-epigraph blockquote {
   margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(1.75rem, 2vw + 1rem, 2.75rem);
-  letter-spacing: var(--tracking-display);
-  line-height: 1.2;
   text-wrap: balance;
 }
 
-[data-theme="studio"] .bk-epigraph p {
+[data-theme="studio"] .bk-sheet-by {
+  margin-top: 1.5em;
+  font-size: 0.86em;
+  text-wrap: balance;
+}
+
+[data-theme="studio"] .bk-sheet-mark {
+  margin-top: 0.7em;
+  font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+  font-size: 2em;
+  font-weight: 900;
+  line-height: 1;
+}
+
+[data-theme="studio"] .bk-sheet-contents {
+  padding-top: 17%;
+  padding-bottom: 12%;
+}
+
+[data-theme="studio"] .bk-sheet-contents h2 {
   max-width: none;
-  /* Let the opening quotation mark hang in the margin so the words line up. */
-  text-indent: -0.42em;
+  margin: 0 0 1.6em;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: inherit;
+  text-align: center;
+  text-transform: uppercase;
+  color: inherit;
 }
 
-[data-theme="studio"] .bk-epigraph-by {
-  margin-top: var(--space-lg);
-  font-size: var(--text-md);
-  color: var(--color-ink-2);
-}
-
-[data-theme="studio"] .bk-chapters-top {
-  min-height: 0;
-  padding-top: var(--space-lg);
-  padding-bottom: 0;
-  border-bottom: 0;
-}
-
-[data-theme="studio"] .bk-chapters {
-  display: flex;
-  flex-direction: column;
-  max-width: 54ch;
+[data-theme="studio"] .bk-toc {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-[data-theme="studio"] .bk-chapter {
-  padding-block: var(--space-lg);
-  border-bottom: var(--rule-hair) solid var(--color-rule);
+[data-theme="studio"] .bk-toc li + li {
+  margin-top: 1.25em;
 }
 
-[data-theme="studio"] .bk-chapter:first-child {
-  padding-top: 0;
+[data-theme="studio"] .bk-toc-chapter {
+  font-weight: 700;
 }
 
-[data-theme="studio"] .bk-chapter:last-child {
-  padding-bottom: 0;
-  border-bottom: 0;
-}
-
-[data-theme="studio"] .bk-chapter-n {
-  font-size: var(--text-xs);
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-muted);
-}
-
-[data-theme="studio"] .bk-chapter h3 {
-  margin-top: var(--space-2xs);
-  font-size: var(--text-2xl);
-  line-height: 1.1;
-}
-
-[data-theme="studio"] .bk-chapter-note {
-  margin-top: var(--space-xs);
-  color: var(--color-ink-2);
-}
-
-[data-theme="studio"] .bk-when {
-  display: grid;
-  margin: var(--space-md) 0 0;
-  padding: 0;
-  list-style: none;
-  font-size: var(--text-sm);
-}
-
-[data-theme="studio"] .bk-when li {
-  display: grid;
-  grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
-  gap: var(--space-2xs) var(--space-md);
-  padding-block: var(--space-xs);
-  border-top: var(--rule-hair) solid var(--color-rule);
-}
-
-[data-theme="studio"] .bk-when-when,
-[data-theme="studio"] .bk-when-who {
-  color: var(--color-muted);
+[data-theme="studio"] .bk-toc-line {
+  /* A line too long for the page wraps with its second line set in a little. */
+  padding-left: 1.2em;
+  text-indent: -1.2em;
+  font-family: Calibri, Carlito, "Gill Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.92em;
 }
 
 [data-theme="studio"] .bk-note {
@@ -348,7 +351,8 @@
 }
 
 @media (max-width: 40rem) {
-  [data-theme="studio"] .bk-covers {
+  [data-theme="studio"] .bk-covers,
+  [data-theme="studio"] .bk-pages {
     grid-template-columns: minmax(0, 1fr);
     gap: var(--space-xl);
     max-width: 22rem;
@@ -361,9 +365,5 @@
   [data-theme="studio"] .hm-band .hm-mass,
   [data-theme="studio"] .hm-well {
     padding: var(--space-lg);
-  }
-
-  [data-theme="studio"] .bk-when li {
-    grid-template-columns: minmax(0, 1fr);
   }
 }

@@ -4,7 +4,8 @@
   {{- /* A reading page of the book, in the look of LeucadiaClub.com: a short coast photo
          with the title, then the text. Front matter: eyebrow, heroTitle, heroMeta (as on
          phaedrus-report pages). Optional: epigraph (and epigraphSource), and chapters, a
-         list of {title, note, items: [{when, what, who}]}. The cover page uses
+         list of {title, note, items: [{when, what, who}]}; they are drawn as two pages of
+         the book by the partial lc-studio/book-pages.html. The cover page uses
          lc-studio.html. */ -}}
   {{ partial "lc-studio/head.html" . }}
 </head>
@@ -20,38 +21,10 @@
       </div>
     </section>
     <main id="text">
-      {{ with .Params.epigraph }}
+      {{ if or .Params.epigraph .Params.chapters }}
       <section class="hm-block hm-gap">
         <div class="hm-wrap">
-          <div class="hm-well">
-            <blockquote class="bk-epigraph"><p>{{ . }}</p></blockquote>
-            {{ with $.Params.epigraphSource }}<p class="bk-epigraph-by">{{ . | markdownify }}</p>{{ end }}
-          </div>
-        </div>
-      </section>
-      {{ end }}
-      {{ with .Params.chapters }}
-      <section class="hm-block hm-gap">
-        <div class="hm-wrap">
-          <div class="hm-mass bk-chapters-top">
-            <div class="hm-pair">
-              <h2>{{ $.Params.chaptersTitle | default "Chapters" }}</h2>
-              <ol class="bk-chapters">
-                {{ range $i, $c := . }}
-                <li class="bk-chapter">
-                  <p class="bk-chapter-n">Chapter {{ add $i 1 }}</p>
-                  <h3>{{ $c.title }}</h3>
-                  {{ with $c.note }}<p class="bk-chapter-note">{{ . }}</p>{{ end }}
-                  {{ with $c.items }}
-                  <ul class="bk-when">
-                    {{ range . }}<li><span class="bk-when-when">{{ .when }}</span><span>{{ .what }}{{ with .who }} <span class="bk-when-who">· {{ . }}</span>{{ end }}</span></li>{{ end }}
-                  </ul>
-                  {{ end }}
-                </li>
-                {{ end }}
-              </ol>
-            </div>
-          </div>
+          {{ partial "lc-studio/book-pages.html" . }}
         </div>
       </section>
       {{ end }}

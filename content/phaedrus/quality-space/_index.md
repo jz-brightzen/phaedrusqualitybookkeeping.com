@@ -14,9 +14,8 @@ covers:
   - src: "/lc/quality-space-cover-torches.jpg"
     caption: "Tiki torches"
     alt: "Book cover, Tiki torches. Friends sit on the beach under a palm at a purple and orange sunset, between two tiki torches. Title: Building a [Quality Space]. Stories from The Leucadia Club."
-open:
-  href: "/phaedrus/quality-space/epigraph/"
-  label: "Open the book"
+# The epigraph and contents shown under the covers are read from this page's front matter.
+bookPages: "/phaedrus/quality-space/epigraph"
 storiesTitle: "The stories"
 quote: "“And the members thought it was Good.”"
 about:
@@ -37,7 +36,7 @@ headerNote: "Phaedrus Internal · Leucadia Club"
   </div>
   <div class="row-activity">
     <div class="activity-label">Recent</div>
-    <ul><li><span class="act-date">11/22</span> Epigraph is now a quote, with its song, album, year and band</li><li><span class="act-date">11/22</span> Epigraph and five chapters added</li></ul>
+    <ul><li><span class="act-date">11/22</span> Set like the first book's pages; also shown under the covers</li><li><span class="act-date">11/22</span> Epigraph is now a quote, with its song, album, year and band</li><li><span class="act-date">11/22</span> Epigraph and five chapters added</li></ul>
   </div>
 </a>
 <a class="page-row" href="/phaedrus/quality-space/face-at-the-door/">
