@@ -8,9 +8,16 @@
 <title>{{ .Title }}</title>
 <meta name="description" content="{{ $desc }}">
 <meta name="robots" content="noindex, nofollow">
+{{- $alt := .Params.coverAlt -}}
+{{- if not $alt }}{{ with .Parent }}{{ $alt = .Params.coverAlt }}{{ end }}{{ end -}}
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:title" content="{{ .Title }}">
 <meta property="og:description" content="{{ $desc }}">
-{{ with $cover }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
+{{ with $cover }}<meta property="og:image" content="{{ . | absURL }}">
+{{ with $alt }}<meta property="og:image:alt" content="{{ . }}">{{ end }}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ . | absURL }}">{{ end }}
 <link rel="icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

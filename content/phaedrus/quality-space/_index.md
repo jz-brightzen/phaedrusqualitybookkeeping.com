@@ -4,8 +4,9 @@ layout: lc-studio
 kicker: "Building a"
 heroTitle: "[Quality Space]"
 heroLede: "Stories from The Leucadia Club"
-# The first cover is also the picture shown when the link is shared.
-cover: "/lc/quality-space-cover.jpg"
+# The picture shown when the link is shared (the social preview): the purple cover.
+cover: "/lc/quality-space-cover-torches.jpg"
+coverAlt: "Book cover. Friends sit on the beach under a palm at a purple and orange sunset, between two tiki torches. Building a [Quality Space]. Stories from The Leucadia Club."
 # Both covers, side by side. They are drawn by design/quality-space-cover (see its README).
 covers:
   - src: "/lc/quality-space-cover.jpg"

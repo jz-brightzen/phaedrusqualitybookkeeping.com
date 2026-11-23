@@ -373,7 +373,8 @@ function Scene({ look, type, extras }: { look: Look; type: Type; extras: "none" 
 async function main() {
   const out = process.argv[2];
   if (!out) throw new Error("Say where the JPGs go: tsx covers.tsx <out dir>");
-  // File name → cover. The first is the one the site uses for link previews.
+  // File name → cover. Which one shows when the link is shared is set by "cover:" in the
+  // cover page's front matter (content/phaedrus/quality-space/_index.md), not here.
   const covers: [string, React.ReactElement][] = [
     ["quality-space-cover", <Scene key="lounge" look={LAGOON} type={FIRST_BOOK} extras="lounge" />],
     ["quality-space-cover-torches", <Scene key="torches" look={AFTERGLOW} type={FIRST_BOOK} extras="torches" />],
