@@ -1,12 +1,16 @@
 # The covers of "Building a [Quality Space]: Stories from The Leucadia Club"
 
-The two covers on `/phaedrus/quality-space/` are drawn by code, not by hand. Change the code,
+The covers on `/phaedrus/quality-space/` are drawn by code, not by hand. The last three in the
+table are the first studies, kept in the rotation; all carry the same words. Change the code,
 run one command, and the pictures on the site are replaced.
 
 | File on the site | Cover |
 |---|---|
 | `static/lc/quality-space-cover.jpg` | Tiki lounge (teal night, thatched bar, string lights) |
 | `static/lc/quality-space-cover-torches.jpg` | Tiki torches (purple sunset, two torches, a surfboard) |
+| `static/lc/quality-space-cover-afterglow.jpg` | Afterglow (the purple sunset with two surfboards, no torches) |
+| `static/lc/quality-space-cover-blue-hour.jpg` | Blue hour (starry blue night, friends in bright shirts) |
+| `static/lc/quality-space-cover-golden-hour.jpg` | Golden hour (bright cartoon sunset, green palm) |
 | `static/lc/quality-space-share.jpg` | The purple cover drawn wide (1200 × 630): the picture apps show when the link is shared |
 
 ## Make the pictures again
@@ -21,7 +25,7 @@ npm install
 npm run covers
 ```
 
-`npm install` is only needed the first time. `npm run covers` writes all three JPGs
+`npm install` is only needed the first time. `npm run covers` writes all six JPGs
 straight into `static/lc/`. To look before replacing them, give it another folder:
 `npm run covers -- /some/folder`. Then commit and push as usual.
 
@@ -35,6 +39,8 @@ Everything is in `covers.tsx`. The top of that file says where each thing lives.
 - **The scene:** `Scene()` places the palm, the friends, the sun and the extras. Each piece
   (`ArchPalm`, `Sitter`, `Torch`, `Tiki`, `Hut`, `StringLights`, `PlantedBoard`) is a small
   function that takes a position, so moving something is changing its `x` and `y`.
+- **The earlier covers:** Afterglow is `Scene()` with no extras; `BlueHour()` and `GoldenHour()`
+  are scenes of their own. The words on all of them come from the one `Title()`.
 - **The wide share picture:** `Share()`. It reuses the same pieces at a smaller size.
 - **Which pictures get made, and their file names:** `main()` at the bottom.
 

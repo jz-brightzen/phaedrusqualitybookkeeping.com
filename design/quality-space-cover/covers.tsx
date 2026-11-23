@@ -10,6 +10,7 @@
 //   the colours          AFTERGLOW and LAGOON (one "Look" per cover)
 //   what is in the scene Scene(): the palm, the friends, and "extras" (torches, or the lounge:
 //                        hut, string lights, tiki, torch). Each piece is its own small function.
+//   the earlier covers (Afterglow is Scene() with no extras; BlueHour() and GoldenHour())
 //   the wide picture for shared links: Share() (1200 × 630, the purple cover on its side)
 //   which pictures are made, and their file names: main() at the bottom
 //
@@ -371,6 +372,108 @@ function Scene({ look, type, extras }: { look: Look; type: Type; extras: "none" 
   );
 }
 
+// ---- The earlier covers, kept in the rotation on the cover page ----
+// They were the first studies (2026-11-21). Same words and fonts as the others now; only the
+// scene differs.
+
+// Blue hour: the first book's night, with the club's friends where its lone figure sat.
+function BlueHour({ type }: { type: Type }) {
+  const tone: Tone = { ink: "#06142a", skin: "#d9a986", outline: 6 };
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width={W} height={H} viewBox={`0 0 ${W} ${H}`}>
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#081a3a" />
+          <stop offset="0.42" stopColor="#0e4a70" />
+          <stop offset="0.74" stopColor="#2c93a0" />
+          <stop offset="0.9" stopColor="#a9d8b8" />
+          <stop offset="1" stopColor="#fbe3a1" />
+        </linearGradient>
+        <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stopColor="#fff6c9" stopOpacity="1" />
+          <stop offset="0.35" stopColor="#ffd98a" stopOpacity="0.75" />
+          <stop offset="1" stopColor="#ffd98a" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#2a8c9c" />
+          <stop offset="1" stopColor="#0b3558" />
+        </linearGradient>
+        <linearGradient id="sand" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#2b4a66" />
+          <stop offset="1" stopColor="#0c2038" />
+        </linearGradient>
+        <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="18" />
+        </filter>
+      </defs>
+      <rect width={W} height={1090} fill="url(#sky)" />
+      <Stars seed={7} count={170} maxY={820} />
+      <circle cx={960} cy={236} r={5} fill="#fff" />
+      <path d="M960 198 V274 M922 236 H998" stroke="#fff" strokeWidth={2} opacity={0.8} />
+      <g filter="url(#soft)" opacity={0.32}>
+        <ellipse cx={330} cy={900} rx={420} ry={16} fill="#fde7b0" />
+        <ellipse cx={900} cy={970} rx={340} ry={14} fill="#9fd6c8" />
+      </g>
+      <ellipse cx={470} cy={1090} rx={520} ry={250} fill="url(#glow)" />
+      <rect y={1090} width={W} height={240} fill="url(#sea)" />
+      <g filter="url(#soft)">
+        <path d="M400 1092 H540 L600 1330 H340 Z" fill="#ffe7a6" opacity={0.55} />
+      </g>
+      <path d={`M0 1128 ${WAVES} ${WAVES} ${WAVES} ${WAVES} ${WAVES} ${WAVES} ${WAVES} ${WAVES} ${WAVES} ${WAVES}`} fill="none" stroke="#fff" strokeWidth={4} opacity={0.35} />
+      <path d="M90 1200 q22 -10 44 0 M520 1230 q22 -10 44 0 M860 1190 q22 -10 44 0 M1010 1260 q22 -10 44 0" fill="none" stroke="#fff" strokeWidth={4} opacity={0.3} strokeLinecap="round" />
+      <path d="M0 1320 Q300 1282 620 1316 T1200 1300 V1800 H0 Z" fill="url(#sand)" />
+      <ArchPalm x={70} y={1470} k={1.02} trunk="#06142a" frond="#071b36" />
+      <PlantedBoard x={1010} y={1420} h={270} lean={7} color="#3f7f9c" stripe="#f2b134" tone={tone} />
+      <Sitter x={470} y={1420} hair="#e6b65a" shirt="#e2725b" shorts="#24548c" tone={tone} arm="around" />
+      <Sitter x={600} y={1426} hair="#4a2f20" shirt="#e9c46a" shorts="#1f4a7a" tone={tone} long />
+      <Sitter x={724} y={1420} hair="#2a2a2e" shirt="#5fa8d3" shorts="#7a3b2e" tone={tone} arm="up" />
+      <Sitter x={856} y={1428} size={0.72} hair="#c98b4a" shirt="#9fd3c7" shorts="#24548c" tone={tone} />
+      <Title color="#ffffff" gold="#f2b134" soft="#e6f1f5" type={type} />
+    </svg>
+  );
+}
+
+// Golden hour: the club's daytime cartoon, at sunset.
+function GoldenHour({ type }: { type: Type }) {
+  const tone: Tone = { ink: "#23313b", skin: "#f4c7a1", outline: 6 };
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width={W} height={H} viewBox={`0 0 ${W} ${H}`}>
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#5cb6dc" />
+          <stop offset="0.45" stopColor="#bfe6f5" />
+          <stop offset="0.78" stopColor="#ffd98a" />
+          <stop offset="1" stopColor="#ff9f5a" />
+        </linearGradient>
+        <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#4fb0d0" />
+          <stop offset="1" stopColor="#2f86b0" />
+        </linearGradient>
+      </defs>
+      <rect width={W} height={1100} fill="url(#sky)" />
+      <g fill="#fff" opacity={0.85}>
+        <path d="M150 690 q40 -46 96 -18 q44 -40 96 0 q52 -6 56 34 H130 q-14 -18 20 -16 Z" />
+        <path d="M96 1010 q34 -38 80 -14 q38 -32 80 2 q42 -4 46 28 H82 q-10 -16 14 -16 Z" />
+      </g>
+      <circle cx={560} cy={1100} r={170} fill="#ffd166" stroke="#f4a63a" strokeWidth={14} />
+      <rect y={1100} width={W} height={240} fill="url(#sea)" />
+      <path d="M430 1118 H690 M460 1160 H660 M490 1202 H630 M512 1244 H608" stroke="#ffe7a6" strokeWidth={12} strokeLinecap="round" opacity={0.9} />
+      <path d={`M0 1124 ${WAVES} ${WAVES} ${WAVES} ${WAVES} ${WAVES} ${WAVES} ${WAVES} ${WAVES} ${WAVES} ${WAVES}`} fill="none" stroke="#fff" strokeWidth={6} opacity={0.85} />
+      <path d="M80 1206 q22 -10 44 0 M860 1196 q22 -10 44 0 M1000 1262 q22 -10 44 0 M250 1270 q22 -10 44 0" fill="none" stroke="#fff" strokeWidth={5} opacity={0.7} strokeLinecap="round" />
+      <path d="M0 1326 Q300 1290 620 1322 T1200 1306 V1800 H0 Z" fill="#f2d8a7" />
+      <path d="M0 1326 Q300 1290 620 1322 T1200 1306" fill="none" stroke="#e3c48d" strokeWidth={6} />
+      <ArchPalm x={1150} y={1500} dir={-1} k={0.84} trunk="#8a5a32" frond="#3e8e5a" edge="#23313b" />
+      <PlantedBoard x={150} y={1424} h={280} lean={-7} color="#fff3b0" stripe="#ff7a59" tone={tone} />
+      <PlantedBoard x={236} y={1432} h={240} lean={5} color="#bde0fe" stripe="#2f6db5" tone={tone} />
+      <Sitter x={400} y={1424} hair="#f0c05a" shirt="#ff7a59" shorts="#2f6db5" tone={tone} arm="around" />
+      <Sitter x={530} y={1430} hair="#6b4226" shirt="#ffd166" shorts="#2f6db5" tone={tone} long />
+      <Sitter x={656} y={1424} hair="#23313b" shirt="#7fc8a9" shorts="#c8553d" tone={tone} arm="up" />
+      <Sitter x={786} y={1432} size={0.72} hair="#f0c05a" shirt="#bde0fe" shorts="#2f6db5" tone={tone} />
+      <Title color="#23313b" gold="#b6471f" soft="#23313b" type={type} />
+    </svg>
+  );
+}
+
 // The wide picture apps show when the book's link is shared (1200 × 630). It is the purple
 // cover laid on its side: same sky, palm, torches, friends and words, arranged to fit a card.
 // The thin title gets a hairline outline so it still reads when the card is shown small.
@@ -469,6 +572,9 @@ async function main() {
   const pictures: [string, React.ReactElement, number, number][] = [
     ["quality-space-cover", <Scene key="lounge" look={LAGOON} type={FIRST_BOOK} extras="lounge" />, W, H],
     ["quality-space-cover-torches", <Scene key="torches" look={AFTERGLOW} type={FIRST_BOOK} extras="torches" />, W, H],
+    ["quality-space-cover-afterglow", <Scene key="afterglow" look={AFTERGLOW} type={FIRST_BOOK} extras="none" />, W, H],
+    ["quality-space-cover-blue-hour", <BlueHour key="blue" type={FIRST_BOOK} />, W, H],
+    ["quality-space-cover-golden-hour", <GoldenHour key="golden" type={FIRST_BOOK} />, W, H],
     ["quality-space-share", <Share key="share" look={AFTERGLOW} />, SHARE_W, SHARE_H],
   ];
   for (const [name, picture, w, h] of pictures) {

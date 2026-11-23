@@ -12,7 +12,8 @@ cover: "/lc/quality-space-share.jpg"
 coverWidth: 1200
 coverHeight: 630
 coverAlt: "Friends sit on the beach under a palm at a purple and orange sunset, between two tiki torches. Building a [Quality Space]. Stories from The Leucadia Club."
-# Both covers, side by side. They are drawn by design/quality-space-cover (see its README).
+# The covers, in the order they come up in the stack (a tap brings the next one forward; up to
+# eight). They are drawn by design/quality-space-cover (see its README).
 covers:
   - src: "/lc/quality-space-cover.jpg"
     caption: "Tiki lounge"
@@ -20,6 +21,15 @@ covers:
   - src: "/lc/quality-space-cover-torches.jpg"
     caption: "Tiki torches"
     alt: "Book cover, Tiki torches. Friends sit on the beach under a palm at a purple and orange sunset, between two tiki torches. Title: Building a [Quality Space]. Stories from The Leucadia Club."
+  - src: "/lc/quality-space-cover-afterglow.jpg"
+    caption: "Afterglow"
+    alt: "Book cover, Afterglow. Friends sit on the beach under a palm at a purple and orange sunset, two surfboards stood in the sand. Title: Building a [Quality Space]. Stories from The Leucadia Club."
+  - src: "/lc/quality-space-cover-blue-hour.jpg"
+    caption: "Blue hour"
+    alt: "Book cover, Blue hour. Four friends in bright shirts sit on the beach under a palm and a starry blue night, a surfboard beside them. Title: Building a [Quality Space]. Stories from The Leucadia Club."
+  - src: "/lc/quality-space-cover-golden-hour.jpg"
+    caption: "Golden hour"
+    alt: "Book cover, Golden hour. Four cartoon friends sit on the sand at a bright sunset, a green palm on the right and two surfboards on the left. Title: Building a [Quality Space]. Stories from The Leucadia Club."
 
 # ---- The two book pages shown under the covers: the epigraph and the contents ----
 # The quote and where it is from (shown under it; *stars* make italics). [men] is in brackets

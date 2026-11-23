@@ -27,12 +27,12 @@
           <div class="bk-stack-wrap">
             <div class="bk-stack" data-stack>
               {{ range $i, $c := . }}
-              <button type="button" class="bk-stack-card{{ if eq $i 0 }} is-front{{ end }}" data-caption="{{ $c.caption }}" aria-label="{{ $c.caption }} cover. Press to bring the other cover to the front.">
+              <button type="button" class="bk-stack-card{{ if eq $i 0 }} is-front{{ end }}" data-caption="{{ $c.caption }}" aria-label="{{ $c.caption }} cover. Press to bring the next cover to the front.">
                 <img src="{{ $c.src }}" width="1200" height="1800" alt="{{ $c.alt }}">
               </button>
               {{ end }}
             </div>
-            <p class="bk-stack-note"><span data-stack-caption>{{ (index . 0).caption }}</span><span data-stack-hint hidden> · Tap the cover to switch</span></p>
+            <p class="bk-stack-note"><span data-stack-caption>{{ (index . 0).caption }}</span><span data-stack-count hidden></span><span data-stack-hint hidden> · Tap for the next cover</span></p>
           </div>
           {{ if or $.Params.epigraph $.Params.chapters }}{{ partial "lc-studio/book.html" $ }}{{ end }}
         </div>

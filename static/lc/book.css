@@ -34,8 +34,9 @@
 }
 
 /* ---------- The cover page: the covers, stacked ----------
-   One cover lies on top of the other. A tap or a click on the stack brings the other one to
-   the front (book.js); without the script both are simply there, one behind. */
+   The covers lie in a fanned stack. A tap or a click on the stack sends the front one to the
+   back and brings the next one forward (book.js); without the script they are simply there,
+   fanned, with the first in front. */
 
 [data-theme="studio"] .bk-stack-wrap {
   max-width: 30rem;
@@ -49,10 +50,14 @@
   margin: var(--space-md) auto 0;
 }
 
+/* --i says how far a cover is from the front: 0 is the front one, 1 the one behind it, and so
+   on. Each step back sits a little further right, turned a little more, and a little darker.
+   book.js moves the numbers round on a tap; these are the places before it runs. */
 [data-theme="studio"] .bk-stack-card {
+  --i: 1;
   position: absolute;
   inset: 0;
-  z-index: var(--z-base);
+  z-index: calc(20 - var(--i));
   display: block;
   padding: 0;
   border: 0;
@@ -60,16 +65,19 @@
   background: none;
   box-shadow: var(--shadow-sheet);
   cursor: pointer;
-  filter: brightness(0.78);
-  transform: translate(13%, 3.5%) rotate(5deg);
+  filter: brightness(calc(1 - var(--i) * 0.09));
+  transform: translate(calc(-6% + var(--i) * 5%), calc(var(--i) * 1.2%)) rotate(calc(-2deg + var(--i) * 2.2deg));
   transition: transform var(--dur-long) var(--ease-out), filter var(--dur-long) var(--ease-out);
 }
 
-[data-theme="studio"] .bk-stack-card.is-front {
-  z-index: var(--z-raised);
-  filter: none;
-  transform: translate(-6%, 0) rotate(-2deg);
-}
+[data-theme="studio"] .bk-stack-card:nth-child(1) { --i: 0; }
+[data-theme="studio"] .bk-stack-card:nth-child(2) { --i: 1; }
+[data-theme="studio"] .bk-stack-card:nth-child(3) { --i: 2; }
+[data-theme="studio"] .bk-stack-card:nth-child(4) { --i: 3; }
+[data-theme="studio"] .bk-stack-card:nth-child(5) { --i: 4; }
+[data-theme="studio"] .bk-stack-card:nth-child(6) { --i: 5; }
+[data-theme="studio"] .bk-stack-card:nth-child(7) { --i: 6; }
+[data-theme="studio"] .bk-stack-card:nth-child(8) { --i: 7; }
 
 [data-theme="studio"] .bk-stack-card img {
   width: 100%;
@@ -613,7 +621,7 @@
   }
 
   [data-theme="studio"] .bk-stack {
-    width: 74%;
+    width: 70%;
   }
 
   [data-theme="studio"] a.page-row:not(.hm-btn):not(.hm-brand) {

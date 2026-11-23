@@ -1,6 +1,7 @@
 /* The book on its cover page (layout lc-studio, styles in book.css).
 
-   1. The covers lie in a stack. A tap or a click brings the next one to the front.
+   1. The covers lie in a fanned stack. A tap or a click sends the front one to the back
+      and brings the next one forward, round and round.
    2. Running text (a note; later, a chapter) arrives as one long page. It is poured into
       as many book pages as it needs, each the same size as the others.
    3. The Contents page gets the page number of everything it lists.
@@ -22,11 +23,19 @@
     cards.forEach(function (card, i) {
       if (card.classList.contains("is-front")) front = i;
     });
+    var count = wrap.querySelector("[data-stack-count]");
+    // Each cover is told how far it now is from the front (0 = front); the styles place it.
     function show() {
       cards.forEach(function (card, i) {
-        card.classList.toggle("is-front", i === front);
+        var back = (i - front + cards.length) % cards.length;
+        card.style.setProperty("--i", String(back));
+        card.classList.toggle("is-front", back === 0);
       });
       if (caption) caption.textContent = cards[front].getAttribute("data-caption") || "";
+      if (count) {
+        count.textContent = " · " + (front + 1) + " of " + cards.length;
+        count.hidden = false;
+      }
     }
     cards.forEach(function (card) {
       card.addEventListener("click", function () {

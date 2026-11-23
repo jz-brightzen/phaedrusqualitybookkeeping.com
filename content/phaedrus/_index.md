@@ -221,9 +221,9 @@ heroLede: "The ghost in the machine, documented. Internal reference pages for ho
     <div class="row-activity">
       <div class="activity-label">Recent</div>
       <ul>
+        <li><span class="act-date">11/22</span> Five covers in the stack: the three earlier ones redrawn with the current words</li>
         <li><span class="act-date">11/22</span> Covers stack and switch on a tap; the whole book shows as numbered pages</li>
         <li><span class="act-date">11/22</span> Epigraph page folded into the cover page; The Face at the Door moved to Notes for Stories</li>
-        <li><span class="act-date">11/22</span> Epigraph and contents set like the first book; a Definitions appendix</li>
       </ul>
     </div>
   </a>
