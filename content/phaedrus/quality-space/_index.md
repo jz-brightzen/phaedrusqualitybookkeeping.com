@@ -21,7 +21,6 @@ storiesTitle: "The stories"
 quote: "“And the members thought it was Good.”"
 about:
   - "Stories from building the Leucadia Club, written down as they happen."
-  - "This is the second book. The first is *Zen and the Art of [nothing]*."
 headerNote: "Phaedrus Internal · Leucadia Club"
 ---
 
