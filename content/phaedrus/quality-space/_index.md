@@ -1,6 +1,8 @@
 ---
 title: "Building a [Quality Space]: Stories from The Leucadia Club"
 layout: lc-studio
+# The old epigraph page is gone; its address now lands here.
+aliases: ["/phaedrus/quality-space/epigraph/"]
 kicker: "Building a"
 heroTitle: "[Quality Space]"
 heroLede: "Stories from The Leucadia Club"
@@ -18,31 +20,74 @@ covers:
   - src: "/lc/quality-space-cover-torches.jpg"
     caption: "Tiki torches"
     alt: "Book cover, Tiki torches. Friends sit on the beach under a palm at a purple and orange sunset, between two tiki torches. Title: Building a [Quality Space]. Stories from The Leucadia Club."
-# The epigraph and contents shown under the covers are read from this page's front matter.
-bookPages: "/phaedrus/quality-space/epigraph"
-storiesTitle: "The stories"
+
+# ---- The two book pages shown under the covers: the epigraph and the contents ----
+# The quote and where it is from (shown under it; *stars* make italics). [men] is in brackets
+# because it is defined in the appendix (the Definitions page).
+epigraph: "“And the [men] who hold high places must be the ones who start to mold a new reality closer to the heart.”"
+epigraphSource: "Rush, “Closer to the Heart,” from the album *A Farewell to Kings* (1977)"
+# The Contents page. One entry per chapter, in order; the page numbers them. "note" and
+# "items" are optional.
+chapters:
+  - title: "The Tiki Lounge"
+    note: "Ending: how did we get here?"
+  - title: "Making Everything Easier"
+    note: "From QuickBooks Desktop to agents running everything."
+  - title: "Know Your Goal"
+    note: "What is a quality club?"
+  - title: "Leveling Up"
+  - title: "Repeat What Works"
+    note: "The monthly calendar."
+    items:
+      - when: "2nd and 4th Tuesdays"
+        what: "AI Hackathon"
+        who: "Chris Dumas"
+      - when: "1st and 3rd Tuesdays"
+        what: "Chautauqua Tuesdays"
+        who: "John & Jeremy"
+      - when: "1st Monday"
+        what: "New Member Monday"
+# What comes after the chapters on the Contents page: each section's name in capitals, then
+# its pages. Keep these in step with the sections in the body below.
+backMatter:
+  - title: "Appendix"
+    items:
+      - title: "Definitions"
+        href: "/phaedrus/quality-space/definitions/"
+  - title: "Notes for Stories"
+    items:
+      - title: "The Face at the Door"
+        href: "/phaedrus/quality-space/face-at-the-door/"
+
 quote: "“And the members thought it was Good.”"
 about:
   - "Stories from building the Leucadia Club, written down as they happen."
 headerNote: "Phaedrus Internal · Leucadia Club"
 ---
 
+<div class="hm-pair">
+<h2>Appendix</h2>
 <div class="page-rows">
-<a class="page-row" href="/phaedrus/quality-space/epigraph/">
+<a class="page-row" href="/phaedrus/quality-space/definitions/">
   <div class="row-icon">📖</div>
   <div class="row-main">
-    <div class="row-title">Epigraph and chapters</div>
-    <p class="row-desc">The line the book opens with, and its five chapters.</p>
+    <div class="row-title">Definitions</div>
+    <p class="row-desc">What the words in [brackets] mean. So far: [Quality] and [men].</p>
     <div class="row-improve">
       <div class="improve-label">Improve next</div>
-      <ul><li>Write Chapter 1, The Tiki Lounge</li><li>Decide which chapter The Face at the Door belongs in</li></ul>
+      <ul><li>Put [Quality] in John's own words</li><li>Add [Quality Space] and [Good]</li></ul>
     </div>
   </div>
   <div class="row-activity">
     <div class="activity-label">Recent</div>
-    <ul><li><span class="act-date">11/22</span> The quote now says [men], defined in the appendix</li><li><span class="act-date">11/22</span> Set like the first book's pages; also shown under the covers</li><li><span class="act-date">11/22</span> Epigraph is now a quote, with its song, album, year and band</li></ul>
+    <ul><li><span class="act-date">11/22</span> Appendix started with two definitions</li></ul>
   </div>
 </a>
+</div>
+</div>
+<div class="hm-pair">
+<h2>Notes for Stories</h2>
+<div class="page-rows">
 <a class="page-row" href="/phaedrus/quality-space/face-at-the-door/">
   <div class="row-icon">🚪</div>
   <div class="row-main">
@@ -55,22 +100,8 @@ headerNote: "Phaedrus Internal · Leucadia Club"
   </div>
   <div class="row-activity">
     <div class="activity-label">Recent</div>
-    <ul><li><span class="act-date">11/22</span> New look, like LeucadiaClub.com</li><li><span class="act-date">11/21</span> Story and original messages added</li></ul>
+    <ul><li><span class="act-date">11/22</span> Moved from the stories to Notes for Stories</li><li><span class="act-date">11/22</span> New look, like LeucadiaClub.com</li><li><span class="act-date">11/21</span> Story and original messages added</li></ul>
   </div>
 </a>
-<a class="page-row" href="/phaedrus/quality-space/definitions/">
-  <div class="row-icon">📖</div>
-  <div class="row-main">
-    <div class="row-title">Appendix: Definitions</div>
-    <p class="row-desc">What the words in [brackets] mean. So far: [Quality] and [men].</p>
-    <div class="row-improve">
-      <div class="improve-label">Improve next</div>
-      <ul><li>Put [Quality] in John's own words</li><li>Add [Quality Space] and [Good]</li></ul>
-    </div>
-  </div>
-  <div class="row-activity">
-    <div class="activity-label">Recent</div>
-    <ul><li><span class="act-date">11/22</span> Appendix started with two definitions</li></ul>
-  </div>
-</a>
+</div>
 </div>

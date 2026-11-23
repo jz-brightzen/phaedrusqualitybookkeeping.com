@@ -33,27 +33,6 @@ heroLede: "Longer-form work product — series plans, chapter drafts, and manusc
     </div>
   </a>
 
-  <a class="page-row" href="/phaedrus/quality-space/epigraph/">
-    <div class="row-icon">📖</div>
-    <div class="row-main">
-      <div class="row-title">Building a [Quality Space] — Epigraph and chapters</div>
-      <p class="row-desc">The line the book opens with, and its five chapters. Stories from The Leucadia Club.</p>
-      <div class="row-improve">
-        <div class="improve-label">Improve next</div>
-        <ul>
-          <li>Write Chapter 1, The Tiki Lounge</li>
-          <li>Decide which chapter The Face at the Door belongs in</li>
-        </ul>
-      </div>
-    </div>
-    <div class="row-activity">
-      <div class="activity-label">Recent</div>
-      <ul>
-        <li><span class="act-date">11/22</span> Epigraph and five chapters added</li>
-      </ul>
-    </div>
-  </a>
-
   <a class="page-row" href="/phaedrus/quality-space/definitions/">
     <div class="row-icon">📖</div>
     <div class="row-main">

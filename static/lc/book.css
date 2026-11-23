@@ -63,7 +63,14 @@
   color: var(--color-muted);
 }
 
-/* ---------- The stories: the standard page-rows markup, drawn the club's way ---------- */
+/* ---------- The sections under the book pages (Appendix, Notes for Stories, …) ----------
+   Each is a name on the left and its rows on the right; the rows are the standard page-rows
+   markup, drawn the club's way. */
+
+[data-theme="studio"] .bk-sections > .hm-pair + .hm-pair {
+  margin-top: var(--section-gap-s);
+}
+
 
 [data-theme="studio"] .page-rows {
   display: flex;
@@ -335,7 +342,8 @@
   margin-top: 1.25em;
 }
 
-/* The first book sets the word APPENDIX in its cover capitals (Zenzero, where installed). */
+/* The first book sets the word APPENDIX in its cover capitals (Zenzero, where installed);
+   every section named after the chapters is set the same way. */
 [data-theme="studio"] .bk-toc-appendix-title {
   font-family: "Zenzero Grotesk Sans", "Avenir Next Condensed", "Arial Narrow", sans-serif;
   letter-spacing: 0.05em;

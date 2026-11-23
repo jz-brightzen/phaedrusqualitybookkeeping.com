@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   {{- /* The book's cover page, in the look of LeucadiaClub.com: the coast photo, the
-         covers, the epigraph and contents pages (taken from the page named in bookPages),
-         then the stories. The body is the usual "page-rows" markup, so a story is
-         added the same way as a row on any /phaedrus/ landing. Reading pages use
-         lc-studio-page.html. */ -}}
+         covers, the epigraph and contents pages (from this page's own front matter), then
+         the sections written in the body. Each section in the body is a div with class
+         hm-pair holding an h2 (its name) and a div with class page-rows (its rows, the same
+         row markup as any /phaedrus/ landing). Reading pages use lc-studio-page.html. */ -}}
   {{ partial "lc-studio/head.html" . }}
 </head>
 <body>
@@ -31,18 +31,15 @@
             </figure>
             {{ end }}
           </div>
-          {{ with $.Params.bookPages }}{{ with site.GetPage . }}{{ partial "lc-studio/book-pages.html" . }}{{ end }}{{ end }}
+          {{ if or $.Params.epigraph $.Params.chapters }}{{ partial "lc-studio/book-pages.html" $ }}{{ end }}
         </div>
       </section>
       {{ end }}
+      {{ with .Content }}
       <section class="hm-block hm-gap">
-        <div class="hm-wrap">
-          <div class="hm-pair">
-            <h2>{{ .Params.storiesTitle | default "The stories" }}</h2>
-            <div>{{ .Content }}</div>
-          </div>
-        </div>
+        <div class="hm-wrap bk-sections">{{ . }}</div>
       </section>
+      {{ end }}
       {{ if or .Params.quote .Params.about }}
       <section class="hm-block hm-gap-l hm-band">
         <div class="hm-wrap">

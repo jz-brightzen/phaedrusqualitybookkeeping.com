@@ -2,8 +2,8 @@
        them: the epigraph (centred serif, closed with an ∞) and the contents (bold numbered
        chapters, plain lines under each). The words come from the front matter of the page
        passed in: epigraph, epigraphSource, chapters (title, note, items: when / what / who),
-       appendix (title, href) for the end of the contents, and definitions (term, text) for
-       the Definitions page. */ -}}
+       backMatter (sections after the chapters: title, items of title / href), and definitions
+       (term, text) for the Definitions page. */ -}}
 <div class="bk-pages">
   {{ with .Params.epigraph }}
   <section class="bk-sheet" aria-label="Epigraph">
@@ -27,10 +27,10 @@
         </li>
         {{ end }}
       </ol>
-      {{ with $.Params.appendix }}
+      {{ range $.Params.backMatter }}
       <div class="bk-toc-appendix">
-        <p class="bk-toc-appendix-title">Appendix</p>
-        {{ range . }}<p class="bk-toc-line">{{ if .href }}<a href="{{ .href }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</p>{{ end }}
+        <p class="bk-toc-appendix-title">{{ .title }}</p>
+        {{ range .items }}<p class="bk-toc-line">{{ if .href }}<a href="{{ .href }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</p>{{ end }}
       </div>
       {{ end }}
     </div>
