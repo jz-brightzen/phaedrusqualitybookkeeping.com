@@ -28,8 +28,8 @@ straight into `static/lc/`. To look before replacing them, give it another folde
 
 Everything is in `covers.tsx`. The top of that file says where each thing lives. In short:
 
-- **Words:** `Title()` (the two title lines and the bottom line with the ∞ marks) and
-  `Quote()` (the line above the friends).
+- **Words:** `Title()` (the two title lines and the bottom line with the ∞ marks).
+  `Quote()` can draw a line of words in the sky above the friends; it is not used right now.
 - **Colours:** `LAGOON` (Tiki lounge) and `AFTERGLOW` (Tiki torches).
 - **The scene:** `Scene()` places the palm, the friends, the sun and the extras. Each piece
   (`ArchPalm`, `Sitter`, `Torch`, `Tiki`, `Hut`, `StringLights`, `PlantedBoard`) is a small

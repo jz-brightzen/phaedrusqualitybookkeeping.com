@@ -25,7 +25,7 @@
         <div class="hm-wrap">
           <div class="hm-well">
             <blockquote class="bk-epigraph"><p>{{ . }}</p></blockquote>
-            {{ with $.Params.epigraphSource }}<p class="bk-epigraph-by">{{ . }}</p>{{ end }}
+            {{ with $.Params.epigraphSource }}<p class="bk-epigraph-by">{{ . | markdownify }}</p>{{ end }}
           </div>
         </div>
       </section>

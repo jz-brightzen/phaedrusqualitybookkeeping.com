@@ -5,7 +5,7 @@
 // in code: 1200 × 1800, written as a JPG. See README.md for how to run it.
 //
 // Where to change things:
-//   the words            Title() and Quote() below
+//   the words            Title() below (Quote() draws a line in the sky; not used right now)
 //   the fonts            ZEN (caps) and MONT (the bracketed words)
 //   the colours          AFTERGLOW and LAGOON (one "Look" per cover)
 //   what is in the scene Scene(): the palm, the friends, and "extras" (torches, or the lounge:
@@ -172,6 +172,8 @@ function Title({ color, gold, soft, type }: { color: string; gold: string; soft:
   );
 }
 
+// Not on the covers now: John had the line taken off (2026-11-22). To put a line of words in the
+// sky again, add <Quote x={920} y={752} color="#fff6dc" gold="#ffc84a" /> inside Scene().
 function Quote({ x, y, color, gold, size = 54 }: { x: number; y: number; color: string; gold: string; size?: number }) {
   const step = size * 1.15;
   return (
@@ -363,7 +365,6 @@ function Scene({ look, type, extras }: { look: Look; type: Type; extras: "none" 
           <Sitter x={852} y={1344} size={0.72} hair={dark} shirt={dark} shorts={dark} tone={tone} />
         </>
       )}
-      <Quote x={920} y={752} color="#fff6dc" gold="#ffc84a" />
       <Title color="#ffffff" gold="#ffc84a" soft={extras === "lounge" ? "#e6f6f2" : "#f3e6f5"} type={type} />
     </svg>
   );

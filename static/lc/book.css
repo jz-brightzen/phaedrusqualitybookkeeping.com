@@ -250,12 +250,14 @@
 
 [data-theme="studio"] .bk-epigraph p {
   max-width: none;
+  /* Let the opening quotation mark hang in the margin so the words line up. */
+  text-indent: -0.42em;
 }
 
 [data-theme="studio"] .bk-epigraph-by {
   margin-top: var(--space-lg);
-  font-size: var(--text-sm);
-  color: var(--color-muted);
+  font-size: var(--text-md);
+  color: var(--color-ink-2);
 }
 
 [data-theme="studio"] .bk-chapters-top {

@@ -37,7 +37,7 @@ headerNote: "Phaedrus Internal · Leucadia Club"
   </div>
   <div class="row-activity">
     <div class="activity-label">Recent</div>
-    <ul><li><span class="act-date">11/22</span> Epigraph and five chapters added</li></ul>
+    <ul><li><span class="act-date">11/22</span> Epigraph is now a quote, with its song, album, year and band</li><li><span class="act-date">11/22</span> Epigraph and five chapters added</li></ul>
   </div>
 </a>
 <a class="page-row" href="/phaedrus/quality-space/face-at-the-door/">

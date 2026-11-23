@@ -5,8 +5,9 @@ eyebrow: "Building a [Quality Space]"
 heroTitle: "Epigraph"
 summary: "The line the book opens with, and its five chapters."
 date: 2026-11-22
-# The words exactly as John gave them. Add epigraphSource: "…" to show a credit line under them.
-epigraph: "And the ones who hold high places must be the ones who start to mold a new reality closer to the heart."
+# The quote, in John's wording, and where it is from (shown under it; *stars* make italics).
+epigraph: "“And the ones who hold high places must be the ones who start to mold a new reality closer to the heart.”"
+epigraphSource: "Rush, “Closer to the Heart,” from the album *A Farewell to Kings* (1977)"
 chaptersTitle: "Chapters"
 # One entry per chapter, in order; the page numbers them. "note" and "items" are optional.
 chapters:
