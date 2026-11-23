@@ -1,8 +1,20 @@
-// Cover studies, round two, for "The Leucadia Club — Building a [Quality Space]": the first book's
-// cover (night sky, a tree arching over, a figure at the water, thin bracketed title)
-// blended with the club's cartoon style (round-headed surfers, ink outlines).
-// Portrait 1200 × 1800. Usage: tsx covers.tsx <out dir>
+// The covers of "The Leucadia Club: Building a [Quality Space]".
+//
+// The first book's cover (night sky, a tree arching over, thin bracketed title, ∞) blended with
+// the club's cartoon style (round-headed friends, flat shapes). Each cover is one picture drawn
+// in code: 1200 × 1800, written as a JPG. See README.md for how to run it.
+//
+// Where to change things:
+//   the words            Title() and Quote() below
+//   the fonts            ZEN (caps) and MONT (the bracketed words)
+//   the colours          AFTERGLOW and LAGOON (one "Look" per cover)
+//   what is in the scene Scene(): the palm, the friends, and "extras" (torches, or the lounge:
+//                        hut, string lights, tiki, torch). Each piece is its own small function.
+//   which covers are made, and their file names: main() at the bottom
+//
+// Usage: tsx covers.tsx <out dir>     (render.sh does this with the fonts set up)
 import path from "node:path";
+import type React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import sharp from "sharp";
 
@@ -362,15 +374,16 @@ function Scene({ look, type, extras }: { look: Look; type: Type; extras: "none" 
 
 async function main() {
   const out = process.argv[2];
+  if (!out) throw new Error("Say where the JPGs go: tsx covers.tsx <out dir>");
+  // File name → cover. The first is the one the site uses for link previews.
   const covers: [string, React.ReactElement][] = [
-    ["cover-tiki-lounge", <Scene key="c" look={LAGOON} type={FIRST_BOOK} extras="lounge" />],
-    ["cover-tiki-torches", <Scene key="b" look={AFTERGLOW} type={FIRST_BOOK} extras="torches" />],
+    ["quality-space-cover", <Scene key="lounge" look={LAGOON} type={FIRST_BOOK} extras="lounge" />],
+    ["quality-space-cover-torches", <Scene key="torches" look={AFTERGLOW} type={FIRST_BOOK} extras="torches" />],
   ];
   for (const [name, cover] of covers) {
     const svg = renderToStaticMarkup(cover);
     const file = path.join(out, `${name}.jpg`);
     const info = await sharp(Buffer.from(svg), { density: 96 }).resize(W, H).jpeg({ quality: 92, mozjpeg: true }).toFile(file);
-    await sharp(file).resize(700).jpeg({ quality: 86 }).toFile(path.join(out, `view-${name}.jpg`));
     console.log(`${name}.jpg ${info.width} × ${info.height}, ${Math.round(info.size / 1024)} KB`);
   }
 }

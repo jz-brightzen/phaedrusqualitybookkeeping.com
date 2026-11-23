@@ -1,6 +1,6 @@
 ---
 title: "The Face at the Door"
-layout: phaedrus-report
+layout: lc-studio-page
 eyebrow: "The Leucadia Club — Building a [Quality Space]"
 heroTitle: "The Face at the Door"
 heroMeta: "Saturday, November 21, 2026 · John Zdanowski"

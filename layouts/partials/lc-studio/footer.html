@@ -1,0 +1,14 @@
+{{- $note := .Params.headerNote -}}
+{{- if not $note }}{{ with .Parent }}{{ $note = .Params.headerNote }}{{ end }}{{ end -}}
+<footer class="hm-footer">
+  <div class="hm-wrap">
+    <p class="hm-footer-name">Leucadia Club</p>
+    <p>828 N Coast Hwy Ste E, Encinitas, CA 92024</p>
+    <ul class="hm-footer-links">
+      <li><a href="https://www.leucadiaclub.com/">LeucadiaClub.com</a></li>
+      <li><a href="https://members.leucadiaclub.com/login">Member login</a></li>
+      <li><a href="/phaedrus/">Back to Phaedrus</a></li>
+    </ul>
+    {{ with $note }}<p class="bk-note">{{ . }}</p>{{ end }}
+  </div>
+</footer>

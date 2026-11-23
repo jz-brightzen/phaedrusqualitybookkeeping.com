@@ -213,7 +213,7 @@ heroLede: "The ghost in the machine, documented. Internal reference pages for ho
       <div class="row-improve">
         <div class="improve-label">Improve next</div>
         <ul>
-          <li>Add the next club story</li>
+          <li>Write Chapter 1, The Tiki Lounge</li>
           <li>Add the door follow-up once the wiring is done</li>
         </ul>
       </div>
@@ -221,6 +221,7 @@ heroLede: "The ghost in the machine, documented. Internal reference pages for ho
     <div class="row-activity">
       <div class="activity-label">Recent</div>
       <ul>
+        <li><span class="act-date">11/22</span> Both covers, the epigraph and five chapters; the story page has the new look</li>
         <li><span class="act-date">11/21</span> New look, like LeucadiaClub.com, and a book cover</li>
         <li><span class="act-date">11/21</span> First story: The Face at the Door</li>
       </ul>

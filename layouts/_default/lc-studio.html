@@ -1,162 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {{- /* A page in the look of LeucadiaClub.com (the club portal's "Studio" home page).
-         The look itself lives in /lc/studio.css, copied from the portal; only the few
-         pieces the club home page does not have (story rows, a book cover) are styled here.
-         The body is the usual "page-rows" markup, so a row is added the same way as on
-         any /phaedrus/ landing. */ -}}
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ .Title }}</title>
-  <meta name="description" content="{{ .Params.summary | default .Params.heroLede | default .Title }}">
-  <meta name="robots" content="noindex, nofollow">
-  <meta property="og:title" content="{{ .Title }}">
-  <meta property="og:description" content="{{ .Params.summary | default .Params.heroLede | default .Title }}">
-  {{ with .Params.cover }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
-  <link rel="icon" href="/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Hedvig+Letters+Serif&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/lc/studio.css">
-  <style>
-    [data-theme="studio"] .qs-hero { min-height: 86svh; }
-    [data-theme="studio"] .qs-kicker {
-      margin-bottom: var(--space-sm);
-      font-size: var(--text-sm);
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--color-paper-hi);
-    }
-
-    /* The stories: the standard page-rows markup, drawn the club's way. */
-    [data-theme="studio"] .page-rows {
-      display: flex;
-      flex-direction: column;
-      border-bottom: var(--rule-hair) solid var(--color-rule);
-    }
-    [data-theme="studio"] a.page-row:not(.hm-btn):not(.hm-brand) {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 13rem);
-      gap: var(--space-lg) var(--gap-columns);
-      padding: var(--space-lg) 0 var(--space-xl);
-      border-top: var(--rule-hair) solid var(--color-rule);
-      color: var(--color-ink);
-      text-decoration: none;
-    }
-    [data-theme="studio"] a.page-row:first-child:not(.hm-btn):not(.hm-brand) { border-top-color: var(--color-ink); }
-    [data-theme="studio"] .row-icon { display: none; }
-    [data-theme="studio"] .row-title {
-      font-family: var(--font-display);
-      font-size: var(--text-2xl);
-      letter-spacing: var(--tracking-display);
-      line-height: 1.1;
-      text-wrap: balance;
-    }
-    [data-theme="studio"] a.page-row:hover .row-title {
-      text-decoration: underline;
-      text-decoration-thickness: var(--rule-hair);
-      text-decoration-color: var(--color-accent);
-      text-underline-offset: 0.16em;
-    }
-    [data-theme="studio"] .row-desc {
-      max-width: 46ch;
-      margin-top: var(--space-sm);
-      font-size: var(--text-lead);
-      line-height: 1.45;
-      color: var(--color-ink-2);
-    }
-    [data-theme="studio"] .row-improve { margin-top: var(--space-lg); }
-    [data-theme="studio"] .improve-label,
-    [data-theme="studio"] .activity-label {
-      margin-bottom: var(--space-xs);
-      font-size: var(--text-xs);
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--color-muted);
-    }
-    [data-theme="studio"] .row-improve ul,
-    [data-theme="studio"] .row-activity ul {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-xs);
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      font-size: var(--text-sm);
-      line-height: 1.45;
-      color: var(--color-ink-2);
-    }
-    [data-theme="studio"] .act-date {
-      margin-right: 0.5em;
-      font-variant-numeric: tabular-nums;
-      color: var(--color-muted);
-    }
-
-    /* The book cover: a tall sheet beside the stories. */
-    [data-theme="studio"] .qs-cover {
-      position: sticky;
-      top: var(--space-xl);
-      justify-self: end;
-      width: 100%;
-      max-width: 26rem;
-      margin: 0;
-    }
-    [data-theme="studio"] .qs-cover img {
-      width: 100%;
-      aspect-ratio: 2 / 3;
-      border-radius: var(--radius-card);
-      box-shadow: var(--shadow-sheet);
-    }
-    [data-theme="studio"] .qs-note { color: var(--color-muted); font-size: var(--text-xs); }
-    [data-theme="studio"] .hm-footer .qs-note { margin-top: var(--space-lg); }
-
-    @media (max-width: 60rem) {
-      [data-theme="studio"] .qs-cover {
-        position: static;
-        justify-self: start;
-        max-width: 22rem;
-        margin-top: var(--space-lg);
-      }
-    }
-    @media (max-width: 40rem) {
-      [data-theme="studio"] a.page-row:not(.hm-btn):not(.hm-brand) { grid-template-columns: minmax(0, 1fr); }
-      [data-theme="studio"] .hm-band .hm-mass { padding: var(--space-lg); }
-    }
-  </style>
+  {{- /* The book's cover page, in the look of LeucadiaClub.com: the coast photo, the
+         covers, then the stories. The body is the usual "page-rows" markup, so a story is
+         added the same way as a row on any /phaedrus/ landing. Reading pages use
+         lc-studio-page.html. */ -}}
+  {{ partial "lc-studio/head.html" . }}
 </head>
 <body>
   <div class="hm-page" data-theme="studio">
-    <a class="hm-skip" href="#stories">Skip to content</a>
-    <section class="hm-hero qs-hero">
-      <figure data-slot="hero" data-alt="The Leucadia bluff and beach">
-        <img class="hm-coast" src="/lc/coast.jpg" width="2000" height="1219" alt="Leucadia coastline at sunset, with the bluff and the beach" fetchpriority="high">
-      </figure>
-      <header class="hm-nav">
-        <a href="https://www.leucadiaclub.com/" class="hm-brand">Leucadia Club</a>
-        <a href="https://members.leucadiaclub.com/login" class="hm-btn">Member login</a>
-      </header>
+    <a class="hm-skip" href="#book">Skip to content</a>
+    <section class="hm-hero bk-hero">
+      {{ partial "lc-studio/hero-photo.html" . }}
       <div class="hm-hero-copy">
-        {{ with .Params.kicker }}<p class="qs-kicker">{{ . }}</p>{{ end }}
+        {{ with .Params.kicker }}<p class="bk-kicker">{{ . }}</p>{{ end }}
         <h1>{{ .Params.heroTitle | default .Title }}</h1>
         {{ with .Params.heroLede }}<p class="lead">{{ . }}</p>{{ end }}
       </div>
     </section>
-    <main id="stories">
+    <main id="book">
+      {{ with .Params.covers }}
       <section class="hm-block hm-gap">
         <div class="hm-wrap">
-          <div class="hm-split">
-            <div>
-              <h2>{{ .Params.storiesTitle | default "The stories" }}</h2>
-              {{ .Content }}
-            </div>
-            {{ with .Params.cover }}
-            <figure class="qs-cover">
-              <img src="{{ . }}" width="1200" height="1800" alt="{{ $.Params.coverAlt | default $.Title }}">
+          <div class="bk-covers">
+            {{ range . }}
+            <figure class="bk-cover">
+              <a href="{{ .src }}"><img src="{{ .src }}" width="1200" height="1800" alt="{{ .alt }}"></a>
+              {{ with .caption }}<figcaption>{{ . }}</figcaption>{{ end }}
             </figure>
             {{ end }}
+          </div>
+          {{ with $.Params.open }}<p class="bk-open"><a class="hm-btn" href="{{ .href }}">{{ .label }}</a></p>{{ end }}
+        </div>
+      </section>
+      {{ end }}
+      <section class="hm-block hm-gap">
+        <div class="hm-wrap">
+          <div class="hm-pair">
+            <h2>{{ .Params.storiesTitle | default "The stories" }}</h2>
+            <div>{{ .Content }}</div>
           </div>
         </div>
       </section>
@@ -175,18 +57,7 @@
       </section>
       {{ end }}
     </main>
-    <footer class="hm-footer">
-      <div class="hm-wrap">
-        <p class="hm-footer-name">Leucadia Club</p>
-        <p>828 N Coast Hwy Ste E, Encinitas, CA 92024</p>
-        <ul class="hm-footer-links">
-          <li><a href="https://www.leucadiaclub.com/">LeucadiaClub.com</a></li>
-          <li><a href="https://members.leucadiaclub.com/login">Member login</a></li>
-          <li><a href="/phaedrus/">Back to Phaedrus</a></li>
-        </ul>
-        {{ with .Params.headerNote }}<p class="qs-note">{{ . }}</p>{{ end }}
-      </div>
-    </footer>
+    {{ partial "lc-studio/footer.html" . }}
   </div>
 </body>
 </html>

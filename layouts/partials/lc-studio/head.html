@@ -1,0 +1,19 @@
+{{- /* The <head> of a page in the LeucadiaClub.com look. The look is /lc/studio.css
+       (copied from the club portal); /lc/book.css adds the book's own pieces. */ -}}
+{{- $desc := .Params.summary | default .Params.heroLede | default .Title -}}
+{{- $cover := .Params.cover -}}
+{{- if not $cover }}{{ with .Parent }}{{ $cover = .Params.cover }}{{ end }}{{ end -}}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ .Title }}</title>
+<meta name="description" content="{{ $desc }}">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ $desc }}">
+{{ with $cover }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Hedvig+Letters+Serif&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/lc/studio.css">
+<link rel="stylesheet" href="/lc/book.css">

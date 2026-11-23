@@ -4,3 +4,8 @@ resources/_gen/
 .DS_Store
 .vercel
 .env*.local
+
+# The cover kit (design/quality-space-cover): installed packages and font cache
+design/**/node_modules/
+design/**/.fonts.conf
+design/**/.fontcache/

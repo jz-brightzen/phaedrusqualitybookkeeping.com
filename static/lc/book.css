@@ -1,0 +1,367 @@
+/* The book's pages (The Leucadia Club: Building a [Quality Space]) in the look of
+   LeucadiaClub.com. The look itself is studio.css, copied from the club portal; this file
+   only adds the pieces the club home page does not have: story rows, book covers, a
+   reading page, an epigraph and a chapter list. Load it after studio.css. */
+
+/* ---------- Heroes ---------- */
+
+[data-theme="studio"] .bk-hero {
+  min-height: 72svh;
+}
+
+[data-theme="studio"] .bk-hero-short {
+  min-height: 52svh;
+}
+
+[data-theme="studio"] .bk-hero-short h1 {
+  max-width: 16ch;
+  font-size: clamp(2.75rem, 6vw, 5.5rem);
+  line-height: 1;
+}
+
+[data-theme="studio"] .bk-kicker {
+  margin-bottom: var(--space-sm);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-paper-hi);
+}
+
+[data-theme="studio"] .hm-hero-copy a:not(.hm-btn):not(.hm-brand) {
+  color: inherit;
+  text-decoration-color: color-mix(in oklab, currentColor 45%, transparent);
+}
+
+/* ---------- The cover page: the covers ---------- */
+
+[data-theme="studio"] .bk-covers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-xl);
+  max-width: 58rem;
+  margin-inline: auto;
+}
+
+[data-theme="studio"] .bk-cover a {
+  display: block;
+}
+
+[data-theme="studio"] .bk-cover img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-sheet);
+}
+
+[data-theme="studio"] .bk-cover figcaption {
+  margin-top: var(--space-md);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+[data-theme="studio"] .bk-open {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-2xl);
+}
+
+/* ---------- The stories: the standard page-rows markup, drawn the club's way ---------- */
+
+[data-theme="studio"] .page-rows {
+  display: flex;
+  flex-direction: column;
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+}
+
+[data-theme="studio"] a.page-row:not(.hm-btn):not(.hm-brand) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 13rem);
+  gap: var(--space-lg) var(--gap-columns);
+  padding: var(--space-lg) 0 var(--space-xl);
+  border-top: var(--rule-hair) solid var(--color-rule);
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+[data-theme="studio"] a.page-row:first-child:not(.hm-btn):not(.hm-brand) {
+  border-top-color: var(--color-ink);
+}
+
+[data-theme="studio"] .row-icon {
+  display: none;
+}
+
+[data-theme="studio"] .row-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  letter-spacing: var(--tracking-display);
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+[data-theme="studio"] a.page-row:hover .row-title {
+  text-decoration: underline;
+  text-decoration-thickness: var(--rule-hair);
+  text-decoration-color: var(--color-accent);
+  text-underline-offset: 0.16em;
+}
+
+[data-theme="studio"] .row-desc {
+  max-width: 46ch;
+  margin-top: var(--space-sm);
+  font-size: var(--text-lead);
+  line-height: 1.45;
+  color: var(--color-ink-2);
+}
+
+[data-theme="studio"] .row-improve {
+  margin-top: var(--space-lg);
+}
+
+[data-theme="studio"] .improve-label,
+[data-theme="studio"] .activity-label {
+  margin-bottom: var(--space-xs);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+[data-theme="studio"] .row-improve ul,
+[data-theme="studio"] .row-activity ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-sm);
+  line-height: 1.45;
+  color: var(--color-ink-2);
+}
+
+[data-theme="studio"] .act-date {
+  margin-right: 0.5em;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-muted);
+}
+
+/* ---------- A reading page ---------- */
+
+[data-theme="studio"] .bk-article {
+  max-width: 62ch;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+[data-theme="studio"] .bk-article > * + * {
+  margin-top: var(--space-lg);
+}
+
+[data-theme="studio"] .bk-article p {
+  max-width: none;
+}
+
+[data-theme="studio"] .bk-article > p:first-child {
+  font-size: var(--text-lead);
+  line-height: 1.5;
+}
+
+[data-theme="studio"] .bk-article h2 {
+  max-width: none;
+  margin-top: var(--space-2xl);
+  margin-bottom: 0;
+  font-size: var(--text-2xl);
+  line-height: 1.15;
+}
+
+[data-theme="studio"] .bk-article h3 {
+  margin-top: var(--space-xl);
+}
+
+[data-theme="studio"] .bk-article blockquote {
+  margin-inline: 0;
+  padding: var(--space-lg);
+  border-left: var(--space-3xs) solid var(--color-ink);
+  background: var(--color-paper-2);
+  color: var(--color-ink-2);
+}
+
+[data-theme="studio"] .bk-article blockquote p + p {
+  margin-top: var(--space-md);
+}
+
+[data-theme="studio"] .bk-article hr {
+  height: var(--rule-hair);
+  margin-block: var(--space-2xl);
+  border: 0;
+  background: var(--color-rule);
+}
+
+[data-theme="studio"] .bk-article img {
+  border-radius: var(--radius-card);
+}
+
+[data-theme="studio"] .bk-article ul,
+[data-theme="studio"] .bk-article ol {
+  padding-left: 1.25em;
+}
+
+[data-theme="studio"] .bk-article li + li {
+  margin-top: var(--space-xs);
+}
+
+[data-theme="studio"] .bk-article table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+[data-theme="studio"] .bk-article th,
+[data-theme="studio"] .bk-article td {
+  padding: var(--space-xs) var(--space-sm) var(--space-xs) 0;
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+  text-align: left;
+  vertical-align: top;
+}
+
+[data-theme="studio"] .bk-back {
+  padding-top: var(--space-lg);
+  border-top: var(--rule-hair) solid var(--color-rule);
+  font-size: var(--text-sm);
+}
+
+/* ---------- The epigraph and the chapter list ---------- */
+
+[data-theme="studio"] .bk-epigraph {
+  max-width: 26ch;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 2vw + 1rem, 2.75rem);
+  letter-spacing: var(--tracking-display);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+[data-theme="studio"] .bk-epigraph p {
+  max-width: none;
+}
+
+[data-theme="studio"] .bk-epigraph-by {
+  margin-top: var(--space-lg);
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+}
+
+[data-theme="studio"] .bk-chapters-top {
+  min-height: 0;
+  padding-top: var(--space-lg);
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+[data-theme="studio"] .bk-chapters {
+  display: flex;
+  flex-direction: column;
+  max-width: 54ch;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+[data-theme="studio"] .bk-chapter {
+  padding-block: var(--space-lg);
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+}
+
+[data-theme="studio"] .bk-chapter:first-child {
+  padding-top: 0;
+}
+
+[data-theme="studio"] .bk-chapter:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+[data-theme="studio"] .bk-chapter-n {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+[data-theme="studio"] .bk-chapter h3 {
+  margin-top: var(--space-2xs);
+  font-size: var(--text-2xl);
+  line-height: 1.1;
+}
+
+[data-theme="studio"] .bk-chapter-note {
+  margin-top: var(--space-xs);
+  color: var(--color-ink-2);
+}
+
+[data-theme="studio"] .bk-when {
+  display: grid;
+  margin: var(--space-md) 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-sm);
+}
+
+[data-theme="studio"] .bk-when li {
+  display: grid;
+  grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+  gap: var(--space-2xs) var(--space-md);
+  padding-block: var(--space-xs);
+  border-top: var(--rule-hair) solid var(--color-rule);
+}
+
+[data-theme="studio"] .bk-when-when,
+[data-theme="studio"] .bk-when-who {
+  color: var(--color-muted);
+}
+
+[data-theme="studio"] .bk-note {
+  margin-top: var(--space-lg);
+  color: var(--color-muted);
+  font-size: var(--text-xs);
+}
+
+/* ---------- Smaller screens ---------- */
+
+@media (max-width: 60rem) {
+  [data-theme="studio"] .bk-hero-short h1 {
+    max-width: none;
+    font-size: clamp(2rem, 9vw, 2.75rem);
+    line-height: 1.05;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 40rem) {
+  [data-theme="studio"] .bk-covers {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-xl);
+    max-width: 22rem;
+  }
+
+  [data-theme="studio"] a.page-row:not(.hm-btn):not(.hm-brand) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  [data-theme="studio"] .hm-band .hm-mass,
+  [data-theme="studio"] .hm-well {
+    padding: var(--space-lg);
+  }
+
+  [data-theme="studio"] .bk-when li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

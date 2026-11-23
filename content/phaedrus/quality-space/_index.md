@@ -4,9 +4,20 @@ layout: lc-studio
 kicker: "The Leucadia Club · Building a"
 heroTitle: "[Quality Space]"
 heroLede: "Stories from building the club."
-storiesTitle: "The stories"
+# The first cover is also the picture shown when the link is shared.
 cover: "/lc/quality-space-cover.jpg"
-coverAlt: "Book cover. Friends sit on the beach at sunset under a palm, next to a tiki bar with string lights. Title: The Leucadia Club, Building a [Quality Space]."
+# Both covers, side by side. They are drawn by design/quality-space-cover (see its README).
+covers:
+  - src: "/lc/quality-space-cover.jpg"
+    caption: "Tiki lounge"
+    alt: "Book cover, Tiki lounge. Friends sit on the beach at sunset under a palm, next to a tiki bar with string lights. Title: The Leucadia Club, Building a [Quality Space]."
+  - src: "/lc/quality-space-cover-torches.jpg"
+    caption: "Tiki torches"
+    alt: "Book cover, Tiki torches. Friends sit on the beach under a palm at a purple and orange sunset, between two tiki torches. Title: The Leucadia Club, Building a [Quality Space]."
+open:
+  href: "/phaedrus/quality-space/epigraph/"
+  label: "Open the book"
+storiesTitle: "The stories"
 quote: "“And the members thought it was Good.”"
 about:
   - "Stories from building the Leucadia Club, written down as they happen."
@@ -15,6 +26,21 @@ headerNote: "Phaedrus Internal · Leucadia Club"
 ---
 
 <div class="page-rows">
+<a class="page-row" href="/phaedrus/quality-space/epigraph/">
+  <div class="row-icon">📖</div>
+  <div class="row-main">
+    <div class="row-title">Epigraph and chapters</div>
+    <p class="row-desc">The line the book opens with, and its five chapters.</p>
+    <div class="row-improve">
+      <div class="improve-label">Improve next</div>
+      <ul><li>Write Chapter 1, The Tiki Lounge</li><li>Decide which chapter The Face at the Door belongs in</li></ul>
+    </div>
+  </div>
+  <div class="row-activity">
+    <div class="activity-label">Recent</div>
+    <ul><li><span class="act-date">11/22</span> Epigraph and five chapters added</li></ul>
+  </div>
+</a>
 <a class="page-row" href="/phaedrus/quality-space/face-at-the-door/">
   <div class="row-icon">🚪</div>
   <div class="row-main">
@@ -27,7 +53,7 @@ headerNote: "Phaedrus Internal · Leucadia Club"
   </div>
   <div class="row-activity">
     <div class="activity-label">Recent</div>
-    <ul><li><span class="act-date">11/21</span> Story and original messages added</li></ul>
+    <ul><li><span class="act-date">11/22</span> New look, like LeucadiaClub.com</li><li><span class="act-date">11/21</span> Story and original messages added</li></ul>
   </div>
 </a>
 </div>

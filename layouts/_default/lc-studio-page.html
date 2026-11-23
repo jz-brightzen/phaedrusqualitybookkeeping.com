@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{- /* A reading page of the book, in the look of LeucadiaClub.com: a short coast photo
+         with the title, then the text. Front matter: eyebrow, heroTitle, heroMeta (as on
+         phaedrus-report pages). Optional: epigraph (and epigraphSource), and chapters, a
+         list of {title, note, items: [{when, what, who}]}. The cover page uses
+         lc-studio.html. */ -}}
+  {{ partial "lc-studio/head.html" . }}
+</head>
+<body>
+  <div class="hm-page" data-theme="studio">
+    <a class="hm-skip" href="#text">Skip to content</a>
+    <section class="hm-hero bk-hero-short">
+      {{ partial "lc-studio/hero-photo.html" . }}
+      <div class="hm-hero-copy">
+        {{ with .Parent }}<p class="bk-kicker"><a href="{{ .RelPermalink }}">{{ $.Params.eyebrow | default .Title }}</a></p>{{ end }}
+        <h1>{{ .Params.heroTitle | default .Title }}</h1>
+        {{ with .Params.heroMeta }}<p class="lead">{{ . | markdownify }}</p>{{ end }}
+      </div>
+    </section>
+    <main id="text">
+      {{ with .Params.epigraph }}
+      <section class="hm-block hm-gap">
+        <div class="hm-wrap">
+          <div class="hm-well">
+            <blockquote class="bk-epigraph"><p>{{ . }}</p></blockquote>
+            {{ with $.Params.epigraphSource }}<p class="bk-epigraph-by">{{ . }}</p>{{ end }}
+          </div>
+        </div>
+      </section>
+      {{ end }}
+      {{ with .Params.chapters }}
+      <section class="hm-block hm-gap">
+        <div class="hm-wrap">
+          <div class="hm-mass bk-chapters-top">
+            <div class="hm-pair">
+              <h2>{{ $.Params.chaptersTitle | default "Chapters" }}</h2>
+              <ol class="bk-chapters">
+                {{ range $i, $c := . }}
+                <li class="bk-chapter">
+                  <p class="bk-chapter-n">Chapter {{ add $i 1 }}</p>
+                  <h3>{{ $c.title }}</h3>
+                  {{ with $c.note }}<p class="bk-chapter-note">{{ . }}</p>{{ end }}
+                  {{ with $c.items }}
+                  <ul class="bk-when">
+                    {{ range . }}<li><span class="bk-when-when">{{ .when }}</span><span>{{ .what }}{{ with .who }} <span class="bk-when-who">· {{ . }}</span>{{ end }}</span></li>{{ end }}
+                  </ul>
+                  {{ end }}
+                </li>
+                {{ end }}
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+      {{ end }}
+      {{ with .Content }}
+      <section class="hm-block hm-gap-s">
+        <div class="hm-wrap">
+          <article class="bk-article">{{ . }}</article>
+        </div>
+      </section>
+      {{ end }}
+      {{ with .Parent }}
+      <section class="hm-block">
+        <div class="hm-wrap">
+          <p class="bk-back"><a href="{{ .RelPermalink }}">&larr; {{ .Title }}</a></p>
+        </div>
+      </section>
+      {{ end }}
+    </main>
+    {{ partial "lc-studio/footer.html" . }}
+  </div>
+</body>
+</html>
