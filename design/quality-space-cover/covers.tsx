@@ -10,7 +10,7 @@
 //   the colours          AFTERGLOW and LAGOON (one "Look" per cover)
 //   what is in the scene Scene(): the palm, the friends, and "extras" (torches, or the lounge:
 //                        hut, string lights, tiki, torch). Each piece is its own small function.
-//   the earlier covers (Afterglow is Scene() with no extras; BlueHour() and GoldenHour())
+//   the other covers in the rotation: TikiCrazy(), BlueHour() and GoldenHour()
 //   the wide picture for shared links: Share() (1200 × 630, the purple cover on its side)
 //   which pictures are made, and their file names: main() at the bottom
 //
@@ -376,6 +376,130 @@ function Scene({ look, type, extras }: { look: Look; type: Type; extras: "none" 
 // They were the first studies (2026-11-21). Same words and fonts as the others now; only the
 // scene differs.
 
+// A tiki mask hung on a cord from (x, y).
+function Mask({ x, y, drop = 60, k = 1, dark, glow }: { x: number; y: number; drop?: number; k?: number; dark: string; glow: string }) {
+  return (
+    <g transform={`translate(${x} ${y})`}>
+      <path d={`M0 0 V${drop}`} stroke={dark} strokeWidth={4} />
+      <g transform={`translate(0 ${drop}) scale(${k})`}>
+        <path d="M-36 0 Q-42 -8 -30 -10 H30 Q42 -8 36 0 L27 94 Q0 116 -27 94 Z" fill={dark} />
+        <path d="M-24 14 Q-13 4 -3 14 M3 14 Q13 4 24 14" fill="none" stroke={glow} strokeWidth={5} strokeLinecap="round" />
+        <ellipse cx={-14} cy={32} rx={10} ry={7} fill={glow} />
+        <ellipse cx={14} cy={32} rx={10} ry={7} fill={glow} />
+        <path d="M-6 46 L0 60 L6 46" fill="none" stroke={glow} strokeWidth={4} strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M-17 72 H17 V88 H-17 Z" fill={glow} />
+        <path d="M-8 72 V88 M0 72 V88 M8 72 V88" stroke={dark} strokeWidth={3} />
+      </g>
+    </g>
+  );
+}
+
+// A coconut drink with a paper umbrella, set down in the sand at (x, y).
+function Drink({ x, y, dark, rim, shade }: { x: number; y: number; dark: string; rim: string; shade: string }) {
+  return (
+    <g transform={`translate(${x} ${y})`}>
+      <path d="M-19 -24 H19 Q19 0 0 0 Q-19 0 -19 -24 Z" fill={dark} />
+      <path d="M-19 -24 H19" stroke={rim} strokeWidth={5} strokeLinecap="round" />
+      <path d="M7 -24 L22 -66" stroke={rim} strokeWidth={3} strokeLinecap="round" />
+      <path d="M-4 -52 Q22 -84 48 -52 Z" fill={shade} />
+    </g>
+  );
+}
+
+// Tiki crazy: everything at once. A volcano going off, carved tikis glowing three colours,
+// torches, masks in the palm, lights strung across, drinks in the sand. (It took the place of
+// the plain "Afterglow" study, which John found too close to Tiki torches.)
+function TikiCrazy({ type }: { type: Type }) {
+  const dark = "#14051a";
+  const tone: Tone = { ink: dark, skin: dark, outline: 6 };
+  const lights = ["#ffd27a", "#ff5a3a", "#7fe0cf", "#fff1bd", "#ff8ad0"];
+  const ember = rand(5);
+  const sunX = 430;
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width={W} height={H} viewBox={`0 0 ${W} ${H}`}>
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#16071f" />
+          <stop offset="0.3" stopColor="#4a0d3a" />
+          <stop offset="0.55" stopColor="#b3202f" />
+          <stop offset="0.78" stopColor="#ff5f1f" />
+          <stop offset="1" stopColor="#ffc94a" />
+        </linearGradient>
+        <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stopColor="#fff3c2" stopOpacity="0.9" />
+          <stop offset="1" stopColor="#ffb35c" stopOpacity="0" />
+        </radialGradient>
+        <radialGradient id="flame" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stopColor="#ffd27a" stopOpacity="0.8" />
+          <stop offset="1" stopColor="#ff8a4c" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#d0452a" />
+          <stop offset="1" stopColor="#34082a" />
+        </linearGradient>
+        <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="14" />
+        </filter>
+        <filter id="smoke" x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur stdDeviation="24" />
+        </filter>
+      </defs>
+      <rect width={W} height={1100} fill="url(#sky)" />
+      <Stars seed={33} count={110} maxY={500} />
+      <g filter="url(#soft)" opacity={0.5}>
+        <ellipse cx={250} cy={790} rx={330} ry={18} fill="#ff9a5a" />
+        <ellipse cx={560} cy={930} rx={360} ry={16} fill="#ffc070" />
+      </g>
+
+      {/* The volcano on the horizon, going off. */}
+      <g filter="url(#smoke)">
+        <ellipse cx={935} cy={770} rx={72} ry={100} fill="#ff6a3a" opacity={0.55} />
+        <ellipse cx={985} cy={650} rx={96} ry={84} fill="#8a1f3f" opacity={0.6} />
+        <ellipse cx={1055} cy={565} rx={112} ry={66} fill="#5a1238" opacity={0.55} />
+      </g>
+      {Array.from({ length: 34 }, (_, i) => {
+        const x = 915 + (ember() - 0.42) * 250;
+        const y = 850 - ember() * 300;
+        return <circle key={i} cx={x} cy={y} r={2 + ember() * 4} fill={i % 3 ? "#ffd27a" : "#ff7a1a"} opacity={0.5 + ember() * 0.5} />;
+      })}
+      <path d="M676 1100 L870 864 Q915 846 960 864 L1200 1088 V1100 Z" fill="#2d0b24" />
+      <ellipse cx={915} cy={861} rx={45} ry={11} fill="#ffc24a" />
+      <path d="M895 868 Q884 934 846 1004 M935 868 Q958 952 1006 1052 M915 870 Q919 924 905 966" fill="none" stroke="#ff7a1a" strokeWidth={9} strokeLinecap="round" opacity={0.92} />
+
+      <ellipse cx={sunX} cy={1100} rx={500} ry={320} fill="url(#glow)" />
+      <circle cx={sunX} cy={1100} r={150} fill="#fff0b0" />
+      <rect y={1100} width={W} height={236} fill="url(#sea)" />
+      <path d={`M${sunX - 120} 1120 h240 M${sunX - 95} 1158 h190 M${sunX - 72} 1196 h144 M${sunX - 50} 1234 h100 M${sunX - 34} 1272 h68`} stroke="#ffd27a" strokeWidth={11} strokeLinecap="round" opacity={0.85} />
+      <path d={`M0 1128 ${WAVES} ${WAVES} ${WAVES} ${WAVES} ${WAVES} ${WAVES} ${WAVES} ${WAVES} ${WAVES} ${WAVES}`} fill="none" stroke="#ffd27a" strokeWidth={4} opacity={0.45} />
+      <path d="M0 1322 Q300 1286 620 1318 T1200 1302 V1800 H0 Z" fill={dark} />
+      <ArchPalm x={60} y={1480} k={1.04} trunk={dark} frond={dark} />
+
+      <Mask x={788} y={672} drop={62} dark={dark} glow="#ffd27a" />
+      <Mask x={195} y={748} drop={48} k={0.85} dark={dark} glow="#7fe0cf" />
+      <Mask x={653} y={800} drop={36} k={0.72} dark={dark} glow="#ff8ad0" />
+
+      <StringLights x1={470} y1={724} x2={912} y2={1040} sag={80} n={11} colors={lights} />
+      <StringLights x1={912} y1={1040} x2={1081} y2={1104} sag={34} n={4} colors={lights} />
+
+      <Tiki x={200} y={1372} k={1.15} dark={dark} glow="#ffb347" />
+      <Torch x={335} y={1372} h={250} dark={dark} id="flame" />
+      <Torch x={912} y={1366} h={300} dark={dark} id="flame" />
+      <Tiki x={1008} y={1372} k={0.95} dark={dark} glow="#7fe0cf" />
+      <Torch x={1081} y={1372} h={235} dark={dark} id="flame" />
+      <Tiki x={1140} y={1384} k={0.7} dark={dark} glow="#ff8ad0" />
+
+      <Sitter x={470} y={1338} hair={dark} shirt={dark} shorts={dark} tone={tone} arm="around" />
+      <Sitter x={600} y={1342} size={0.94} hair={dark} shirt={dark} shorts={dark} tone={tone} />
+      <Sitter x={726} y={1338} hair={dark} shirt={dark} shorts={dark} tone={tone} arm="up" />
+      <Sitter x={846} y={1344} size={0.72} hair={dark} shirt={dark} shorts={dark} tone={tone} />
+      <Drink x={534} y={1362} dark={dark} rim="#ffb347" shade="#ff8ad0" />
+      <Drink x={788} y={1366} dark={dark} rim="#ffb347" shade="#7fe0cf" />
+
+      <Title color="#ffffff" gold="#ffc84a" soft="#fbe4dc" type={type} />
+    </svg>
+  );
+}
+
 // Blue hour: the first book's night, with the club's friends where its lone figure sat.
 function BlueHour({ type }: { type: Type }) {
   const tone: Tone = { ink: "#06142a", skin: "#d9a986", outline: 6 };
@@ -572,7 +696,7 @@ async function main() {
   const pictures: [string, React.ReactElement, number, number][] = [
     ["quality-space-cover", <Scene key="lounge" look={LAGOON} type={FIRST_BOOK} extras="lounge" />, W, H],
     ["quality-space-cover-torches", <Scene key="torches" look={AFTERGLOW} type={FIRST_BOOK} extras="torches" />, W, H],
-    ["quality-space-cover-afterglow", <Scene key="afterglow" look={AFTERGLOW} type={FIRST_BOOK} extras="none" />, W, H],
+    ["quality-space-cover-tiki-crazy", <TikiCrazy key="crazy" type={FIRST_BOOK} />, W, H],
     ["quality-space-cover-blue-hour", <BlueHour key="blue" type={FIRST_BOOK} />, W, H],
     ["quality-space-cover-golden-hour", <GoldenHour key="golden" type={FIRST_BOOK} />, W, H],
     ["quality-space-share", <Share key="share" look={AFTERGLOW} />, SHARE_W, SHARE_H],
