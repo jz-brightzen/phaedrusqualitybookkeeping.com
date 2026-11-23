@@ -1,9 +1,9 @@
 ---
 title: "The Leucadia Club: Building a [Quality Space]"
 layout: lc-studio
-kicker: "The Leucadia Club · Building a"
+kicker: "Building a"
 heroTitle: "[Quality Space]"
-heroLede: "Stories from building the club."
+heroLede: "Stories from The Leucadia Club"
 # The first cover is also the picture shown when the link is shared.
 cover: "/lc/quality-space-cover.jpg"
 # Both covers, side by side. They are drawn by design/quality-space-cover (see its README).
