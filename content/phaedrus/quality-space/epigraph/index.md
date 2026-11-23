@@ -5,11 +5,16 @@ eyebrow: "Building a [Quality Space]"
 heroTitle: "Epigraph"
 summary: "The line the book opens with, and its five chapters."
 date: 2026-11-22
-# The quote, in John's wording, and where it is from (shown under it; *stars* make italics).
-epigraph: "“And the ones who hold high places must be the ones who start to mold a new reality closer to the heart.”"
+# The quote and where it is from (shown under it; *stars* make italics). [men] is in brackets
+# because it is defined in the appendix (the Definitions page).
+epigraph: "“And the [men] who hold high places must be the ones who start to mold a new reality closer to the heart.”"
 epigraphSource: "Rush, “Closer to the Heart,” from the album *A Farewell to Kings* (1977)"
 # One entry per chapter, in order; the page numbers them. "note" and "items" are optional.
 # These show as the Contents page, here and under the covers on the cover page.
+# Listed at the end of the Contents page, under the word APPENDIX.
+appendix:
+  - title: "Definitions"
+    href: "/phaedrus/quality-space/definitions/"
 chapters:
   - title: "The Tiki Lounge"
     note: "Ending: how did we get here?"

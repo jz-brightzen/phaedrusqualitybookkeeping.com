@@ -10,7 +10,8 @@
 //   the colours          AFTERGLOW and LAGOON (one "Look" per cover)
 //   what is in the scene Scene(): the palm, the friends, and "extras" (torches, or the lounge:
 //                        hut, string lights, tiki, torch). Each piece is its own small function.
-//   which covers are made, and their file names: main() at the bottom
+//   the wide picture for shared links: Share() (1200 × 630, the purple cover on its side)
+//   which pictures are made, and their file names: main() at the bottom
 //
 // Usage: tsx covers.tsx <out dir>     (render.sh does this with the fonts set up)
 import path from "node:path";
@@ -370,19 +371,110 @@ function Scene({ look, type, extras }: { look: Look; type: Type; extras: "none" 
   );
 }
 
+// The wide picture apps show when the book's link is shared (1200 × 630). It is the purple
+// cover laid on its side: same sky, palm, torches, friends and words, arranged to fit a card.
+// The thin title gets a hairline outline so it still reads when the card is shown small.
+const SHARE_W = 1200;
+const SHARE_H = 630;
+function Share({ look }: { look: Look }) {
+  const dark = look.dark;
+  const tone: Tone = { ink: dark, skin: dark, outline: 6 };
+  const horizon = 372;
+  const sunX = 790;
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width={SHARE_W} height={SHARE_H} viewBox={`0 0 ${SHARE_W} ${SHARE_H}`}>
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          {look.sky.map(([o, c]) => (
+            <stop key={o} offset={o} stopColor={c} />
+          ))}
+        </linearGradient>
+        <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stopColor="#fff3c2" stopOpacity="0.9" />
+          <stop offset="1" stopColor="#ffb35c" stopOpacity="0" />
+        </radialGradient>
+        <radialGradient id="flame" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stopColor="#ffd27a" stopOpacity="0.75" />
+          <stop offset="1" stopColor="#ff8a4c" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor={look.sea[0]} />
+          <stop offset="1" stopColor={look.sea[1]} />
+        </linearGradient>
+        <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="9" />
+        </filter>
+      </defs>
+      <rect width={SHARE_W} height={horizon} fill="url(#sky)" />
+      <Stars seed={21} count={70} maxY={230} />
+      <g filter="url(#soft)" opacity={0.5}>
+        <ellipse cx={1010} cy={300} rx={220} ry={10} fill={look.clouds[1]} />
+        <ellipse cx={600} cy={330} rx={300} ry={11} fill={look.clouds[2]} />
+      </g>
+      <ellipse cx={sunX} cy={horizon} rx={330} ry={205} fill="url(#glow)" />
+      <circle cx={sunX} cy={horizon} r={95} fill={look.sun} />
+      <rect y={horizon} width={SHARE_W} height={140} fill="url(#sea)" />
+      <path
+        d={`M${sunX - 72} ${horizon + 12} h144 M${sunX - 57} ${horizon + 35} h114 M${sunX - 43} ${horizon + 58} h86 M${sunX - 30} ${horizon + 81} h60 M${sunX - 20} ${horizon + 104} h40`}
+        stroke={look.streak}
+        strokeWidth={7}
+        strokeLinecap="round"
+        opacity={0.85}
+      />
+      <path d={`M0 ${horizon + 17} ${WAVES} ${WAVES} ${WAVES} ${WAVES} ${WAVES} ${WAVES} ${WAVES} ${WAVES} ${WAVES} ${WAVES}`} fill="none" stroke={look.streak} strokeWidth={3} opacity={0.45} />
+      <path d="M0 492 Q300 470 620 488 T1200 478 V630 H0 Z" fill={dark} />
+      <ArchPalm x={20} y={560} k={0.5} trunk={dark} frond={dark} />
+
+      <g transform="translate(560 512) scale(0.6)">
+        <Torch x={0} y={0} h={250} dark={dark} id="flame" />
+      </g>
+      <g transform="translate(1022 508) scale(0.6)">
+        <Torch x={0} y={0} h={262} dark={dark} id="flame" />
+      </g>
+      <g transform="translate(1132 548) scale(0.6)">
+        <PlantedBoard x={0} y={0} h={250} lean={7} color={dark} stripe="#ff8a4c" tone={tone} />
+      </g>
+
+      <Sitter x={682} y={498} size={0.6} hair={dark} shirt={dark} shorts={dark} tone={tone} arm="around" />
+      <Sitter x={760} y={500} size={0.565} hair={dark} shirt={dark} shorts={dark} tone={tone} />
+      <Sitter x={836} y={498} size={0.6} hair={dark} shirt={dark} shorts={dark} tone={tone} arm="up" />
+      <Sitter x={911} y={502} size={0.43} hair={dark} shirt={dark} shorts={dark} tone={tone} />
+
+      <g fill="#ffffff" textAnchor="middle">
+        <text x={752} y={98} fontFamily={ZEN} fontSize={48} letterSpacing={9}>
+          BUILDING A
+        </text>
+        <text x={752} y={208} fontFamily={MONT} fontWeight={100} fontSize={104} letterSpacing={1} stroke="#ffffff" strokeWidth={1.4}>
+          [Quality Space]
+        </text>
+        <text x={600} y={592} fontFamily={ZEN} fontSize={34} letterSpacing={4} fill="#f3e6f5">
+          STORIES FROM THE LEUCADIA CLUB
+        </text>
+        <text x={284} y={598} fontFamily={THIN} fontWeight={300} fontSize={68} fill="#ffc84a">
+          ∞
+        </text>
+        <text x={916} y={598} fontFamily={THIN} fontWeight={300} fontSize={68} fill="#ffc84a">
+          ∞
+        </text>
+      </g>
+    </svg>
+  );
+}
+
 async function main() {
   const out = process.argv[2];
   if (!out) throw new Error("Say where the JPGs go: tsx covers.tsx <out dir>");
-  // File name → cover. Which one shows when the link is shared is set by "cover:" in the
-  // cover page's front matter (content/phaedrus/quality-space/_index.md), not here.
-  const covers: [string, React.ReactElement][] = [
-    ["quality-space-cover", <Scene key="lounge" look={LAGOON} type={FIRST_BOOK} extras="lounge" />],
-    ["quality-space-cover-torches", <Scene key="torches" look={AFTERGLOW} type={FIRST_BOOK} extras="torches" />],
+  // File name → picture and its size. Which one apps show when the link is shared is set by
+  // "cover:" in the cover page's front matter (content/phaedrus/quality-space/_index.md).
+  const pictures: [string, React.ReactElement, number, number][] = [
+    ["quality-space-cover", <Scene key="lounge" look={LAGOON} type={FIRST_BOOK} extras="lounge" />, W, H],
+    ["quality-space-cover-torches", <Scene key="torches" look={AFTERGLOW} type={FIRST_BOOK} extras="torches" />, W, H],
+    ["quality-space-share", <Share key="share" look={AFTERGLOW} />, SHARE_W, SHARE_H],
   ];
-  for (const [name, cover] of covers) {
-    const svg = renderToStaticMarkup(cover);
+  for (const [name, picture, w, h] of pictures) {
+    const svg = renderToStaticMarkup(picture);
     const file = path.join(out, `${name}.jpg`);
-    const info = await sharp(Buffer.from(svg), { density: 96 }).resize(W, H).jpeg({ quality: 92, mozjpeg: true }).toFile(file);
+    const info = await sharp(Buffer.from(svg), { density: 96 }).resize(w, h).jpeg({ quality: 92, mozjpeg: true }).toFile(file);
     console.log(`${name}.jpg ${info.width} × ${info.height}, ${Math.round(info.size / 1024)} KB`);
   }
 }

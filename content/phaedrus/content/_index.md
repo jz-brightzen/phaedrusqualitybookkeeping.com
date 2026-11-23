@@ -54,6 +54,27 @@ heroLede: "Longer-form work product — series plans, chapter drafts, and manusc
     </div>
   </a>
 
+  <a class="page-row" href="/phaedrus/quality-space/definitions/">
+    <div class="row-icon">📖</div>
+    <div class="row-main">
+      <div class="row-title">Building a [Quality Space] — Appendix: Definitions</div>
+      <p class="row-desc">What the words in [brackets] mean. So far: [Quality] and [men].</p>
+      <div class="row-improve">
+        <div class="improve-label">Improve next</div>
+        <ul>
+          <li>Put [Quality] in John's own words</li>
+          <li>Add [Quality Space] and [Good]</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row-activity">
+      <div class="activity-label">Recent</div>
+      <ul>
+        <li><span class="act-date">11/22</span> Appendix started with two definitions</li>
+      </ul>
+    </div>
+  </a>
+
   <a class="page-row" href="/phaedrus/quality-space/face-at-the-door/">
     <div class="row-icon">🚪</div>
     <div class="row-main">

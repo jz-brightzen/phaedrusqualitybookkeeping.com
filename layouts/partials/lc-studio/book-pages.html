@@ -1,7 +1,9 @@
 {{- /* Two pages of the book, set the way the first book (Zen and the Art of [nothing]) sets
        them: the epigraph (centred serif, closed with an ∞) and the contents (bold numbered
        chapters, plain lines under each). The words come from the front matter of the page
-       passed in: epigraph, epigraphSource, chapters (title, note, items: when / what / who). */ -}}
+       passed in: epigraph, epigraphSource, chapters (title, note, items: when / what / who),
+       appendix (title, href) for the end of the contents, and definitions (term, text) for
+       the Definitions page. */ -}}
 <div class="bk-pages">
   {{ with .Params.epigraph }}
   <section class="bk-sheet" aria-label="Epigraph">
@@ -25,6 +27,27 @@
         </li>
         {{ end }}
       </ol>
+      {{ with $.Params.appendix }}
+      <div class="bk-toc-appendix">
+        <p class="bk-toc-appendix-title">Appendix</p>
+        {{ range . }}<p class="bk-toc-line">{{ if .href }}<a href="{{ .href }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</p>{{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+  {{ with .Params.definitions }}
+  <section class="bk-sheet" aria-label="Definitions">
+    <div class="bk-sheet-in bk-sheet-contents">
+      <h2>Definitions</h2>
+      <dl class="bk-defs">
+        {{ range . }}
+        <div id="{{ .term | urlize }}">
+          <dt>[{{ .term }}]</dt>
+          <dd>{{ .text | markdownify }}</dd>
+        </div>
+        {{ end }}
+      </dl>
     </div>
   </section>
   {{ end }}

@@ -247,6 +247,12 @@
   margin-top: var(--space-xl);
 }
 
+/* A page on its own (the Definitions page) sits in the middle. */
+[data-theme="studio"] .bk-pages:has(> .bk-sheet:only-child) {
+  grid-template-columns: minmax(0, 28rem);
+  justify-content: center;
+}
+
 [data-theme="studio"] .bk-sheet {
   container-type: inline-size;
   aspect-ratio: 2 / 3;
@@ -323,6 +329,37 @@
 
 [data-theme="studio"] .bk-toc-chapter {
   font-weight: 700;
+}
+
+[data-theme="studio"] .bk-toc-appendix {
+  margin-top: 1.25em;
+}
+
+/* The first book sets the word APPENDIX in its cover capitals (Zenzero, where installed). */
+[data-theme="studio"] .bk-toc-appendix-title {
+  font-family: "Zenzero Grotesk Sans", "Avenir Next Condensed", "Arial Narrow", sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+[data-theme="studio"] .bk-sheet a:not(.hm-btn):not(.hm-brand) {
+  color: inherit;
+}
+
+[data-theme="studio"] .bk-defs {
+  margin: 0;
+}
+
+[data-theme="studio"] .bk-defs > div + div {
+  margin-top: 1.25em;
+}
+
+[data-theme="studio"] .bk-defs dt {
+  font-weight: 700;
+}
+
+[data-theme="studio"] .bk-defs dd {
+  margin: 0.15em 0 0;
 }
 
 [data-theme="studio"] .bk-toc-line {

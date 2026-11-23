@@ -221,9 +221,9 @@ heroLede: "The ghost in the machine, documented. Internal reference pages for ho
     <div class="row-activity">
       <div class="activity-label">Recent</div>
       <ul>
+        <li><span class="act-date">11/22</span> Epigraph and contents set like the first book; a Definitions appendix</li>
         <li><span class="act-date">11/22</span> Renamed: Building a [Quality Space], Stories from The Leucadia Club</li>
         <li><span class="act-date">11/22</span> Both covers, the epigraph and five chapters; the story page has the new look</li>
-        <li><span class="act-date">11/21</span> New look, like LeucadiaClub.com, and a book cover</li>
       </ul>
     </div>
   </a>

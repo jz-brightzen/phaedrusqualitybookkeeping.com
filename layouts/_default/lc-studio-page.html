@@ -21,7 +21,7 @@
       </div>
     </section>
     <main id="text">
-      {{ if or .Params.epigraph .Params.chapters }}
+      {{ if or .Params.epigraph .Params.chapters .Params.definitions }}
       <section class="hm-block hm-gap">
         <div class="hm-wrap">
           {{ partial "lc-studio/book-pages.html" . }}
